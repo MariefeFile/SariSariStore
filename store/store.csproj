@@ -79,6 +79,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllProd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllProd.Designer.cs">
+      <DependentUpon>AllProd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Billings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Billings.Designer.cs">
+      <DependentUpon>Billings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Costumer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Costumer.Designer.cs">
+      <DependentUpon>Costumer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CostumerName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CostumerName.Designer.cs">
+      <DependentUpon>CostumerName.cs</DependentUpon>
+    </Compile>
     <Compile Include="EmployeeViews.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +147,18 @@
     <Compile Include="StartingPoint.Designer.cs">
       <DependentUpon>StartingPoint.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AllProd.resx">
+      <DependentUpon>AllProd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Billings.resx">
+      <DependentUpon>Billings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Costumer.resx">
+      <DependentUpon>Costumer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CostumerName.resx">
+      <DependentUpon>CostumerName.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EmployeeViews.resx">
       <DependentUpon>EmployeeViews.cs</DependentUpon>
     </EmbeddedResource>

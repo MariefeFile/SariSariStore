@@ -33,10 +33,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnAll = new System.Windows.Forms.Button();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.btnCanGoods = new System.Windows.Forms.Button();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.btnBiscuits = new System.Windows.Forms.Button();
             this.btnAlcoholDrinks = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.btnSoftD = new System.Windows.Forms.Button();
@@ -49,6 +47,9 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.groupRice = new System.Windows.Forms.GroupBox();
             this.panelRICE = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.comboRice3 = new System.Windows.Forms.ComboBox();
             this.comboRice1 = new System.Windows.Forms.ComboBox();
             this.numericUpDown22 = new System.Windows.Forms.NumericUpDown();
@@ -57,26 +58,21 @@
             this.pictureBox31 = new System.Windows.Forms.PictureBox();
             this.groupWater = new System.Windows.Forms.GroupBox();
             this.panelWater = new System.Windows.Forms.Panel();
-            this.comboWatr2 = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboWatr3 = new System.Windows.Forms.ComboBox();
             this.comboWatr1 = new System.Windows.Forms.ComboBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.btnAdd2 = new System.Windows.Forms.Button();
             this.labelBw = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBiscuits = new System.Windows.Forms.GroupBox();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btnAdd7 = new System.Windows.Forms.Button();
-            this.cmbBiscuits2 = new System.Windows.Forms.ComboBox();
-            this.cmbBiscuits3 = new System.Windows.Forms.ComboBox();
-            this.cmbBiscuits1 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
-            this.labelBC = new System.Windows.Forms.Label();
-            this.pictureBox23 = new System.Windows.Forms.PictureBox();
             this.groupGoods = new System.Windows.Forms.GroupBox();
             this.panelGoods = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.btnAdd6 = new System.Windows.Forms.Button();
-            this.cmbGoods2 = new System.Windows.Forms.ComboBox();
             this.cmbGoods3 = new System.Windows.Forms.ComboBox();
             this.cmbGoods1 = new System.Windows.Forms.ComboBox();
             this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
@@ -84,7 +80,9 @@
             this.pictureBox22 = new System.Windows.Forms.PictureBox();
             this.groupSoftdrinks = new System.Windows.Forms.GroupBox();
             this.panelSofts = new System.Windows.Forms.Panel();
-            this.comboDrinks2 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.comboRice = new System.Windows.Forms.ComboBox();
             this.comboDrinks3 = new System.Windows.Forms.ComboBox();
             this.comboDrinks1 = new System.Windows.Forms.ComboBox();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
@@ -92,25 +90,24 @@
             this.labelSD = new System.Windows.Forms.Label();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.groupAlcoholDrinks = new System.Windows.Forms.GroupBox();
-            this.panelRedHorse = new System.Windows.Forms.Panel();
-            this.cmbRedHorse1 = new System.Windows.Forms.ComboBox();
-            this.cmbRedHorse3 = new System.Windows.Forms.ComboBox();
-            this.cmbRedHorse2 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.btnAdd5 = new System.Windows.Forms.Button();
-            this.labelRed = new System.Windows.Forms.Label();
-            this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.panelEmpe = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.comboEmpe = new System.Windows.Forms.ComboBox();
             this.cmbEmpe1 = new System.Windows.Forms.ComboBox();
             this.cmbEmpe3 = new System.Windows.Forms.ComboBox();
-            this.cmbEmpe2 = new System.Windows.Forms.ComboBox();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.btnAdd4 = new System.Windows.Forms.Button();
             this.labelEmp = new System.Windows.Forms.Label();
             this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.Exit11 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.CostumerName = new System.Windows.Forms.Label();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.btnUpdate = new System.Windows.Forms.Button();
-            this.btnBackk = new System.Windows.Forms.Button();
             this.labelTotal = new System.Windows.Forms.Label();
             this.User = new System.Windows.Forms.TextBox();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -119,7 +116,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -135,10 +131,6 @@
             this.panelWater.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBiscuits.SuspendLayout();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
             this.groupGoods.SuspendLayout();
             this.panelGoods.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
@@ -148,20 +140,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             this.groupAlcoholDrinks.SuspendLayout();
-            this.panelRedHorse.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             this.panelEmpe.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Exit11)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox16
             // 
+            this.pictureBox16.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.pictureBox16.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox16.BackgroundImage")));
             this.pictureBox16.Image = global::store.Properties.Resources.Picture5;
-            this.pictureBox16.Location = new System.Drawing.Point(33, 16);
+            this.pictureBox16.Location = new System.Drawing.Point(33, 28);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(160, 161);
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -171,21 +165,20 @@
             // panel2
             // 
             this.panel2.AutoScroll = true;
-            this.panel2.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel2.BackColor = System.Drawing.SystemColors.Info;
             this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Location = new System.Drawing.Point(12, 188);
+            this.panel2.Location = new System.Drawing.Point(12, 200);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(226, 451);
             this.panel2.TabIndex = 14;
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox1.BackgroundImage")));
             this.groupBox1.Controls.Add(this.btnAll);
-            this.groupBox1.Controls.Add(this.pictureBox7);
             this.groupBox1.Controls.Add(this.btnCanGoods);
             this.groupBox1.Controls.Add(this.pictureBox6);
-            this.groupBox1.Controls.Add(this.btnBiscuits);
             this.groupBox1.Controls.Add(this.btnAlcoholDrinks);
             this.groupBox1.Controls.Add(this.pictureBox5);
             this.groupBox1.Controls.Add(this.btnSoftD);
@@ -197,7 +190,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(10, 11);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(192, 1225);
+            this.groupBox1.Size = new System.Drawing.Size(192, 1045);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Products";
@@ -213,16 +206,6 @@
             this.btnAll.Text = "ALL";
             this.btnAll.UseVisualStyleBackColor = false;
             this.btnAll.Click += new System.EventHandler(this.btnAll_Click);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::store.Properties.Resources._536aab396c7b9e15b09ee0ff0b8fd5d0;
-            this.pictureBox7.Location = new System.Drawing.Point(38, 1048);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(116, 113);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox7.TabIndex = 18;
-            this.pictureBox7.TabStop = false;
             // 
             // btnCanGoods
             // 
@@ -245,18 +228,6 @@
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 16;
             this.pictureBox6.TabStop = false;
-            // 
-            // btnBiscuits
-            // 
-            this.btnBiscuits.BackColor = System.Drawing.Color.Turquoise;
-            this.btnBiscuits.Font = new System.Drawing.Font("Microsoft Himalaya", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBiscuits.Location = new System.Drawing.Point(6, 1167);
-            this.btnBiscuits.Name = "btnBiscuits";
-            this.btnBiscuits.Size = new System.Drawing.Size(173, 53);
-            this.btnBiscuits.TabIndex = 21;
-            this.btnBiscuits.Text = "BISCUITS/CHEAPS";
-            this.btnBiscuits.UseVisualStyleBackColor = false;
-            this.btnBiscuits.Click += new System.EventHandler(this.btnBiscuits_Click);
             // 
             // btnAlcoholDrinks
             // 
@@ -349,9 +320,9 @@
             // panel1
             // 
             this.panel1.AutoScroll = true;
-            this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Location = new System.Drawing.Point(244, 18);
+            this.panel1.Location = new System.Drawing.Point(244, 30);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(566, 618);
             this.panel1.TabIndex = 15;
@@ -359,16 +330,15 @@
             // panel3
             // 
             this.panel3.AutoScroll = true;
-            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.BackColor = System.Drawing.Color.DarkCyan;
             this.panel3.Controls.Add(this.groupRice);
             this.panel3.Controls.Add(this.groupWater);
-            this.panel3.Controls.Add(this.groupBiscuits);
             this.panel3.Controls.Add(this.groupGoods);
             this.panel3.Controls.Add(this.groupSoftdrinks);
             this.panel3.Controls.Add(this.groupAlcoholDrinks);
             this.panel3.Location = new System.Drawing.Point(15, 8);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(526, 3282);
+            this.panel3.Size = new System.Drawing.Size(526, 2582);
             this.panel3.TabIndex = 15;
             // 
             // groupRice
@@ -376,16 +346,20 @@
             this.groupRice.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupRice.Controls.Add(this.panelRICE);
             this.groupRice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupRice.Location = new System.Drawing.Point(10, 8);
+            this.groupRice.Location = new System.Drawing.Point(13, 17);
             this.groupRice.Name = "groupRice";
-            this.groupRice.Size = new System.Drawing.Size(541, 435);
+            this.groupRice.Size = new System.Drawing.Size(538, 439);
             this.groupRice.TabIndex = 0;
             this.groupRice.TabStop = false;
             this.groupRice.Text = "Rice";
+            this.groupRice.Enter += new System.EventHandler(this.groupRice_Enter);
             // 
             // panelRICE
             // 
             this.panelRICE.BackColor = System.Drawing.SystemColors.Info;
+            this.panelRICE.Controls.Add(this.label3);
+            this.panelRICE.Controls.Add(this.label2);
+            this.panelRICE.Controls.Add(this.comboBox1);
             this.panelRICE.Controls.Add(this.comboRice3);
             this.panelRICE.Controls.Add(this.comboRice1);
             this.panelRICE.Controls.Add(this.numericUpDown22);
@@ -394,8 +368,48 @@
             this.panelRICE.Controls.Add(this.pictureBox31);
             this.panelRICE.Location = new System.Drawing.Point(78, 41);
             this.panelRICE.Name = "panelRICE";
-            this.panelRICE.Size = new System.Drawing.Size(370, 344);
+            this.panelRICE.Size = new System.Drawing.Size(370, 376);
             this.panelRICE.TabIndex = 27;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.LightBlue;
+            this.label3.Location = new System.Drawing.Point(195, 336);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(158, 20);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Lion Ivory (Php70.00)";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.LightBlue;
+            this.label2.Location = new System.Drawing.Point(20, 336);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 20);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "Ganador (Php65.00)";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.ForeColor = System.Drawing.Color.Black;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Rice",
+            "Water",
+            "SoftDrinks",
+            "AlcoholDrinks",
+            "CanGoods",
+            "Biscuits"});
+            this.comboBox1.Location = new System.Drawing.Point(24, 258);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(182, 28);
+            this.comboBox1.TabIndex = 18;
+            this.comboBox1.Text = "Categories";
+            this.comboBox1.Enter += new System.EventHandler(this.comboBox1_Enter);
+            this.comboBox1.Leave += new System.EventHandler(this.comboBox1_Leave);
             // 
             // comboRice3
             // 
@@ -403,11 +417,8 @@
             this.comboRice3.ForeColor = System.Drawing.Color.Black;
             this.comboRice3.FormattingEnabled = true;
             this.comboRice3.Items.AddRange(new object[] {
-            "Unit",
-            "",
-            "Sack",
             "Kilo"});
-            this.comboRice3.Location = new System.Drawing.Point(31, 295);
+            this.comboRice3.Location = new System.Drawing.Point(24, 292);
             this.comboRice3.Name = "comboRice3";
             this.comboRice3.Size = new System.Drawing.Size(182, 28);
             this.comboRice3.TabIndex = 17;
@@ -421,13 +432,9 @@
             this.comboRice1.ForeColor = System.Drawing.Color.Black;
             this.comboRice1.FormattingEnabled = true;
             this.comboRice1.Items.AddRange(new object[] {
-            "Item",
-            "",
-            "Ganador",
-            "Lion Ivory",
-            "Bugas Mais No.12",
-            "Bugas Mais No.14"});
-            this.comboRice1.Location = new System.Drawing.Point(31, 209);
+            "Ganador ",
+            "Lion Ivory"});
+            this.comboRice1.Location = new System.Drawing.Point(24, 221);
             this.comboRice1.Name = "comboRice1";
             this.comboRice1.Size = new System.Drawing.Size(182, 28);
             this.comboRice1.TabIndex = 16;
@@ -469,7 +476,7 @@
             // pictureBox31
             // 
             this.pictureBox31.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox31.Image")));
-            this.pictureBox31.Location = new System.Drawing.Point(13, 7);
+            this.pictureBox31.Location = new System.Drawing.Point(15, 11);
             this.pictureBox31.Name = "pictureBox31";
             this.pictureBox31.Size = new System.Drawing.Size(341, 151);
             this.pictureBox31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -478,11 +485,12 @@
             // 
             // groupWater
             // 
+            this.groupWater.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupWater.Controls.Add(this.panelWater);
             this.groupWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupWater.Location = new System.Drawing.Point(10, 449);
+            this.groupWater.Location = new System.Drawing.Point(13, 475);
             this.groupWater.Name = "groupWater";
-            this.groupWater.Size = new System.Drawing.Size(527, 417);
+            this.groupWater.Size = new System.Drawing.Size(524, 501);
             this.groupWater.TabIndex = 1;
             this.groupWater.TabStop = false;
             this.groupWater.Text = "Water";
@@ -490,7 +498,9 @@
             // panelWater
             // 
             this.panelWater.BackColor = System.Drawing.SystemColors.Info;
-            this.panelWater.Controls.Add(this.comboWatr2);
+            this.panelWater.Controls.Add(this.label13);
+            this.panelWater.Controls.Add(this.label12);
+            this.panelWater.Controls.Add(this.comboBox2);
             this.panelWater.Controls.Add(this.comboWatr3);
             this.panelWater.Controls.Add(this.comboWatr1);
             this.panelWater.Controls.Add(this.numericUpDown1);
@@ -499,27 +509,48 @@
             this.panelWater.Controls.Add(this.pictureBox1);
             this.panelWater.Location = new System.Drawing.Point(65, 34);
             this.panelWater.Name = "panelWater";
-            this.panelWater.Size = new System.Drawing.Size(389, 351);
+            this.panelWater.Size = new System.Drawing.Size(389, 436);
             this.panelWater.TabIndex = 28;
             // 
-            // comboWatr2
+            // label13
             // 
-            this.comboWatr2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboWatr2.ForeColor = System.Drawing.Color.Black;
-            this.comboWatr2.FormattingEnabled = true;
-            this.comboWatr2.Items.AddRange(new object[] {
-            "Type",
-            "",
-            "4.4 litters",
-            "500 ml",
-            "350 ml"});
-            this.comboWatr2.Location = new System.Drawing.Point(27, 248);
-            this.comboWatr2.Name = "comboWatr2";
-            this.comboWatr2.Size = new System.Drawing.Size(182, 28);
-            this.comboWatr2.TabIndex = 18;
-            this.comboWatr2.Text = "Type";
-            this.comboWatr2.Enter += new System.EventHandler(this.comboWatr2_Enter);
-            this.comboWatr2.Leave += new System.EventHandler(this.comboWatr2_Leave);
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.LightBlue;
+            this.label13.Location = new System.Drawing.Point(68, 394);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(246, 20);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "Bottled Water (500ml) (Php20.00)";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.LightBlue;
+            this.label12.Location = new System.Drawing.Point(64, 358);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(263, 20);
+            this.label12.TabIndex = 28;
+            this.label12.Text = "Mineral Water (4.4litters) (Php30.00)";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox2.ForeColor = System.Drawing.Color.Black;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Rice",
+            "Water",
+            "SoftDrinks",
+            "AlcoholDrinks",
+            "CanGoods",
+            "Biscuits"});
+            this.comboBox2.Location = new System.Drawing.Point(32, 262);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(182, 28);
+            this.comboBox2.TabIndex = 19;
+            this.comboBox2.Text = "Categories";
+            this.comboBox2.Enter += new System.EventHandler(this.comboBox2_Enter);
+            this.comboBox2.Leave += new System.EventHandler(this.comboBox2_Leave);
             // 
             // comboWatr3
             // 
@@ -527,12 +558,8 @@
             this.comboWatr3.ForeColor = System.Drawing.Color.Black;
             this.comboWatr3.FormattingEnabled = true;
             this.comboWatr3.Items.AddRange(new object[] {
-            "Unit",
-            "",
-            "Gallon",
-            "Pack",
             "Pcs."});
-            this.comboWatr3.Location = new System.Drawing.Point(26, 288);
+            this.comboWatr3.Location = new System.Drawing.Point(32, 299);
             this.comboWatr3.Name = "comboWatr3";
             this.comboWatr3.Size = new System.Drawing.Size(182, 28);
             this.comboWatr3.TabIndex = 17;
@@ -546,10 +573,9 @@
             this.comboWatr1.ForeColor = System.Drawing.Color.Black;
             this.comboWatr1.FormattingEnabled = true;
             this.comboWatr1.Items.AddRange(new object[] {
-            "Item",
-            "",
-            "Mineral Water "});
-            this.comboWatr1.Location = new System.Drawing.Point(27, 209);
+            "Mineral Water (litters)",
+            "Bottled Water (ml)"});
+            this.comboWatr1.Location = new System.Drawing.Point(32, 220);
             this.comboWatr1.Name = "comboWatr1";
             this.comboWatr1.Size = new System.Drawing.Size(182, 28);
             this.comboWatr1.TabIndex = 16;
@@ -561,7 +587,7 @@
             // 
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.numericUpDown1.Location = new System.Drawing.Point(245, 220);
+            this.numericUpDown1.Location = new System.Drawing.Point(245, 230);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(82, 26);
             this.numericUpDown1.TabIndex = 13;
@@ -570,7 +596,7 @@
             // 
             this.btnAdd2.BackColor = System.Drawing.Color.Turquoise;
             this.btnAdd2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd2.Location = new System.Drawing.Point(231, 260);
+            this.btnAdd2.Location = new System.Drawing.Point(231, 270);
             this.btnAdd2.Name = "btnAdd2";
             this.btnAdd2.Size = new System.Drawing.Size(110, 36);
             this.btnAdd2.TabIndex = 10;
@@ -598,137 +624,14 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // groupBiscuits
-            // 
-            this.groupBiscuits.Controls.Add(this.panel7);
-            this.groupBiscuits.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBiscuits.Location = new System.Drawing.Point(9, 2758);
-            this.groupBiscuits.Name = "groupBiscuits";
-            this.groupBiscuits.Size = new System.Drawing.Size(527, 496);
-            this.groupBiscuits.TabIndex = 5;
-            this.groupBiscuits.TabStop = false;
-            this.groupBiscuits.Text = "Biscuits/Cheaps";
-            // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.SystemColors.Info;
-            this.panel7.Controls.Add(this.btnAdd7);
-            this.panel7.Controls.Add(this.cmbBiscuits2);
-            this.panel7.Controls.Add(this.cmbBiscuits3);
-            this.panel7.Controls.Add(this.cmbBiscuits1);
-            this.panel7.Controls.Add(this.numericUpDown8);
-            this.panel7.Controls.Add(this.labelBC);
-            this.panel7.Controls.Add(this.pictureBox23);
-            this.panel7.Location = new System.Drawing.Point(66, 54);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(390, 423);
-            this.panel7.TabIndex = 35;
-            // 
-            // btnAdd7
-            // 
-            this.btnAdd7.BackColor = System.Drawing.Color.Turquoise;
-            this.btnAdd7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd7.Location = new System.Drawing.Point(232, 329);
-            this.btnAdd7.Name = "btnAdd7";
-            this.btnAdd7.Size = new System.Drawing.Size(110, 36);
-            this.btnAdd7.TabIndex = 20;
-            this.btnAdd7.Text = "Add to Cart";
-            this.btnAdd7.UseVisualStyleBackColor = false;
-            this.btnAdd7.Click += new System.EventHandler(this.btnAdd7_Click);
-            // 
-            // cmbBiscuits2
-            // 
-            this.cmbBiscuits2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbBiscuits2.ForeColor = System.Drawing.Color.Black;
-            this.cmbBiscuits2.FormattingEnabled = true;
-            this.cmbBiscuits2.Items.AddRange(new object[] {
-            "Type",
-            "",
-            "Biscuit",
-            "Cheaps"});
-            this.cmbBiscuits2.Location = new System.Drawing.Point(28, 324);
-            this.cmbBiscuits2.Name = "cmbBiscuits2";
-            this.cmbBiscuits2.Size = new System.Drawing.Size(182, 28);
-            this.cmbBiscuits2.TabIndex = 19;
-            this.cmbBiscuits2.Text = "Type";
-            this.cmbBiscuits2.Enter += new System.EventHandler(this.cmbBiscuits2_Enter);
-            this.cmbBiscuits2.Leave += new System.EventHandler(this.cmbBiscuits2_Leave);
-            // 
-            // cmbBiscuits3
-            // 
-            this.cmbBiscuits3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbBiscuits3.ForeColor = System.Drawing.Color.Black;
-            this.cmbBiscuits3.FormattingEnabled = true;
-            this.cmbBiscuits3.Items.AddRange(new object[] {
-            "Unit",
-            "",
-            "Pack",
-            "Pcs"});
-            this.cmbBiscuits3.Location = new System.Drawing.Point(27, 361);
-            this.cmbBiscuits3.Name = "cmbBiscuits3";
-            this.cmbBiscuits3.Size = new System.Drawing.Size(182, 28);
-            this.cmbBiscuits3.TabIndex = 18;
-            this.cmbBiscuits3.Text = "Unit";
-            this.cmbBiscuits3.Enter += new System.EventHandler(this.cmbBiscuits3_Enter);
-            this.cmbBiscuits3.Leave += new System.EventHandler(this.cmbBiscuits3_Leave);
-            // 
-            // cmbBiscuits1
-            // 
-            this.cmbBiscuits1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbBiscuits1.ForeColor = System.Drawing.Color.Black;
-            this.cmbBiscuits1.FormattingEnabled = true;
-            this.cmbBiscuits1.Items.AddRange(new object[] {
-            "Item",
-            "",
-            "Sky Flakes",
-            "Oreo",
-            "",
-            "Oishi",
-            "Fishda"});
-            this.cmbBiscuits1.Location = new System.Drawing.Point(29, 285);
-            this.cmbBiscuits1.Name = "cmbBiscuits1";
-            this.cmbBiscuits1.Size = new System.Drawing.Size(182, 28);
-            this.cmbBiscuits1.TabIndex = 16;
-            this.cmbBiscuits1.Text = "Item";
-            this.cmbBiscuits1.Enter += new System.EventHandler(this.cmbBiscuits1_Enter);
-            this.cmbBiscuits1.Leave += new System.EventHandler(this.cmbBiscuits1_Leave);
-            // 
-            // numericUpDown8
-            // 
-            this.numericUpDown8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown8.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.numericUpDown8.Location = new System.Drawing.Point(245, 289);
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(82, 26);
-            this.numericUpDown8.TabIndex = 13;
-            // 
-            // labelBC
-            // 
-            this.labelBC.AutoSize = true;
-            this.labelBC.Font = new System.Drawing.Font("Elephant", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBC.Location = new System.Drawing.Point(49, 238);
-            this.labelBC.Name = "labelBC";
-            this.labelBC.Size = new System.Drawing.Size(246, 37);
-            this.labelBC.TabIndex = 1;
-            this.labelBC.Text = "Biscuits/Cheaps";
-            // 
-            // pictureBox23
-            // 
-            this.pictureBox23.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox23.Image")));
-            this.pictureBox23.Location = new System.Drawing.Point(25, 15);
-            this.pictureBox23.Name = "pictureBox23";
-            this.pictureBox23.Size = new System.Drawing.Size(339, 213);
-            this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox23.TabIndex = 0;
-            this.pictureBox23.TabStop = false;
-            // 
             // groupGoods
             // 
+            this.groupGoods.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupGoods.Controls.Add(this.panelGoods);
             this.groupGoods.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupGoods.Location = new System.Drawing.Point(10, 2268);
+            this.groupGoods.Location = new System.Drawing.Point(13, 2032);
             this.groupGoods.Name = "groupGoods";
-            this.groupGoods.Size = new System.Drawing.Size(527, 481);
+            this.groupGoods.Size = new System.Drawing.Size(513, 533);
             this.groupGoods.TabIndex = 4;
             this.groupGoods.TabStop = false;
             this.groupGoods.Text = "Can Goods/ Noodles";
@@ -736,23 +639,65 @@
             // panelGoods
             // 
             this.panelGoods.BackColor = System.Drawing.SystemColors.Info;
+            this.panelGoods.Controls.Add(this.label7);
+            this.panelGoods.Controls.Add(this.label6);
+            this.panelGoods.Controls.Add(this.comboBox3);
             this.panelGoods.Controls.Add(this.btnAdd6);
-            this.panelGoods.Controls.Add(this.cmbGoods2);
             this.panelGoods.Controls.Add(this.cmbGoods3);
             this.panelGoods.Controls.Add(this.cmbGoods1);
             this.panelGoods.Controls.Add(this.numericUpDown7);
             this.panelGoods.Controls.Add(this.labelCN);
             this.panelGoods.Controls.Add(this.pictureBox22);
-            this.panelGoods.Location = new System.Drawing.Point(68, 42);
+            this.panelGoods.Location = new System.Drawing.Point(47, 42);
             this.panelGoods.Name = "panelGoods";
-            this.panelGoods.Size = new System.Drawing.Size(390, 413);
+            this.panelGoods.Size = new System.Drawing.Size(419, 450);
             this.panelGoods.TabIndex = 34;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.LightBlue;
+            this.label7.Location = new System.Drawing.Point(219, 406);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(161, 20);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "Beef Loaf (Php35.00)";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.LightBlue;
+            this.label6.Location = new System.Drawing.Point(23, 406);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(177, 20);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Carne Norte (Php34.00)";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox3.ForeColor = System.Drawing.Color.Black;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "Rice",
+            "Water",
+            "SoftDrinks",
+            "AlcoholDrinks",
+            "CanGoods",
+            "Biscuits"});
+            this.comboBox3.Location = new System.Drawing.Point(36, 324);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(182, 28);
+            this.comboBox3.TabIndex = 22;
+            this.comboBox3.Text = "Categories";
+            this.comboBox3.Enter += new System.EventHandler(this.comboBox3_Enter);
+            this.comboBox3.Leave += new System.EventHandler(this.comboBox3_Leave);
             // 
             // btnAdd6
             // 
             this.btnAdd6.BackColor = System.Drawing.Color.Turquoise;
             this.btnAdd6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd6.Location = new System.Drawing.Point(229, 324);
+            this.btnAdd6.Location = new System.Drawing.Point(239, 324);
             this.btnAdd6.Name = "btnAdd6";
             this.btnAdd6.Size = new System.Drawing.Size(110, 36);
             this.btnAdd6.TabIndex = 20;
@@ -760,38 +705,14 @@
             this.btnAdd6.UseVisualStyleBackColor = false;
             this.btnAdd6.Click += new System.EventHandler(this.btnAdd6_Click);
             // 
-            // cmbGoods2
-            // 
-            this.cmbGoods2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbGoods2.ForeColor = System.Drawing.Color.Black;
-            this.cmbGoods2.FormattingEnabled = true;
-            this.cmbGoods2.Items.AddRange(new object[] {
-            "Type",
-            "",
-            "Beef(Spicy)",
-            "Beef(Sweet)",
-            "Meat(Spicy)",
-            "Meat(Sweet)",
-            "Fish(Spicy)",
-            "Fish(Sweet)"});
-            this.cmbGoods2.Location = new System.Drawing.Point(29, 324);
-            this.cmbGoods2.Name = "cmbGoods2";
-            this.cmbGoods2.Size = new System.Drawing.Size(182, 28);
-            this.cmbGoods2.TabIndex = 19;
-            this.cmbGoods2.Text = "Type";
-            this.cmbGoods2.Enter += new System.EventHandler(this.cmbGoods2_Enter);
-            this.cmbGoods2.Leave += new System.EventHandler(this.cmbGoods2_Leave);
-            // 
             // cmbGoods3
             // 
             this.cmbGoods3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbGoods3.ForeColor = System.Drawing.Color.Black;
             this.cmbGoods3.FormattingEnabled = true;
             this.cmbGoods3.Items.AddRange(new object[] {
-            "Unit",
-            "",
             "Pcs."});
-            this.cmbGoods3.Location = new System.Drawing.Point(29, 360);
+            this.cmbGoods3.Location = new System.Drawing.Point(35, 359);
             this.cmbGoods3.Name = "cmbGoods3";
             this.cmbGoods3.Size = new System.Drawing.Size(182, 28);
             this.cmbGoods3.TabIndex = 18;
@@ -805,12 +726,9 @@
             this.cmbGoods1.ForeColor = System.Drawing.Color.Black;
             this.cmbGoods1.FormattingEnabled = true;
             this.cmbGoods1.Items.AddRange(new object[] {
-            "Item",
-            "",
             "Carne Norte",
-            "Beef Loaf",
-            "Century Tune"});
-            this.cmbGoods1.Location = new System.Drawing.Point(30, 287);
+            "Beef Loaf"});
+            this.cmbGoods1.Location = new System.Drawing.Point(36, 289);
             this.cmbGoods1.Name = "cmbGoods1";
             this.cmbGoods1.Size = new System.Drawing.Size(182, 28);
             this.cmbGoods1.TabIndex = 16;
@@ -822,7 +740,7 @@
             // 
             this.numericUpDown7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown7.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.numericUpDown7.Location = new System.Drawing.Point(245, 289);
+            this.numericUpDown7.Location = new System.Drawing.Point(255, 289);
             this.numericUpDown7.Name = "numericUpDown7";
             this.numericUpDown7.Size = new System.Drawing.Size(82, 26);
             this.numericUpDown7.TabIndex = 13;
@@ -831,7 +749,7 @@
             // 
             this.labelCN.AutoSize = true;
             this.labelCN.Font = new System.Drawing.Font("Elephant", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCN.Location = new System.Drawing.Point(49, 238);
+            this.labelCN.Location = new System.Drawing.Point(59, 238);
             this.labelCN.Name = "labelCN";
             this.labelCN.Size = new System.Drawing.Size(290, 37);
             this.labelCN.TabIndex = 1;
@@ -840,7 +758,7 @@
             // pictureBox22
             // 
             this.pictureBox22.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox22.Image")));
-            this.pictureBox22.Location = new System.Drawing.Point(25, 15);
+            this.pictureBox22.Location = new System.Drawing.Point(38, 15);
             this.pictureBox22.Name = "pictureBox22";
             this.pictureBox22.Size = new System.Drawing.Size(339, 213);
             this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -849,11 +767,12 @@
             // 
             // groupSoftdrinks
             // 
+            this.groupSoftdrinks.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupSoftdrinks.Controls.Add(this.panelSofts);
             this.groupSoftdrinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupSoftdrinks.Location = new System.Drawing.Point(10, 872);
+            this.groupSoftdrinks.Location = new System.Drawing.Point(13, 1000);
             this.groupSoftdrinks.Name = "groupSoftdrinks";
-            this.groupSoftdrinks.Size = new System.Drawing.Size(523, 398);
+            this.groupSoftdrinks.Size = new System.Drawing.Size(520, 447);
             this.groupSoftdrinks.TabIndex = 2;
             this.groupSoftdrinks.TabStop = false;
             this.groupSoftdrinks.Text = "Softdrinks";
@@ -861,7 +780,9 @@
             // panelSofts
             // 
             this.panelSofts.BackColor = System.Drawing.SystemColors.Info;
-            this.panelSofts.Controls.Add(this.comboDrinks2);
+            this.panelSofts.Controls.Add(this.label11);
+            this.panelSofts.Controls.Add(this.label10);
+            this.panelSofts.Controls.Add(this.comboRice);
             this.panelSofts.Controls.Add(this.comboDrinks3);
             this.panelSofts.Controls.Add(this.comboDrinks1);
             this.panelSofts.Controls.Add(this.numericUpDown2);
@@ -870,26 +791,48 @@
             this.panelSofts.Controls.Add(this.pictureBox17);
             this.panelSofts.Location = new System.Drawing.Point(65, 40);
             this.panelSofts.Name = "panelSofts";
-            this.panelSofts.Size = new System.Drawing.Size(389, 344);
+            this.panelSofts.Size = new System.Drawing.Size(389, 388);
             this.panelSofts.TabIndex = 29;
             // 
-            // comboDrinks2
+            // label11
             // 
-            this.comboDrinks2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboDrinks2.ForeColor = System.Drawing.Color.Black;
-            this.comboDrinks2.FormattingEnabled = true;
-            this.comboDrinks2.Items.AddRange(new object[] {
-            "Type",
-            "",
-            "Plastic Bottled (Littter)",
-            "Plastic Bottled (ml)"});
-            this.comboDrinks2.Location = new System.Drawing.Point(27, 246);
-            this.comboDrinks2.Name = "comboDrinks2";
-            this.comboDrinks2.Size = new System.Drawing.Size(182, 28);
-            this.comboDrinks2.TabIndex = 18;
-            this.comboDrinks2.Text = "Type";
-            this.comboDrinks2.Enter += new System.EventHandler(this.comboDrinks2_Enter);
-            this.comboDrinks2.Leave += new System.EventHandler(this.comboDrinks2_Leave);
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.LightBlue;
+            this.label11.Location = new System.Drawing.Point(206, 346);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(133, 20);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "Sprite (Php50.00)";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.BackColor = System.Drawing.Color.LightBlue;
+            this.label10.Location = new System.Drawing.Point(46, 346);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(128, 20);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "Coke (Php50.00)";
+            // 
+            // comboRice
+            // 
+            this.comboRice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboRice.ForeColor = System.Drawing.Color.Black;
+            this.comboRice.FormattingEnabled = true;
+            this.comboRice.Items.AddRange(new object[] {
+            "Rice",
+            "Water",
+            "SoftDrinks",
+            "AlcoholDrinks",
+            "CanGoods",
+            "Biscuits"});
+            this.comboRice.Location = new System.Drawing.Point(33, 259);
+            this.comboRice.Name = "comboRice";
+            this.comboRice.Size = new System.Drawing.Size(182, 28);
+            this.comboRice.TabIndex = 20;
+            this.comboRice.Text = "Categories";
+            this.comboRice.Enter += new System.EventHandler(this.comboRice_Enter);
+            this.comboRice.Leave += new System.EventHandler(this.comboRice_Leave);
             // 
             // comboDrinks3
             // 
@@ -897,11 +840,8 @@
             this.comboDrinks3.ForeColor = System.Drawing.Color.Black;
             this.comboDrinks3.FormattingEnabled = true;
             this.comboDrinks3.Items.AddRange(new object[] {
-            "Unit",
-            "",
-            "Pack",
             "Pcs."});
-            this.comboDrinks3.Location = new System.Drawing.Point(27, 287);
+            this.comboDrinks3.Location = new System.Drawing.Point(32, 298);
             this.comboDrinks3.Name = "comboDrinks3";
             this.comboDrinks3.Size = new System.Drawing.Size(182, 28);
             this.comboDrinks3.TabIndex = 17;
@@ -915,11 +855,9 @@
             this.comboDrinks1.ForeColor = System.Drawing.Color.Black;
             this.comboDrinks1.FormattingEnabled = true;
             this.comboDrinks1.Items.AddRange(new object[] {
-            "Item",
-            "",
             "Coke",
             "Sprite"});
-            this.comboDrinks1.Location = new System.Drawing.Point(27, 209);
+            this.comboDrinks1.Location = new System.Drawing.Point(33, 222);
             this.comboDrinks1.Name = "comboDrinks1";
             this.comboDrinks1.Size = new System.Drawing.Size(182, 28);
             this.comboDrinks1.TabIndex = 16;
@@ -952,7 +890,7 @@
             // 
             this.labelSD.AutoSize = true;
             this.labelSD.Font = new System.Drawing.Font("Elephant", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSD.Location = new System.Drawing.Point(78, 167);
+            this.labelSD.Location = new System.Drawing.Point(96, 173);
             this.labelSD.Name = "labelSD";
             this.labelSD.Size = new System.Drawing.Size(181, 37);
             this.labelSD.TabIndex = 1;
@@ -961,7 +899,7 @@
             // pictureBox17
             // 
             this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
-            this.pictureBox17.Location = new System.Drawing.Point(13, 7);
+            this.pictureBox17.Location = new System.Drawing.Point(13, 12);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.Size = new System.Drawing.Size(365, 151);
             this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -970,140 +908,72 @@
             // 
             // groupAlcoholDrinks
             // 
-            this.groupAlcoholDrinks.Controls.Add(this.panelRedHorse);
+            this.groupAlcoholDrinks.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.groupAlcoholDrinks.Controls.Add(this.panelEmpe);
             this.groupAlcoholDrinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupAlcoholDrinks.Location = new System.Drawing.Point(9, 1280);
+            this.groupAlcoholDrinks.Location = new System.Drawing.Point(13, 1466);
             this.groupAlcoholDrinks.Name = "groupAlcoholDrinks";
-            this.groupAlcoholDrinks.Size = new System.Drawing.Size(520, 973);
+            this.groupAlcoholDrinks.Size = new System.Drawing.Size(516, 549);
             this.groupAlcoholDrinks.TabIndex = 3;
             this.groupAlcoholDrinks.TabStop = false;
             this.groupAlcoholDrinks.Text = "Alcohol Drinks";
             // 
-            // panelRedHorse
-            // 
-            this.panelRedHorse.BackColor = System.Drawing.SystemColors.Info;
-            this.panelRedHorse.Controls.Add(this.cmbRedHorse1);
-            this.panelRedHorse.Controls.Add(this.cmbRedHorse3);
-            this.panelRedHorse.Controls.Add(this.cmbRedHorse2);
-            this.panelRedHorse.Controls.Add(this.numericUpDown4);
-            this.panelRedHorse.Controls.Add(this.btnAdd5);
-            this.panelRedHorse.Controls.Add(this.labelRed);
-            this.panelRedHorse.Controls.Add(this.pictureBox19);
-            this.panelRedHorse.Location = new System.Drawing.Point(66, 499);
-            this.panelRedHorse.Name = "panelRedHorse";
-            this.panelRedHorse.Size = new System.Drawing.Size(390, 435);
-            this.panelRedHorse.TabIndex = 31;
-            // 
-            // cmbRedHorse1
-            // 
-            this.cmbRedHorse1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbRedHorse1.ForeColor = System.Drawing.Color.Black;
-            this.cmbRedHorse1.FormattingEnabled = true;
-            this.cmbRedHorse1.Items.AddRange(new object[] {
-            "Item",
-            "",
-            "Red Horse"});
-            this.cmbRedHorse1.Location = new System.Drawing.Point(28, 291);
-            this.cmbRedHorse1.Name = "cmbRedHorse1";
-            this.cmbRedHorse1.Size = new System.Drawing.Size(182, 28);
-            this.cmbRedHorse1.TabIndex = 19;
-            this.cmbRedHorse1.Text = "Item";
-            this.cmbRedHorse1.Enter += new System.EventHandler(this.cmbRedHorse1_Enter);
-            this.cmbRedHorse1.Leave += new System.EventHandler(this.cmbRedHorse1_Leave);
-            // 
-            // cmbRedHorse3
-            // 
-            this.cmbRedHorse3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbRedHorse3.ForeColor = System.Drawing.Color.Black;
-            this.cmbRedHorse3.FormattingEnabled = true;
-            this.cmbRedHorse3.Items.AddRange(new object[] {
-            "Unit",
-            "",
-            "Case",
-            "Pcs"});
-            this.cmbRedHorse3.Location = new System.Drawing.Point(27, 365);
-            this.cmbRedHorse3.Name = "cmbRedHorse3";
-            this.cmbRedHorse3.Size = new System.Drawing.Size(182, 28);
-            this.cmbRedHorse3.TabIndex = 18;
-            this.cmbRedHorse3.Text = "Unit";
-            this.cmbRedHorse3.Enter += new System.EventHandler(this.cmbRedHorse3_Enter);
-            this.cmbRedHorse3.Leave += new System.EventHandler(this.cmbRedHorse3_Leave);
-            // 
-            // cmbRedHorse2
-            // 
-            this.cmbRedHorse2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbRedHorse2.ForeColor = System.Drawing.Color.Black;
-            this.cmbRedHorse2.FormattingEnabled = true;
-            this.cmbRedHorse2.Items.AddRange(new object[] {
-            "Type",
-            "",
-            "1000 ml (Jumbo)",
-            "500 ml ",
-            "330 ml (Stalion)"});
-            this.cmbRedHorse2.Location = new System.Drawing.Point(27, 328);
-            this.cmbRedHorse2.Name = "cmbRedHorse2";
-            this.cmbRedHorse2.Size = new System.Drawing.Size(182, 28);
-            this.cmbRedHorse2.TabIndex = 16;
-            this.cmbRedHorse2.Text = "Type";
-            this.cmbRedHorse2.Enter += new System.EventHandler(this.cmbRedHorse2_Enter);
-            this.cmbRedHorse2.Leave += new System.EventHandler(this.cmbRedHorse2_Leave);
-            // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown4.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.numericUpDown4.Location = new System.Drawing.Point(245, 301);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(82, 26);
-            this.numericUpDown4.TabIndex = 13;
-            // 
-            // btnAdd5
-            // 
-            this.btnAdd5.BackColor = System.Drawing.Color.Turquoise;
-            this.btnAdd5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd5.Location = new System.Drawing.Point(231, 336);
-            this.btnAdd5.Name = "btnAdd5";
-            this.btnAdd5.Size = new System.Drawing.Size(110, 36);
-            this.btnAdd5.TabIndex = 10;
-            this.btnAdd5.Text = "Add to Cart";
-            this.btnAdd5.UseVisualStyleBackColor = false;
-            this.btnAdd5.Click += new System.EventHandler(this.btnAdd5_Click);
-            // 
-            // labelRed
-            // 
-            this.labelRed.AutoSize = true;
-            this.labelRed.Font = new System.Drawing.Font("Elephant", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRed.Location = new System.Drawing.Point(99, 238);
-            this.labelRed.Name = "labelRed";
-            this.labelRed.Size = new System.Drawing.Size(169, 37);
-            this.labelRed.TabIndex = 1;
-            this.labelRed.Text = "Red Horse";
-            // 
-            // pictureBox19
-            // 
-            this.pictureBox19.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox19.Image")));
-            this.pictureBox19.Location = new System.Drawing.Point(25, 7);
-            this.pictureBox19.Name = "pictureBox19";
-            this.pictureBox19.Size = new System.Drawing.Size(328, 221);
-            this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox19.TabIndex = 0;
-            this.pictureBox19.TabStop = false;
-            // 
             // panelEmpe
             // 
             this.panelEmpe.BackColor = System.Drawing.SystemColors.Info;
+            this.panelEmpe.Controls.Add(this.label9);
+            this.panelEmpe.Controls.Add(this.label8);
+            this.panelEmpe.Controls.Add(this.comboEmpe);
             this.panelEmpe.Controls.Add(this.cmbEmpe1);
             this.panelEmpe.Controls.Add(this.cmbEmpe3);
-            this.panelEmpe.Controls.Add(this.cmbEmpe2);
             this.panelEmpe.Controls.Add(this.numericUpDown3);
             this.panelEmpe.Controls.Add(this.btnAdd4);
             this.panelEmpe.Controls.Add(this.labelEmp);
             this.panelEmpe.Controls.Add(this.pictureBox18);
-            this.panelEmpe.Location = new System.Drawing.Point(67, 56);
+            this.panelEmpe.Location = new System.Drawing.Point(40, 42);
             this.panelEmpe.Name = "panelEmpe";
-            this.panelEmpe.Size = new System.Drawing.Size(390, 422);
+            this.panelEmpe.Size = new System.Drawing.Size(428, 477);
             this.panelEmpe.TabIndex = 30;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.LightBlue;
+            this.label9.Location = new System.Drawing.Point(213, 434);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(186, 20);
+            this.label9.TabIndex = 27;
+            this.label9.Text = "Empe Deluxe (Php90.00)";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.LightBlue;
+            this.label8.Location = new System.Drawing.Point(28, 434);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(172, 20);
+            this.label8.TabIndex = 26;
+            this.label8.Text = "Empe Light (Php80.00)";
+            // 
+            // comboEmpe
+            // 
+            this.comboEmpe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboEmpe.ForeColor = System.Drawing.Color.Black;
+            this.comboEmpe.FormattingEnabled = true;
+            this.comboEmpe.Items.AddRange(new object[] {
+            "Rice",
+            "Water",
+            "SoftDrinks",
+            "AlcoholDrinks",
+            "CanGoods",
+            "Biscuits"});
+            this.comboEmpe.Location = new System.Drawing.Point(44, 343);
+            this.comboEmpe.Name = "comboEmpe";
+            this.comboEmpe.Size = new System.Drawing.Size(182, 28);
+            this.comboEmpe.TabIndex = 21;
+            this.comboEmpe.Text = "Categories";
+            this.comboEmpe.Enter += new System.EventHandler(this.comboEmpe_Enter);
+            this.comboEmpe.Leave += new System.EventHandler(this.comboEmpe_Leave);
             // 
             // cmbEmpe1
             // 
@@ -1111,10 +981,9 @@
             this.cmbEmpe1.ForeColor = System.Drawing.Color.Black;
             this.cmbEmpe1.FormattingEnabled = true;
             this.cmbEmpe1.Items.AddRange(new object[] {
-            "Item",
-            "",
-            "Emperador"});
-            this.cmbEmpe1.Location = new System.Drawing.Point(28, 289);
+            "Emperador Light",
+            "Emperador Deluxe"});
+            this.cmbEmpe1.Location = new System.Drawing.Point(45, 303);
             this.cmbEmpe1.Name = "cmbEmpe1";
             this.cmbEmpe1.Size = new System.Drawing.Size(182, 28);
             this.cmbEmpe1.TabIndex = 19;
@@ -1128,11 +997,8 @@
             this.cmbEmpe3.ForeColor = System.Drawing.Color.Black;
             this.cmbEmpe3.FormattingEnabled = true;
             this.cmbEmpe3.Items.AddRange(new object[] {
-            "Unit",
-            "",
-            "Box",
             "Pcs"});
-            this.cmbEmpe3.Location = new System.Drawing.Point(27, 363);
+            this.cmbEmpe3.Location = new System.Drawing.Point(44, 381);
             this.cmbEmpe3.Name = "cmbEmpe3";
             this.cmbEmpe3.Size = new System.Drawing.Size(182, 28);
             this.cmbEmpe3.TabIndex = 18;
@@ -1140,31 +1006,11 @@
             this.cmbEmpe3.Enter += new System.EventHandler(this.cmbEmpe3_Enter);
             this.cmbEmpe3.Leave += new System.EventHandler(this.cmbEmpe3_Leave);
             // 
-            // cmbEmpe2
-            // 
-            this.cmbEmpe2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbEmpe2.ForeColor = System.Drawing.Color.Black;
-            this.cmbEmpe2.FormattingEnabled = true;
-            this.cmbEmpe2.Items.AddRange(new object[] {
-            "Type",
-            "",
-            "1 Litter",
-            "750 ml (long neck)",
-            "500 ml (junior)",
-            "300 ml (bunso)"});
-            this.cmbEmpe2.Location = new System.Drawing.Point(27, 326);
-            this.cmbEmpe2.Name = "cmbEmpe2";
-            this.cmbEmpe2.Size = new System.Drawing.Size(182, 28);
-            this.cmbEmpe2.TabIndex = 16;
-            this.cmbEmpe2.Text = "Type";
-            this.cmbEmpe2.Enter += new System.EventHandler(this.cmbEmpe2_Enter);
-            this.cmbEmpe2.Leave += new System.EventHandler(this.cmbEmpe2_Leave);
-            // 
             // numericUpDown3
             // 
             this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown3.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.numericUpDown3.Location = new System.Drawing.Point(245, 289);
+            this.numericUpDown3.Location = new System.Drawing.Point(258, 303);
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(82, 26);
             this.numericUpDown3.TabIndex = 13;
@@ -1173,7 +1019,7 @@
             // 
             this.btnAdd4.BackColor = System.Drawing.Color.Turquoise;
             this.btnAdd4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd4.Location = new System.Drawing.Point(231, 324);
+            this.btnAdd4.Location = new System.Drawing.Point(244, 338);
             this.btnAdd4.Name = "btnAdd4";
             this.btnAdd4.Size = new System.Drawing.Size(110, 36);
             this.btnAdd4.TabIndex = 10;
@@ -1185,7 +1031,7 @@
             // 
             this.labelEmp.AutoSize = true;
             this.labelEmp.Font = new System.Drawing.Font("Elephant", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmp.Location = new System.Drawing.Point(99, 238);
+            this.labelEmp.Location = new System.Drawing.Point(113, 252);
             this.labelEmp.Name = "labelEmp";
             this.labelEmp.Size = new System.Drawing.Size(176, 37);
             this.labelEmp.TabIndex = 1;
@@ -1194,7 +1040,7 @@
             // pictureBox18
             // 
             this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
-            this.pictureBox18.Location = new System.Drawing.Point(36, 7);
+            this.pictureBox18.Location = new System.Drawing.Point(49, 17);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(317, 221);
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1203,80 +1049,137 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.BackColor = System.Drawing.Color.DarkCyan;
             this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
+            this.groupBox2.Controls.Add(this.Exit11);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.panel4);
             this.groupBox2.Controls.Add(this.btnUpdate);
-            this.groupBox2.Controls.Add(this.btnBackk);
             this.groupBox2.Controls.Add(this.labelTotal);
             this.groupBox2.Controls.Add(this.User);
             this.groupBox2.Controls.Add(this.btnPrint);
             this.groupBox2.Controls.Add(this.btnDelete);
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(816, 18);
+            this.groupBox2.Location = new System.Drawing.Point(816, 30);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(413, 618);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "CURRENT ORDERS";
             // 
+            // Exit11
+            // 
+            this.Exit11.Image = ((System.Drawing.Image)(resources.GetObject("Exit11.Image")));
+            this.Exit11.Location = new System.Drawing.Point(358, 569);
+            this.Exit11.Name = "Exit11";
+            this.Exit11.Size = new System.Drawing.Size(45, 40);
+            this.Exit11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Exit11.TabIndex = 61;
+            this.Exit11.TabStop = false;
+            this.Exit11.Click += new System.EventHandler(this.Exit11_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(63, 485);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 25);
+            this.label1.TabIndex = 60;
+            this.label1.Text = "Date";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(56, 517);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(309, 28);
+            this.dateTimePicker1.TabIndex = 59;
+            // 
+            // panel4
+            // 
+            this.panel4.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel4.Controls.Add(this.CostumerName);
+            this.panel4.Controls.Add(this.pictureBox8);
+            this.panel4.Location = new System.Drawing.Point(8, 566);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(155, 43);
+            this.panel4.TabIndex = 58;
+            // 
+            // CostumerName
+            // 
+            this.CostumerName.AutoSize = true;
+            this.CostumerName.BackColor = System.Drawing.Color.Linen;
+            this.CostumerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CostumerName.ForeColor = System.Drawing.Color.Black;
+            this.CostumerName.Location = new System.Drawing.Point(62, 10);
+            this.CostumerName.Name = "CostumerName";
+            this.CostumerName.Size = new System.Drawing.Size(47, 20);
+            this.CostumerName.TabIndex = 62;
+            this.CostumerName.Text = "User";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(42, 43);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 56;
+            this.pictureBox8.TabStop = false;
+            // 
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(149, 449);
+            this.btnUpdate.Location = new System.Drawing.Point(146, 359);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(130, 42);
             this.btnUpdate.TabIndex = 12;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // btnBackk
-            // 
-            this.btnBackk.Font = new System.Drawing.Font("Elephant", 9.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackk.Location = new System.Drawing.Point(263, 563);
-            this.btnBackk.Name = "btnBackk";
-            this.btnBackk.Size = new System.Drawing.Size(138, 44);
-            this.btnBackk.TabIndex = 0;
-            this.btnBackk.Text = "Back◀";
-            this.btnBackk.UseVisualStyleBackColor = true;
-            this.btnBackk.Click += new System.EventHandler(this.btnBackk_Click);
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // labelTotal
             // 
             this.labelTotal.AutoSize = true;
-            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(75, 527);
+            this.labelTotal.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.Location = new System.Drawing.Point(136, 448);
             this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(102, 25);
+            this.labelTotal.Size = new System.Drawing.Size(93, 22);
             this.labelTotal.TabIndex = 7;
             this.labelTotal.Text = "Total: Php";
             // 
             // User
             // 
-            this.User.Font = new System.Drawing.Font("Sitka Heading", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.User.Location = new System.Drawing.Point(184, 522);
+            this.User.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.User.Location = new System.Drawing.Point(233, 444);
             this.User.Name = "User";
-            this.User.Size = new System.Drawing.Size(202, 33);
+            this.User.Size = new System.Drawing.Size(153, 28);
             this.User.TabIndex = 6;
             // 
             // btnPrint
             // 
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(295, 447);
+            this.btnPrint.Location = new System.Drawing.Point(292, 357);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(106, 44);
             this.btnPrint.TabIndex = 5;
-            this.btnPrint.Text = "PRINT";
+            this.btnPrint.Text = "BUY";
             this.btnPrint.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(8, 447);
+            this.btnDelete.Location = new System.Drawing.Point(8, 357);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(127, 44);
             this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "DELETE";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // dataGridView1
             // 
@@ -1291,7 +1194,7 @@
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(395, 388);
+            this.dataGridView1.Size = new System.Drawing.Size(395, 296);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -1299,18 +1202,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1247, 663);
+            this.BackColor = System.Drawing.Color.DarkCyan;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(1250, 675);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox16);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Productss";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productss";
             this.Load += new System.EventHandler(this.Productss_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -1328,11 +1234,6 @@
             this.panelWater.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBiscuits.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
             this.groupGoods.ResumeLayout(false);
             this.panelGoods.ResumeLayout(false);
             this.panelGoods.PerformLayout();
@@ -1344,16 +1245,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             this.groupAlcoholDrinks.ResumeLayout(false);
-            this.panelRedHorse.ResumeLayout(false);
-            this.panelRedHorse.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
             this.panelEmpe.ResumeLayout(false);
             this.panelEmpe.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Exit11)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
@@ -1364,10 +1265,8 @@
         private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Button btnCanGoods;
         private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.Button btnBiscuits;
         private System.Windows.Forms.Button btnAlcoholDrinks;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Button btnSoftD;
@@ -1388,24 +1287,14 @@
         private System.Windows.Forms.PictureBox pictureBox31;
         private System.Windows.Forms.GroupBox groupWater;
         private System.Windows.Forms.Panel panelWater;
-        private System.Windows.Forms.ComboBox comboWatr2;
         private System.Windows.Forms.ComboBox comboWatr3;
         private System.Windows.Forms.ComboBox comboWatr1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button btnAdd2;
         private System.Windows.Forms.Label labelBw;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.GroupBox groupBiscuits;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ComboBox cmbBiscuits2;
-        private System.Windows.Forms.ComboBox cmbBiscuits3;
-        private System.Windows.Forms.ComboBox cmbBiscuits1;
-        private System.Windows.Forms.NumericUpDown numericUpDown8;
-        private System.Windows.Forms.Label labelBC;
-        private System.Windows.Forms.PictureBox pictureBox23;
         private System.Windows.Forms.GroupBox groupGoods;
         private System.Windows.Forms.Panel panelGoods;
-        private System.Windows.Forms.ComboBox cmbGoods2;
         private System.Windows.Forms.ComboBox cmbGoods3;
         private System.Windows.Forms.ComboBox cmbGoods1;
         private System.Windows.Forms.NumericUpDown numericUpDown7;
@@ -1413,7 +1302,6 @@
         private System.Windows.Forms.PictureBox pictureBox22;
         private System.Windows.Forms.GroupBox groupSoftdrinks;
         private System.Windows.Forms.Panel panelSofts;
-        private System.Windows.Forms.ComboBox comboDrinks2;
         private System.Windows.Forms.ComboBox comboDrinks3;
         private System.Windows.Forms.ComboBox comboDrinks1;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
@@ -1421,32 +1309,42 @@
         private System.Windows.Forms.Label labelSD;
         private System.Windows.Forms.PictureBox pictureBox17;
         private System.Windows.Forms.GroupBox groupAlcoholDrinks;
-        private System.Windows.Forms.Panel panelRedHorse;
-        private System.Windows.Forms.ComboBox cmbRedHorse1;
-        private System.Windows.Forms.ComboBox cmbRedHorse3;
-        private System.Windows.Forms.ComboBox cmbRedHorse2;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.Button btnAdd5;
-        private System.Windows.Forms.Label labelRed;
-        private System.Windows.Forms.PictureBox pictureBox19;
         private System.Windows.Forms.Panel panelEmpe;
         private System.Windows.Forms.ComboBox cmbEmpe1;
         private System.Windows.Forms.ComboBox cmbEmpe3;
-        private System.Windows.Forms.ComboBox cmbEmpe2;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.Button btnAdd4;
         private System.Windows.Forms.Label labelEmp;
         private System.Windows.Forms.PictureBox pictureBox18;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnUpdate;
-        private System.Windows.Forms.Button btnBackk;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.TextBox User;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnAll;
-        private System.Windows.Forms.Button btnAdd7;
         private System.Windows.Forms.Button btnAdd6;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboRice;
+        private System.Windows.Forms.ComboBox comboEmpe;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label CostumerName;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.PictureBox Exit11;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
     }
 }

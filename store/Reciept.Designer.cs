@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reciept));
             this.btnBack5 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
@@ -42,7 +41,6 @@
             this.btnBack5.TabIndex = 2;
             this.btnBack5.Text = "Back◀";
             this.btnBack5.UseVisualStyleBackColor = true;
-           
             // 
             // panel1
             // 
@@ -56,7 +54,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(348, 586);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnBack5);

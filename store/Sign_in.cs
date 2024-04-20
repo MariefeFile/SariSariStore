@@ -26,41 +26,40 @@ namespace store
         public Sign_in()
         {
             InitializeComponent();
-            myConn = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\LOG_in.mdb");
+            myConn = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb");
 
         }
-
         private void Sign_in_Load(object sender, EventArgs e)
         {
-          
             try
             {
                 myConn.Open();
-               // System.Windows.Forms.MessageBox.Show("Connected Succsfully!");
+                // System.Windows.Forms.MessageBox.Show("Connected Succsfully!");
                 this.Hide();
                 myConn.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show("ERROR!");
             }
         }
 
-        private void btnBack1_Click(object sender, EventArgs e)
+        private void Exit2_Click(object sender, EventArgs e)
         {
-            this.Close();
+           
             StartingPoint back2 = new StartingPoint();
             back2.Show();
+            this.Close();
         }
 
-        private void btnEmp_Click(object sender, EventArgs e)
+        private void btnEmp_Click_1(object sender, EventArgs e)
         {
             myConn.Open();
             cmd = new OleDbCommand();
             cmd.Connection = myConn;
-            cmd.CommandText = "SELECT * FROM Employee WHERE EmpName = @UserName AND EmpPassword = @Password";
-            cmd.Parameters.AddWithValue("@UserName", User.Text);
-            cmd.Parameters.AddWithValue("@Password", pass.Text);
+            cmd.CommandText = "SELECT * FROM tblEmp WHERE EmpName = @EmpName AND EmpPass = @EmpPass";
+            cmd.Parameters.AddWithValue("@EmpName", textUser.Text);
+            cmd.Parameters.AddWithValue("@EmpPass", textPass.Text);
             OleDbDataReader reader = cmd.ExecuteReader();
             int cnt = 0;
             while (reader.Read())
@@ -69,18 +68,19 @@ namespace store
             }
             if (cnt == 1)
             {
-                
-                string selectedUserType = usertype.SelectedItem.ToString().Trim();
+
+                string selectedUserType = comboType.SelectedItem.ToString().Trim();
                 if (selectedUserType == "Employee")
                 {
-                    MessageBox.Show("Username and Password are correct!");
-                    new EmployeeViews().Show();
+                    // MessageBox.Show("Username and Password are correct!");
+                    new Billings(textUser.Text).Show();
                     this.Hide();
                 }
                 else
                 {
                     MessageBox.Show("Invalid user type!");
                 }
+
             }
             else if (cnt > 1)
             {
@@ -91,17 +91,17 @@ namespace store
                 MessageBox.Show("Username and Password are invalid!");
             }
             myConn.Close();
-
+          
         }
 
-        private void btnAdmin_Click(object sender, EventArgs e)
+        private void btnAd_Click(object sender, EventArgs e)
         {
             myConn.Open();
             cmd = new OleDbCommand();
             cmd.Connection = myConn;
-            cmd.CommandText = "SELECT * FROM Admin WHERE AdminName = @UserName AND AdminPass= @Password";
-            cmd.Parameters.AddWithValue("@UserName", User.Text);
-            cmd.Parameters.AddWithValue("@Password", pass.Text);
+            cmd.CommandText = "SELECT * FROM tblAdmin WHERE AdminName = @AddName AND AdminPass= @AddPass";
+            cmd.Parameters.AddWithValue("@AddName", textUser.Text);
+            cmd.Parameters.AddWithValue("@AddPass", textPass.Text);
             OleDbDataReader reader = cmd.ExecuteReader();
             int cnt = 0;
             while (reader.Read())
@@ -110,11 +110,11 @@ namespace store
             }
             if (cnt == 1)
             {
-               
-                string selectedUserType = usertype.SelectedItem.ToString().Trim();
+
+                string selectedUserType = comboType.SelectedItem.ToString().Trim();
                 if (selectedUserType == "Admin")
                 {
-                    MessageBox.Show("Username and Password are correct!");
+                    // MessageBox.Show("Username and Password are correct!");
                     new Homepage().Show();
                     this.Hide();
                 }
@@ -132,25 +132,78 @@ namespace store
                 MessageBox.Show("Username and Password are invalid!");
             }
             myConn.Close();
+        }
 
+        private void textUser_Enter(object sender, EventArgs e)
+        {
+            if (textUser.Text == "UserName")
+            {
+                textUser.Text = "";
 
+                textUser.ForeColor = Color.Black;
+            }
+        }
+
+        private void textUser_Leave(object sender, EventArgs e)
+        {
+            if (textUser.Text == "")
+            {
+                textUser.Text = "UserName";
+
+                textUser.ForeColor = Color.Black;
+            }
+        }
+
+        private void textPass_Enter(object sender, EventArgs e)
+        {
+            if (textPass.Text == "Password")
+            {
+                textPass.Text = "";
+
+                textPass.ForeColor = Color.Black;
+            }
+        }
+
+        private void textPass_Leave(object sender, EventArgs e)
+        {
+            if (textPass.Text == "")
+            {
+                textPass.Text = "Password";
+
+                textPass.ForeColor = Color.Black;
+            }
+        }
+
+        private void comboType_Enter(object sender, EventArgs e)
+        {
+            if (comboType.Text == "UserType")
+            {
+                comboType.Text = "";
+
+                comboType.ForeColor = Color.Black;
+            }
+        }
+
+        private void comboType_Leave(object sender, EventArgs e)
+        {
+            if (comboType.Text == "")
+            {
+                comboType.Text = "UesrType";
+
+                comboType.ForeColor = Color.Black;
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            if(checkBox1.Checked)
+            if (checkBox1.Checked)
             {
-                pass.UseSystemPasswordChar = false;
+                textPass.UseSystemPasswordChar = false;
             }
             else
             {
-                pass.UseSystemPasswordChar = true;
+                textPass.UseSystemPasswordChar = true;
             }
-        }
-
-        private void usertype_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

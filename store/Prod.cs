@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Media.TextFormatting;
+using System.Xml.Linq;
 
 namespace store
 {
@@ -20,14 +21,30 @@ namespace store
         OleDbCommand cmd;
         DataSet ds;
         int indexRow;
-        public Productss()
+        string name;
+        private DataTable dataTable;
+        public Productss(string name)
         {
+
             InitializeComponent();
-            myConn = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\LOG_in.mdb");
+            myConn = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb");
             dataGridView1.CellClick += dataGridView1_CellContentClick;
+            dataTable = new DataTable();
+            DataRow newRow = dataTable.NewRow();
+            dataTable.Rows.Add(newRow);
+            dataGridView1.DataSource = dataTable;
+            this.name = name;
+            
+
         }
         private void Productss_Load(object sender, EventArgs e)
         {
+            groupRice.Visible = false;
+            groupWater.Visible = false;
+            groupSoftdrinks.Visible = false;
+            groupAlcoholDrinks.Visible = false;
+            groupGoods.Visible = false;
+            CostumerName.Text = name;
             try
             {
                 myConn.Open();
@@ -40,11 +57,11 @@ namespace store
             {
                 System.Windows.Forms.MessageBox.Show("ERROR: " + ex.Message);
             }
-
+            
         }
         private void LoadDataIntoDataGridView()
         {
-            string query = "SELECT * FROM Sold";
+            string query = "SELECT * FROM QryOrder";
             OleDbDataAdapter da = new OleDbDataAdapter(query, myConn);
             DataTable dt = new DataTable();
 
@@ -53,62 +70,88 @@ namespace store
 
             // Bind the DataTable to the DataGridView
             dataGridView1.DataSource = dt;
-            
 
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {/*
-            try
+        {
+            if (e.RowIndex >= 0)
             {
-                if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count)
-                {
-                    DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
+                string category = Convert.ToString(selectedRow.Cells["Categories"].Value);
 
-                    // Populate controls with data from the selected row
-                    if (selectedRow.Cells["Item"].Value != null)
-                        comboRice1.Text = Convert.ToString(selectedRow.Cells["Item"].Value);
-                    if (selectedRow.Cells["Type"].Value != null)
-                        comboRice2.Text = Convert.ToString(selectedRow.Cells["Type"].Value);
-                    if (selectedRow.Cells["Unit"].Value != null)
-                        comboRice3.Text = Convert.ToString(selectedRow.Cells["Unit"].Value);
-                    if (selectedRow.Cells["Quantity"].Value != null)
-                        numericUpDown22.Value = Convert.ToDecimal(selectedRow.Cells["Quantity"].Value);
+                switch (category)
+                {
+                    case "Rice":
+                        PopulateRiceControls(selectedRow);
+                        break;
+                    case "Water":
+                        PopulateWaterControls(selectedRow);
+                        break;
+                    case "Softdrinks":
+                        PopulateSoftdrinkControls(selectedRow);
+                        break;
+                    case "AlcoholDrinks":
+                        PopulateAlcoholControls(selectedRow);
+                        break;
+                    case "Can Goods":
+                        PopulateCanGoodsControls(selectedRow);
+                        break;
+                    default:
+                        // Handle other categories or do nothing
+                        break;
                 }
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }*/
-            
-            
-             if (e.RowIndex >= 0)
-             {
-                 DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-
-                 // Populate controls with data from the selected row
-                 comboRice1.Text = Convert.ToString(selectedRow.Cells["Item"].Value);
-                 comboRice3.Text = Convert.ToString(selectedRow.Cells["Unit"].Value);
-                 numericUpDown22.Value = Convert.ToDecimal(selectedRow.Cells["Quantity"].Value);
-             }
 
         }
-
-        private void btnBackk_Click(object sender, EventArgs e)
+        private void PopulateRiceControls(DataGridViewRow row)
         {
-            this.Close();
-            StartingPoint backk = new StartingPoint();
-            backk.Show();
+            comboRice1.Text = Convert.ToString(row.Cells["Item"].Value);
+            comboBox1.Text = Convert.ToString(row.Cells["Categories"].Value);
+            comboRice3.Text = Convert.ToString(row.Cells["Unit"].Value);
+            numericUpDown22.Value = Convert.ToDecimal(row.Cells["Qnty"].Value);
         }
-
+        private void PopulateWaterControls(DataGridViewRow row)
+        {
+            comboWatr1.Text = Convert.ToString(row.Cells["Item"].Value);
+            comboBox2.Text = Convert.ToString(row.Cells["Categories"].Value);
+            comboWatr3.Text = Convert.ToString(row.Cells["Unit"].Value);
+            numericUpDown1.Value = Convert.ToDecimal(row.Cells["Qnty"].Value);
+        }
+        private void PopulateSoftdrinkControls(DataGridViewRow row)
+        {
+            comboDrinks1.Text = Convert.ToString(row.Cells["Item"].Value);
+            comboRice.Text = Convert.ToString(row.Cells["Categories"].Value);
+            comboDrinks3.Text = Convert.ToString(row.Cells["Unit"].Value);
+            numericUpDown2.Value = Convert.ToDecimal(row.Cells["Qnty"].Value);
+        }
+        private void PopulateAlcoholControls(DataGridViewRow row)
+        {
+            cmbEmpe1.Text = Convert.ToString(row.Cells["Item"].Value);
+            comboEmpe.Text = Convert.ToString(row.Cells["Categories"].Value);
+            cmbEmpe3.Text = Convert.ToString(row.Cells["Unit"].Value);
+            numericUpDown3.Value = Convert.ToDecimal(row.Cells["Qnty"].Value);
+        }
+        private void PopulateCanGoodsControls(DataGridViewRow row)
+        {
+            cmbGoods1.Text = Convert.ToString(row.Cells["Item"].Value);
+            comboBox3.Text = Convert.ToString(row.Cells["Categories"].Value);
+            cmbGoods3.Text = Convert.ToString(row.Cells["Unit"].Value);
+            numericUpDown7.Value = Convert.ToDecimal(row.Cells["Qnty"].Value);
+        }
         //----GroupBox per Product----//
         private void btnAll_Click(object sender, EventArgs e)
         {
+            groupRice.Location = groupRice.Location;
+            groupWater.Location = groupWater.Location;
+            groupSoftdrinks.Location = groupSoftdrinks.Location;
+            groupAlcoholDrinks.Location = groupAlcoholDrinks.Location;
+            groupGoods.Location = groupGoods.Location;
             groupRice.Visible = true;
             groupWater.Visible = true;
             groupSoftdrinks.Visible = true;
             groupAlcoholDrinks.Visible = true;
             groupGoods.Visible = true;
-            groupBiscuits.Visible = true;
+            
         }
         private void btnrice_Click(object sender, EventArgs e)
         {
@@ -117,7 +160,7 @@ namespace store
             groupSoftdrinks.Visible = false;
             groupAlcoholDrinks.Visible = false;
             groupGoods.Visible = false;
-            groupBiscuits.Visible = false;
+          
         }
         private void btnWater_Click(object sender, EventArgs e)
         {
@@ -127,7 +170,7 @@ namespace store
             groupSoftdrinks.Visible = false;
             groupAlcoholDrinks.Visible = false;
             groupGoods.Visible = false;
-            groupBiscuits.Visible = false;
+          
         }
         private void btnSoftD_Click(object sender, EventArgs e)
         {
@@ -137,7 +180,7 @@ namespace store
             groupSoftdrinks.Visible = true;
             groupAlcoholDrinks.Visible = false;
             groupGoods.Visible = false;
-            groupBiscuits.Visible = false;
+            
         }
         private void btnAlcoholDrinks_Click(object sender, EventArgs e)
         {
@@ -147,7 +190,7 @@ namespace store
             groupSoftdrinks.Visible = false;
             groupAlcoholDrinks.Visible = true;
             groupGoods.Visible = false;
-            groupBiscuits.Visible = false;
+          
         }
         private void btnCanGoods_Click(object sender, EventArgs e)
         {
@@ -157,20 +200,9 @@ namespace store
             groupSoftdrinks.Visible = false;
             groupAlcoholDrinks.Visible = false;
             groupGoods.Visible = true;
-            groupBiscuits.Visible = false;
+          
 
         }
-        private void btnBiscuits_Click(object sender, EventArgs e)
-        {
-            groupBiscuits.Location = groupRice.Location;
-            groupRice.Visible = false;
-            groupWater.Visible = false;
-            groupSoftdrinks.Visible = false;
-            groupAlcoholDrinks.Visible = false;
-            groupGoods.Visible = false;
-            groupBiscuits.Visible = true;
-        }
-
         //----------ComboBox----------//
         private void comboRice1_Enter(object sender, EventArgs e)
         {
@@ -190,7 +222,6 @@ namespace store
                 comboRice1.ForeColor = Color.Black;
             }
         }
-
         private void comboRice3_Enter(object sender, EventArgs e)
         {
             if (comboRice3.Text == "Unit")
@@ -209,6 +240,25 @@ namespace store
                 comboRice3.ForeColor = Color.Black;
             }
         }
+        private void comboBox1_Enter(object sender, EventArgs e)
+        {
+            if (comboBox1.Text == "Categories")
+            {
+                comboBox1.Text = "";
+
+                comboBox1.ForeColor = Color.Black;
+            }
+        }
+        private void comboBox1_Leave(object sender, EventArgs e)
+        {
+            if (comboRice3.Text == "")
+            {
+                comboRice3.Text = "Categories";
+
+                comboRice3.ForeColor = Color.Black;
+            }
+        }
+
 
         private void comboWatr1_Enter(object sender, EventArgs e)
         {
@@ -228,24 +278,6 @@ namespace store
                 comboWatr1.ForeColor = Color.Black;
             }
         }
-        private void comboWatr2_Enter(object sender, EventArgs e)
-        {
-            if (comboWatr2.Text == "Type")
-            {
-                comboWatr2.Text = "";
-
-                comboWatr2.ForeColor = Color.Black;
-            }
-        }
-        private void comboWatr2_Leave(object sender, EventArgs e)
-        {
-            if (comboWatr2.Text == "")
-            {
-                comboWatr2.Text = "Type";
-
-                comboWatr2.ForeColor = Color.Black;
-            }
-        }
         private void comboWatr3_Enter(object sender, EventArgs e)
         {
             if (comboWatr3.Text == "Unit")
@@ -262,6 +294,24 @@ namespace store
                 comboWatr3.Text = "Unit";
 
                 comboWatr3.ForeColor = Color.Black;
+            }
+        }
+        private void comboBox2_Enter(object sender, EventArgs e)
+        {
+            if (comboBox2.Text == "Categories")
+            {
+                comboBox2.Text = "";
+
+                comboBox2.ForeColor = Color.Black;
+            }
+        }
+        private void comboBox2_Leave(object sender, EventArgs e)
+        {
+            if (comboBox2.Text == "")
+            {
+                comboBox2.Text = "Categories";
+
+                comboBox2.ForeColor = Color.Black;
             }
         }
 
@@ -283,24 +333,6 @@ namespace store
                 comboDrinks1.ForeColor = Color.Black;
             }
         }
-        private void comboDrinks2_Enter(object sender, EventArgs e)
-        {
-            if (comboDrinks2.Text == "Type")
-            {
-                comboDrinks2.Text = "";
-
-                comboDrinks2.ForeColor = Color.Black;
-            }
-        }
-        private void comboDrinks2_Leave(object sender, EventArgs e)
-        {
-            if (comboDrinks2.Text == "")
-            {
-                comboDrinks2.Text = "Type";
-
-                comboDrinks2.ForeColor = Color.Black;
-            }
-        }
         private void comboDrinks3_Enter(object sender, EventArgs e)
         {
             if (comboDrinks3.Text == "Unit")
@@ -315,6 +347,24 @@ namespace store
             if (comboDrinks3.Text == "")
             {
                 comboDrinks3.Text = "Unit";
+
+                comboDrinks3.ForeColor = Color.Black;
+            }
+        }
+        private void comboRice_Enter(object sender, EventArgs e)
+        {
+            if (comboRice.Text == "Categories")
+            {
+                comboRice.Text = "";
+
+                comboDrinks3.ForeColor = Color.Black;
+            }
+        }
+        private void comboRice_Leave(object sender, EventArgs e)
+        {
+            if (comboDrinks3.Text == "")
+            {
+                comboDrinks3.Text = "Categories";
 
                 comboDrinks3.ForeColor = Color.Black;
             }
@@ -338,24 +388,6 @@ namespace store
                 cmbEmpe1.ForeColor = Color.Black;
             }
         }
-        private void cmbEmpe2_Enter(object sender, EventArgs e)
-        {
-            if (cmbEmpe2.Text == "Type")
-            {
-                cmbEmpe2.Text = "";
-
-                cmbEmpe2.ForeColor = Color.Black;
-            }
-        }
-        private void cmbEmpe2_Leave(object sender, EventArgs e)
-        {
-            if (cmbEmpe2.Text == "")
-            {
-                cmbEmpe2.Text = "Type";
-
-                cmbEmpe2.ForeColor = Color.Black;
-            }
-        }
         private void cmbEmpe3_Enter(object sender, EventArgs e)
         {
             if (cmbEmpe3.Text == "Unit")
@@ -374,59 +406,22 @@ namespace store
                 cmbEmpe3.ForeColor = Color.Black;
             }
         }
-
-        private void cmbRedHorse1_Enter(object sender, EventArgs e)
+        private void comboEmpe_Enter(object sender, EventArgs e)
         {
-            if (cmbRedHorse1.Text == "Item")
+            if (comboEmpe.Text == "Categories")
             {
-                cmbRedHorse1.Text = "";
+                comboEmpe.Text = "";
 
-                cmbRedHorse1.ForeColor = Color.Black;
-            }
-        }//-----RedHorse
-        private void cmbRedHorse1_Leave(object sender, EventArgs e)
-        {
-            if (cmbRedHorse1.Text == "")
-            {
-                cmbRedHorse1.Text = "Item";
-
-                cmbRedHorse1.ForeColor = Color.Black;
+                comboEmpe.ForeColor = Color.Black;
             }
         }
-        private void cmbRedHorse2_Enter(object sender, EventArgs e)
+        private void comboEmpe_Leave(object sender, EventArgs e)
         {
-            if (cmbRedHorse2.Text == "Type")
+            if (cmbEmpe3.Text == "")
             {
-                cmbRedHorse2.Text = "";
+                cmbEmpe3.Text = "Categories";
 
-                cmbRedHorse2.ForeColor = Color.Black;
-            }
-        }
-        private void cmbRedHorse2_Leave(object sender, EventArgs e)
-        {
-            if (cmbRedHorse2.Text == "")
-            {
-                cmbRedHorse2.Text = "Type";
-
-                cmbRedHorse2.ForeColor = Color.Black;
-            }
-        }
-        private void cmbRedHorse3_Enter(object sender, EventArgs e)
-        {
-            if (cmbRedHorse3.Text == "Unit")
-            {
-                cmbRedHorse3.Text = "";
-
-                cmbRedHorse3.ForeColor = Color.Black;
-            }
-        }
-        private void cmbRedHorse3_Leave(object sender, EventArgs e)
-        {
-            if (cmbRedHorse3.Text == "")
-            {
-                cmbRedHorse3.Text = "Unit";
-
-                cmbRedHorse3.ForeColor = Color.Black;
+                cmbEmpe3.ForeColor = Color.Black;
             }
         }
 
@@ -448,24 +443,6 @@ namespace store
                 cmbGoods1.ForeColor = Color.Black;
             }
         }
-        private void cmbGoods2_Enter(object sender, EventArgs e)
-        {
-            if (cmbGoods2.Text == "Type")
-            {
-                cmbGoods2.Text = "";
-
-                cmbGoods2.ForeColor = Color.Black;
-            }
-        }
-        private void cmbGoods2_Leave(object sender, EventArgs e)
-        {
-            if (cmbGoods2.Text == "")
-            {
-                cmbGoods2.Text = "Type";
-
-                cmbGoods2.ForeColor = Color.Black;
-            }
-        }
         private void cmbGoods3_Enter(object sender, EventArgs e)
         {
             if (cmbGoods3.Text == "Unit")
@@ -484,360 +461,728 @@ namespace store
                 cmbGoods3.ForeColor = Color.Black;
             }
         }
-
-        private void cmbBiscuits1_Enter(object sender, EventArgs e)
+        private void comboBox3_Enter(object sender, EventArgs e)
         {
-            if (cmbBiscuits1.Text == "Item")
+            if (comboBox3.Text == "Categories")
             {
-                cmbBiscuits1.Text = "";
+                comboBox3.Text = "";
 
-                cmbBiscuits1.ForeColor = Color.Black;
-            }
-        }//-----Biscuits
-        private void cmbBiscuits1_Leave(object sender, EventArgs e)
-        {
-            if (cmbBiscuits1.Text == "")
-            {
-                cmbBiscuits1.Text = "Item";
-
-                cmbBiscuits1.ForeColor = Color.Black;
+                comboBox3.ForeColor = Color.Black;
             }
         }
-        private void cmbBiscuits2_Enter(object sender, EventArgs e)
+        private void comboBox3_Leave(object sender, EventArgs e)
         {
-            if (cmbBiscuits2.Text == "Type")
+            if (comboBox3.Text == "")
             {
-                cmbBiscuits2.Text = "";
+                comboBox3.Text = "Categories";
 
-                cmbBiscuits2.ForeColor = Color.Black;
+                comboBox3.ForeColor = Color.Black;
             }
         }
-        private void cmbBiscuits2_Leave(object sender, EventArgs e)
-        {
-            if (cmbBiscuits2.Text == "")
-            {
-                cmbBiscuits2.Text = "Type";
-
-                cmbBiscuits2.ForeColor = Color.Black;
-            }
-        }
-        private void cmbBiscuits3_Enter(object sender, EventArgs e)
-        {
-            if (cmbBiscuits3.Text == "Unit")
-            {
-                cmbBiscuits3.Text = "";
-
-                cmbBiscuits3.ForeColor = Color.Black;
-            }
-        }
-        private void cmbBiscuits3_Leave(object sender, EventArgs e)
-        {
-            if (cmbBiscuits3.Text == "")
-            {
-                cmbBiscuits3.Text = "Unit";
-
-                cmbBiscuits3.ForeColor = Color.Black;
-            }
-        }
-
 
         //---------Add Buttons--------////
-        private double CalculateSellingPrice(string item, string unit /*, string type, int quantity*/)
+       /* private double GetSellingPrice(string product)
         {
+            double sellingPrice = 0;
+            // Connect to the database and retrieve the selling price of the selected product
+            string connectionString = "Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\oop2.mdb";
+             string query = "SELECT SellingPrice FROM [tblProducts] WHERE Item = @Item";
 
-            decimal price = 0.00m;
-
-            // Fetch selling price from the database based on item and unit
-            string query = "SELECT SellingPrice FROM Sold WHERE Item = @Item AND Unit = @Unit";
-
-            //decimal sellingPrice = CalculateSellingPrice(selectedItem, selectedType);
-
-            using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\LOG_in.mdb"))
+            using (OleDbConnection myConn = new OleDbConnection(connectionString))
             {
-                using (OleDbCommand cmd = new OleDbCommand(query, connection))
+                using (OleDbCommand cmd = new OleDbCommand(query, myConn))
                 {
-                    cmd.Parameters.AddWithValue("@Item", item);
-                    cmd.Parameters.AddWithValue("@Unit", unit);
-                    // cmd.Parameters.AddWithValue("@Type", type);
-                    //  cmd.Parameters.AddWithValue("@Quantity", quantity);
-
-                    try
+                    cmd.Parameters.AddWithValue("Item", product);
+                    myConn.Open();
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
                     {
-                        connection.Open();
-                        using (OleDbDataReader reader = cmd.ExecuteReader())
-                        {
-                            if (reader.Read())
-                            {
-                                price = reader.GetDecimal(0); // Assuming price is stored in the first column
-                            }
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        // Handle exceptions here
-                        Console.WriteLine("Error fetching price from database: " + ex.Message);
-                    }
-                    finally
-                    {
-                        connection.Close(); // Ensure connection is closed regardless of success or failure
+                        sellingPrice = Convert.ToDouble(result);
                     }
                 }
             }
-
-            return (double) price;
-
-
-        }
-        
+            return sellingPrice;
+        }*/
         private void RefreshDataGridView()
         {
-            
-            try
-            {
-                dataTable.Clear();
+            dataGridView1.DataSource = null;
 
-                // Construct the base query
-                string query = "SELECT * FROM Sold";
-
-                // Execute the query and populate the DataTable
-                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\LOG_in.mdb"))
-                {
-                    using (OleDbDataAdapter adapter = new OleDbDataAdapter(query, connection))
-                    {
-                        adapter.Fill(dataTable);
-                        dataGridView1.DataSource = dataTable;
-                    }
-                }
-            }
-            catch (OleDbException ex)
-            {
-                System.Windows.Forms.MessageBox.Show("Error fetching data from the database: " + ex.Message);
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show("Error: " + ex.Message);
-            }
-            
-
+            // Rebind the DataGridView to your data source
+            string query = "SELECT * FROM QryOrder"; // Assuming tblEmp is your table name
+            OleDbDataAdapter adapter = new OleDbDataAdapter(query, myConn);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            dataGridView1.DataSource = dt;
         }
-
-         private DataTable dataTable = new DataTable();
-        // private DataTable dataTable;
-        private double calculatedMarkUp(string selectedItem, string unit, double sellingPrice, decimal quantity)
-        {
-            double markup = 0;
-            if( selectedItem.Equals("Ganador"))
-            {
-                if(unit.Equals("Sack"))
-                {
-                  markup = sellingPrice - 330;
-                }
-                else if(unit.Equals("Kilo"))
-                {
-                    markup = sellingPrice - 69;
-                }
-            }
-            return markup;
-        }
-
         private void btnAdd1_Click(object sender, EventArgs e)
         {
-            
             try
             {
+                double TotalPayment = 0;
+                double TotalPrice = 0;
                 string selectedItem = comboRice1.Text;
-                string unit = comboRice3.Text;
-                decimal quantity = numericUpDown22.Value;
+                string selectedCategories = comboBox1.Text;
+                double sellingPrice = 0; // Initialize sellingPrice
+                double quantity = Convert.ToDouble(numericUpDown22.Value); // Convert quantity to double
 
-
-                Console.WriteLine("Selected Item: " + selectedItem);
-                Console.WriteLine("Quantity: " + quantity);
-
-                // Calculate the original price based on selectedItem
-                double sellingPrice = CalculateSellingPrice(selectedItem, comboRice3.Text);
-
-                Console.WriteLine("SellingPrice: " + sellingPrice);
-                double markup = calculatedMarkUp(selectedItem, unit,sellingPrice, quantity);
-
-
-
-                // Calculate total cost
-                double totalCost = sellingPrice * (int)quantity;
-                Console.WriteLine("TotalPrice: " + totalCost);
-                if (selectedItem == "Ganador" || selectedItem == "Lion Ivory" )
+                // Fetch the selling price from tblProducts
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb"))
                 {
-                    // Check if the selected type in comboBox4 is "Corn"
-                    
+                    connection.Open();
+                    OleDbCommand cmdFetchPrice = new OleDbCommand("SELECT SellingPrice FROM tblProducts WHERE Item = @Item", connection);
+                    cmdFetchPrice.Parameters.AddWithValue("@Item", selectedItem);
+                    object result = cmdFetchPrice.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        sellingPrice = Convert.ToDouble(result);
+                    }
+                    else
+                    {
+                        // Handle the case where the selling price is not found
+                        System.Windows.Forms.MessageBox.Show("Selling price for the selected item not found.");
+                        return;
+                    }
                 }
 
-                // Continue with adding the product to the cart
-                string query = "INSERT INTO Sold (Item, Type, Unit, Quantity, SellingPrice, MarkUp, ItemSold) VALUES (@Item, @Type, @Unit, @Quantity, @SellingPrice,@MarkUp, @ItemSold)";
-                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\LOG_in.mdb"))
+                TotalPrice = sellingPrice * quantity;
+                TotalPayment += TotalPrice;
+                User.Text = TotalPayment.ToString();
+
+                string query = "INSERT INTO QryOrder (Item, Unit, Qnty, Categories, SellingPrice, TotalPrice) VALUES (@Item, @Unit, @Qnty, @Categories, @SellingPrice, @TotalPrice)";
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb"))
                 {
+                    connection.Open();
                     using (OleDbCommand cmd = new OleDbCommand(query, connection))
                     {
-                        // TODO
-                        connection.Open();
-
-                        Console.WriteLine("Connection open.");
-
-                        // Set parameters
-                        Console.WriteLine("Selected Item:" + selectedItem);
-
+                        // Set parameters for inserting into QryOrder table
                         cmd.Parameters.AddWithValue("@Item", selectedItem);
-                        Console.WriteLine("Selected Item:" + selectedItem);
-
                         cmd.Parameters.AddWithValue("@Unit", comboRice3.Text);
-                        Console.WriteLine("Selected Unit:" + comboRice3.Text);
-
-                        cmd.Parameters.AddWithValue("@Quantity", quantity);
-                        Console.WriteLine("Selected Quantity:" + quantity);
+                        cmd.Parameters.AddWithValue("@Qnty", numericUpDown22.Value);
+                        cmd.Parameters.AddWithValue("@Categories", selectedCategories);
                         cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
-                        Console.WriteLine("Selected SellingPrice:" + sellingPrice);// Use correct parameter name
-                        cmd.Parameters.AddWithValue("@OrigPrice", 0);
-                        cmd.Parameters.AddWithValue("@MarkUp", markup);
-                       
-                        
+                        cmd.Parameters.AddWithValue("@TotalPrice", TotalPrice);
+
                         // Execute the query
                         cmd.ExecuteNonQuery();
                     }
                 }
 
-                // Refresh DataGridView after adding the product
-                //RefreshDataGridView();
+                if (selectedItem == "Ganador" || selectedItem == "Lion Ivory")
+                {
+                    if (selectedCategories == "Water" || selectedCategories == "SoftDrinks" || selectedCategories == "AlcoholDrinks" || selectedCategories == "CanGoods" || selectedCategories == "Biscuits")
+                    {
+                        System.Windows.Forms.MessageBox.Show("Invalid input!");
+                        return;
+                    }
+                }
+
+
+                // Assuming dataGridView1 is bound to a DataTable named "dataTable"
+                if (dataTable != null)
+                {
+                    DataRow newRow = dataTable.NewRow();
+                    // Create a new row for the DataTable
+                    if (!dataTable.Columns.Contains("Item"))
+                    {
+                        dataTable.Columns.Add("Item", typeof(string));
+                    }
+                    newRow["Item"] = selectedItem;
+                    if (!dataTable.Columns.Contains("Unit"))
+                    {
+                        dataTable.Columns.Add("Unit", typeof(string));
+                    }
+                    newRow["Unit"] = comboRice3.Text;
+                    if (!dataTable.Columns.Contains("Qnty"))
+                    {
+                        dataTable.Columns.Add("Qnty", typeof(string));
+                    }
+                    newRow["Qnty"] = numericUpDown22.Value;
+                    if (!dataTable.Columns.Contains("Categories"))
+                    {
+                        dataTable.Columns.Add("Categories", typeof(string));
+                    }
+                    newRow["Categories"] = selectedCategories;
+                    // Fix the column name here
+                    if (!dataTable.Columns.Contains("SellingPrice"))
+                    {
+                        dataTable.Columns.Add("SellingPrice", typeof(string));
+                    }
+                    newRow["SellingPrice"] = sellingPrice;
+                    if (!dataTable.Columns.Contains("TotalPrice"))
+                    {
+                        dataTable.Columns.Add("TotalPrice", typeof(string));
+                    }
+                    newRow["TotalPrice"] = TotalPrice;
+                    dataTable.Rows.Add(newRow);
+                }
+                RefreshDataGridView();
+        
+                    System.Windows.Forms.MessageBox.Show("Product added to cart successfully.");
             }
             catch (OleDbException ex)
             {
                 System.Windows.Forms.MessageBox.Show("Error: " + ex.Message);
             }
-            
-            /*
-            try
-            {
-                string selectedItem = comboRice1.Text;
-                string selectedType = comboRice2.Text;
-                string selectedUnit = comboRice3.Text; // Added selected unit
-                decimal quantity = numericUpDown22.Value;
-
-                // Calculate the original price based on selectedItem
-                decimal sellingPrice = CalculateSellingPrice(selectedItem, selectedUnit);
-
-                // Calculate total cost
-                decimal totalCost = sellingPrice * quantity;
-
-                // Add a new row directly to the DataTable
-                DataRow newRow = dataTable.NewRow();
-                newRow["Item"] = selectedItem;
-                newRow["Type"] = selectedType;
-                newRow["Quantity"] = quantity;
-                newRow["Unit"] = selectedUnit; // Assign the selected unit
-                newRow["SellingPrice"] = sellingPrice;
-                newRow["TotalPrice"] = totalCost;
-                dataTable.Rows.Add(newRow);
-
-                // Refresh the DataGridView to reflect the changes
-                dataGridView1.DataSource = null; // Clear the DataSource
-
-                dataGridView1.DataSource = dataTable; // Rebind the DataTable to DataGridView
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }*/
-
-
-            /*
-            try
-            {
-                string selectedItem = comboRice1.Text;
-                string selectedType = comboRice2.Text;
-                decimal quantity = numericUpDown22.Value;
-
-                // Calculate the original price based on selectedItem
-                decimal sellingPrice = CalculateSellingPrice(selectedItem, comboRice3.Text);
-
-                // Calculate total cost
-                decimal totalCost = sellingPrice * quantity;
-
-                // Check if the columns are present in the DataTable, if not, add them
-                if (!dataTable.Columns.Contains("Item"))
-                    dataTable.Columns.Add("Item", typeof(string));
-
-                if (!dataTable.Columns.Contains("Type"))
-                    dataTable.Columns.Add("Type", typeof(string));
-
-                if (!dataTable.Columns.Contains("Quantity"))
-                    dataTable.Columns.Add("Quantity", typeof(decimal));
-
-                if (!dataTable.Columns.Contains("Unit"))
-                    dataTable.Columns.Add("Unit", typeof(string));
-
-                if (!dataTable.Columns.Contains("SellingPrice"))
-                    dataTable.Columns.Add("SellingPrice", typeof(decimal));
-
-                if (!dataTable.Columns.Contains("TotalPrice"))
-                    dataTable.Columns.Add("TotalPrice", typeof(decimal));
-
-                // Your other conditional checks and operations...
-
-                // Add a new row directly to the DataTable
-                DataRow newRow = dataTable.NewRow();
-                newRow["Item"] = selectedItem;
-                newRow["Type"] = selectedType;
-                newRow["Quantity"] = quantity;
-                newRow["Unit"] = comboRice3.Text;
-                newRow["SellingPrice"] = sellingPrice;
-                newRow["TotalPrice"] = totalCost;
-                dataTable.Rows.Add(newRow);
-
-                // Refresh the DataGridView to reflect the changes
-                dataGridView1.Refresh();
-
-                // Clear input controls
-                comboRice1.Text = "";
-                comboRice2.Text = "";
-                comboRice3.Text = "";
-                numericUpDown22.Value = 0;
-                RefreshDataGridView();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-            */
         }
-
-
         private void btnAdd2_Click(object sender, EventArgs e)
         {
+            try
+            {
+                double TotalPayment = 0;
+                double TotalPrice = 0;
+                string selectedItem = comboWatr1.Text;
+                string selectedCategories = comboBox1.Text;
+                double sellingPrice = 0; // Initialize sellingPrice
+                double quantity = Convert.ToDouble(numericUpDown1.Value); // Convert quantity to double
 
+                // Fetch the selling price from tblProducts
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb"))
+                {
+                    connection.Open();
+                    OleDbCommand cmdFetchPrice = new OleDbCommand("SELECT SellingPrice FROM tblProducts WHERE Item = @Item", connection);
+                    cmdFetchPrice.Parameters.AddWithValue("@Item", selectedItem);
+                    object result = cmdFetchPrice.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        sellingPrice = Convert.ToDouble(result);
+                    }
+                    else
+                    {
+                        // Handle the case where the selling price is not found
+                        System.Windows.Forms.MessageBox.Show("Selling price for the selected item not found.");
+                        return;
+                    }
+                }
+
+                TotalPrice = sellingPrice * quantity;
+                TotalPayment += TotalPrice;
+                User.Text = TotalPayment.ToString();
+
+                string query = "INSERT INTO QryOrder (Item, Unit, Qnty, Categories, SellingPrice, TotalPrice) VALUES (@Item, @Unit, @Qnty, @Categories, @SellingPrice, @TotalPrice)";
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb"))
+                {
+                    connection.Open();
+                    using (OleDbCommand cmd = new OleDbCommand(query, connection))
+                    {
+                        // Set parameters for inserting into QryOrder table
+                        cmd.Parameters.AddWithValue("@Item", selectedItem);
+                        cmd.Parameters.AddWithValue("@Unit", comboWatr3.Text);
+                        cmd.Parameters.AddWithValue("@Qnty", numericUpDown1.Value);
+                        cmd.Parameters.AddWithValue("@Categories", selectedCategories);
+                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
+                        cmd.Parameters.AddWithValue("@TotalPrice", TotalPrice);
+
+                        // Execute the query
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                if (selectedItem == "Mineral Water(litters)" || selectedItem == "Bottled Water(ml)")
+                {
+                    if (selectedCategories == "Rice" || selectedCategories == "SoftDrinks" || selectedCategories == "AlcoholDrinks" || selectedCategories == "CanGoods" || selectedCategories == "Biscuits")
+                    {
+                        System.Windows.Forms.MessageBox.Show("Invalid input!");
+                        return;
+                    }
+                }
+
+
+                // Assuming dataGridView1 is bound to a DataTable named "dataTable"
+                if (dataTable != null)
+                {
+                    DataRow newRow = dataTable.NewRow();
+                    // Create a new row for the DataTable
+                    if (!dataTable.Columns.Contains("Item"))
+                    {
+                        dataTable.Columns.Add("Item", typeof(string));
+                    }
+                    newRow["Item"] = selectedItem;
+                    if (!dataTable.Columns.Contains("Unit"))
+                    {
+                        dataTable.Columns.Add("Unit", typeof(string));
+                    }
+                    newRow["Unit"] = comboWatr3.Text;
+                    if (!dataTable.Columns.Contains("Qnty"))
+                    {
+                        dataTable.Columns.Add("Qnty", typeof(string));
+                    }
+                    newRow["Qnty"] = numericUpDown1.Value;
+                    if (!dataTable.Columns.Contains("Categories"))
+                    {
+                        dataTable.Columns.Add("Categories", typeof(string));
+                    }
+                    newRow["Categories"] = selectedCategories;
+                    // Fix the column name here
+                    if (!dataTable.Columns.Contains("SellingPrice"))
+                    {
+                        dataTable.Columns.Add("SellingPrice", typeof(string));
+                    }
+                    newRow["SellingPrice"] = sellingPrice;
+                    if (!dataTable.Columns.Contains("TotalPrice"))
+                    {
+                        dataTable.Columns.Add("TotalPrice", typeof(string));
+                    }
+                    newRow["TotalPrice"] = TotalPrice;
+                    dataTable.Rows.Add(newRow);
+                }
+                RefreshDataGridView();
+
+                System.Windows.Forms.MessageBox.Show("Product added to cart successfully.");
+            }
+            catch (OleDbException ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Error: " + ex.Message);
+            }
         }
-
         private void btnAdd3_Click(object sender, EventArgs e)
         {
+            try
+            {
+                double TotalPayment = 0;
+                double TotalPrice = 0;
+                string selectedItem = comboDrinks1.Text;
+                string selectedCategories = comboRice.Text;
+                double sellingPrice = 0; // Initialize sellingPrice
+                double quantity = Convert.ToDouble(numericUpDown2.Value); // Convert quantity to double
 
+                // Fetch the selling price from tblProducts
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb"))
+                {
+                    connection.Open();
+                    OleDbCommand cmdFetchPrice = new OleDbCommand("SELECT SellingPrice FROM tblProducts WHERE Item = @Item", connection);
+                    cmdFetchPrice.Parameters.AddWithValue("@Item", selectedItem);
+                    object result = cmdFetchPrice.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        sellingPrice = Convert.ToDouble(result);
+                    }
+                    else
+                    {
+                        // Handle the case where the selling price is not found
+                        System.Windows.Forms.MessageBox.Show("Selling price for the selected item not found.");
+                        return;
+                    }
+                }
+
+                TotalPrice = sellingPrice * quantity;
+                TotalPayment += TotalPrice;
+                User.Text = TotalPayment.ToString();
+
+                string query = "INSERT INTO QryOrder (Item, Unit, Qnty, Categories, SellingPrice, TotalPrice) VALUES (@Item, @Unit, @Qnty, @Categories, @SellingPrice, @TotalPrice)";
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb"))
+                {
+                    connection.Open();
+                    using (OleDbCommand cmd = new OleDbCommand(query, connection))
+                    {
+                        // Set parameters for inserting into QryOrder table
+                        cmd.Parameters.AddWithValue("@Item", selectedItem);
+                        cmd.Parameters.AddWithValue("@Unit", comboDrinks3.Text);
+                        cmd.Parameters.AddWithValue("@Qnty", numericUpDown2.Value);
+                        cmd.Parameters.AddWithValue("@Categories", selectedCategories);
+                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
+                        cmd.Parameters.AddWithValue("@TotalPrice", TotalPrice);
+
+                        // Execute the query
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                if (selectedItem == "Coke" || selectedItem == "Sprite")
+                {
+                    if (selectedCategories == "Rice" || selectedCategories == "Water" || selectedCategories == "AlcoholDrinks" || selectedCategories == "CanGoods" || selectedCategories == "Biscuits")
+                    {
+                        System.Windows.Forms.MessageBox.Show("Invalid input!");
+                        return;
+                    }
+                }
+
+
+                // Assuming dataGridView1 is bound to a DataTable named "dataTable"
+                if (dataTable != null)
+                {
+                    DataRow newRow = dataTable.NewRow();
+                    // Create a new row for the DataTable
+                    if (!dataTable.Columns.Contains("Item"))
+                    {
+                        dataTable.Columns.Add("Item", typeof(string));
+                    }
+                    newRow["Item"] = selectedItem;
+                    if (!dataTable.Columns.Contains("Unit"))
+                    {
+                        dataTable.Columns.Add("Unit", typeof(string));
+                    }
+                    newRow["Unit"] = comboDrinks3.Text;
+                    if (!dataTable.Columns.Contains("Qnty"))
+                    {
+                        dataTable.Columns.Add("Qnty", typeof(string));
+                    }
+                    newRow["Qnty"] = numericUpDown2.Value;
+                    if (!dataTable.Columns.Contains("Categories"))
+                    {
+                        dataTable.Columns.Add("Categories", typeof(string));
+                    }
+                    newRow["Categories"] = selectedCategories;
+                    // Fix the column name here
+                    if (!dataTable.Columns.Contains("SellingPrice"))
+                    {
+                        dataTable.Columns.Add("SellingPrice", typeof(string));
+                    }
+                    newRow["SellingPrice"] = sellingPrice;
+                    if (!dataTable.Columns.Contains("TotalPrice"))
+                    {
+                        dataTable.Columns.Add("TotalPrice", typeof(string));
+                    }
+                    newRow["TotalPrice"] = TotalPrice;
+                    dataTable.Rows.Add(newRow);
+                }
+                RefreshDataGridView();
+
+                System.Windows.Forms.MessageBox.Show("Product added to cart successfully.");
+            }
+            catch (OleDbException ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Error: " + ex.Message);
+            }
         }
-
         private void btnAdd4_Click(object sender, EventArgs e)
         {
+            try
+            {
+                double TotalPayment = 0;
+                double TotalPrice = 0;
+                string selectedItem = cmbEmpe1.Text;
+                string selectedCategories = comboEmpe.Text;
+                double sellingPrice = 0; // Initialize sellingPrice
+                double quantity = Convert.ToDouble(numericUpDown3.Value); // Convert quantity to double
 
+                // Fetch the selling price from tblProducts
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb"))
+                {
+                    connection.Open();
+                    OleDbCommand cmdFetchPrice = new OleDbCommand("SELECT SellingPrice FROM tblProducts WHERE Item = @Item", connection);
+                    cmdFetchPrice.Parameters.AddWithValue("@Item", selectedItem);
+                    object result = cmdFetchPrice.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        sellingPrice = Convert.ToDouble(result);
+                    }
+                    else
+                    {
+                        // Handle the case where the selling price is not found
+                        System.Windows.Forms.MessageBox.Show("Selling price for the selected item not found.");
+                        return;
+                    }
+                }
+
+                TotalPrice = sellingPrice * quantity;
+                TotalPayment += TotalPrice;
+                User.Text = TotalPayment.ToString();
+
+                string query = "INSERT INTO QryOrder (Item, Unit, Qnty, Categories, SellingPrice, TotalPrice) VALUES (@Item, @Unit, @Qnty, @Categories, @SellingPrice, @TotalPrice)";
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb"))
+                {
+                    connection.Open();
+                    using (OleDbCommand cmd = new OleDbCommand(query, connection))
+                    {
+                        // Set parameters for inserting into QryOrder table
+                        cmd.Parameters.AddWithValue("@Item", selectedItem);
+                        cmd.Parameters.AddWithValue("@Unit", cmbEmpe3.Text);
+                        cmd.Parameters.AddWithValue("@Qnty", numericUpDown3.Value);
+                        cmd.Parameters.AddWithValue("@Categories", selectedCategories);
+                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
+                        cmd.Parameters.AddWithValue("@TotalPrice", TotalPrice);
+
+                        // Execute the query
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                if (selectedItem == "Emperador Light" || selectedItem == "Emperador Deluxe") 
+                {
+                    if (selectedCategories == "Rice" || selectedCategories == "Water" || selectedCategories == "SoftDrinks" || selectedCategories == "CanGoods" || selectedCategories == "Biscuits")
+                    {
+                        System.Windows.Forms.MessageBox.Show("Invalid input!");
+                        return;
+                    }
+                }
+
+
+                // Assuming dataGridView1 is bound to a DataTable named "dataTable"
+                if (dataTable != null)
+                {
+                    DataRow newRow = dataTable.NewRow();
+                    // Create a new row for the DataTable
+                    if (!dataTable.Columns.Contains("Item"))
+                    {
+                        dataTable.Columns.Add("Item", typeof(string));
+                    }
+                    newRow["Item"] = selectedItem;
+                    if (!dataTable.Columns.Contains("Unit"))
+                    {
+                        dataTable.Columns.Add("Unit", typeof(string));
+                    }
+                    newRow["Unit"] = cmbEmpe3.Text;
+                    if (!dataTable.Columns.Contains("Qnty"))
+                    {
+                        dataTable.Columns.Add("Qnty", typeof(string));
+                    }
+                    newRow["Qnty"] = numericUpDown3.Value;
+                    if (!dataTable.Columns.Contains("Categories"))
+                    {
+                        dataTable.Columns.Add("Categories", typeof(string));
+                    }
+                    newRow["Categories"] = selectedCategories;
+                    // Fix the column name here
+                    if (!dataTable.Columns.Contains("SellingPrice"))
+                    {
+                        dataTable.Columns.Add("SellingPrice", typeof(string));
+                    }
+                    newRow["SellingPrice"] = sellingPrice;
+                    if (!dataTable.Columns.Contains("TotalPrice"))
+                    {
+                        dataTable.Columns.Add("TotalPrice", typeof(string));
+                    }
+                    newRow["TotalPrice"] = TotalPrice;
+                    dataTable.Rows.Add(newRow);
+                }
+                RefreshDataGridView();
+
+                System.Windows.Forms.MessageBox.Show("Product added to cart successfully.");
+            }
+            catch (OleDbException ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Error: " + ex.Message);
+            }
         }
-
-        private void btnAdd5_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnAdd6_Click(object sender, EventArgs e)
         {
+            try
+            {
+                double TotalPayment = 0;
+                double TotalPrice = 0;
+                string selectedItem = cmbGoods1.Text;
+                string selectedCategories = comboBox3.Text;
+                double sellingPrice = 0; // Initialize sellingPrice
+                double quantity = Convert.ToDouble(numericUpDown3.Value); // Convert quantity to double
 
+                // Fetch the selling price from tblProducts
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb"))
+                {
+                    connection.Open();
+                    OleDbCommand cmdFetchPrice = new OleDbCommand("SELECT SellingPrice FROM tblProducts WHERE Item = @Item", connection);
+                    cmdFetchPrice.Parameters.AddWithValue("@Item", selectedItem);
+                    object result = cmdFetchPrice.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        sellingPrice = Convert.ToDouble(result);
+                    }
+                    else
+                    {
+                        // Handle the case where the selling price is not found
+                        System.Windows.Forms.MessageBox.Show("Selling price for the selected item not found.");
+                        return;
+                    }
+                }
+
+                TotalPrice = sellingPrice * quantity;
+                TotalPayment += TotalPrice;
+                User.Text = TotalPayment.ToString();
+
+                string query = "INSERT INTO QryOrder (Item, Unit, Qnty, Categories, SellingPrice, TotalPrice) VALUES (@Item, @Unit, @Qnty, @Categories, @SellingPrice, @TotalPrice)";
+                using (OleDbConnection connection = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb"))
+                {
+                    connection.Open();
+                    using (OleDbCommand cmd = new OleDbCommand(query, connection))
+                    {
+                        // Set parameters for inserting into QryOrder table
+                        cmd.Parameters.AddWithValue("@Item", selectedItem);
+                        cmd.Parameters.AddWithValue("@Unit", cmbGoods3.Text);
+                        cmd.Parameters.AddWithValue("@Qnty", numericUpDown7.Value);
+                        cmd.Parameters.AddWithValue("@Categories", selectedCategories);
+                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
+                        cmd.Parameters.AddWithValue("@TotalPrice", TotalPrice);
+
+                        // Execute the query
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                if (selectedItem == "Emperador Light" || selectedItem == "Emperador Deluxe")
+                {
+                    if (selectedCategories == "Rice" || selectedCategories == "Water" || selectedCategories == "SoftDrinks" || selectedCategories == "CanGoods" || selectedCategories == "Biscuits")
+                    {
+                        System.Windows.Forms.MessageBox.Show("Invalid input!");
+                        return;
+                    }
+                }
+
+
+                // Assuming dataGridView1 is bound to a DataTable named "dataTable"
+                if (dataTable != null)
+                {
+                    DataRow newRow = dataTable.NewRow();
+                    // Create a new row for the DataTable
+                    if (!dataTable.Columns.Contains("Item"))
+                    {
+                        dataTable.Columns.Add("Item", typeof(string));
+                    }
+                    newRow["Item"] = selectedItem;
+                    if (!dataTable.Columns.Contains("Unit"))
+                    {
+                        dataTable.Columns.Add("Unit", typeof(string));
+                    }
+                    newRow["Unit"] = cmbGoods3.Text;
+                    if (!dataTable.Columns.Contains("Qnty"))
+                    {
+                        dataTable.Columns.Add("Qnty", typeof(string));
+                    }
+                    newRow["Qnty"] = numericUpDown7.Value;
+                    if (!dataTable.Columns.Contains("Categories"))
+                    {
+                        dataTable.Columns.Add("Categories", typeof(string));
+                    }
+                    newRow["Categories"] = selectedCategories;
+                    // Fix the column name here
+                    if (!dataTable.Columns.Contains("SellingPrice"))
+                    {
+                        dataTable.Columns.Add("SellingPrice", typeof(string));
+                    }
+                    newRow["SellingPrice"] = sellingPrice;
+                    if (!dataTable.Columns.Contains("TotalPrice"))
+                    {
+                        dataTable.Columns.Add("TotalPrice", typeof(string));
+                    }
+                    newRow["TotalPrice"] = TotalPrice;
+                    dataTable.Rows.Add(newRow);
+                }
+                RefreshDataGridView();
+
+                System.Windows.Forms.MessageBox.Show("Product added to cart successfully.");
+            }
+            catch (OleDbException ex)
+            {
+                System.Windows.Forms.MessageBox.Show("Error: " + ex.Message);
+            }
         }
-
-        private void btnAdd7_Click(object sender, EventArgs e)
+        private void groupRice_Enter(object sender, EventArgs e)
         {
 
         }
 
-      
+
+        private int index;
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow != null)
+                {
+                    string query = "DELETE FROM QryOrder WHERE Item = @Item";
+                    cmd = new OleDbCommand(query, myConn);
+                    cmd.Parameters.AddWithValue("@Item", dataGridView1.CurrentRow.Cells["Item"].Value);
+
+                    myConn.Open();
+                    cmd.ExecuteNonQuery();
+                    myConn.Close();
+
+                    // Remove the selected row from the DataGridView
+                    dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+                }
+                else
+                {
+                    MessageBox.Show("Please select a row to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Exit11_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            StartingPoint backk = new StartingPoint();
+            backk.Show();
+        }
+        private void RefreshDataGridView1()
+        {
+            dataGridView1.DataSource = null;
+
+            // Rebind the DataGridView to your data source
+            string query = "SELECT * FROM QryOrder"; // Assuming tblEmp is your table name
+            OleDbDataAdapter adapter = new OleDbDataAdapter(query, myConn);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            dataGridView1.DataSource = dt;
+
+        }
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double TotalPrice = 0;
+                double quantity = Convert.ToDouble(numericUpDown22.Value);
+                double sellingPrice = 0;
+                TotalPrice = sellingPrice * quantity;
+                string connectionString = "Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb";
+
+                using (OleDbConnection myConn = new OleDbConnection(connectionString))
+                {
+                    string query = "UPDATE QryOrder SET Item=@Item, Unit=@Unit, Qnty=@Qnty,Categories=@Categories, SellingPrice=@SellingPrice,TotalPrice=@TotalPrice WHERE ProductID=@ID";
+                    using (OleDbCommand cmd = new OleDbCommand(query, myConn))
+                    {
+                        cmd.Parameters.AddWithValue("@Item", comboRice1.Text);
+                        cmd.Parameters.AddWithValue("@Unit", comboRice3.Text);
+                        cmd.Parameters.AddWithValue("@Qnty", numericUpDown22.Value);
+                        cmd.Parameters.AddWithValue("@Categories", comboBox1);
+                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
+                        cmd.Parameters.AddWithValue("@TotalPrice", TotalPrice);
+
+                        cmd.Parameters.AddWithValue("@Item", comboWatr1.Text);
+                        cmd.Parameters.AddWithValue("@Unit", comboWatr3.Text);
+                        cmd.Parameters.AddWithValue("@Qnty", numericUpDown2.Value);
+                        cmd.Parameters.AddWithValue("@Categories", comboBox2.Text);
+                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
+                        cmd.Parameters.AddWithValue("@TotalPrice", TotalPrice);
+
+                        cmd.Parameters.AddWithValue("@Item", selectedItem);
+                        cmd.Parameters.AddWithValue("@Unit", comboDrinks3.Text);
+                        cmd.Parameters.AddWithValue("@Qnty", numericUpDown2.Value);
+                        cmd.Parameters.AddWithValue("@Categories", selectedCategories);
+                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
+                        cmd.Parameters.AddWithValue("@TotalPrice", TotalPrice);
+
+                        cmd.Parameters.AddWithValue("@Item", selectedItem);
+                        cmd.Parameters.AddWithValue("@Unit", cmbEmpe3.Text);
+                        cmd.Parameters.AddWithValue("@Qnty", numericUpDown3.Value);
+                        cmd.Parameters.AddWithValue("@Categories", selectedCategories);
+                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
+                        cmd.Parameters.AddWithValue("@TotalPrice", TotalPrice);
+
+                        cmd.Parameters.AddWithValue("@Item", selectedItem);
+                        cmd.Parameters.AddWithValue("@Unit", cmbGoods3.Text);
+                        cmd.Parameters.AddWithValue("@Qnty", numericUpDown7.Value);
+                        cmd.Parameters.AddWithValue("@Categories", selectedCategories);
+                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
+                        cmd.Parameters.AddWithValue("@TotalPrice", TotalPrice);
+
+                       
+                        cmd.Parameters.AddWithValue("@ID", Convert.ToInt32(txtSaleID.Text));
+
+                        myConn.Open();
+                        int rowsAffected = cmd.ExecuteNonQuery();
+                        MessageBox.Show(rowsAffected + " row(s) updated.");
+                    }
+                }
+
+                // Refresh the DataGridView with the updated data after updating
+                RefreshDataGridView1();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred: " + ex.Message);
+            }
+        }
     }
 }

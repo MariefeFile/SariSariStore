@@ -17,18 +17,11 @@ namespace store
             InitializeComponent();
         }
 
-       
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             Sign_in fill = new Sign_in();
             fill.Show();
             this.Hide();
-        }
-
-        private void btnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
 
         private void StartingPoint_Load(object sender, EventArgs e)
@@ -38,9 +31,15 @@ namespace store
 
         private void btnStartHere_Click(object sender, EventArgs e)
         {
-            Productss startHere = new Productss();
+            Costumer startHere = new Costumer();
             startHere.Show();
             this.Hide();
+            
+        }
+
+        private void Exit1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
