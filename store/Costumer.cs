@@ -23,23 +23,31 @@ namespace store
         public Costumer()
         {
             InitializeComponent();
-            myConn = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb");
+            //myConn = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb");
+            myConn = new OleDbConnection("Provider=Mic  xrosoft.JET.OLEDB.4.0;Data Source=C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store.mdb");
         }
         private void Costumer_Load(object sender, EventArgs e)
         {
-
             panel1.Visible = true;
             panel4.Visible = false;
+
             try
             {
+                // Check if the database file exists
+                if (!System.IO.File.Exists("C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store.mdb"))
+                {
+                    MessageBox.Show("Database file not found.");
+                    return; // Exit the method
+                }
+
                 myConn.Open();
-                // System.Windows.Forms.MessageBox.Show("Connected Succsfully!");
+                MessageBox.Show("Connected Successfully!");
                 this.Hide();
                 myConn.Close();
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show("ERROR!");
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
