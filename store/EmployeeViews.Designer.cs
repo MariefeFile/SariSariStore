@@ -43,9 +43,7 @@
             this.Exit5 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lbProd = new System.Windows.Forms.Label();
             this.textAdd = new System.Windows.Forms.TextBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.textPhone = new System.Windows.Forms.TextBox();
             this.textID = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -60,7 +58,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Exit5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,9 +75,7 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.lbProd);
             this.panel1.Controls.Add(this.textAdd);
-            this.panel1.Controls.Add(this.pictureBox3);
             this.panel1.Controls.Add(this.textPhone);
             this.panel1.Controls.Add(this.textID);
             this.panel1.Controls.Add(this.dataGridView2);
@@ -163,7 +158,7 @@
             this.label1.BackColor = System.Drawing.SystemColors.MenuBar;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(76, 220);
+            this.label1.Location = new System.Drawing.Point(76, 258);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 17);
             this.label1.TabIndex = 19;
@@ -172,7 +167,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlText;
-            this.panel3.Location = new System.Drawing.Point(79, 243);
+            this.panel3.Location = new System.Drawing.Point(79, 281);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(78, 3);
             this.panel3.TabIndex = 39;
@@ -214,7 +209,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(14, 200);
+            this.pictureBox2.Location = new System.Drawing.Point(14, 238);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(56, 55);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -232,18 +227,6 @@
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
             // 
-            // lbProd
-            // 
-            this.lbProd.AutoSize = true;
-            this.lbProd.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.lbProd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbProd.ForeColor = System.Drawing.Color.Black;
-            this.lbProd.Location = new System.Drawing.Point(82, 307);
-            this.lbProd.Name = "lbProd";
-            this.lbProd.Size = new System.Drawing.Size(72, 17);
-            this.lbProd.TabIndex = 23;
-            this.lbProd.Text = "Products";
-            // 
             // textAdd
             // 
             this.textAdd.Location = new System.Drawing.Point(897, 191);
@@ -253,16 +236,6 @@
             this.textAdd.Text = "EmpAdd";
             this.textAdd.Enter += new System.EventHandler(this.textAdd_Enter);
             this.textAdd.Leave += new System.EventHandler(this.textAdd_Leave);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(14, 287);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(56, 55);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 22;
-            this.pictureBox3.TabStop = false;
             // 
             // textPhone
             // 
@@ -375,7 +348,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Exit5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
 
@@ -396,9 +368,7 @@
         private System.Windows.Forms.PictureBox Exit5;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lbProd;
         private System.Windows.Forms.TextBox textAdd;
-        private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TextBox textPhone;
         private System.Windows.Forms.TextBox textID;
         private System.Windows.Forms.DataGridView dataGridView2;

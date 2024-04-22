@@ -25,3 +25,4 @@ C:\My Calculator Project\store\store\obj\x86\Debug\store.AllProd.resources
 C:\My Calculator Project\store\store\obj\x86\Debug\store.Billings.resources
 C:\My Calculator Project\store\store\obj\x86\Debug\store.Costumer.resources
 C:\My Calculator Project\store\store\obj\x86\Debug\store.CostumerName.resources
+C:\My Calculator Project\store\store\obj\x86\Debug\store.PriorityNum.resources

@@ -115,6 +115,12 @@
     <Compile Include="Homepage.Designer.cs">
       <DependentUpon>Homepage.cs</DependentUpon>
     </Compile>
+    <Compile Include="PriorityNum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PriorityNum.Designer.cs">
+      <DependentUpon>PriorityNum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Prod.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Homepage.resx">
       <DependentUpon>Homepage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PriorityNum.resx">
+      <DependentUpon>PriorityNum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Prod.resx">
       <DependentUpon>Prod.cs</DependentUpon>

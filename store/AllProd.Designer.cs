@@ -96,7 +96,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlText;
-            this.panel3.Location = new System.Drawing.Point(88, 325);
+            this.panel3.Location = new System.Drawing.Point(90, 282);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(72, 3);
             this.panel3.TabIndex = 57;
@@ -413,7 +413,7 @@
             this.label2.BackColor = System.Drawing.SystemColors.MenuBar;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(90, 302);
+            this.label2.Location = new System.Drawing.Point(92, 259);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 17);
             this.label2.TabIndex = 23;
@@ -422,7 +422,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(22, 282);
+            this.pictureBox3.Location = new System.Drawing.Point(24, 239);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(56, 55);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

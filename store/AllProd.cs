@@ -20,6 +20,7 @@ namespace store
         OleDbDataAdapter da;
         OleDbCommand cmd;
         DataSet ds;
+
         int indexRow;
         
         public AllProd()
