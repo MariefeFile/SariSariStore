@@ -1167,8 +1167,9 @@
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(106, 44);
             this.btnPrint.TabIndex = 5;
-            this.btnPrint.Text = "BUY";
+            this.btnPrint.Text = "ORDER";
             this.btnPrint.UseVisualStyleBackColor = true;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // btnDelete
             // 

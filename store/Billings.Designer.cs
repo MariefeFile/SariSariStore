@@ -71,6 +71,12 @@
             this.pictureBox1213 = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btnReset = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -87,6 +93,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Info;
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.panel8);
@@ -110,7 +117,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.SteelBlue;
             this.button1.ForeColor = System.Drawing.Color.Honeydew;
-            this.button1.Location = new System.Drawing.Point(33, 557);
+            this.button1.Location = new System.Drawing.Point(33, 540);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(129, 34);
             this.button1.TabIndex = 62;
@@ -119,6 +126,11 @@
             // 
             // panel9
             // 
+            this.panel9.Controls.Add(this.textBox3);
+            this.panel9.Controls.Add(this.label13);
+            this.panel9.Controls.Add(this.textBox2);
+            this.panel9.Controls.Add(this.label3);
+            this.panel9.Controls.Add(this.textBox1);
             this.panel9.Controls.Add(this.btnLoad);
             this.panel9.Controls.Add(this.lbDate);
             this.panel9.Controls.Add(this.dateTimePicker1);
@@ -135,7 +147,7 @@
             // 
             this.btnLoad.BackColor = System.Drawing.Color.SteelBlue;
             this.btnLoad.ForeColor = System.Drawing.Color.Honeydew;
-            this.btnLoad.Location = new System.Drawing.Point(51, 559);
+            this.btnLoad.Location = new System.Drawing.Point(28, 568);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(129, 34);
             this.btnLoad.TabIndex = 62;
@@ -167,7 +179,7 @@
             this.lbTotalPrice.BackColor = System.Drawing.SystemColors.MenuBar;
             this.lbTotalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTotalPrice.ForeColor = System.Drawing.Color.Black;
-            this.lbTotalPrice.Location = new System.Drawing.Point(391, 536);
+            this.lbTotalPrice.Location = new System.Drawing.Point(254, 467);
             this.lbTotalPrice.Name = "lbTotalPrice";
             this.lbTotalPrice.Size = new System.Drawing.Size(49, 20);
             this.lbTotalPrice.TabIndex = 61;
@@ -199,7 +211,7 @@
             // 
             this.btnPrint.BackColor = System.Drawing.Color.SteelBlue;
             this.btnPrint.ForeColor = System.Drawing.Color.Linen;
-            this.btnPrint.Location = new System.Drawing.Point(350, 559);
+            this.btnPrint.Location = new System.Drawing.Point(28, 517);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(129, 34);
             this.btnPrint.TabIndex = 34;
@@ -459,7 +471,7 @@
             // 
             this.btnAddtocart.BackColor = System.Drawing.Color.SteelBlue;
             this.btnAddtocart.ForeColor = System.Drawing.Color.Honeydew;
-            this.btnAddtocart.Location = new System.Drawing.Point(35, 450);
+            this.btnAddtocart.Location = new System.Drawing.Point(35, 433);
             this.btnAddtocart.Name = "btnAddtocart";
             this.btnAddtocart.Size = new System.Drawing.Size(129, 34);
             this.btnAddtocart.TabIndex = 35;
@@ -497,7 +509,7 @@
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.White;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(35, 13);
+            this.pictureBox4.Location = new System.Drawing.Point(35, 28);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(127, 108);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -542,13 +554,69 @@
             // 
             this.btnReset.BackColor = System.Drawing.Color.SteelBlue;
             this.btnReset.ForeColor = System.Drawing.Color.Honeydew;
-            this.btnReset.Location = new System.Drawing.Point(33, 502);
+            this.btnReset.Location = new System.Drawing.Point(33, 485);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(129, 34);
             this.btnReset.TabIndex = 36;
             this.btnReset.Text = "Delete";
             this.btnReset.UseVisualStyleBackColor = false;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(309, 461);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(170, 26);
+            this.textBox1.TabIndex = 64;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(309, 517);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(170, 26);
+            this.textBox2.TabIndex = 66;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(254, 523);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(50, 20);
+            this.label3.TabIndex = 65;
+            this.label3.Text = "Cach";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(309, 568);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(170, 26);
+            this.textBox3.TabIndex = 68;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(233, 571);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(71, 20);
+            this.label13.TabIndex = 67;
+            this.label13.Text = "Change";
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.SteelBlue;
+            this.button2.ForeColor = System.Drawing.Color.Linen;
+            this.button2.Location = new System.Drawing.Point(33, 594);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(129, 34);
+            this.button2.TabIndex = 69;
+            this.button2.Text = "Clear";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // Billings
             // 
@@ -626,5 +694,11 @@
         private System.Windows.Forms.Button btnAddtocart;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1213;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button2;
     }
 }
