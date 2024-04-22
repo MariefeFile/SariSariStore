@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|solutionrelative:store\\costumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\billings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|solutionrelative:store\\billings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\startingpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|solutionrelative:store\\startingpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -27,10 +31,6 @@
       "RelativeMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|solutionrelative:store\\reciept.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\prod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|solutionrelative:store\\prod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|solutionrelative:store\\homepage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -41,10 +41,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\costumername.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|solutionrelative:store\\costumername.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\billings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|solutionrelative:store\\billings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\allprod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -65,6 +61,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\sign_in.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{94BAA228-FCB3-48E1-BC14-5C360DB067FC}|store\\store.csproj|solutionrelative:store\\sign_in.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\prod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:store\\prod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,7 +78,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 1,
               "Title": "Billings.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\Billings.cs",
               "RelativeDocumentMoniker": "store\\Billings.cs",
@@ -86,7 +86,8 @@
               "RelativeToolTip": "store\\Billings.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-21T13:54:39.399Z",
-              "IsPinned": true
+              "IsPinned": true,
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Bookmark",
@@ -108,14 +109,14 @@
               "RelativeDocumentMoniker": "store\\Costumer.cs",
               "ToolTip": "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\Costumer.cs",
               "RelativeToolTip": "store\\Costumer.cs",
-              "ViewState": "AQIAAA8AAAAAAAAAAAA2wC8AAAAgAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAUwCsAAAA7AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-04-21T14:14:49.602Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Reciept.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\Reciept.cs",
               "RelativeDocumentMoniker": "store\\Reciept.cs",
@@ -137,7 +138,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "Prod.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\Prod.cs",
               "RelativeDocumentMoniker": "store\\Prod.cs",
@@ -159,7 +160,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "StartingPoint.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\StartingPoint.cs",
               "RelativeDocumentMoniker": "store\\StartingPoint.cs",
@@ -170,7 +171,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Splash.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\Splash.cs",
               "RelativeDocumentMoniker": "store\\Splash.cs",
@@ -181,7 +182,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "StartingPoint.cs",
               "DocumentMoniker": "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\StartingPoint.cs",
               "RelativeDocumentMoniker": "store\\StartingPoint.cs",
@@ -197,7 +198,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Sign_in.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\Sign_in.cs",
               "RelativeDocumentMoniker": "store\\Sign_in.cs",
@@ -208,7 +209,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 10,
               "Title": "AllProd.cs [Design]",
               "DocumentMoniker": "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\AllProd.cs",
               "RelativeDocumentMoniker": "store\\AllProd.cs",
@@ -219,7 +220,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 12,
               "Title": "Homepage.cs",
               "DocumentMoniker": "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\Homepage.cs",
               "RelativeDocumentMoniker": "store\\Homepage.cs",
@@ -231,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "EmployeeViews.cs",
               "DocumentMoniker": "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\EmployeeViews.cs",
               "RelativeDocumentMoniker": "store\\EmployeeViews.cs",
@@ -254,7 +255,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 14,
               "Title": "Sign_in.cs",
               "DocumentMoniker": "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\Sign_in.cs",
               "RelativeDocumentMoniker": "store\\Sign_in.cs",
@@ -266,7 +267,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 11,
               "Title": "CostumerName.cs",
               "DocumentMoniker": "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store\\CostumerName.cs",
               "RelativeDocumentMoniker": "store\\CostumerName.cs",

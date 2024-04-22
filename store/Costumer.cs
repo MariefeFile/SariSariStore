@@ -24,7 +24,7 @@ namespace store
         {
             InitializeComponent();
             //myConn = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb");
-            myConn = new OleDbConnection("Provider=Mic  xrosoft.JET.OLEDB.4.0;Data Source=C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store.mdb");
+            myConn = new OleDbConnection("Provider=Micxrosoft.JET.OLEDB.4.0;Data Source=C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store.mdb");
         }
         private void Costumer_Load(object sender, EventArgs e)
         {
