@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
-using System.Runtime.Remoting.Contexts;
-using System.Xml.Linq;
-using System.Data.OleDb;
-using  System.Data.SqlClient;
+
 namespace store
 {
     
@@ -19,10 +10,8 @@ namespace store
     public partial class Sign_in : Form
     {
         OleDbConnection myConn;
-        OleDbDataAdapter da;
+        
         OleDbCommand cmd;
-        DataSet ds;
-        int indexRow;
         public Sign_in()
         {
             InitializeComponent();
@@ -40,7 +29,7 @@ namespace store
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show("ERROR!");
+                MessageBox.Show(ex.Message);
             }
         }
 

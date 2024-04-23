@@ -15,10 +15,7 @@ namespace store
     public partial class CostumerName : Form
     {
         OleDbConnection myConn;
-        OleDbDataAdapter da;
         OleDbCommand cmd;
-        DataSet ds;
-        int indexRow;
         public CostumerName()
         {
             InitializeComponent();

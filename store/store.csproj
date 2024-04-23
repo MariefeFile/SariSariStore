@@ -91,6 +91,7 @@
     <Compile Include="Billings.Designer.cs">
       <DependentUpon>Billings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Constants\TableNames.cs" />
     <Compile Include="Costumer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +116,7 @@
     <Compile Include="Homepage.Designer.cs">
       <DependentUpon>Homepage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="PriorityNum.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +135,8 @@
     <Compile Include="Reciept.Designer.cs">
       <DependentUpon>Reciept.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Sign_in.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,5 +277,6 @@
   <ItemGroup>
     <None Include="Resources\images1.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

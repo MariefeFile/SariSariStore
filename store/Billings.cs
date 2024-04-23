@@ -16,10 +16,8 @@ namespace store
         OleDbConnection myConn;
         OleDbDataAdapter da;
         OleDbCommand cmd;
-        DataSet ds;
-        int indexRow;
+        
         string employeeName;
-        private DataTable dataTable;
         public Billings(string employeeName)
         {
             InitializeComponent();

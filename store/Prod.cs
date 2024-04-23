@@ -1,33 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.OleDb;
-using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Media.TextFormatting;
-using System.Xml.Linq;
 
 namespace store
 {
     public partial class Productss : Form
     {
-        OleDbConnection myConn;
-        OleDbDataAdapter da;
-        OleDbCommand cmd;
-        DataSet ds;
-        int indexRow;
-        string name;
+        private OleDbConnection myConn;
+        private OleDbCommand cmd;
+        private string name;
         private DataTable dataTable;
+        private const string ConnectionPath = "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store.mdb";
         public Productss(string name)
         {
 
             InitializeComponent();
-            myConn = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb");
+            myConn = new OleDbConnection($"Provider=Microsoft.JET.OLEDB.4.0;Data Source={ConnectionPath}");
             dataGridView1.CellClick += dataGridView1_CellContentClick;
             dataTable = new DataTable();
             DataRow newRow = dataTable.NewRow();

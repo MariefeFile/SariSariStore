@@ -17,12 +17,9 @@ namespace store
     public partial class AllProd : Form
     {
         OleDbConnection myConn;
-        OleDbDataAdapter da;
         OleDbCommand cmd;
-        DataSet ds;
-
-        int indexRow;
         
+
         public AllProd()
         {
             InitializeComponent();
@@ -43,7 +40,7 @@ namespace store
             }
             catch (Exception ex)
             {
-                System.Windows.Forms.MessageBox.Show("ERROR!");
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
 
         }

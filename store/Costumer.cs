@@ -1,53 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using store.Services;
+using System;
 using System.Data.OleDb;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Forms;
 
 namespace store
 {
     public partial class Costumer : Form
     {
-        OleDbConnection myConn;
-        OleDbDataAdapter da;
-        OleDbCommand cmd;
-        DataSet ds;
-        int indexRow;
+        private readonly CustomerService customerRepository;
+        private readonly DatabaseService databaseService;
+
         public Costumer()
         {
             InitializeComponent();
-            //myConn = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb");
-            myConn = new OleDbConnection("Provider=Micxrosoft.JET.OLEDB.4.0;Data Source=C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store.mdb");
+            databaseService = new DatabaseService();
+            customerRepository = new CustomerService();
         }
+
         private void Costumer_Load(object sender, EventArgs e)
         {
             panel1.Visible = true;
             panel4.Visible = false;
 
-            try
+            if (databaseService.IsDatabaseConnected())
             {
-                // Check if the database file exists
-                if (!System.IO.File.Exists("C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store.mdb"))
-                {
-                    MessageBox.Show("Database file not found.");
-                    return; // Exit the method
-                }
-
-                myConn.Open();
-                MessageBox.Show("Connected Successfully!");
-                this.Hide();
-                myConn.Close();
+                MessageBox.Show("Database connected successfully!");
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Database not found or connection failed.");
             }
         }
 
@@ -124,47 +106,20 @@ namespace store
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            string connectionString = "Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb";
-            string query = "INSERT INTO AddCostumer (CostumName, CostumPhone) VALUES (@Name, @Phone)";
+            string name = textUserName.Text;
+            string phone = textphone.Text;
 
-            using (OleDbConnection myConn = new OleDbConnection(connectionString))
+            if (customerRepository.InsertCustomer(name, phone, "sample_email@gmail.com"))
             {
-                using (OleDbCommand cmd = new OleDbCommand(query, myConn))
-                {
-                    cmd.Parameters.AddWithValue("@Name", textUserName.Text);
-                    cmd.Parameters.AddWithValue("@Phone", textphone.Text);
-
-
-                   
-                    myConn.Open();
-                    cmd.ExecuteNonQuery();
-                }
-                
+                MessageBox.Show("Data inserted successfully.");
+                Productss prod1 = new Productss(name);
+                prod1.Show();
+                this.Hide();
             }
-            MessageBox.Show("Data inserted successfully.");
-            Productss prod = new Productss(textUserName.Text);
-            prod.Show();
-            this.Hide();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            else
+            {
+                MessageBox.Show("Failed to insert data.");
+            }
         }
 
         private void Exit65_Click(object sender, EventArgs e)
@@ -173,5 +128,6 @@ namespace store
             streeee.Show();
             this.Hide();
         }
+        
     }
 }
