@@ -1,4 +1,5 @@
-﻿using System;
+﻿using store.Constants;
+using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
 using System.Linq;
@@ -9,13 +10,11 @@ namespace store.Services
 {
     internal class DatabaseService
     {
-        private const string ConnectionPath = "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store.mdb";
-
         public bool IsDatabaseConnected()
         {
             try
             {
-                using (OleDbConnection myConn = new OleDbConnection($"Provider=Microsoft.JET.OLEDB.4.0;Data Source={ConnectionPath}"))
+                using (OleDbConnection myConn = new OleDbConnection($"Provider=Microsoft.JET.OLEDB.4.0;Data Source={Data.ConnectionPath}"))
                 {
                     myConn.Open();
                     myConn.Close();

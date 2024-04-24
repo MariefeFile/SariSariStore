@@ -10,12 +10,12 @@ namespace store.Services
 {
     internal class CustomerService
     {
-        private const string ConnectionPath = "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store.mdb";
+        
         private readonly string connectionString;
 
         public CustomerService()
         {
-            connectionString = $"Provider=Microsoft.JET.OLEDB.4.0;Data Source={ConnectionPath}";
+            connectionString = $"Provider=Microsoft.JET.OLEDB.4.0;Data Source={Data.ConnectionPath}";
         }
 
         public bool InsertCustomer(string name, string phone, string email)

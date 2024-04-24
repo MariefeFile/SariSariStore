@@ -9,17 +9,17 @@ namespace store.Models
     internal class Customer
     {
         public int CustomerId { get; set; }
-        public string Name { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerPhone { get; set; }
+        public string CustomerEmail { get; set; }
 
         // Constructor
         public Customer(int customerId, string name, string phone, string email)
         {
             CustomerId = customerId;
-            Name = name;
-            Phone = phone;
-            Email = email;
+            CustomerName = name;
+            CustomerPhone = phone;
+            CustomerEmail = email;
         }
 
         public int GetCustomerId()
@@ -34,32 +34,32 @@ namespace store.Models
 
         public string GetName()
         {
-            return Name;
+            return CustomerName;
         }
 
         public void SetName(string name)
         {
-            Name = name;
+            CustomerName = name;
         }
 
         public string GetPhone()
         {
-            return Phone;
+            return CustomerPhone;
         }
 
         public void SetPhone(string phone)
         {
-            Phone = phone;
+            CustomerPhone = phone;
         }
 
         public string GetEmail()
         {
-            return Email;
+            return CustomerEmail;
         }
 
         public void SetEmail(string email)
         {
-            Email = email;
+            CustomerEmail = email;
         }
     }
 }
