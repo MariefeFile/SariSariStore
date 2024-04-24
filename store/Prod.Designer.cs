@@ -1214,7 +1214,6 @@
             this.Name = "Productss";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productss";
-            this.Load += new System.EventHandler(this.Productss_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
