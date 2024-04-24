@@ -17,14 +17,6 @@ namespace store
         {
 
             InitializeComponent();
-            /*
-            dataGridView1.CellClick += dataGridView1_CellContentClick;
-            dataTable = new DataTable();
-            DataRow newRow = dataTable.NewRow();
-            dataTable.Rows.Add(newRow);
-            dataGridView1.DataSource = dataTable;
-            this.name = name;
-            */
 
             // Add columns to dataGridView1
             dataGridView1.Columns.Add("Item", "Item");
@@ -458,11 +450,31 @@ namespace store
             string selectedItem = comboRice1.Text;
             string selectedCategories = comboBox1.Text;
             string selectedUnit = comboRice3.Text;
-            double quantity = Convert.ToDouble(numericUpDown22.Value);
 
-            dataGridView1.Rows.Add(selectedItem, selectedCategories, selectedUnit, quantity);
-
+            // Check if the quantity value is valid
+            if (double.TryParse(numericUpDown22.Text, out double quantity))
+            {
+                // Add the row only if all required fields are not empty
+                if (!string.IsNullOrWhiteSpace(selectedItem) &&
+                    !string.IsNullOrWhiteSpace(selectedCategories) &&
+                    !string.IsNullOrWhiteSpace(selectedUnit) &&
+                    !selectedItem.Equals("Item") && !selectedCategories.Equals("Categories") &&
+                    !selectedUnit.Equals("Unit") && quantity != 0
+                    )
+                {
+                    dataGridView1.Rows.Add(selectedItem, selectedCategories, selectedUnit, quantity);
+                }
+                else
+                {
+                    MessageBox.Show("Please fill in all required fields (Item, Categories, Unit, and Quantity).", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid quantity.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
+
         private void Refresh1DataGridView()
         {
             dataGridView1.DataSource = null;
