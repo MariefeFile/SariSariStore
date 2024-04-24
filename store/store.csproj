@@ -118,11 +118,19 @@
       <DependentUpon>Homepage.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\FinancialMetrics.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Users.cs" />
     <Compile Include="PriorityNum.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PriorityNum.Designer.cs">
       <DependentUpon>PriorityNum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Prod.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Prod.cs">
       <SubType>Form</SubType>

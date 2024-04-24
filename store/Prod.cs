@@ -12,54 +12,29 @@ namespace store
         private OleDbCommand cmd;
         private string name;
         private DataTable dataTable;
-        private const string ConnectionPath = "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store.mdb";
+
         public Productss(string name)
         {
 
             InitializeComponent();
-            myConn = new OleDbConnection($"Provider=Microsoft.JET.OLEDB.4.0;Data Source={ConnectionPath}");
+            /*
             dataGridView1.CellClick += dataGridView1_CellContentClick;
             dataTable = new DataTable();
             DataRow newRow = dataTable.NewRow();
             dataTable.Rows.Add(newRow);
             dataGridView1.DataSource = dataTable;
             this.name = name;
-            
+            */
 
         }
         private void Productss_Load(object sender, EventArgs e)
         {
-            groupRice.Visible = false;
-            groupWater.Visible = false;
-            groupSoftdrinks.Visible = false;
-            groupAlcoholDrinks.Visible = false;
-            groupGoods.Visible = false;
-            CostumerName.Text = name;
-            try
-            {
-                myConn.Open();
-                // MessageBox.Show("Connected Successfully!");
-                LoadDataIntoDataGridView();
-                this.Hide();
-                myConn.Close();
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show("ERROR: " + ex.Message);
-            }
+            
             
         }
         private void LoadDataIntoDataGridView()
         {
-            string query = "SELECT * FROM QryOrder";
-            OleDbDataAdapter da = new OleDbDataAdapter(query, myConn);
-            DataTable dt = new DataTable();
-
-            // Fill the DataTable with data from the database
-            da.Fill(dt);
-
-            // Bind the DataTable to the DataGridView
-            dataGridView1.DataSource = dt;
+            
 
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

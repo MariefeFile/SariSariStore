@@ -113,6 +113,7 @@ namespace store
             {
                 MessageBox.Show("Data inserted successfully.");
                 Productss prod1 = new Productss(name);
+            
                 prod1.Show();
                 this.Hide();
             }

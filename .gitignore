@@ -7,3 +7,6 @@
 # Ignore build artifacts
 bin/
 obj/
+
+store/bin/
+store/obj/
