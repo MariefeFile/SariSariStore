@@ -129,13 +129,10 @@
     <Compile Include="PriorityNum.Designer.cs">
       <DependentUpon>PriorityNum.cs</DependentUpon>
     </Compile>
-    <Compile Include="Prod.cs">
+    <Compile Include="Forms\Customer\Prod.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Prod.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Prod.Designer.cs">
+    <Compile Include="Forms\Customer\Prod.Designer.cs">
       <DependentUpon>Prod.cs</DependentUpon>
     </Compile>
     <Compile Include="Reciept.cs">
@@ -187,7 +184,7 @@
     <EmbeddedResource Include="PriorityNum.resx">
       <DependentUpon>PriorityNum.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Prod.resx">
+    <EmbeddedResource Include="Forms\Customer\Prod.resx">
       <DependentUpon>Prod.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reciept.resx">
