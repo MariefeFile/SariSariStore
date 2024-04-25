@@ -18,12 +18,11 @@ namespace store
 
             InitializeComponent();
 
-            // Add columns to dataGridView1
             dataGridView1.Columns.Add("Item", "Item");
             dataGridView1.Columns.Add("Categories", "Categories");
             dataGridView1.Columns.Add("Unit", "Unit");
             dataGridView1.Columns.Add("Qnty", "Quantity");
-
+            dataGridView1.Columns.Add("SellingPrice", "Selling Price");
 
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -928,35 +927,38 @@ namespace store
 
         }
 
-
-        private int index;
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
             {
-                if (dataGridView1.CurrentRow != null)
+                if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    string query = "DELETE FROM QryOrder WHERE Item = @Item";
-                    cmd = new OleDbCommand(query, myConn);
-                    cmd.Parameters.AddWithValue("@Item", dataGridView1.CurrentRow.Cells["Item"].Value);
+                    // Get the selected row
+                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
 
-                    myConn.Open();
-                    cmd.ExecuteNonQuery();
-                    myConn.Close();
-
-                    // Remove the selected row from the DataGridView
-                    dataGridView1.Rows.Remove(dataGridView1.CurrentRow);
+                    // Check if the row is new and uncommitted
+                    if (!selectedRow.IsNewRow)
+                    {
+                        // Remove the selected row
+                        dataGridView1.Rows.Remove(selectedRow);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cannot delete an uncommitted row.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Please select a row to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please select a row to delete.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
 
         private void Exit11_Click(object sender, EventArgs e)
         {
