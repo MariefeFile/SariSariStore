@@ -92,7 +92,9 @@
       <DependentUpon>Billings.cs</DependentUpon>
     </Compile>
     <Compile Include="Constants\Data.cs" />
-    <Compile Include="Constants\ProductItems.cs" />
+    <Compile Include="Constants\Products\ProductCategory.cs" />
+    <Compile Include="Constants\Products\ProductFields.cs" />
+    <Compile Include="Constants\Products\ProductItems.cs" />
     <Compile Include="Constants\TableNames.cs" />
     <Compile Include="CostumerName.cs">
       <SubType>Form</SubType>
