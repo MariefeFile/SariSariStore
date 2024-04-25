@@ -92,6 +92,7 @@
       <DependentUpon>Billings.cs</DependentUpon>
     </Compile>
     <Compile Include="Constants\Data.cs" />
+    <Compile Include="Constants\ProductItems.cs" />
     <Compile Include="Constants\TableNames.cs" />
     <Compile Include="CostumerName.cs">
       <SubType>Form</SubType>
@@ -143,6 +144,7 @@
     </Compile>
     <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\DatabaseService.cs" />
+    <Compile Include="Services\ProductService.cs" />
     <Compile Include="Sign_in.cs">
       <SubType>Form</SubType>
     </Compile>

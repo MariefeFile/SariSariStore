@@ -1,4 +1,7 @@
-﻿using System;
+﻿using store.Constants;
+using store.Models;
+using store.Services;
+using System;
 using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
@@ -10,19 +13,63 @@ namespace store
     {
         private OleDbConnection myConn;
         private OleDbCommand cmd;
-        private string name;
         private DataTable dataTable;
+        private ProductService productService;
+
+        private DataTable productsTable;
 
         public Productss(string name)
         {
 
             InitializeComponent();
 
+            // Objects
+            productService = new ProductService(Data.ConnectionPath);
+
+
+            // intitializing table headers
             dataGridView1.Columns.Add("Item", "Item");
             dataGridView1.Columns.Add("Categories", "Categories");
             dataGridView1.Columns.Add("Unit", "Unit");
             dataGridView1.Columns.Add("Qnty", "Quantity");
             dataGridView1.Columns.Add("SellingPrice", "Selling Price");
+            dataGridView1.Columns.Add("TotalPrice", "Total Price");
+
+
+            // querying products items
+            try
+            {
+                productsTable = productService.GetAllProducts();
+
+                if (productsTable.Rows.Count > 0)
+                {
+                    foreach (DataRow row in productsTable.Rows)
+                    {
+                            string item = row["Item"].ToString();
+                            double sellingPrice = Convert.ToDouble(row["SellingPrice"]);
+                            
+
+                            if (item.Equals(ProductItems.Ganador))
+                            {
+                                label2.Text = String.Format("{0} (Php{1:N2})", item, sellingPrice);
+                            }
+                            if (item.Equals(ProductItems.Lion_Ivory))
+                            {
+                                label3.Text = String.Format("{0} (Php{1:N2})", item, sellingPrice);
+                            }
+
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("No data found in the products table.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -446,9 +493,9 @@ namespace store
         }
         private void btnAdd1_Click(object sender, EventArgs e)
         {
-            string selectedItem = comboRice1.Text;
-            string selectedCategories = comboBox1.Text;
-            string selectedUnit = comboRice3.Text;
+            string selectedItem = comboRice1.Text.Trim();
+            string selectedCategories = comboBox1.Text.Trim();
+            string selectedUnit = comboRice3.Text.Trim();
 
             // Check if the quantity value is valid
             if (double.TryParse(numericUpDown22.Text, out double quantity))
@@ -461,7 +508,23 @@ namespace store
                     !selectedUnit.Equals("Unit") && quantity != 0
                     )
                 {
-                    dataGridView1.Rows.Add(selectedItem, selectedCategories, selectedUnit, quantity);
+                    double sellingPrice = 0.0;
+                    double totalPrice = 0.0;
+
+                    foreach (DataRow row in productsTable.Rows)
+                    {
+                        string item = row["Item"].ToString();
+                        
+
+                        if (item.Equals(selectedItem))
+                        {
+                            sellingPrice = Convert.ToDouble(row["SellingPrice"]);
+                            totalPrice = sellingPrice * quantity;
+                        }
+
+                    }
+
+                    dataGridView1.Rows.Add(selectedItem, selectedCategories, selectedUnit, quantity, sellingPrice, totalPrice);
                 }
                 else
                 {
