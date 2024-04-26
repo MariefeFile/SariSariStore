@@ -210,13 +210,13 @@
             // btnCanGoods
             // 
             this.btnCanGoods.BackColor = System.Drawing.Color.Turquoise;
-            this.btnCanGoods.Font = new System.Drawing.Font("Microsoft Himalaya", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCanGoods.Font = new System.Drawing.Font("Microsoft Himalaya", 14F, System.Drawing.FontStyle.Bold);
             this.btnCanGoods.Location = new System.Drawing.Point(4, 638);
             this.btnCanGoods.Margin = new System.Windows.Forms.Padding(2);
             this.btnCanGoods.Name = "btnCanGoods";
             this.btnCanGoods.Size = new System.Drawing.Size(115, 34);
             this.btnCanGoods.TabIndex = 17;
-            this.btnCanGoods.Text = "CAN GOODS/ NOODLES";
+            this.btnCanGoods.Text = "OTHERS";
             this.btnCanGoods.UseVisualStyleBackColor = false;
             this.btnCanGoods.Click += new System.EventHandler(this.btnCanGoods_Click);
             // 
@@ -366,7 +366,6 @@
             this.groupRice.TabIndex = 0;
             this.groupRice.TabStop = false;
             this.groupRice.Text = "Rice";
-            
             // 
             // panelRICE
             // 
@@ -560,8 +559,8 @@
             this.comboWatr1.ForeColor = System.Drawing.Color.Black;
             this.comboWatr1.FormattingEnabled = true;
             this.comboWatr1.Items.AddRange(new object[] {
-            "Mineral Water (litters)",
-            "Bottled Water (ml)"});
+            "Mineral Water (4.4 Liters)",
+            "Bottled Water (500 ml)"});
             this.comboWatr1.Location = new System.Drawing.Point(21, 143);
             this.comboWatr1.Margin = new System.Windows.Forms.Padding(2);
             this.comboWatr1.Name = "comboWatr1";
@@ -729,12 +728,12 @@
             // 
             this.labelCN.AutoSize = true;
             this.labelCN.Font = new System.Drawing.Font("Elephant", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCN.Location = new System.Drawing.Point(39, 155);
+            this.labelCN.Location = new System.Drawing.Point(64, 156);
             this.labelCN.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelCN.Name = "labelCN";
-            this.labelCN.Size = new System.Drawing.Size(198, 25);
+            this.labelCN.Size = new System.Drawing.Size(161, 25);
             this.labelCN.TabIndex = 1;
-            this.labelCN.Text = "Can Goods/Noodles";
+            this.labelCN.Text = "Other Products";
             // 
             // pictureBox22
             // 

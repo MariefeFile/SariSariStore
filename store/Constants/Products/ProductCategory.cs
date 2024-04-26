@@ -10,7 +10,7 @@ namespace store.Constants
     {
         public static readonly string Rice = "Rice";
         public static readonly string Water = "Water";
-        public static readonly string Soft_Drinks = "Soft_Drinks";
+        public static readonly string Soft_Drinks = "Soft Drinks";
         public static readonly string Alcohol_Drinks = "Alcohol Drinks";
         public static readonly string Others = "Others";
     }

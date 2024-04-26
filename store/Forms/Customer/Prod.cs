@@ -105,19 +105,19 @@ namespace store
         {
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                string item = row.Cells["Item"].Value.ToString();
-                string unit = row.Cells["Unit"].Value.ToString();
+                string item = row.Cells[ProductFields.Item].Value.ToString();
+                string unit = row.Cells[ProductFields.Unit].Value.ToString();
 
                 if (item.Equals(selectedItem) && unit.Equals(selectedUnit))
                 {
-                    double currentQuantity = Convert.ToDouble(row.Cells["Qnty"].Value);
+                    double currentQuantity = Convert.ToDouble(row.Cells[ProductFields.Qnty].Value);
                     double newQuantity = currentQuantity + quantity;
 
-                    double sellingPrice = Convert.ToDouble(row.Cells["SellingPrice"].Value);
+                    double sellingPrice = Convert.ToDouble(row.Cells[ProductFields.SellingPrice].Value);
                     double totalPrice = sellingPrice * newQuantity;
 
-                    row.Cells["Qnty"].Value = newQuantity;
-                    row.Cells["TotalPrice"].Value = totalPrice;
+                    row.Cells[ProductFields.Qnty].Value = newQuantity;
+                    row.Cells[ProductFields.TotalPrice].Value = totalPrice;
 
                     break;
                 }
@@ -131,7 +131,7 @@ namespace store
 
             foreach (DataRow row in productsTable.Rows)
             {
-                string item = row["Item"].ToString();
+                string item = row[ProductFields.Item].ToString().Trim();
 
                 if (item.Equals(selectedItem))
                 {
@@ -199,7 +199,7 @@ namespace store
         {
             string selectedItem = cmbEmpe1.Text.Trim();
             string selectedUnit = cmbEmpe3.Text.Trim();
-            string category = ProductCategory.Soft_Drinks;
+            string category = ProductCategory.Alcohol_Drinks;
             string quantityText = numericUpDown3.Text.Trim();
 
             AddToCart(selectedItem, selectedUnit, category, quantityText);
@@ -208,7 +208,7 @@ namespace store
         {
             string selectedItem = cmbGoods1.Text.Trim();
             string selectedUnit = cmbGoods3.Text.Trim();
-            string category = ProductCategory.Soft_Drinks;
+            string category = ProductCategory.Others;
             string quantityText = numericUpDown7.Text.Trim();
 
             AddToCart(selectedItem, selectedUnit, category, quantityText);
@@ -253,80 +253,10 @@ namespace store
             StartingPoint backk = new StartingPoint();
             backk.Show();
         }
-        private void RefreshDataGridView1()
-        {
-            dataGridView1.DataSource = null;
-
-            // Rebind the DataGridView to your data source
-            string query = "SELECT * FROM QryOrder"; // Assuming tblEmp is your table name
-            OleDbDataAdapter adapter = new OleDbDataAdapter(query, myConn);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
-
-        }
+        
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            try
-            {
-                double TotalPrice = 0;
-                double quantity = Convert.ToDouble(numericUpDown22.Value);
-                double sellingPrice = 0;
-                TotalPrice = sellingPrice * quantity;
-                string connectionString = "Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb";
-
-                using (OleDbConnection myConn = new OleDbConnection(connectionString))
-                {
-                    string query = "UPDATE QryOrder SET Item=@Item, Unit=@Unit, Qnty=@Qnty,Categories=@Categories, SellingPrice=@SellingPrice,TotalPrice=@TotalPrice WHERE ProductID=@ID";
-                    using (OleDbCommand cmd = new OleDbCommand(query, myConn))
-                    {
-                        cmd.Parameters.AddWithValue("@Item", comboRice1.Text);
-                        cmd.Parameters.AddWithValue("@Unit", comboRice3.Text);
-                        cmd.Parameters.AddWithValue("@Qnty", numericUpDown22.Value);
-                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
-                        cmd.Parameters.AddWithValue("@TotalPrice", TotalPrice);
-
-                        cmd.Parameters.AddWithValue("@Item", comboWatr1.Text);
-                        cmd.Parameters.AddWithValue("@Unit", comboWatr3.Text);
-                        cmd.Parameters.AddWithValue("@Qnty", numericUpDown1.Value);
-                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
-                        cmd.Parameters.AddWithValue("@TotalPrice", TotalPrice);
-
-                        cmd.Parameters.AddWithValue("@Item", comboDrinks1.Text);
-                        cmd.Parameters.AddWithValue("@Unit", comboDrinks3.Text);
-                        cmd.Parameters.AddWithValue("@Qnty", numericUpDown2.Value);
-                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
-                        cmd.Parameters.AddWithValue("@TotalPrice", TotalPrice);
-
-                        cmd.Parameters.AddWithValue("@Item", cmbEmpe1.Text);
-                        cmd.Parameters.AddWithValue("@Unit", cmbEmpe3.Text);
-                        cmd.Parameters.AddWithValue("@Qnty", numericUpDown3.Value);
-                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
-                        cmd.Parameters.AddWithValue("@TotalPrice", TotalPrice);
-
-                        cmd.Parameters.AddWithValue("@Item", cmbGoods1.Text);
-                        cmd.Parameters.AddWithValue("@Unit", cmbGoods3.Text);
-                        cmd.Parameters.AddWithValue("@Qnty", numericUpDown7.Value);
-                        cmd.Parameters.AddWithValue("@SellingPrice", sellingPrice);
-                        cmd.Parameters.AddWithValue("@TotalPrice", TotalPrice);
-
-                        int saleID = 123; // Replace 123 with the actual ID value you want to use
-                        cmd.Parameters.AddWithValue("@ID", saleID);
-
-
-                        myConn.Open();
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        MessageBox.Show(rowsAffected + " row(s) updated.");
-                    }
-                }
-
-                // Refresh the DataGridView with the updated data after updating
-                RefreshDataGridView1();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message);
-            }
+            // TODO, will automatically fill up the values in the combo box and units
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
@@ -621,6 +551,7 @@ namespace store
                 cmbGoods3.ForeColor = Color.Black;
             }
         }
+
     }
 
 }
