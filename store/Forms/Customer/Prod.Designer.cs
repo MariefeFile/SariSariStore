@@ -151,7 +151,7 @@
             this.pictureBox16.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox16.BackgroundImage")));
             this.pictureBox16.Image = global::store.Properties.Resources.Picture5;
             this.pictureBox16.Location = new System.Drawing.Point(22, 18);
-            this.pictureBox16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox16.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(107, 105);
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -164,7 +164,7 @@
             this.panel2.BackColor = System.Drawing.SystemColors.Info;
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Location = new System.Drawing.Point(8, 130);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(151, 293);
             this.panel2.TabIndex = 14;
@@ -186,9 +186,9 @@
             this.groupBox1.Controls.Add(this.pictureBox2);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(7, 7);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(128, 679);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
@@ -199,7 +199,7 @@
             this.btnAll.BackColor = System.Drawing.Color.Turquoise;
             this.btnAll.Font = new System.Drawing.Font("Sitka Heading", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAll.Location = new System.Drawing.Point(21, 47);
-            this.btnAll.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAll.Margin = new System.Windows.Forms.Padding(2);
             this.btnAll.Name = "btnAll";
             this.btnAll.Size = new System.Drawing.Size(73, 27);
             this.btnAll.TabIndex = 13;
@@ -212,7 +212,7 @@
             this.btnCanGoods.BackColor = System.Drawing.Color.Turquoise;
             this.btnCanGoods.Font = new System.Drawing.Font("Microsoft Himalaya", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCanGoods.Location = new System.Drawing.Point(4, 638);
-            this.btnCanGoods.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnCanGoods.Margin = new System.Windows.Forms.Padding(2);
             this.btnCanGoods.Name = "btnCanGoods";
             this.btnCanGoods.Size = new System.Drawing.Size(115, 34);
             this.btnCanGoods.TabIndex = 17;
@@ -224,7 +224,7 @@
             // 
             this.pictureBox6.Image = global::store.Properties.Resources.a1cb524be6d4e11f270459af03ffe58e;
             this.pictureBox6.Location = new System.Drawing.Point(25, 560);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(77, 73);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -236,7 +236,7 @@
             this.btnAlcoholDrinks.BackColor = System.Drawing.Color.Turquoise;
             this.btnAlcoholDrinks.Font = new System.Drawing.Font("Sitka Heading", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAlcoholDrinks.Location = new System.Drawing.Point(4, 526);
-            this.btnAlcoholDrinks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAlcoholDrinks.Margin = new System.Windows.Forms.Padding(2);
             this.btnAlcoholDrinks.Name = "btnAlcoholDrinks";
             this.btnAlcoholDrinks.Size = new System.Drawing.Size(115, 27);
             this.btnAlcoholDrinks.TabIndex = 15;
@@ -248,7 +248,7 @@
             // 
             this.pictureBox5.Image = global::store.Properties.Resources.JTnQZTcAYiGAoyc3fahaXn_watermark_400;
             this.pictureBox5.Location = new System.Drawing.Point(25, 448);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(77, 73);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -260,7 +260,7 @@
             this.btnSoftD.BackColor = System.Drawing.Color.Turquoise;
             this.btnSoftD.Font = new System.Drawing.Font("Sitka Heading", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSoftD.Location = new System.Drawing.Point(4, 411);
-            this.btnSoftD.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSoftD.Margin = new System.Windows.Forms.Padding(2);
             this.btnSoftD.Name = "btnSoftD";
             this.btnSoftD.Size = new System.Drawing.Size(115, 27);
             this.btnSoftD.TabIndex = 13;
@@ -272,7 +272,7 @@
             // 
             this.pictureBox4.Image = global::store.Properties.Resources.download;
             this.pictureBox4.Location = new System.Drawing.Point(25, 334);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(77, 73);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -284,7 +284,7 @@
             this.btnWater.BackColor = System.Drawing.Color.Turquoise;
             this.btnWater.Font = new System.Drawing.Font("Sitka Heading", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnWater.Location = new System.Drawing.Point(4, 296);
-            this.btnWater.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnWater.Margin = new System.Windows.Forms.Padding(2);
             this.btnWater.Name = "btnWater";
             this.btnWater.Size = new System.Drawing.Size(115, 27);
             this.btnWater.TabIndex = 11;
@@ -296,7 +296,7 @@
             // 
             this.pictureBox3.Image = global::store.Properties.Resources.all_bottle_new_2022_sep;
             this.pictureBox3.Location = new System.Drawing.Point(25, 212);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(77, 73);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -308,7 +308,7 @@
             this.btnrice.BackColor = System.Drawing.Color.Turquoise;
             this.btnrice.Font = new System.Drawing.Font("Sitka Heading", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnrice.Location = new System.Drawing.Point(4, 179);
-            this.btnrice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnrice.Margin = new System.Windows.Forms.Padding(2);
             this.btnrice.Name = "btnrice";
             this.btnrice.Size = new System.Drawing.Size(115, 27);
             this.btnrice.TabIndex = 9;
@@ -320,7 +320,7 @@
             // 
             this.pictureBox2.Image = global::store.Properties.Resources.istockphoto_1410275653_612x612;
             this.pictureBox2.Location = new System.Drawing.Point(21, 102);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(77, 73);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -333,7 +333,7 @@
             this.panel1.BackColor = System.Drawing.Color.LightGray;
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Location = new System.Drawing.Point(163, 20);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(377, 402);
             this.panel1.TabIndex = 15;
@@ -348,7 +348,7 @@
             this.panel3.Controls.Add(this.groupSoftdrinks);
             this.panel3.Controls.Add(this.groupAlcoholDrinks);
             this.panel3.Location = new System.Drawing.Point(10, 5);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(351, 1678);
             this.panel3.TabIndex = 15;
@@ -359,14 +359,14 @@
             this.groupRice.Controls.Add(this.panelRICE);
             this.groupRice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupRice.Location = new System.Drawing.Point(9, 11);
-            this.groupRice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupRice.Margin = new System.Windows.Forms.Padding(2);
             this.groupRice.Name = "groupRice";
-            this.groupRice.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupRice.Padding = new System.Windows.Forms.Padding(2);
             this.groupRice.Size = new System.Drawing.Size(359, 285);
             this.groupRice.TabIndex = 0;
             this.groupRice.TabStop = false;
             this.groupRice.Text = "Rice";
-            this.groupRice.Enter += new System.EventHandler(this.groupRice_Enter);
+            
             // 
             // panelRICE
             // 
@@ -380,7 +380,7 @@
             this.panelRICE.Controls.Add(this.labelrice);
             this.panelRICE.Controls.Add(this.pictureBox31);
             this.panelRICE.Location = new System.Drawing.Point(31, 17);
-            this.panelRICE.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRICE.Margin = new System.Windows.Forms.Padding(2);
             this.panelRICE.Name = "panelRICE";
             this.panelRICE.Size = new System.Drawing.Size(271, 254);
             this.panelRICE.TabIndex = 27;
@@ -415,7 +415,7 @@
             this.comboRice3.Items.AddRange(new object[] {
             "Kilo"});
             this.comboRice3.Location = new System.Drawing.Point(21, 176);
-            this.comboRice3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboRice3.Margin = new System.Windows.Forms.Padding(2);
             this.comboRice3.Name = "comboRice3";
             this.comboRice3.Size = new System.Drawing.Size(123, 21);
             this.comboRice3.TabIndex = 17;
@@ -432,7 +432,7 @@
             "Ganador ",
             "Lion Ivory"});
             this.comboRice1.Location = new System.Drawing.Point(21, 143);
-            this.comboRice1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboRice1.Margin = new System.Windows.Forms.Padding(2);
             this.comboRice1.Name = "comboRice1";
             this.comboRice1.Size = new System.Drawing.Size(123, 21);
             this.comboRice1.TabIndex = 16;
@@ -445,7 +445,7 @@
             this.numericUpDown22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown22.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.numericUpDown22.Location = new System.Drawing.Point(167, 143);
-            this.numericUpDown22.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown22.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown22.Name = "numericUpDown22";
             this.numericUpDown22.Size = new System.Drawing.Size(55, 20);
             this.numericUpDown22.TabIndex = 13;
@@ -455,7 +455,7 @@
             this.btnAdd1.BackColor = System.Drawing.Color.Turquoise;
             this.btnAdd1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd1.Location = new System.Drawing.Point(165, 168);
-            this.btnAdd1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd1.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd1.Name = "btnAdd1";
             this.btnAdd1.Size = new System.Drawing.Size(72, 29);
             this.btnAdd1.TabIndex = 10;
@@ -478,7 +478,7 @@
             // 
             this.pictureBox31.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox31.Image")));
             this.pictureBox31.Location = new System.Drawing.Point(10, 7);
-            this.pictureBox31.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox31.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox31.Name = "pictureBox31";
             this.pictureBox31.Size = new System.Drawing.Size(227, 98);
             this.pictureBox31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -491,9 +491,9 @@
             this.groupWater.Controls.Add(this.panelWater);
             this.groupWater.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupWater.Location = new System.Drawing.Point(9, 309);
-            this.groupWater.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupWater.Margin = new System.Windows.Forms.Padding(2);
             this.groupWater.Name = "groupWater";
-            this.groupWater.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupWater.Padding = new System.Windows.Forms.Padding(2);
             this.groupWater.Size = new System.Drawing.Size(349, 326);
             this.groupWater.TabIndex = 1;
             this.groupWater.TabStop = false;
@@ -511,7 +511,7 @@
             this.panelWater.Controls.Add(this.labelBw);
             this.panelWater.Controls.Add(this.pictureBox1);
             this.panelWater.Location = new System.Drawing.Point(43, 22);
-            this.panelWater.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelWater.Margin = new System.Windows.Forms.Padding(2);
             this.panelWater.Name = "panelWater";
             this.panelWater.Size = new System.Drawing.Size(259, 283);
             this.panelWater.TabIndex = 28;
@@ -546,7 +546,7 @@
             this.comboWatr3.Items.AddRange(new object[] {
             "Pcs."});
             this.comboWatr3.Location = new System.Drawing.Point(21, 172);
-            this.comboWatr3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboWatr3.Margin = new System.Windows.Forms.Padding(2);
             this.comboWatr3.Name = "comboWatr3";
             this.comboWatr3.Size = new System.Drawing.Size(123, 21);
             this.comboWatr3.TabIndex = 17;
@@ -563,7 +563,7 @@
             "Mineral Water (litters)",
             "Bottled Water (ml)"});
             this.comboWatr1.Location = new System.Drawing.Point(21, 143);
-            this.comboWatr1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboWatr1.Margin = new System.Windows.Forms.Padding(2);
             this.comboWatr1.Name = "comboWatr1";
             this.comboWatr1.Size = new System.Drawing.Size(123, 21);
             this.comboWatr1.TabIndex = 16;
@@ -576,7 +576,7 @@
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.numericUpDown1.Location = new System.Drawing.Point(172, 144);
-            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown1.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(55, 20);
             this.numericUpDown1.TabIndex = 13;
@@ -586,7 +586,7 @@
             this.btnAdd2.BackColor = System.Drawing.Color.Turquoise;
             this.btnAdd2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd2.Location = new System.Drawing.Point(163, 172);
-            this.btnAdd2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd2.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd2.Name = "btnAdd2";
             this.btnAdd2.Size = new System.Drawing.Size(76, 28);
             this.btnAdd2.TabIndex = 10;
@@ -609,7 +609,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(9, 5);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(243, 98);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -622,9 +622,9 @@
             this.groupGoods.Controls.Add(this.panelGoods);
             this.groupGoods.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupGoods.Location = new System.Drawing.Point(9, 1321);
-            this.groupGoods.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupGoods.Margin = new System.Windows.Forms.Padding(2);
             this.groupGoods.Name = "groupGoods";
-            this.groupGoods.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupGoods.Padding = new System.Windows.Forms.Padding(2);
             this.groupGoods.Size = new System.Drawing.Size(342, 346);
             this.groupGoods.TabIndex = 4;
             this.groupGoods.TabStop = false;
@@ -642,7 +642,7 @@
             this.panelGoods.Controls.Add(this.labelCN);
             this.panelGoods.Controls.Add(this.pictureBox22);
             this.panelGoods.Location = new System.Drawing.Point(31, 27);
-            this.panelGoods.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelGoods.Margin = new System.Windows.Forms.Padding(2);
             this.panelGoods.Name = "panelGoods";
             this.panelGoods.Size = new System.Drawing.Size(279, 292);
             this.panelGoods.TabIndex = 34;
@@ -674,7 +674,7 @@
             this.btnAdd6.BackColor = System.Drawing.Color.Turquoise;
             this.btnAdd6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd6.Location = new System.Drawing.Point(165, 212);
-            this.btnAdd6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd6.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd6.Name = "btnAdd6";
             this.btnAdd6.Size = new System.Drawing.Size(71, 26);
             this.btnAdd6.TabIndex = 20;
@@ -690,7 +690,7 @@
             this.cmbGoods3.Items.AddRange(new object[] {
             "Pcs."});
             this.cmbGoods3.Location = new System.Drawing.Point(25, 216);
-            this.cmbGoods3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbGoods3.Margin = new System.Windows.Forms.Padding(2);
             this.cmbGoods3.Name = "cmbGoods3";
             this.cmbGoods3.Size = new System.Drawing.Size(123, 21);
             this.cmbGoods3.TabIndex = 18;
@@ -706,8 +706,8 @@
             this.cmbGoods1.Items.AddRange(new object[] {
             "Carne Norte",
             "Beef Loaf"});
-            this.cmbGoods1.Location = new System.Drawing.Point(24, 188);
-            this.cmbGoods1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbGoods1.Location = new System.Drawing.Point(25, 188);
+            this.cmbGoods1.Margin = new System.Windows.Forms.Padding(2);
             this.cmbGoods1.Name = "cmbGoods1";
             this.cmbGoods1.Size = new System.Drawing.Size(123, 21);
             this.cmbGoods1.TabIndex = 16;
@@ -720,7 +720,7 @@
             this.numericUpDown7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown7.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.numericUpDown7.Location = new System.Drawing.Point(167, 187);
-            this.numericUpDown7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown7.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown7.Name = "numericUpDown7";
             this.numericUpDown7.Size = new System.Drawing.Size(55, 20);
             this.numericUpDown7.TabIndex = 13;
@@ -740,7 +740,7 @@
             // 
             this.pictureBox22.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox22.Image")));
             this.pictureBox22.Location = new System.Drawing.Point(25, 10);
-            this.pictureBox22.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox22.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox22.Name = "pictureBox22";
             this.pictureBox22.Size = new System.Drawing.Size(226, 138);
             this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -753,9 +753,9 @@
             this.groupSoftdrinks.Controls.Add(this.panelSofts);
             this.groupSoftdrinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupSoftdrinks.Location = new System.Drawing.Point(9, 650);
-            this.groupSoftdrinks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupSoftdrinks.Margin = new System.Windows.Forms.Padding(2);
             this.groupSoftdrinks.Name = "groupSoftdrinks";
-            this.groupSoftdrinks.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupSoftdrinks.Padding = new System.Windows.Forms.Padding(2);
             this.groupSoftdrinks.Size = new System.Drawing.Size(347, 291);
             this.groupSoftdrinks.TabIndex = 2;
             this.groupSoftdrinks.TabStop = false;
@@ -773,7 +773,7 @@
             this.panelSofts.Controls.Add(this.labelSD);
             this.panelSofts.Controls.Add(this.pictureBox17);
             this.panelSofts.Location = new System.Drawing.Point(43, 26);
-            this.panelSofts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelSofts.Margin = new System.Windows.Forms.Padding(2);
             this.panelSofts.Name = "panelSofts";
             this.panelSofts.Size = new System.Drawing.Size(259, 252);
             this.panelSofts.TabIndex = 29;
@@ -808,7 +808,7 @@
             this.comboDrinks3.Items.AddRange(new object[] {
             "Pcs."});
             this.comboDrinks3.Location = new System.Drawing.Point(22, 175);
-            this.comboDrinks3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboDrinks3.Margin = new System.Windows.Forms.Padding(2);
             this.comboDrinks3.Name = "comboDrinks3";
             this.comboDrinks3.Size = new System.Drawing.Size(123, 21);
             this.comboDrinks3.TabIndex = 17;
@@ -825,7 +825,7 @@
             "Coke",
             "Sprite"});
             this.comboDrinks1.Location = new System.Drawing.Point(22, 144);
-            this.comboDrinks1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboDrinks1.Margin = new System.Windows.Forms.Padding(2);
             this.comboDrinks1.Name = "comboDrinks1";
             this.comboDrinks1.Size = new System.Drawing.Size(123, 21);
             this.comboDrinks1.TabIndex = 16;
@@ -838,7 +838,7 @@
             this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown2.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.numericUpDown2.Location = new System.Drawing.Point(165, 144);
-            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown2.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown2.Name = "numericUpDown2";
             this.numericUpDown2.Size = new System.Drawing.Size(55, 20);
             this.numericUpDown2.TabIndex = 13;
@@ -848,7 +848,7 @@
             this.btnAdd3.BackColor = System.Drawing.Color.Turquoise;
             this.btnAdd3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd3.Location = new System.Drawing.Point(161, 168);
-            this.btnAdd3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd3.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd3.Name = "btnAdd3";
             this.btnAdd3.Size = new System.Drawing.Size(76, 28);
             this.btnAdd3.TabIndex = 10;
@@ -871,7 +871,7 @@
             // 
             this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
             this.pictureBox17.Location = new System.Drawing.Point(9, 8);
-            this.pictureBox17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox17.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.Size = new System.Drawing.Size(243, 98);
             this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -884,9 +884,9 @@
             this.groupAlcoholDrinks.Controls.Add(this.panelEmpe);
             this.groupAlcoholDrinks.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupAlcoholDrinks.Location = new System.Drawing.Point(9, 953);
-            this.groupAlcoholDrinks.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupAlcoholDrinks.Margin = new System.Windows.Forms.Padding(2);
             this.groupAlcoholDrinks.Name = "groupAlcoholDrinks";
-            this.groupAlcoholDrinks.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupAlcoholDrinks.Padding = new System.Windows.Forms.Padding(2);
             this.groupAlcoholDrinks.Size = new System.Drawing.Size(344, 357);
             this.groupAlcoholDrinks.TabIndex = 3;
             this.groupAlcoholDrinks.TabStop = false;
@@ -904,7 +904,7 @@
             this.panelEmpe.Controls.Add(this.labelEmp);
             this.panelEmpe.Controls.Add(this.pictureBox18);
             this.panelEmpe.Location = new System.Drawing.Point(17, 21);
-            this.panelEmpe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelEmpe.Margin = new System.Windows.Forms.Padding(2);
             this.panelEmpe.Name = "panelEmpe";
             this.panelEmpe.Size = new System.Drawing.Size(285, 322);
             this.panelEmpe.TabIndex = 30;
@@ -940,7 +940,7 @@
             "Emperador Light",
             "Emperador Deluxe"});
             this.cmbEmpe1.Location = new System.Drawing.Point(30, 197);
-            this.cmbEmpe1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbEmpe1.Margin = new System.Windows.Forms.Padding(2);
             this.cmbEmpe1.Name = "cmbEmpe1";
             this.cmbEmpe1.Size = new System.Drawing.Size(123, 21);
             this.cmbEmpe1.TabIndex = 19;
@@ -955,8 +955,8 @@
             this.cmbEmpe3.FormattingEnabled = true;
             this.cmbEmpe3.Items.AddRange(new object[] {
             "Pcs"});
-            this.cmbEmpe3.Location = new System.Drawing.Point(26, 230);
-            this.cmbEmpe3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbEmpe3.Location = new System.Drawing.Point(30, 230);
+            this.cmbEmpe3.Margin = new System.Windows.Forms.Padding(2);
             this.cmbEmpe3.Name = "cmbEmpe3";
             this.cmbEmpe3.Size = new System.Drawing.Size(123, 21);
             this.cmbEmpe3.TabIndex = 18;
@@ -969,7 +969,7 @@
             this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown3.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.numericUpDown3.Location = new System.Drawing.Point(173, 198);
-            this.numericUpDown3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.numericUpDown3.Margin = new System.Windows.Forms.Padding(2);
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.Size = new System.Drawing.Size(55, 20);
             this.numericUpDown3.TabIndex = 13;
@@ -979,7 +979,7 @@
             this.btnAdd4.BackColor = System.Drawing.Color.Turquoise;
             this.btnAdd4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd4.Location = new System.Drawing.Point(170, 222);
-            this.btnAdd4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAdd4.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd4.Name = "btnAdd4";
             this.btnAdd4.Size = new System.Drawing.Size(73, 31);
             this.btnAdd4.TabIndex = 10;
@@ -1002,7 +1002,7 @@
             // 
             this.pictureBox18.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox18.Image")));
             this.pictureBox18.Location = new System.Drawing.Point(33, 11);
-            this.pictureBox18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox18.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(211, 144);
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1025,9 +1025,9 @@
             this.groupBox2.Controls.Add(this.dataGridView1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(544, 20);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(275, 402);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
@@ -1037,7 +1037,7 @@
             // 
             this.Exit11.Image = ((System.Drawing.Image)(resources.GetObject("Exit11.Image")));
             this.Exit11.Location = new System.Drawing.Point(239, 370);
-            this.Exit11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Exit11.Margin = new System.Windows.Forms.Padding(2);
             this.Exit11.Name = "Exit11";
             this.Exit11.Size = new System.Drawing.Size(30, 26);
             this.Exit11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1060,7 +1060,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(37, 336);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(207, 21);
             this.dateTimePicker1.TabIndex = 59;
@@ -1071,7 +1071,7 @@
             this.panel4.Controls.Add(this.CostumerName);
             this.panel4.Controls.Add(this.pictureBox8);
             this.panel4.Location = new System.Drawing.Point(5, 368);
-            this.panel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(103, 28);
             this.panel4.TabIndex = 58;
@@ -1093,7 +1093,7 @@
             // 
             this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
             this.pictureBox8.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(28, 28);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1104,7 +1104,7 @@
             // 
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(97, 233);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(87, 27);
             this.btnUpdate.TabIndex = 12;
@@ -1128,7 +1128,7 @@
             // 
             this.User.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.User.Location = new System.Drawing.Point(155, 289);
-            this.User.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.User.Margin = new System.Windows.Forms.Padding(2);
             this.User.Name = "User";
             this.User.Size = new System.Drawing.Size(103, 21);
             this.User.TabIndex = 6;
@@ -1137,7 +1137,7 @@
             // 
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPrint.Location = new System.Drawing.Point(195, 232);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(71, 29);
             this.btnPrint.TabIndex = 5;
@@ -1149,7 +1149,7 @@
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.Location = new System.Drawing.Point(5, 232);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(85, 29);
             this.btnDelete.TabIndex = 4;
@@ -1165,7 +1165,7 @@
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(5, 24);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidth = 62;
@@ -1173,7 +1173,6 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(263, 192);
             this.dataGridView1.TabIndex = 3;
-            
             // 
             // Productss
             // 
@@ -1187,7 +1186,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox16);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Productss";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productss";

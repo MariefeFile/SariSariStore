@@ -179,25 +179,41 @@ namespace store
 
         private void btnAdd2_Click(object sender, EventArgs e)
         {
-            
+            string selectedItem = comboWatr1.Text.Trim();
+            string selectedUnit = comboWatr3.Text.Trim();
+            string category = ProductCategory.Water;
+            string quantityText = numericUpDown1.Text.Trim();
+
+            AddToCart(selectedItem, selectedUnit, category, quantityText);
         }
         private void btnAdd3_Click(object sender, EventArgs e)
         {
-        
+            string selectedItem = comboDrinks1.Text.Trim();
+            string selectedUnit = comboDrinks3.Text.Trim();
+            string category = ProductCategory.Soft_Drinks;
+            string quantityText = numericUpDown2.Text.Trim();
+
+            AddToCart(selectedItem, selectedUnit, category, quantityText);
         }
         private void btnAdd4_Click(object sender, EventArgs e)
         {
-            
+            string selectedItem = cmbEmpe1.Text.Trim();
+            string selectedUnit = cmbEmpe3.Text.Trim();
+            string category = ProductCategory.Soft_Drinks;
+            string quantityText = numericUpDown3.Text.Trim();
+
+            AddToCart(selectedItem, selectedUnit, category, quantityText);
         }
         private void btnAdd6_Click(object sender, EventArgs e)
         {
+            string selectedItem = cmbGoods1.Text.Trim();
+            string selectedUnit = cmbGoods3.Text.Trim();
+            string category = ProductCategory.Soft_Drinks;
+            string quantityText = numericUpDown7.Text.Trim();
+
+            AddToCart(selectedItem, selectedUnit, category, quantityText);
+        }
         
-        }
-        private void groupRice_Enter(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnDelete_Click(object sender, EventArgs e)
         {
             try
