@@ -8,6 +8,6 @@ namespace store.Constants
 {
     internal class Data
     {
-        public const string ConnectionPath = "C:\\Users\\Nivanz Aricayos\\Documents\\Codes\\Projects\\SariSariStore\\store.mdb";
+        public const string ConnectionPath = "C:\\My Calculator Project\\store\\store.mdb";
     }
 }

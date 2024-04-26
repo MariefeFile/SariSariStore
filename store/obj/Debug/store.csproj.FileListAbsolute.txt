@@ -14,9 +14,15 @@ C:\My Calculator Project\store\store\bin\Debug\CircularProgressBar.xml
 C:\My Calculator Project\store\store\obj\Debug\store.csproj.CopyComplete
 C:\My Calculator Project\store\store\obj\Debug\store.exe
 C:\My Calculator Project\store\store\obj\Debug\store.pdb
-C:\My Calculator Project\store\store\obj\Debug\store.Products.resources
 C:\My Calculator Project\store\store\obj\Debug\store.Sign_in.resources
 C:\My Calculator Project\store\store\obj\Debug\store.EmployeeViews.resources
 C:\My Calculator Project\store\store\obj\Debug\store.Homepage.resources
 C:\My Calculator Project\store\store\bin\Debug\System.Data.OleDb.dll
 C:\My Calculator Project\store\store\bin\Debug\System.Data.OleDb.xml
+C:\My Calculator Project\store\store\obj\Debug\store.AllProd.resources
+C:\My Calculator Project\store\store\obj\Debug\store.Billings.resources
+C:\My Calculator Project\store\store\obj\Debug\store.CostumerName.resources
+C:\My Calculator Project\store\store\obj\Debug\store.Costumer.resources
+C:\My Calculator Project\store\store\obj\Debug\store.PriorityNum.resources
+C:\My Calculator Project\store\store\obj\Debug\store.Productss.resources
+C:\My Calculator Project\store\store\obj\Debug\store.Reciept.resources

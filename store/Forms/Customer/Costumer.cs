@@ -101,15 +101,35 @@ namespace store
                 textphone.ForeColor = Color.Black;
             }
         }
+        private void textEmail_Enter(object sender, EventArgs e)
+        {
+            if (textEmail.Text == "Email")
+            {
+                textEmail.Text = "";
 
-        
+                textEmail.ForeColor = Color.Black;
+            }
+        }
+
+        private void textEmail_Leave(object sender, EventArgs e)
+        {
+            if (textEmail.Text == "")
+            {
+                textEmail.Text = "Email";
+
+                textEmail.ForeColor = Color.Black;
+            }
+        }
+
+
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             string name = textUserName.Text;
             string phone = textphone.Text;
+            string email = textEmail.Text;
 
-            if (customerRepository.InsertCustomer(name, phone, "sample_email@gmail.com"))
+            if (customerRepository.InsertCustomer(name, phone, email))
             {
                 MessageBox.Show("Data inserted successfully.");
                 Productss prod1 = new Productss(name);
@@ -129,6 +149,12 @@ namespace store
             streeee.Show();
             this.Hide();
         }
-        
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+       
     }
 }
