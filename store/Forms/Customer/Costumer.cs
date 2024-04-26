@@ -1,4 +1,5 @@
-﻿using store.Services;
+﻿using store.Models;
+using store.Services;
 using System;
 using System.Data.OleDb;
 using System.Drawing;
@@ -129,7 +130,9 @@ namespace store
             string phone = textphone.Text;
             string email = textEmail.Text;
 
-            if (customerRepository.InsertCustomer(name, phone, email))
+            Customer customer = new Customer(name, phone, email);
+
+            if (customerRepository.InsertCustomer(customer))
             {
                 MessageBox.Show("Data inserted successfully.");
                 Productss prod1 = new Productss(name);

@@ -117,6 +117,9 @@
     <Compile Include="Forms\Customer\Prod.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Customer\Prod.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Homepage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,9 +137,6 @@
     </Compile>
     <Compile Include="PriorityNum.Designer.cs">
       <DependentUpon>PriorityNum.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Customer\Prod.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Customer\Prod.Designer.cs">
       <DependentUpon>Prod.cs</DependentUpon>
@@ -290,6 +290,9 @@
   <ItemGroup>
     <None Include="Resources\images1.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Forms\Admin\" />
+    <Folder Include="Forms\Employee\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

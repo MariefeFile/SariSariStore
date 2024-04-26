@@ -22,43 +22,10 @@ namespace store.Models
             CustomerEmail = email;
         }
 
-        public int GetCustomerId()
-        {
-            return CustomerId;
-        }
-
-        public void SetCustomerId(int customerId)
-        {
-            CustomerId = customerId;
-        }
-
-        public string GetName()
-        {
-            return CustomerName;
-        }
-
-        public void SetName(string name)
+        public Customer(string name, string phone, string email)
         {
             CustomerName = name;
-        }
-
-        public string GetPhone()
-        {
-            return CustomerPhone;
-        }
-
-        public void SetPhone(string phone)
-        {
             CustomerPhone = phone;
-        }
-
-        public string GetEmail()
-        {
-            return CustomerEmail;
-        }
-
-        public void SetEmail(string email)
-        {
             CustomerEmail = email;
         }
     }
