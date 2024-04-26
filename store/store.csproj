@@ -114,6 +114,9 @@
     <Compile Include="Forms\Customer\Costumer.Designer.cs">
       <DependentUpon>Costumer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Customer\Prod.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Homepage.cs">
       <SubType>Form</SubType>
     </Compile>

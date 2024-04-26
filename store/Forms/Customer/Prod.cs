@@ -1,8 +1,8 @@
 ﻿using store.Constants;
 using store.Constants.Products;
-using store.Models;
 using store.Services;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
@@ -13,31 +13,39 @@ namespace store
     public partial class Productss : Form
     {
         private OleDbConnection myConn;
-        private OleDbCommand cmd;
-        private DataTable dataTable;
         private ProductService productService;
-
         private DataTable productsTable;
 
         public Productss(string name)
         {
-
             InitializeComponent();
 
-            // Objects
             productService = new ProductService(Data.ConnectionPath);
 
+            //! Initializing table headers
+            dataGridView1.Columns.Add(ProductFields.Item, "Item");
+            dataGridView1.Columns.Add(ProductFields.Categories, "Categories");
+            dataGridView1.Columns.Add(ProductFields.Unit, "Unit");
+            dataGridView1.Columns.Add(ProductFields.Qnty, "Quantity");
+            dataGridView1.Columns.Add(ProductFields.SellingPrice, "Selling Price");
+            dataGridView1.Columns.Add(ProductFields.TotalPrice, "Total Price");
 
-            // intitializing table headers
-            dataGridView1.Columns.Add("Item", "Item");
-            dataGridView1.Columns.Add("Categories", "Categories");
-            dataGridView1.Columns.Add("Unit", "Unit");
-            dataGridView1.Columns.Add("Qnty", "Quantity");
-            dataGridView1.Columns.Add("SellingPrice", "Selling Price");
-            dataGridView1.Columns.Add("TotalPrice", "Total Price");
+            // Dictionary to map items to labels
+            Dictionary<string, Label> labelMap = new Dictionary<string, Label>
+            {
+                { ProductItems.Ganador, label2 },
+                { ProductItems.Mineral_Water, label12 },
+                { ProductItems.Coke, label10 },
+                { ProductItems.Emperador_Light, label8 },
+                { ProductItems.Carne_Norte, label6 },
+                { ProductItems.Lion_Ivory, label3 },
+                { ProductItems.Bottled_Water, label13 },
+                { ProductItems.Sprite, label11 },
+                { ProductItems.Emperador_Deluxe, label9 },
+                { ProductItems.Beef_Loaf, label7 }
+            };
 
-
-            // querying products items
+            //! Querying products items
             try
             {
                 productsTable = productService.GetAllProducts();
@@ -46,57 +54,18 @@ namespace store
                 {
                     foreach (DataRow row in productsTable.Rows)
                     {
-                        string item = row["Item"].ToString();
-                        double sellingPrice = Convert.ToDouble(row["SellingPrice"]);
+                        string item = row[ProductFields.Item].ToString();
+                        double sellingPrice = 0.0;
 
-
-                        if (item.Equals(ProductItems.Ganador))
+                        if (double.TryParse(row[ProductFields.SellingPrice].ToString(), out sellingPrice))
                         {
-                            label2.Text = String.Format("{0} (Php{1:N2})", item, sellingPrice);
+                            if (labelMap.ContainsKey(item))
+                            {
+                                Label label = labelMap[item];
+                                label.Text = String.Format("{0} (Php{1:N2})", item, sellingPrice);
+                            }
                         }
-
-                        if (item.Equals(ProductItems.Mineral_Water))
-                        {
-                            label12.Text = String.Format("{0} (Php{1:N2})", item, sellingPrice);
-                        }
-
-                        if (item.Equals(ProductItems.Coke))
-                        {
-                            label10.Text = String.Format("{0} (Php{1:N2})", item, sellingPrice);
-                        }
-
-                        if (item.Equals(ProductItems.Emperador_Light))
-                        {
-                            label8.Text = String.Format("{0} (Php{1:N2})", item, sellingPrice);
-                        }
-                        if (item.Equals(ProductItems.Carne_Norte))
-                        {
-                            label6.Text = String.Format("{0} (Php{1:N2})", item, sellingPrice);
-                        }
-                        if (item.Equals(ProductItems.Lion_Ivory))
-                        {
-                            label3.Text = String.Format("{0} (Php{1:N2})", item, sellingPrice);
-                        }
-
-                        if (item.Equals(ProductItems.Bottled_Water))
-                        {
-                            label13.Text = String.Format("{0} (Php{1:N2})", item, sellingPrice);
-                        }
-                        if (item.Equals(ProductItems.Sprite))
-                        {
-                            label11.Text = String.Format("{0} (Php{1:N2})", item, sellingPrice);
-                        }
-                        if (item.Equals(ProductItems.Emperador_Deluxe))
-                        {
-                            label9.Text = String.Format("{0} (Php{1:N2})", item, sellingPrice);
-                        }
-                        if (item.Equals(ProductItems.Beef_Loaf))
-                        {
-                            label7.Text = String.Format("{0} (Php{1:N2})", item, sellingPrice);
-                        }
-
                     }
-
                 }
                 else
                 {
@@ -107,402 +76,88 @@ namespace store
             {
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow selectedRow = dataGridView1.Rows[e.RowIndex];
-                string currentCategory = Convert.ToString(selectedRow.Cells["Categories"].Value);
 
-                switch (currentCategory)
+        private bool IsItemExists(string selectedItem, string selectedUnit)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                DataGridViewCell itemCell = row.Cells["Item"];
+                DataGridViewCell unitCell = row.Cells["Unit"];
+
+                if (itemCell != null && unitCell != null &&
+                    itemCell.Value != null && unitCell.Value != null)
                 {
-                    case "Rice":
-                        PopulateRiceControls(selectedRow);
-                        break;
-                    case "Water":
-                        PopulateWaterControls(selectedRow);
-                        break;
-                    case "Softdrinks":
-                        PopulateSoftdrinkControls(selectedRow);
-                        break;
-                    case "AlcoholDrinks":
-                        PopulateAlcoholControls(selectedRow);
-                        break;
-                    case "Can Goods":
-                        PopulateCanGoodsControls(selectedRow);
-                        break;
-                    default:
-                        break;
-                }
+                    string item = itemCell.Value.ToString();
+                    string unit = unitCell.Value.ToString();
 
-               
-            }
-
-        }
-        private void PopulateRiceControls(DataGridViewRow row)
-        {
-            comboRice1.Text = Convert.ToString(row.Cells["Item"].Value);
-            comboRice3.Text = Convert.ToString(row.Cells["Unit"].Value);
-            numericUpDown22.Value = Convert.ToDecimal(row.Cells["Qnty"].Value);
-        }
-        private void PopulateWaterControls(DataGridViewRow row)
-        {
-            comboWatr1.Text = Convert.ToString(row.Cells["Item"].Value);
-            comboWatr3.Text = Convert.ToString(row.Cells["Unit"].Value);
-            numericUpDown1.Value = Convert.ToDecimal(row.Cells["Qnty"].Value);
-        }
-        private void PopulateSoftdrinkControls(DataGridViewRow row)
-        {
-            comboDrinks1.Text = Convert.ToString(row.Cells["Item"].Value);
-            comboDrinks3.Text = Convert.ToString(row.Cells["Unit"].Value);
-            numericUpDown2.Value = Convert.ToDecimal(row.Cells["Qnty"].Value);
-        }
-        private void PopulateAlcoholControls(DataGridViewRow row)
-        {
-            cmbEmpe1.Text = Convert.ToString(row.Cells["Item"].Value);
-            cmbEmpe3.Text = Convert.ToString(row.Cells["Unit"].Value);
-            numericUpDown3.Value = Convert.ToDecimal(row.Cells["Qnty"].Value);
-        }
-        private void PopulateCanGoodsControls(DataGridViewRow row)
-        {
-            cmbGoods1.Text = Convert.ToString(row.Cells["Item"].Value);
-            cmbGoods3.Text = Convert.ToString(row.Cells["Unit"].Value);
-            numericUpDown7.Value = Convert.ToDecimal(row.Cells["Qnty"].Value);
-        }
-        //----GroupBox per Product----//
-        private void btnAll_Click(object sender, EventArgs e)
-        {
-            groupRice.Location = groupRice.Location;
-            groupWater.Location = groupWater.Location;
-            groupSoftdrinks.Location = groupSoftdrinks.Location;
-            groupAlcoholDrinks.Location = groupAlcoholDrinks.Location;
-            groupGoods.Location = groupGoods.Location;
-            groupRice.Visible = true;
-            groupWater.Visible = true;
-            groupSoftdrinks.Visible = true;
-            groupAlcoholDrinks.Visible = true;
-            groupGoods.Visible = true;
-
-        }
-        private void btnrice_Click(object sender, EventArgs e)
-        {
-            groupRice.Visible = true;
-            groupWater.Visible = false;
-            groupSoftdrinks.Visible = false;
-            groupAlcoholDrinks.Visible = false;
-            groupGoods.Visible = false;
-
-        }
-        private void btnWater_Click(object sender, EventArgs e)
-        {
-            groupWater.Location = groupRice.Location;
-            groupRice.Visible = false;
-            groupWater.Visible = true;
-            groupSoftdrinks.Visible = false;
-            groupAlcoholDrinks.Visible = false;
-            groupGoods.Visible = false;
-
-        }
-        private void btnSoftD_Click(object sender, EventArgs e)
-        {
-            groupSoftdrinks.Location = groupRice.Location;
-            groupRice.Visible = false;
-            groupWater.Visible = false;
-            groupSoftdrinks.Visible = true;
-            groupAlcoholDrinks.Visible = false;
-            groupGoods.Visible = false;
-
-        }
-        private void btnAlcoholDrinks_Click(object sender, EventArgs e)
-        {
-            groupAlcoholDrinks.Location = groupRice.Location;
-            groupRice.Visible = false;
-            groupWater.Visible = false;
-            groupSoftdrinks.Visible = false;
-            groupAlcoholDrinks.Visible = true;
-            groupGoods.Visible = false;
-
-        }
-        private void btnCanGoods_Click(object sender, EventArgs e)
-        {
-            groupGoods.Location = groupRice.Location;
-            groupRice.Visible = false;
-            groupWater.Visible = false;
-            groupSoftdrinks.Visible = false;
-            groupAlcoholDrinks.Visible = false;
-            groupGoods.Visible = true;
-
-
-        }
-        //----------ComboBox----------//
-        private void comboRice1_Enter(object sender, EventArgs e)
-        {
-            if (comboRice1.Text == "Item")
-            {
-                comboRice1.Text = "";
-
-                comboRice1.ForeColor = Color.Black;
-            }
-        }//-------RICE
-        private void comboRice1_Leave(object sender, EventArgs e)
-        {
-            if (comboRice1.Text == "")
-            {
-                comboRice1.Text = "Item";
-
-                comboRice1.ForeColor = Color.Black;
-            }
-        }
-        private void comboRice3_Enter(object sender, EventArgs e)
-        {
-            if (comboRice3.Text == "Unit")
-            {
-                comboRice3.Text = "";
-
-                comboRice3.ForeColor = Color.Black;
-            }
-        }
-        private void comboRice3_Leave(object sender, EventArgs e)
-        {
-            if (comboRice3.Text == "")
-            {
-                comboRice3.Text = "Unit";
-
-                comboRice3.ForeColor = Color.Black;
-            }
-        }
-
-        private void comboBox1_Leave(object sender, EventArgs e)
-        {
-            if (comboRice3.Text == "")
-            {
-                comboRice3.Text = "Categories";
-
-                comboRice3.ForeColor = Color.Black;
-            }
-        }
-
-
-        private void comboWatr1_Enter(object sender, EventArgs e)
-        {
-            if (comboWatr1.Text == "Item")
-            {
-                comboWatr1.Text = "";
-
-                comboWatr1.ForeColor = Color.Black;
-            }
-        }//------Water
-        private void comboWatr1_Leave(object sender, EventArgs e)
-        {
-            if (comboWatr1.Text == "")
-            {
-                comboWatr1.Text = "Item";
-
-                comboWatr1.ForeColor = Color.Black;
-            }
-        }
-        private void comboWatr3_Enter(object sender, EventArgs e)
-        {
-            if (comboWatr3.Text == "Unit")
-            {
-                comboWatr3.Text = "";
-
-                comboWatr3.ForeColor = Color.Black;
-            }
-        }
-        private void comboWatr3_Leave(object sender, EventArgs e)
-        {
-            if (comboWatr3.Text == "")
-            {
-                comboWatr3.Text = "Unit";
-
-                comboWatr3.ForeColor = Color.Black;
-            }
-        }
-
-        private void comboDrinks1_Enter(object sender, EventArgs e)
-        {
-            if (comboDrinks1.Text == "Item")
-            {
-                comboDrinks1.Text = "";
-
-                comboDrinks1.ForeColor = Color.Black;
-            }
-        }
-
-        private void comboDrinks1_Leave(object sender, EventArgs e)
-        {
-            if (comboDrinks1.Text == "")
-            {
-                comboDrinks1.Text = "Item";
-
-                comboDrinks1.ForeColor = Color.Black;
-            }
-        }
-        private void comboDrinks3_Enter(object sender, EventArgs e)
-        {
-            if (comboDrinks3.Text == "Unit")
-            {
-                comboDrinks3.Text = "";
-
-                comboDrinks3.ForeColor = Color.Black;
-            }
-        }
-        private void comboDrinks3_Leave(object sender, EventArgs e)
-        {
-            if (comboDrinks3.Text == "")
-            {
-                comboDrinks3.Text = "Unit";
-
-                comboDrinks3.ForeColor = Color.Black;
-            }
-        }
-        
-        private void comboRice_Leave(object sender, EventArgs e)
-        {
-            if (comboDrinks3.Text == "")
-            {
-                comboDrinks3.Text = "Categories";
-
-                comboDrinks3.ForeColor = Color.Black;
-            }
-        }
-
-        private void cmbEmpe1_Enter(object sender, EventArgs e)
-        {
-            if (cmbEmpe1.Text == "Item")
-            {
-                cmbEmpe1.Text = "";
-
-                cmbEmpe1.ForeColor = Color.Black;
-            }
-        }//--------Emperador
-        private void cmbEmpe1_Leave(object sender, EventArgs e)
-        {
-            if (cmbEmpe1.Text == "")
-            {
-                cmbEmpe1.Text = "Item";
-
-                cmbEmpe1.ForeColor = Color.Black;
-            }
-        }
-        private void cmbEmpe3_Enter(object sender, EventArgs e)
-        {
-            if (cmbEmpe3.Text == "Unit")
-            {
-                cmbEmpe3.Text = "";
-
-                cmbEmpe3.ForeColor = Color.Black;
-            }
-        }
-        private void cmbEmpe3_Leave(object sender, EventArgs e)
-        {
-            if (cmbEmpe3.Text == "")
-            {
-                cmbEmpe3.Text = "Unit";
-
-                cmbEmpe3.ForeColor = Color.Black;
-            }
-        }
-
-        private void comboEmpe_Leave(object sender, EventArgs e)
-        {
-            if (cmbEmpe3.Text == "")
-            {
-                cmbEmpe3.Text = "Categories";
-
-                cmbEmpe3.ForeColor = Color.Black;
-            }
-        }
-
-        private void cmbGoods1_Enter(object sender, EventArgs e)
-        {
-            if (cmbGoods1.Text == "Item")
-            {
-                cmbGoods1.Text = "";
-
-                cmbGoods1.ForeColor = Color.Black;
-            }
-        }//-------Goodss
-        private void cmbGoods1_Leave(object sender, EventArgs e)
-        {
-            if (cmbGoods1.Text == "")
-            {
-                cmbGoods1.Text = "Item";
-
-                cmbGoods1.ForeColor = Color.Black;
-            }
-        }
-        private void cmbGoods3_Enter(object sender, EventArgs e)
-        {
-            if (cmbGoods3.Text == "Unit")
-            {
-                cmbGoods3.Text = "";
-
-                cmbGoods3.ForeColor = Color.Black;
-            }
-        }
-        private void cmbGoods3_Leave(object sender, EventArgs e)
-        {
-            if (cmbGoods3.Text == "")
-            {
-                cmbGoods3.Text = "Unit";
-
-                cmbGoods3.ForeColor = Color.Black;
-            }
-        }
-        
-
-        private void RefreshDataGridView()
-        {
-            dataGridView1.DataSource = null;
-
-            // Rebind the DataGridView to your data source
-            string query = "SELECT * FROM QryOrder"; // Assuming tblEmp is your table name
-            OleDbDataAdapter adapter = new OleDbDataAdapter(query, myConn);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
-        }
-        private void btnAdd1_Click(object sender, EventArgs e)
-        {
-            string selectedItem = comboRice1.Text.Trim();
-            string selectedUnit = comboRice3.Text.Trim();
-            string category = ProductCategory.Rice;
-
-            // Check if the quantity value is valid
-            if (double.TryParse(numericUpDown22.Text, out double quantity))
-            {
-                // Add the row only if all required fields are not empty
-                if (!string.IsNullOrWhiteSpace(selectedItem) &&
-                    !string.IsNullOrWhiteSpace(selectedUnit) &&
-                    !selectedItem.Equals("Item") &&
-                    !selectedUnit.Equals("Unit") && quantity != 0
-                    )
-                {
-                    double sellingPrice = 0.0;
-                    double totalPrice = 0.0;
-
-                    foreach (DataRow row in productsTable.Rows)
+                    if (item.Equals(selectedItem) && unit.Equals(selectedUnit))
                     {
-                        string item = row["Item"].ToString();
-
-
-                        if (item.Equals(selectedItem))
-                        {
-                            sellingPrice = Convert.ToDouble(row[ProductFields.SellingPrice]);
-                            totalPrice = sellingPrice * quantity;
-                        }
-
+                        return true;
                     }
+                }
+            }
+            return false;
+        }
 
-                    dataGridView1.Rows.Add(selectedItem, category, selectedUnit, quantity, sellingPrice, totalPrice);
+
+        private void UpdateExistingItem(string selectedItem, string selectedUnit, double quantity)
+        {
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                string item = row.Cells["Item"].Value.ToString();
+                string unit = row.Cells["Unit"].Value.ToString();
+
+                if (item.Equals(selectedItem) && unit.Equals(selectedUnit))
+                {
+                    double currentQuantity = Convert.ToDouble(row.Cells["Qnty"].Value);
+                    double newQuantity = currentQuantity + quantity;
+
+                    double sellingPrice = Convert.ToDouble(row.Cells["SellingPrice"].Value);
+                    double totalPrice = sellingPrice * newQuantity;
+
+                    row.Cells["Qnty"].Value = newQuantity;
+                    row.Cells["TotalPrice"].Value = totalPrice;
+
+                    break;
+                }
+            }
+        }
+
+        private void AddNewItem(string selectedItem, string selectedUnit, string category, double quantity, string quantityText)
+        {
+            double sellingPrice = 0.0;
+            double totalPrice = 0.0;
+
+            foreach (DataRow row in productsTable.Rows)
+            {
+                string item = row["Item"].ToString();
+
+                if (item.Equals(selectedItem))
+                {
+                    sellingPrice = Convert.ToDouble(row[ProductFields.SellingPrice]);
+                    totalPrice = sellingPrice * quantity;
+                }
+            }
+
+            dataGridView1.Rows.Add(selectedItem, category, selectedUnit, quantity, sellingPrice, totalPrice);
+        }
+
+
+        private void AddToCart(string selectedItem, string selectedUnit, string category, string quantityText)
+        {
+            // Check if the quantity value is valid
+            if (double.TryParse(quantityText, out double quantity) && quantity > 0)
+            {
+                bool itemFound = IsItemExists(selectedItem, selectedUnit);
+
+                if (itemFound)
+                {
+                    UpdateExistingItem(selectedItem, selectedUnit, quantity);
                 }
                 else
                 {
-                    MessageBox.Show("Please fill in all required fields (Item, Categories, Unit, and Quantity).", "Incomplete Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    AddNewItem(selectedItem, selectedUnit, category, quantity, quantityText);
                 }
             }
             else
@@ -511,17 +166,17 @@ namespace store
             }
         }
 
-        private void Refresh1DataGridView()
-        {
-            dataGridView1.DataSource = null;
 
-            // Rebind the DataGridView to your data source
-            string query = "SELECT * FROM QryOrder"; // Assuming tblEmp is your table name
-            OleDbDataAdapter adapter = new OleDbDataAdapter(query, myConn);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
+        private void btnAdd1_Click(object sender, EventArgs e)
+        {
+            string selectedItem = comboRice1.Text.Trim();
+            string selectedUnit = comboRice3.Text.Trim();
+            string category = ProductCategory.Rice;
+            string quantityText = numericUpDown22.Text.Trim();
+
+            AddToCart(selectedItem, selectedUnit, category, quantityText);
         }
+
         private void btnAdd2_Click(object sender, EventArgs e)
         {
             
@@ -664,5 +319,292 @@ namespace store
             num.Show();
             this.Hide();
         }
+
+
+        //********************************************************* UI ONLY FUNCTIONS *************************************************************//
+        //----GroupBox per Product----//
+        private void btnAll_Click(object sender, EventArgs e)
+        {
+            groupRice.Location = groupRice.Location;
+            groupWater.Location = groupWater.Location;
+            groupSoftdrinks.Location = groupSoftdrinks.Location;
+            groupAlcoholDrinks.Location = groupAlcoholDrinks.Location;
+            groupGoods.Location = groupGoods.Location;
+            groupRice.Visible = true;
+            groupWater.Visible = true;
+            groupSoftdrinks.Visible = true;
+            groupAlcoholDrinks.Visible = true;
+            groupGoods.Visible = true;
+
+        }
+        private void btnrice_Click(object sender, EventArgs e)
+        {
+            groupRice.Visible = true;
+            groupWater.Visible = false;
+            groupSoftdrinks.Visible = false;
+            groupAlcoholDrinks.Visible = false;
+            groupGoods.Visible = false;
+
+        }
+        private void btnWater_Click(object sender, EventArgs e)
+        {
+            groupWater.Location = groupRice.Location;
+            groupRice.Visible = false;
+            groupWater.Visible = true;
+            groupSoftdrinks.Visible = false;
+            groupAlcoholDrinks.Visible = false;
+            groupGoods.Visible = false;
+
+        }
+        private void btnSoftD_Click(object sender, EventArgs e)
+        {
+            groupSoftdrinks.Location = groupRice.Location;
+            groupRice.Visible = false;
+            groupWater.Visible = false;
+            groupSoftdrinks.Visible = true;
+            groupAlcoholDrinks.Visible = false;
+            groupGoods.Visible = false;
+
+        }
+        private void btnAlcoholDrinks_Click(object sender, EventArgs e)
+        {
+            groupAlcoholDrinks.Location = groupRice.Location;
+            groupRice.Visible = false;
+            groupWater.Visible = false;
+            groupSoftdrinks.Visible = false;
+            groupAlcoholDrinks.Visible = true;
+            groupGoods.Visible = false;
+
+        }
+        private void btnCanGoods_Click(object sender, EventArgs e)
+        {
+            groupGoods.Location = groupRice.Location;
+            groupRice.Visible = false;
+            groupWater.Visible = false;
+            groupSoftdrinks.Visible = false;
+            groupAlcoholDrinks.Visible = false;
+            groupGoods.Visible = true;
+
+
+        }
+
+        //----------ComboBox----------//
+        private void comboRice1_Enter(object sender, EventArgs e)
+        {
+            if (comboRice1.Text == "Item")
+            {
+                comboRice1.Text = "";
+
+                comboRice1.ForeColor = Color.Black;
+            }
+        }//-------RICE
+        private void comboRice1_Leave(object sender, EventArgs e)
+        {
+            if (comboRice1.Text == "")
+            {
+                comboRice1.Text = "Item";
+
+                comboRice1.ForeColor = Color.Black;
+            }
+        }
+        private void comboRice3_Enter(object sender, EventArgs e)
+        {
+            if (comboRice3.Text == "Unit")
+            {
+                comboRice3.Text = "";
+
+                comboRice3.ForeColor = Color.Black;
+            }
+        }
+        private void comboRice3_Leave(object sender, EventArgs e)
+        {
+            if (comboRice3.Text == "")
+            {
+                comboRice3.Text = "Unit";
+
+                comboRice3.ForeColor = Color.Black;
+            }
+        }
+
+        private void comboBox1_Leave(object sender, EventArgs e)
+        {
+            if (comboRice3.Text == "")
+            {
+                comboRice3.Text = "Categories";
+
+                comboRice3.ForeColor = Color.Black;
+            }
+        }
+
+
+        private void comboWatr1_Enter(object sender, EventArgs e)
+        {
+            if (comboWatr1.Text == "Item")
+            {
+                comboWatr1.Text = "";
+
+                comboWatr1.ForeColor = Color.Black;
+            }
+        }//------Water
+        private void comboWatr1_Leave(object sender, EventArgs e)
+        {
+            if (comboWatr1.Text == "")
+            {
+                comboWatr1.Text = "Item";
+
+                comboWatr1.ForeColor = Color.Black;
+            }
+        }
+        private void comboWatr3_Enter(object sender, EventArgs e)
+        {
+            if (comboWatr3.Text == "Unit")
+            {
+                comboWatr3.Text = "";
+
+                comboWatr3.ForeColor = Color.Black;
+            }
+        }
+        private void comboWatr3_Leave(object sender, EventArgs e)
+        {
+            if (comboWatr3.Text == "")
+            {
+                comboWatr3.Text = "Unit";
+
+                comboWatr3.ForeColor = Color.Black;
+            }
+        }
+
+        private void comboDrinks1_Enter(object sender, EventArgs e)
+        {
+            if (comboDrinks1.Text == "Item")
+            {
+                comboDrinks1.Text = "";
+
+                comboDrinks1.ForeColor = Color.Black;
+            }
+        }
+
+        private void comboDrinks1_Leave(object sender, EventArgs e)
+        {
+            if (comboDrinks1.Text == "")
+            {
+                comboDrinks1.Text = "Item";
+
+                comboDrinks1.ForeColor = Color.Black;
+            }
+        }
+        private void comboDrinks3_Enter(object sender, EventArgs e)
+        {
+            if (comboDrinks3.Text == "Unit")
+            {
+                comboDrinks3.Text = "";
+
+                comboDrinks3.ForeColor = Color.Black;
+            }
+        }
+        private void comboDrinks3_Leave(object sender, EventArgs e)
+        {
+            if (comboDrinks3.Text == "")
+            {
+                comboDrinks3.Text = "Unit";
+
+                comboDrinks3.ForeColor = Color.Black;
+            }
+        }
+
+        private void comboRice_Leave(object sender, EventArgs e)
+        {
+            if (comboDrinks3.Text == "")
+            {
+                comboDrinks3.Text = "Categories";
+
+                comboDrinks3.ForeColor = Color.Black;
+            }
+        }
+
+        private void cmbEmpe1_Enter(object sender, EventArgs e)
+        {
+            if (cmbEmpe1.Text == "Item")
+            {
+                cmbEmpe1.Text = "";
+
+                cmbEmpe1.ForeColor = Color.Black;
+            }
+        }//--------Emperador
+        private void cmbEmpe1_Leave(object sender, EventArgs e)
+        {
+            if (cmbEmpe1.Text == "")
+            {
+                cmbEmpe1.Text = "Item";
+
+                cmbEmpe1.ForeColor = Color.Black;
+            }
+        }
+        private void cmbEmpe3_Enter(object sender, EventArgs e)
+        {
+            if (cmbEmpe3.Text == "Unit")
+            {
+                cmbEmpe3.Text = "";
+
+                cmbEmpe3.ForeColor = Color.Black;
+            }
+        }
+        private void cmbEmpe3_Leave(object sender, EventArgs e)
+        {
+            if (cmbEmpe3.Text == "")
+            {
+                cmbEmpe3.Text = "Unit";
+
+                cmbEmpe3.ForeColor = Color.Black;
+            }
+        }
+
+        private void comboEmpe_Leave(object sender, EventArgs e)
+        {
+            if (cmbEmpe3.Text == "")
+            {
+                cmbEmpe3.Text = "Categories";
+
+                cmbEmpe3.ForeColor = Color.Black;
+            }
+        }
+
+        private void cmbGoods1_Enter(object sender, EventArgs e)
+        {
+            if (cmbGoods1.Text == "Item")
+            {
+                cmbGoods1.Text = "";
+
+                cmbGoods1.ForeColor = Color.Black;
+            }
+        }//-------Goodss
+        private void cmbGoods1_Leave(object sender, EventArgs e)
+        {
+            if (cmbGoods1.Text == "")
+            {
+                cmbGoods1.Text = "Item";
+
+                cmbGoods1.ForeColor = Color.Black;
+            }
+        }
+        private void cmbGoods3_Enter(object sender, EventArgs e)
+        {
+            if (cmbGoods3.Text == "Unit")
+            {
+                cmbGoods3.Text = "";
+
+                cmbGoods3.ForeColor = Color.Black;
+            }
+        }
+        private void cmbGoods3_Leave(object sender, EventArgs e)
+        {
+            if (cmbGoods3.Text == "")
+            {
+                cmbGoods3.Text = "Unit";
+
+                cmbGoods3.ForeColor = Color.Black;
+            }
+        }
     }
+
 }
