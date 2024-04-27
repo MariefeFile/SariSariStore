@@ -96,6 +96,7 @@
     <Compile Include="Constants\Products\ProductFields.cs" />
     <Compile Include="Constants\Products\ProductItems.cs" />
     <Compile Include="Constants\TableNames.cs" />
+    <Compile Include="Constants\TableQuery.cs" />
     <Compile Include="CostumerName.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +129,7 @@
     </Compile>
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\FinancialMetrics.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Product.cs" />

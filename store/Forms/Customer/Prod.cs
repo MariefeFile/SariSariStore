@@ -1,4 +1,4 @@
-﻿using store.Constants;
+using store.Constants;
 using store.Constants.Products;
 using store.Models;
 using store.Services;
@@ -7,23 +7,32 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace store
 {
     public partial class Productss : Form
     {
-        private OleDbConnection myConn;
-        private ProductService productService;
-        private DataTable productsTable;
-        private Order order;
+        private ProductService productService = new ProductService(Data.ConnectionPath);
+        private string currentCustomerName;
+        private List<Product> productList;
+        private List<OrderItem> orderItems = new List<OrderItem>();
+        private Order order = new Order();
 
-        public Productss(string name)
+        public Productss(string currentCustomerName)
         {
             InitializeComponent();
 
-            productService = new ProductService(Data.ConnectionPath);
-            order = new Order();
+            initTableHeaders();
+
+            initPriceProductLabels();
+
+            this.currentCustomerName = currentCustomerName;
+        }
+
+        private void initTableHeaders()
+        {            order = new Order();
             order.CustomerName = name;
 
 
@@ -34,7 +43,10 @@ namespace store
             dataGridView1.Columns.Add(ProductFields.Qnty, "Quantity");
             dataGridView1.Columns.Add(ProductFields.SellingPrice, "Selling Price");
             dataGridView1.Columns.Add(ProductFields.TotalPrice, "Total Price");
+        }
 
+        private void initPriceProductLabels()
+        {
             // Dictionary to map items to labels
             Dictionary<string, Label> labelMap = new Dictionary<string, Label>
             {
@@ -50,31 +62,27 @@ namespace store
                 { ProductItems.Beef_Loaf, label7 }
             };
 
-            //! Querying products items
             try
             {
-                productsTable = productService.GetAllProducts();
+                productList = productService.GetAllProducts();
 
-                if (productsTable.Rows.Count > 0)
+                if (productList.Count > 0)
                 {
-                    foreach (DataRow row in productsTable.Rows)
+                    foreach (Product p in productList)
                     {
-                        string item = row[ProductFields.Item].ToString();
-                        double sellingPrice = 0.0;
+                        string item = p.Item;
+                        double sellingPrice = p.SellingPrice;
 
-                        if (double.TryParse(row[ProductFields.SellingPrice].ToString(), out sellingPrice))
+                        if (labelMap.ContainsKey(item))
                         {
-                            if (labelMap.ContainsKey(item))
-                            {
-                                Label label = labelMap[item];
-                                label.Text = String.Format("{0} (Php{1:N2})", item, sellingPrice);
-                            }
+                            Label label = labelMap[item];
+                            label.Text = String.Format("{0} (Php{1:N2})", item, sellingPrice);
                         }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No data found in the products table.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("No data found in the products list.", "No Data", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch (Exception ex)
@@ -83,23 +91,15 @@ namespace store
             }
         }
 
+
         private bool IsItemExists(string selectedItem, string selectedUnit)
         {
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (OrderItem item in orderItems)
             {
-                DataGridViewCell itemCell = row.Cells["Item"];
-                DataGridViewCell unitCell = row.Cells["Unit"];
-
-                if (itemCell != null && unitCell != null &&
-                    itemCell.Value != null && unitCell.Value != null)
+                if (item.Item != null && item.Unit != null &&
+                    item.Item.Equals(selectedItem) && item.Unit.Equals(selectedUnit))
                 {
-                    string item = itemCell.Value.ToString();
-                    string unit = unitCell.Value.ToString();
-
-                    if (item.Equals(selectedItem) && unit.Equals(selectedUnit))
-                    {
-                        return true;
-                    }
+                    return true;
                 }
             }
             return false;
@@ -108,51 +108,61 @@ namespace store
 
         private void UpdateExistingItem(string selectedItem, string selectedUnit, double quantity)
         {
-            foreach (DataGridViewRow row in dataGridView1.Rows)
+            foreach (OrderItem item in orderItems)
             {
-                string item = row.Cells[ProductFields.Item].Value.ToString();
-                string unit = row.Cells[ProductFields.Unit].Value.ToString();
-
-                if (item.Equals(selectedItem) && unit.Equals(selectedUnit))
+                if (item.Item.Equals(selectedItem) && item.Unit.Equals(selectedUnit))
                 {
-                    double currentQuantity = Convert.ToDouble(row.Cells[ProductFields.Qnty].Value);
-                    double newQuantity = currentQuantity + quantity;
+                    item.Quantity += (int)quantity; // Update the quantity in the orderItems list
+                    item.TotalPrice = item.SellingPrice * item.Quantity;
 
-                    double sellingPrice = Convert.ToDouble(row.Cells[ProductFields.SellingPrice].Value);
-                    double totalPrice = sellingPrice * newQuantity;
+                    // Update the corresponding row in dataGridView1
+                    foreach (DataGridViewRow row in dataGridView1.Rows)
+                    {
+                        string dgvItem = row.Cells[ProductFields.Item].Value.ToString();
+                        string dgvUnit = row.Cells[ProductFields.Unit].Value.ToString();
 
-                    row.Cells[ProductFields.Qnty].Value = newQuantity;
-                    row.Cells[ProductFields.TotalPrice].Value = totalPrice;
+                        if (dgvItem.Equals(selectedItem) && dgvUnit.Equals(selectedUnit))
+                        {
+                            row.Cells[ProductFields.Qnty].Value = item.Quantity;
+                            row.Cells[ProductFields.TotalPrice].Value = item.TotalPrice;
+                            break;
+                        }
+                    }
 
                     break;
                 }
             }
         }
 
-        private void AddNewItem(string selectedItem, string selectedUnit, string category, double quantity, string quantityText)
+
+        private void AddNewItem(string selectedItem, string selectedUnit, string category, int quantity, string quantityText)
         {
             double sellingPrice = 0.0;
             double totalPrice = 0.0;
+            int productID = 0;
 
-            foreach (DataRow row in productsTable.Rows)
+            foreach(Product p in productList)
             {
-                string item = row[ProductFields.Item].ToString().Trim();
-
-                if (item.Equals(selectedItem))
+                if (p.Item.Equals(selectedItem))
                 {
-                    sellingPrice = Convert.ToDouble(row[ProductFields.SellingPrice]);
+                    productID = p.ProductID;
+                    sellingPrice = p.SellingPrice;
                     totalPrice = sellingPrice * quantity;
+                    break;
                 }
             }
 
             dataGridView1.Rows.Add(selectedItem, category, selectedUnit, quantity, sellingPrice, totalPrice);
+
+            OrderItem newItem = new OrderItem(productID, selectedItem, category, selectedUnit, (int)quantity, sellingPrice, totalPrice);
+            orderItems.Add(newItem);
         }
 
 
         private void AddToCart(string selectedItem, string selectedUnit, string category, string quantityText)
         {
             // Check if the quantity value is valid
-            if (double.TryParse(quantityText, out double quantity) && quantity > 0)
+            if (int.TryParse(quantityText, out int quantity) && quantity > 0)
             {
                 bool itemFound = IsItemExists(selectedItem, selectedUnit);
 

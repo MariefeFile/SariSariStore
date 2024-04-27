@@ -10,6 +10,7 @@ namespace store.Models
     {
         public int OrderID { get; set; }
         public DateTime OrderDate { get; set; }
+        public String CustomerName { get; set; }
         public int CustomerID { get; set; }
         public List<OrderItem> OrderItems { get; set; }
         public string CustomerName { get; set; }
@@ -18,7 +19,7 @@ namespace store.Models
 
         }
 
-        public Order(int orderID, DateTime orderDate, int customerID, List<OrderItem> orderItems)
+        public Order(int orderID, DateTime orderDate, int customerID, List<OrderItem> orderItems, string customerName)
         {
             OrderID = orderID;
             OrderDate = orderDate;
