@@ -12,6 +12,11 @@ namespace store.Models
         public DateTime OrderDate { get; set; }
         public int CustomerID { get; set; }
         public List<OrderItem> OrderItems { get; set; }
+        public string CustomerName { get; set; }
+        public Order()
+        {
+
+        }
 
         public Order(int orderID, DateTime orderDate, int customerID, List<OrderItem> orderItems)
         {
@@ -21,43 +26,10 @@ namespace store.Models
             OrderItems = orderItems;
         }
 
-        public int GetOrderID()
-        {
-            return OrderID;
-        }
-
-        public void SetOrderID(int orderID)
-        {
-            OrderID = orderID;
-        }
-
-        public DateTime GetOrderDate()
-        {
-            return OrderDate;
-        }
-
-        public void SetOrderDate(DateTime orderDate)
+        public Order(DateTime orderDate, int customerID, List<OrderItem> orderItems)
         {
             OrderDate = orderDate;
-        }
-
-        public int GetCustomerID()
-        {
-            return CustomerID;
-        }
-
-        public void SetCustomerID(int customerID)
-        {
             CustomerID = customerID;
-        }
-
-        public List<OrderItem> GetOrderItems()
-        {
-            return OrderItems;
-        }
-
-        public void SetOrderItems(List<OrderItem> orderItems)
-        {
             OrderItems = orderItems;
         }
     }

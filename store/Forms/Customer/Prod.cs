@@ -1,5 +1,6 @@
 ﻿using store.Constants;
 using store.Constants.Products;
+using store.Models;
 using store.Services;
 using System;
 using System.Collections.Generic;
@@ -15,12 +16,16 @@ namespace store
         private OleDbConnection myConn;
         private ProductService productService;
         private DataTable productsTable;
+        private Order order;
 
         public Productss(string name)
         {
             InitializeComponent();
 
             productService = new ProductService(Data.ConnectionPath);
+            order = new Order();
+            order.CustomerName = name;
+
 
             //! Initializing table headers
             dataGridView1.Columns.Add(ProductFields.Item, "Item");
@@ -159,6 +164,8 @@ namespace store
                 {
                     AddNewItem(selectedItem, selectedUnit, category, quantity, quantityText);
                 }
+
+
             }
             else
             {
