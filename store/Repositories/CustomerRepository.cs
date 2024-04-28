@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace store.Services
+namespace store.Repositories
 {
-    internal class CustomerService
+    internal class CustomerRepository
     {
         
         private readonly string connectionString;
 
-        public CustomerService()
+        public CustomerRepository()
         {
             connectionString = $"Provider=Microsoft.JET.OLEDB.4.0;Data Source={Data.ConnectionPath}";
         }

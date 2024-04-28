@@ -31,6 +31,7 @@ C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\De
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Billings.resources
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.CostumerName.resources
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.EmployeeViews.resources
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Costumer.resources
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Homepage.resources
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.PriorityNum.resources
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Productss.resources
@@ -49,7 +50,6 @@ C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\bin\x86\De
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\bin\x86\Debug\WinFormAnimation.dll
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\bin\x86\Debug\CircularProgressBar.xml
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\bin\x86\Debug\System.Data.OleDb.xml
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Costumer.resources
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.csproj.Up2Date
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.exe
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.pdb

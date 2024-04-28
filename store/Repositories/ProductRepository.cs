@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
-using System.Data;
+using System.Data;  
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using store.Constants;
 using store.Models;
 
-namespace store.Services
+namespace store.Repositories
 {
-    internal class ProductService
+    internal class ProductRepository
     {
         private string connectionString;
 
-        public ProductService(string databasePath)
+        public ProductRepository(string databasePath)
         {
             
             connectionString = $@"Provider=Microsoft.JET.OLEDB.4.0;Data Source={databasePath};Persist Security Info=False;";

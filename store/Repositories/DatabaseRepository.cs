@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace store.Services
+namespace store.Repositories
 {
-    internal class DatabaseService
+    internal class DatabaseRepository
     {
         public bool IsDatabaseConnected()
         {

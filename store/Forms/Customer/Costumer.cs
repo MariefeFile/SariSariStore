@@ -1,5 +1,5 @@
 ﻿using store.Models;
-using store.Services;
+using store.Repositories;
 using System;
 using System.Data.OleDb;
 using System.Drawing;
@@ -9,14 +9,14 @@ namespace store
 {
     public partial class Costumer : Form
     {
-        private readonly CustomerService customerRepository;
-        private readonly DatabaseService databaseService;
+        private readonly CustomerRepository customerRepository;
+        private readonly DatabaseRepository databaseRepository;
 
         public Costumer()
         {
             InitializeComponent();
-            databaseService = new DatabaseService();
-            customerRepository = new CustomerService();
+            databaseRepository = new DatabaseRepository();
+            customerRepository = new CustomerRepository();
         }
 
         private void Costumer_Load(object sender, EventArgs e)
@@ -24,7 +24,7 @@ namespace store
             panel1.Visible = true;
             panel4.Visible = false;
 
-            if (databaseService.IsDatabaseConnected())
+            if (databaseRepository.IsDatabaseConnected())
             {
                 MessageBox.Show("Database connected successfully!");
             }

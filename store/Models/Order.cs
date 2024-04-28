@@ -13,7 +13,6 @@ namespace store.Models
         public String CustomerName { get; set; }
         public int CustomerID { get; set; }
         public List<OrderItem> OrderItems { get; set; }
-        public string CustomerName { get; set; }
         public Order()
         {
 
