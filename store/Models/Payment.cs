@@ -8,11 +8,12 @@ namespace store.Models
 {
     public class Payment
     {
-        public Order order { get; set; }
-        public List<OrderItem> items { get; set; }
+        public Order Order { get; set; }
+        public List<OrderItem> Items { get; set; }
         public double TotalChange { get; set; }
         public double TotalCash { get; set; }
         public string EmployeeName { get; set; }
+        public DateTime PaymentDate { get; set; }
         public Payment()
         {
 

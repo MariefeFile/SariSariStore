@@ -134,7 +134,7 @@
     <Compile Include="Models\FinancialMetrics.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
-    <Compile Include="Models\Payments.cs" />
+    <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Forms\Customer\PriorityNum.cs">
@@ -156,6 +156,7 @@
     <Compile Include="Repositories\DatabaseRepository.cs" />
     <Compile Include="Repositories\OrderItemRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\PaymentRepository.cs" />
     <Compile Include="Repositories\PriorityNumberRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />

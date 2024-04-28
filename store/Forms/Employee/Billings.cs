@@ -19,10 +19,9 @@ namespace store
     public partial class Billings : Form
     {
         private List<Order> orderList;
-        private List<OrderItem> itemList;
         private OrderRepository orderRepository = new OrderRepository();
         private OrderItemRepository orderItemRepository = new OrderItemRepository();
-        private Order selectedOrder;
+        private Payment payment = new Payment();
 
         public Billings(User user)
         {
@@ -40,9 +39,9 @@ namespace store
         {
             if (double.TryParse(textBox2.Text, out double result))
             {
-                selectedOrder.TotalCash = result;
-                selectedOrder.TotalChange = Calculations.ComputeChange(selectedOrder.TotalPrice, result);
-                textBox3.Text = selectedOrder.TotalChange.ToString("C");
+                payment.TotalCash = result;
+                payment.TotalChange = Calculations.ComputeChange(payment.Order.TotalPrice, result);
+                textBox3.Text = payment.TotalChange.ToString("C");
             }
             else
             {
@@ -88,11 +87,11 @@ namespace store
         {
             try
             {
-                itemList = orderItemRepository.GetOrderItemsByOrderID(orderID);
+                payment.Items = orderItemRepository.GetOrderItemsByOrderID(orderID);
 
                 dataGridView2.Rows.Clear();
 
-                foreach (OrderItem item in itemList)
+                foreach (OrderItem item in payment.Items)
                 {
                     dataGridView2.Rows.Add(
                         item.ProductID,
@@ -161,7 +160,7 @@ namespace store
                     int priorityNumber = Convert.ToInt32(selectedRow.Cells[OrderFields.PriorityNumber].Value);
 
 
-                    selectedOrder = new Order
+                    payment.Order = new Order
                     {
                         OrderID = orderID,
                         OrderDate = DateTime.ParseExact(orderDateText, "MM/dd/yyyy", System.Globalization.CultureInfo.InvariantCulture),
