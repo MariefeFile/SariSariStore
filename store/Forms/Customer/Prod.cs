@@ -1,41 +1,40 @@
 using store.Constants;
 using store.Constants.Products;
 using store.Models;
-using store.Services;
+using store.Repositories;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.OleDb;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace store
 {
     public partial class Productss : Form
     {
-        private ProductService productService = new ProductService(Data.ConnectionPath);
-        private string currentCustomerName;
+        private ProductRepository productRepository = new ProductRepository(Data.ConnectionPath);
         private List<Product> productList;
         private List<OrderItem> orderItems = new List<OrderItem>();
-        private Order order = new Order();
+        private Order order;
 
         public Productss(string currentCustomerName)
         {
+
+            
             InitializeComponent();
+
+            order = new Order
+            {
+                CustomerName = CostumerName.Text = currentCustomerName
+            };
 
             initTableHeaders();
 
             initPriceProductLabels();
 
-            this.currentCustomerName = currentCustomerName;
         }
 
         private void initTableHeaders()
-        {            order = new Order();
-            order.CustomerName = name;
-
-
+        {   
             //! Initializing table headers
             dataGridView1.Columns.Add(ProductFields.Item, "Item");
             dataGridView1.Columns.Add(ProductFields.Categories, "Categories");
@@ -64,7 +63,7 @@ namespace store
 
             try
             {
-                productList = productService.GetAllProducts();
+                productList = productRepository.GetAllProducts();
 
                 if (productList.Count > 0)
                 {
