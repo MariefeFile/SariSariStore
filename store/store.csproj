@@ -134,10 +134,10 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Users.cs" />
-    <Compile Include="PriorityNum.cs">
+    <Compile Include="Forms\Customer\PriorityNum.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PriorityNum.Designer.cs">
+    <Compile Include="Forms\Customer\PriorityNum.Designer.cs">
       <DependentUpon>PriorityNum.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Customer\Prod.Designer.cs">
@@ -151,6 +151,7 @@
     </Compile>
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repositories\DatabaseRepository.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\PriorityNumberRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Services\Calculations.cs" />
@@ -192,7 +193,7 @@
     <EmbeddedResource Include="Homepage.resx">
       <DependentUpon>Homepage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PriorityNum.resx">
+    <EmbeddedResource Include="Forms\Customer\PriorityNum.resx">
       <DependentUpon>PriorityNum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customer\Prod.resx">

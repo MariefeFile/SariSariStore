@@ -1,4 +1,5 @@
-﻿using store.Models;
+﻿using store.Constants.Orders;
+using store.Models;
 using store.Repositories;
 using System;
 using System.Collections.Generic;
@@ -16,24 +17,27 @@ namespace store
     {
         private void inititalizePrioritySlip(Order order)
         {
-            PriorityNumberRepository pnRepo = new PriorityNumberRepository();
-
-            priorityNumber.Text = pnRepo.GetLatestPriorityNumber().ToString();
+            priorityNumber.Text = order.PriorityNumber.ToString();
             customerName.Text = order.CustomerName;
             totalPayment.Text = order.TotalPrice.ToString();
-            dateOfOrder.Text = order.OrderDate.ToString();
-
-            pnRepo.AddLatestPriorityNumber();
+            dateOfOrder.Text = order.OrderDate.ToString();   
         }
 
         public PriorityNum(Order order)
         {
             InitializeComponent();
 
-            order.OrderDate = DateTime.Now;
+            PriorityNumberRepository pnRepo = new PriorityNumberRepository();
+            OrderRepository orderRepository = new OrderRepository();
 
+            order.OrderDate = DateTime.Now;
+            order.PriorityNumber = pnRepo.GetLatestPriorityNumber();
+            order.Status = OrderStatus.Pending;
 
             inititalizePrioritySlip(order);
+
+            orderRepository.AddOrder(order);
+            pnRepo.AddLatestPriorityNumber();
         }
 
         private void Exit4_Click(object sender, EventArgs e)
