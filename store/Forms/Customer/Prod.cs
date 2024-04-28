@@ -155,7 +155,7 @@ namespace store
             OrderItem newItem = new OrderItem(productID, selectedItem, category, selectedUnit, quantity, sellingPrice, totalPrice);
             order.OrderItems.Add(newItem);
 
-            dataGridView1.Rows.Add(newItem.ProductID, newItem.Item, newItem.Categories, newItem.Unit, newItem.Quantity, newItem.SellingPrice, newItem.TotalPrice);
+            dataGridView1.Rows.Add(newItem.ProductID, newItem.Item, newItem.Categories, newItem.Unit, newItem.Quantity, newItem.SellingPrice.ToString("C"), newItem.TotalPrice.ToString("C"));
 
         }
 
