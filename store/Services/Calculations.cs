@@ -23,6 +23,10 @@ namespace store.Services
         {
             return item.SellingPrice * item.Quantity;
         }
+        public static double CalculateItemTotalPrice(double sellingPrice, int quantity)
+        {
+            return sellingPrice * quantity;
+        }
         public static int NewTotalQuantity(int origQuantity, int toAddQuantity)
         {
             return origQuantity + toAddQuantity;
