@@ -135,5 +135,26 @@ namespace store.Repositories
             return newOrderID;
         }
 
+        public void UpdateOrderStatus(int orderID)
+        {
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string updateQuery = $"UPDATE {TableNames.Orders} SET Status = '{OrderStatus.Completed}' WHERE OrderID = @OrderID";
+                    OleDbCommand updateCommand = new OleDbCommand(updateQuery, connection);
+                    updateCommand.Parameters.AddWithValue("@OrderID", orderID);
+
+                    connection.Open();
+                    updateCommand.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error updating order status: {ex.Message}");
+            }
+        }
+
+
     }
 }

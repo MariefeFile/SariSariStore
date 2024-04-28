@@ -25,12 +25,14 @@ namespace store.Repositories
                 using (OleDbConnection connection = new OleDbConnection(connectionString))
                 {
                     connection.Open();
-                    string query = $"INSERT INTO {TableNames.Payments} (OrderID, EmployeeName, TotalCash, TotalChange) VALUES (@OrderID, @EmployeeName, @TotalCash, @TotalChange)";
+                    string query = $"INSERT INTO {TableNames.Payments} (OrderID, EmployeeName, TotalCash, TotalChange, TotalPrice, PaymentDate) VALUES (@OrderID, @EmployeeName, @TotalCash, @TotalChange, @TotalPrice, @PaymentDate)";
                     OleDbCommand command = new OleDbCommand(query, connection);
                     command.Parameters.AddWithValue("@OrderID", payment.Order.OrderID);
                     command.Parameters.AddWithValue("@EmployeeName", payment.EmployeeName);
                     command.Parameters.AddWithValue("@TotalCash", payment.TotalCash);
                     command.Parameters.AddWithValue("@TotalChange", payment.TotalChange);
+                    command.Parameters.AddWithValue("@TotalPrice", payment.Order.TotalPrice);
+                    command.Parameters.AddWithValue("@PaymentDate", payment.PaymentDate.ToString("MM/dd/yyyy"));
 
                     int rowsAffected = command.ExecuteNonQuery();
                     return rowsAffected > 0;
@@ -38,7 +40,7 @@ namespace store.Repositories
             }
             catch (Exception ex)
             {
-                // Handle the exception or log it
+                Console.WriteLine("Error inserting payment: " + ex.Message);
                 return false;
             }
         }

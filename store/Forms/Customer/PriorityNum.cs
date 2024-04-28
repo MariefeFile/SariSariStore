@@ -44,7 +44,9 @@ namespace store
 
         private void Exit4_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            new StartingPoint().Show();
+            this.Hide();
+
         }
 
     }

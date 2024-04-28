@@ -21,6 +21,7 @@ namespace store
         private List<Order> orderList;
         private OrderRepository orderRepository = new OrderRepository();
         private OrderItemRepository orderItemRepository = new OrderItemRepository();
+        private PaymentRepository paymentRepository = new PaymentRepository();
         private Payment payment = new Payment();
 
         public Billings(User user)
@@ -30,7 +31,7 @@ namespace store
             InitOrdersTable();
             PopulateOrderTable();
 
-            EmpDisplay.Text = user.UserName;
+            payment.EmployeeName = EmpDisplay.Text = user.UserName;
             dataGrid11.SelectionChanged += DataGrid11_SelectionChanged;
             textBox2.TextChanged += textBox2_TextChanged;
         }
@@ -184,7 +185,15 @@ namespace store
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            payment.PaymentDate = DateTime.Now;
+            
+            paymentRepository.InsertPayment(payment);
+            orderRepository.UpdateOrderStatus(payment.Order.OrderID);
 
+            new Reciept(payment).Show();
+
+            dataGridView2.Rows.Clear();
+            PopulateOrderTable();
         }
     }
 }

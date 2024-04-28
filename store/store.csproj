@@ -146,10 +146,10 @@
     <Compile Include="Forms\Customer\Prod.Designer.cs">
       <DependentUpon>Prod.cs</DependentUpon>
     </Compile>
-    <Compile Include="Reciept.cs">
+    <Compile Include="Forms\Employee\Reciept.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Reciept.Designer.cs">
+    <Compile Include="Forms\Employee\Reciept.Designer.cs">
       <DependentUpon>Reciept.cs</DependentUpon>
     </Compile>
     <Compile Include="Repositories\CustomerRepository.cs" />
@@ -205,7 +205,7 @@
     <EmbeddedResource Include="Forms\Customer\Prod.resx">
       <DependentUpon>Prod.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reciept.resx">
+    <EmbeddedResource Include="Forms\Employee\Reciept.resx">
       <DependentUpon>Reciept.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sign_in.resx">
