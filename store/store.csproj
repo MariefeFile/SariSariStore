@@ -85,10 +85,12 @@
     <Compile Include="AllProd.Designer.cs">
       <DependentUpon>AllProd.cs</DependentUpon>
     </Compile>
-    <Compile Include="Billings.cs">
+    <Compile Include="Constants\Orders\OrderFields.cs" />
+    <Compile Include="Constants\Users\UserTypes.cs" />
+    <Compile Include="Forms\Employee\Billings.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Billings.Designer.cs">
+    <Compile Include="Forms\Employee\Billings.Designer.cs">
       <DependentUpon>Billings.cs</DependentUpon>
     </Compile>
     <Compile Include="Constants\Data.cs" />
@@ -157,30 +159,30 @@
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Services\Calculations.cs" />
-    <Compile Include="Sign_in.cs">
+    <Compile Include="Forms\Sign_in.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Sign_in.Designer.cs">
+    <Compile Include="Forms\Sign_in.Designer.cs">
       <DependentUpon>Sign_in.cs</DependentUpon>
     </Compile>
-    <Compile Include="Splash.cs">
+    <Compile Include="Forms\Splash.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Splash.Designer.cs">
+    <Compile Include="Forms\Splash.Designer.cs">
       <DependentUpon>Splash.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StartingPoint.cs">
+    <Compile Include="Forms\StartingPoint.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StartingPoint.Designer.cs">
+    <Compile Include="Forms\StartingPoint.Designer.cs">
       <DependentUpon>StartingPoint.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="AllProd.resx">
       <DependentUpon>AllProd.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Billings.resx">
+    <EmbeddedResource Include="Forms\Employee\Billings.resx">
       <DependentUpon>Billings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CostumerName.resx">
@@ -204,10 +206,10 @@
     <EmbeddedResource Include="Reciept.resx">
       <DependentUpon>Reciept.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Sign_in.resx">
+    <EmbeddedResource Include="Forms\Sign_in.resx">
       <DependentUpon>Sign_in.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Splash.resx">
+    <EmbeddedResource Include="Forms\Splash.resx">
       <DependentUpon>Splash.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -220,7 +222,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="StartingPoint.resx">
+    <EmbeddedResource Include="Forms\StartingPoint.resx">
       <DependentUpon>StartingPoint.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -299,7 +301,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Forms\Admin\" />
-    <Folder Include="Forms\Employee\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

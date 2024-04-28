@@ -1071,7 +1071,7 @@
             this.panel4.Location = new System.Drawing.Point(5, 368);
             this.panel4.Margin = new System.Windows.Forms.Padding(2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(103, 28);
+            this.panel4.Size = new System.Drawing.Size(230, 28);
             this.panel4.TabIndex = 58;
             // 
             // CostumerName
@@ -1080,7 +1080,7 @@
             this.CostumerName.BackColor = System.Drawing.Color.Linen;
             this.CostumerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CostumerName.ForeColor = System.Drawing.Color.Black;
-            this.CostumerName.Location = new System.Drawing.Point(41, 6);
+            this.CostumerName.Location = new System.Drawing.Point(35, 8);
             this.CostumerName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CostumerName.Name = "CostumerName";
             this.CostumerName.Size = new System.Drawing.Size(33, 13);

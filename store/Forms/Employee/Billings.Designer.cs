@@ -425,7 +425,7 @@
             this.EmpDisplay.Size = new System.Drawing.Size(47, 20);
             this.EmpDisplay.TabIndex = 62;
             this.EmpDisplay.Text = "User";
-            this.EmpDisplay.Click += new System.EventHandler(this.EmpDisplay_Click);
+            
             // 
             // pictureBox3
             // 
@@ -560,7 +560,7 @@
             this.btnReset.TabIndex = 36;
             this.btnReset.Text = "Delete";
             this.btnReset.UseVisualStyleBackColor = false;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            
             // 
             // textBox1
             // 
@@ -629,7 +629,7 @@
             this.Name = "Billings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Billings";
-            this.Load += new System.EventHandler(this.Billings_Load);
+            
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel9.ResumeLayout(false);

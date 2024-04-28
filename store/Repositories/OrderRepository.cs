@@ -1,4 +1,5 @@
 ﻿using store.Constants;
+using store.Constants.Orders;
 using store.Models;
 using System;
 using System.Collections.Generic;
@@ -18,31 +19,83 @@ namespace store.Repositories
             connectionString = Data.ConnectionString;
         }
 
-        /*
-        public void AddOrder(Order order)
+        public List<Order> GetOrdersPending()
         {
+            List<Order> pendingOrders = new List<Order>();
+
             try
             {
                 using (OleDbConnection connection = new OleDbConnection(connectionString))
                 {
-                    string query = $"INSERT INTO {TableNames.Orders} (OrderDate, CustomerName, TotalPrice, Status, PriorityNumber) VALUES (@OrderDate, @CustomerName, @TotalPrice, @Status, @PriorityNumber)";
+                    string query = $"SELECT * FROM {TableQuery.QueryOrders} WHERE Status = '{OrderStatus.Pending}'";
                     OleDbCommand command = new OleDbCommand(query, connection);
 
-                    command.Parameters.AddWithValue("@OrderDate", order.OrderDate.ToString("MM/dd/yyyy"));
-                    command.Parameters.AddWithValue("@CustomerName", order.CustomerName);
-                    command.Parameters.AddWithValue("@TotalPrice", order.TotalPrice);
-                    command.Parameters.AddWithValue("@Status", order.Status);
-                    command.Parameters.AddWithValue("@PriorityNumber", order.PriorityNumber);
+                    connection.Open();
+                    OleDbDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Order order = new Order
+                        {
+                            OrderID = Convert.ToInt32(reader["OrderID"]),
+                            OrderDate = Convert.ToDateTime(reader["OrderDate"]),
+                            CustomerName = Convert.ToString(reader["CustomerName"]),
+                            TotalPrice = Convert.ToDouble(reader["TotalPrice"]),
+                            Status = Convert.ToString(reader["Status"]),
+                            PriorityNumber = Convert.ToInt32(reader["PriorityNumber"])
+                        };
+                        pendingOrders.Add(order);
+                    }
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error retrieving pending orders: {ex.Message}");
+            }
+
+            return pendingOrders;
+        }
+
+        public List<Order> GetOrdersCompleted()
+        {
+            List<Order> completedOrders = new List<Order>();
+
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string query = $"SELECT * FROM {TableQuery.QueryOrders} WHERE Status = '{OrderStatus.Completed}'";
+                    OleDbCommand command = new OleDbCommand(query, connection);
 
                     connection.Open();
-                    command.ExecuteNonQuery();
+                    OleDbDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Order order = new Order
+                        {
+                            OrderID = Convert.ToInt32(reader["OrderID"]),
+                            OrderDate = Convert.ToDateTime(reader["OrderDate"]),
+                            CustomerName = Convert.ToString(reader["CustomerName"]),
+                            TotalPrice = Convert.ToDouble(reader["TotalPrice"]),
+                            Status = Convert.ToString(reader["Status"]),
+                            PriorityNumber = Convert.ToInt32(reader["PriorityNumber"])
+                        };
+                        completedOrders.Add(order);
+                    }
+
+                    reader.Close();
                 }
-            } catch (Exception ex)
-            {
-                throw new Exception($"Error adding an order: {ex.Message}");
             }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error retrieving completed orders: {ex.Message}");
+            }
+
+            return completedOrders;
         }
-        */
 
         public int AddOrder(Order order)
         {

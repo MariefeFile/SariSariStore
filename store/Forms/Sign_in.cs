@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Data.OleDb;
 using store.Models;
 using store.Repositories;
+using store.Constants.Users;
 
 namespace store
 {
@@ -37,8 +38,12 @@ namespace store
             if (userRepository.IsUserExist(user))
             {
                 MessageBox.Show("Successfully logged in.", "Log in Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                new Billings(textUser.Text).Show();
-                this.Hide();
+
+                if (user.UserType.Equals(UserTypes.Employee))
+                {
+                    new Billings(user).Show();
+                    this.Hide();
+                }
             }
             else
             {
