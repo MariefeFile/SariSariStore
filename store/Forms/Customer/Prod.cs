@@ -2,9 +2,11 @@ using store.Constants;
 using store.Constants.Products;
 using store.Models;
 using store.Repositories;
+using store.Services;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace store
@@ -13,13 +15,10 @@ namespace store
     {
         private ProductRepository productRepository = new ProductRepository(Data.ConnectionPath);
         private List<Product> productList;
-        private List<OrderItem> orderItems = new List<OrderItem>();
         private Order order;
 
         public Productss(string currentCustomerName)
         {
-
-            
             InitializeComponent();
 
             order = new Order
@@ -34,12 +33,13 @@ namespace store
         }
 
         private void initTableHeaders()
-        {   
+        {
             //! Initializing table headers
+            dataGridView1.Columns.Add(ProductFields.ProductID, "Product ID");
             dataGridView1.Columns.Add(ProductFields.Item, "Item");
             dataGridView1.Columns.Add(ProductFields.Categories, "Categories");
             dataGridView1.Columns.Add(ProductFields.Unit, "Unit");
-            dataGridView1.Columns.Add(ProductFields.Qnty, "Quantity");
+            dataGridView1.Columns.Add(ProductFields.Quantity, "Quantity");
             dataGridView1.Columns.Add(ProductFields.SellingPrice, "Selling Price");
             dataGridView1.Columns.Add(ProductFields.TotalPrice, "Total Price");
         }
@@ -93,7 +93,7 @@ namespace store
 
         private bool IsItemExists(string selectedItem, string selectedUnit)
         {
-            foreach (OrderItem item in orderItems)
+            foreach (OrderItem item in order.OrderItems)
             {
                 if (item.Item != null && item.Unit != null &&
                     item.Item.Equals(selectedItem) && item.Unit.Equals(selectedUnit))
@@ -105,16 +105,17 @@ namespace store
         }
 
 
-        private void UpdateExistingItem(string selectedItem, string selectedUnit, double quantity)
+        private void UpdateExistingItem(string selectedItem, string selectedUnit, int quantity)
         {
-            foreach (OrderItem item in orderItems)
+            // Find and update the existing item in order.OrderItems
+            foreach (OrderItem item in order.OrderItems)
             {
                 if (item.Item.Equals(selectedItem) && item.Unit.Equals(selectedUnit))
                 {
-                    item.Quantity += (int)quantity; // Update the quantity in the orderItems list
-                    item.TotalPrice = item.SellingPrice * item.Quantity;
+                    item.Quantity = Calculations.NewTotalQuantity(item.Quantity, quantity);
+                    item.TotalPrice = Calculations.CalculateItemTotalPrice(item);
 
-                    // Update the corresponding row in dataGridView1
+                    // Update the corresponding row in dataGridView1 manually
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         string dgvItem = row.Cells[ProductFields.Item].Value.ToString();
@@ -122,7 +123,7 @@ namespace store
 
                         if (dgvItem.Equals(selectedItem) && dgvUnit.Equals(selectedUnit))
                         {
-                            row.Cells[ProductFields.Qnty].Value = item.Quantity;
+                            row.Cells[ProductFields.Quantity].Value = item.Quantity;
                             row.Cells[ProductFields.TotalPrice].Value = item.TotalPrice;
                             break;
                         }
@@ -134,33 +135,35 @@ namespace store
         }
 
 
-        private void AddNewItem(string selectedItem, string selectedUnit, string category, int quantity, string quantityText)
+        private void AddNewItem(string selectedItem, string selectedUnit, string category, int quantity)
         {
             double sellingPrice = 0.0;
             double totalPrice = 0.0;
             int productID = 0;
 
-            foreach(Product p in productList)
+            foreach (Product p in productList)
             {
                 if (p.Item.Equals(selectedItem))
                 {
                     productID = p.ProductID;
                     sellingPrice = p.SellingPrice;
-                    totalPrice = sellingPrice * quantity;
+                    totalPrice = Calculations.CalculateItemTotalPrice(sellingPrice, quantity);
                     break;
                 }
             }
 
-            dataGridView1.Rows.Add(selectedItem, category, selectedUnit, quantity, sellingPrice, totalPrice);
+            OrderItem newItem = new OrderItem(productID, selectedItem, category, selectedUnit, quantity, sellingPrice, totalPrice);
+            order.OrderItems.Add(newItem);
 
-            OrderItem newItem = new OrderItem(productID, selectedItem, category, selectedUnit, (int)quantity, sellingPrice, totalPrice);
-            orderItems.Add(newItem);
+            dataGridView1.Rows.Add(newItem.ProductID, newItem.Item, newItem.Categories, newItem.Unit, newItem.Quantity, newItem.SellingPrice, newItem.TotalPrice);
+
         }
+
+
 
 
         private void AddToCart(string selectedItem, string selectedUnit, string category, string quantityText)
         {
-            // Check if the quantity value is valid
             if (int.TryParse(quantityText, out int quantity) && quantity > 0)
             {
                 bool itemFound = IsItemExists(selectedItem, selectedUnit);
@@ -171,16 +174,85 @@ namespace store
                 }
                 else
                 {
-                    AddNewItem(selectedItem, selectedUnit, category, quantity, quantityText);
+                    AddNewItem(selectedItem, selectedUnit, category, quantity);
                 }
 
-
+                order.TotalPrice = Calculations.CalculateTotalPrice(order.OrderItems);
+                totalPrice.Text = order.TotalPrice.ToString();
             }
             else
             {
                 MessageBox.Show("Please enter a valid quantity.", "Invalid Quantity", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void DeleteItem(string selectedItem, string selectedUnit)
+        {
+            OrderItem itemToRemove = order.OrderItems.FirstOrDefault(item =>
+                item.Item.Equals(selectedItem) && item.Unit.Equals(selectedUnit));
+
+            if (itemToRemove != null)
+            {
+                order.OrderItems.Remove(itemToRemove);
+
+                // Find the corresponding row in dataGridView1 and remove it
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        string dgvItem = row.Cells[ProductFields.Item].Value.ToString();
+                        string dgvUnit = row.Cells[ProductFields.Unit].Value.ToString();
+
+                        if (dgvItem.Equals(selectedItem) && dgvUnit.Equals(selectedUnit))
+                        {
+                            dataGridView1.Rows.Remove(row);
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0 && order.OrderItems.Count > 0)
+                {
+                    // Get the selected row
+                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+
+                    // Check if the row is new and uncommitted
+                    if (!selectedRow.IsNewRow)
+                    {
+                        string selectedItem = selectedRow.Cells[ProductFields.Item].Value.ToString();
+                        string selectedUnit = selectedRow.Cells[ProductFields.Unit].Value.ToString();
+
+                        // Delete the selected item from order.OrderItems and dataGridView1
+                        DeleteItem(selectedItem, selectedUnit);
+
+                        // Update the total price
+                        order.TotalPrice = Calculations.CalculateTotalPrice(order.OrderItems);
+                        totalPrice.Text = order.TotalPrice.ToString();
+                        dataGridView1.Refresh();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cannot delete an uncommitted row.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a row to delete.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
 
         private void btnAdd1_Click(object sender, EventArgs e)
@@ -229,38 +301,6 @@ namespace store
 
             AddToCart(selectedItem, selectedUnit, category, quantityText);
         }
-        
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (dataGridView1.SelectedRows.Count > 0)
-                {
-                    // Get the selected row
-                    DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-
-                    // Check if the row is new and uncommitted
-                    if (!selectedRow.IsNewRow)
-                    {
-                        // Remove the selected row
-                        dataGridView1.Rows.Remove(selectedRow);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Cannot delete an uncommitted row.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Please select a row to delete.", "No Row Selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
 
 
         private void Exit11_Click(object sender, EventArgs e)
@@ -568,10 +608,6 @@ namespace store
             }
         }
 
-        private void Productss_Load(object sender, EventArgs e)
-        {
-           
-        }
     }
 
 }

@@ -152,6 +152,7 @@
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repositories\DatabaseRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Services\Calculations.cs" />
     <Compile Include="Sign_in.cs">
       <SubType>Form</SubType>
     </Compile>

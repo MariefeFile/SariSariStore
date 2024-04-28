@@ -13,9 +13,15 @@ namespace store.Models
         public String CustomerName { get; set; }
         public int CustomerID { get; set; }
         public List<OrderItem> OrderItems { get; set; }
+        public double TotalPrice { get; set; }
         public Order()
         {
-
+            OrderID = 0;
+            OrderDate = DateTime.Today;
+            CustomerName = "";
+            CustomerID = 0;
+            OrderItems = new List<OrderItem>();
+            TotalPrice = 0.0;
         }
 
         public Order(int orderID, DateTime orderDate, int customerID, List<OrderItem> orderItems, string customerName)
