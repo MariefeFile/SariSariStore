@@ -310,11 +310,6 @@ namespace store
             backk.Show();
         }
         
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            // TODO, will automatically fill up the values in the combo box and units
-        }
-
         private void btnPrint_Click(object sender, EventArgs e)
         {
             PriorityNum num = new PriorityNum();

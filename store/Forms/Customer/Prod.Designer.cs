@@ -102,7 +102,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.CostumerName = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.labelTotal = new System.Windows.Forms.Label();
             this.totalPrice = new System.Windows.Forms.TextBox();
             this.btnPrint = new System.Windows.Forms.Button();
@@ -1016,7 +1015,6 @@
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.panel4);
-            this.groupBox2.Controls.Add(this.btnUpdate);
             this.groupBox2.Controls.Add(this.labelTotal);
             this.groupBox2.Controls.Add(this.totalPrice);
             this.groupBox2.Controls.Add(this.btnPrint);
@@ -1099,18 +1097,6 @@
             this.pictureBox8.TabIndex = 56;
             this.pictureBox8.TabStop = false;
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(97, 233);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(87, 27);
-            this.btnUpdate.TabIndex = 12;
-            this.btnUpdate.Text = "UPDATE";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
             // labelTotal
             // 
             this.labelTotal.AutoSize = true;
@@ -1136,7 +1122,7 @@
             // btnPrint
             // 
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(195, 232);
+            this.btnPrint.Location = new System.Drawing.Point(155, 232);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(71, 29);
@@ -1148,7 +1134,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(5, 232);
+            this.btnDelete.Location = new System.Drawing.Point(45, 232);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(85, 29);
@@ -1176,7 +1162,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(263, 192);
             this.dataGridView1.StandardTab = true;
             this.dataGridView1.TabIndex = 3;
-            
             // 
             // Productss
             // 
@@ -1194,7 +1179,6 @@
             this.Name = "Productss";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productss";
-            
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -1298,7 +1282,6 @@
         private System.Windows.Forms.Label labelEmp;
         private System.Windows.Forms.PictureBox pictureBox18;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.TextBox totalPrice;
         private System.Windows.Forms.Button btnPrint;
