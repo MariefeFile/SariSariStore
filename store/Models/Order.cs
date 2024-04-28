@@ -15,6 +15,7 @@ namespace store.Models
         public double TotalPrice { get; set; }
         public string Status { get; set; }
         public int PriorityNumber { get; set; }
+        public int TotalItems { get; set; }
         public Order()
         {
             OrderID = 0;

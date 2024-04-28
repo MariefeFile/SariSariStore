@@ -1,4 +1,6 @@
-﻿using System;
+﻿using store.Models;
+using store.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,48 +18,61 @@ namespace store
 {
     public partial class AllProd : Form
     {
-        OleDbConnection myConn;
-        OleDbCommand cmd;
-        
-
+        private List<Product> productList = null;
+        private ProductRepository productRepository = new ProductRepository();
         public AllProd()
         {
             InitializeComponent();
-            myConn = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb");
+
+            productList = productRepository.GetAllProducts();
+
+            InitializeDataGridView();
+            PopulateDataGridView();
+        }
+
+        private void InitializeDataGridView()
+        {
+            dataGridView5.ColumnCount = 9;
+            dataGridView5.Columns[0].Name = "ProductID";
+            dataGridView5.Columns[1].Name = "Item";
+            dataGridView5.Columns[2].Name = "Unit";
+            dataGridView5.Columns[3].Name = "OrigPrice";
+            dataGridView5.Columns[4].Name = "SellingPrice";
+            dataGridView5.Columns[5].Name = "Stock";
+            dataGridView5.Columns[6].Name = "Categories";
+            dataGridView5.Columns[7].Name = "ItemSold";
+            dataGridView5.Columns[8].Name = "MarkUp";
+        }
+
+        private void PopulateDataGridView()
+        {
+            dataGridView5.Rows.Clear();
             
-        }
+            productList = productList.OrderBy(p => p.ProductID).ToList();
 
-        private void AllProd_Load(object sender, EventArgs e)
-        {
-           
-            try
+            foreach (Product product in productList)
             {
-                myConn.Open();
-                // System.Windows.Forms.MessageBox.Show("Connected Succsfully!");
-                LoadDataIntoDataGridView();
-                this.Hide();
-                myConn.Close();
+                dataGridView5.Rows.Add(
+                    product.ProductID,
+                    product.Item,
+                    product.Unit,
+                    product.OrigPrice,
+                    product.SellingPrice,
+                    product.Stock,
+                    product.Categories,
+                    product.ItemSold,
+                    product.MarkUp
+                );
             }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-
         }
 
-        private void Exit4_Click(object sender, EventArgs e)
-        {
-           
-            Homepage hp = new Homepage();
-            hp.Show();
-            this.Hide();
-        }
-        
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = dataGridView5.Rows[e.RowIndex];
 
             // Display employee details in textboxes
+            /*
             txtSaleID.Text = row.Cells["ProductID"].Value.ToString();
             txtSaleName.Text = row.Cells["Item"].Value.ToString();
             txtSaleUnit.Text = row.Cells["Unit"].Value.ToString();
@@ -68,132 +83,10 @@ namespace store
             comboSaleCat.Text = row.Cells["Categories"].Value.ToString();
             txtSold.Text = row.Cells["ItemSold"].Value.ToString();
             txtMarkUp.Text = row.Cells["MarkUp"].Value.ToString();
-        }
-        private void LoadDataIntoDataGridView()
-        {
-            string query = "SELECT * FROM tblProducts";
-            OleDbDataAdapter da = new OleDbDataAdapter(query, myConn);
-            DataTable dt = new DataTable();
-
-            // Fill the DataTable with data from the database
-            da.Fill(dt);
-
-            // Bind the DataTable to the DataGridView
-            dataGridView5.DataSource = dt;
-
-
-        }
-        private void RefreshDataGridView1()
-        {
-            dataGridView5.DataSource = null;
-
-            // Rebind the DataGridView to your data source
-            string query = "SELECT * FROM tblProducts"; // Assuming tblEmp is your table name
-            OleDbDataAdapter adapter = new OleDbDataAdapter(query, myConn);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView5.DataSource = dt;
-
-        }
-        private void btnInsert_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                double sold = 0;
-                double markup = 0;
-
-                // Parse string inputs to double
-                double stock = double.Parse(txtSaleStock.Text);
-                double qnty = double.Parse(txtSaleQnty.Text);
-                double sellingPrice = double.Parse(txtSaleSelling.Text);
-                double orgPrice = double.Parse(txtSaleOrg.Text);
-
-                // Calculate sold and markup
-                sold = stock - qnty;
-                markup = sellingPrice - orgPrice;
-
-                string connectionString = "Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb";
-                string query = "INSERT INTO tblProducts (Item, Unit, Qnty, Org_Price, SellingPrice, Stock, Categories, ItemSold, MarkUp) " +
-                               "VALUES (@Item, @Unit, @Qnty, @Org_Price, @SellingPrice, @Stock, @Categories, @ItemSold, @MarkUp)";
-
-                using (OleDbConnection myConn = new OleDbConnection(connectionString))
-                {
-                    using (OleDbCommand cmd = new OleDbCommand(query, myConn))
-                    {
-                        cmd.Parameters.AddWithValue("@Item", txtSaleName.Text);
-                        cmd.Parameters.AddWithValue("@Unit", txtSaleUnit.Text);
-                        cmd.Parameters.AddWithValue("@Qnty", txtSaleQnty.Text);
-                        cmd.Parameters.AddWithValue("@Org_Price", txtSaleOrg.Text);
-                        cmd.Parameters.AddWithValue("@SellingPrice", txtSaleSelling.Text);
-                        cmd.Parameters.AddWithValue("@Stock", txtSaleStock.Text);
-                        cmd.Parameters.AddWithValue("@Categories", comboSaleCat.Text);
-                        cmd.Parameters.AddWithValue("@ItemSold", sold);
-                        cmd.Parameters.AddWithValue("@MarkUp", markup);
-
-                        myConn.Open();
-                        cmd.ExecuteNonQuery();
-                    }
-                }
-                MessageBox.Show("Data inserted successfully.");
-
-                // Refresh the DataGridView with the updated data
-                RefreshDataGridView1();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message);
-            }
+            */
         }
 
-        private void btnUpDate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string connectionString = "Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb";
-
-                using (OleDbConnection myConn = new OleDbConnection(connectionString))
-                {
-                    string query = "UPDATE tblProducts SET Item=@Item, Unit=@Unit, Qnty=@Qnty, Org_Price=@Org_Price, SellingPrice=@SellingPrice,Stock=@Stock, Categories=@Categories,ItemSold=@ItemSold,MarkUp=@MarkUp WHERE ProductID=@ID";
-                    using (OleDbCommand cmd = new OleDbCommand(query, myConn))
-                    {
-                        cmd.Parameters.AddWithValue("@Item", txtSaleName.Text);
-                        cmd.Parameters.AddWithValue("@Unit", txtSaleUnit.Text);
-                        cmd.Parameters.AddWithValue("@Qnty", txtSaleQnty.Text);
-                        cmd.Parameters.AddWithValue("@Org_Price", txtSaleOrg.Text);
-                        cmd.Parameters.AddWithValue("@SellingPrice", txtSaleSelling.Text);
-                        cmd.Parameters.AddWithValue("@Stock", txtSaleStock.Text);
-                        cmd.Parameters.AddWithValue("@Categories", comboSaleCat.Text);
-                        cmd.Parameters.AddWithValue("@ItemSold", txtSold.Text);
-                        cmd.Parameters.AddWithValue("@MarkUp", txtMarkUp.Text);
-                        cmd.Parameters.AddWithValue("@ID", Convert.ToInt32(txtSaleID.Text));
-
-                        myConn.Open();
-                        int rowsAffected = cmd.ExecuteNonQuery();
-                        MessageBox.Show(rowsAffected + " row(s) updated.");
-                    }
-                }
-
-                // Refresh the DataGridView with the updated data after updating
-                RefreshDataGridView1();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred: " + ex.Message);
-            }
-        }
-        private int index;
-        private void buttonDelete_Click(object sender, EventArgs e)
-        {
-            string query = "Delete From tblProducts Where ProductID = @ProdID";
-            cmd = new OleDbCommand(query, myConn);
-            cmd.Parameters.AddWithValue("@ProdID", dataGridView5.CurrentRow.Cells[0].Value);
-            myConn.Open();
-            cmd.ExecuteNonQuery();
-            myConn.Close();
-            index = dataGridView5.CurrentCell.RowIndex;
-            dataGridView5.Rows.RemoveAt(index);
-        }
-
+        
         private void buttonClear_Click(object sender, EventArgs e)
         {
 
@@ -396,6 +289,12 @@ namespace store
             }
         }
 
-       
+        private void Exit4_Click(object sender, EventArgs e)
+        {
+
+            Homepage hp = new Homepage();
+            hp.Show();
+            this.Hide();
+        }
     }
 }

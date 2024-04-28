@@ -125,7 +125,7 @@
             this.buttonDelete.TabIndex = 52;
             this.buttonDelete.Text = "DELETE";
             this.buttonDelete.UseVisualStyleBackColor = false;
-            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
+            
             // 
             // btnUpDate
             // 
@@ -138,7 +138,6 @@
             this.btnUpDate.TabIndex = 51;
             this.btnUpDate.Text = "UPDATE";
             this.btnUpDate.UseVisualStyleBackColor = false;
-            this.btnUpDate.Click += new System.EventHandler(this.btnUpDate_Click);
             // 
             // btnInsert
             // 
@@ -151,7 +150,6 @@
             this.btnInsert.TabIndex = 50;
             this.btnInsert.Text = "INSERT";
             this.btnInsert.UseVisualStyleBackColor = false;
-            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // panel8
             // 
@@ -440,7 +438,7 @@
             this.Name = "AllProd";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AllProd";
-            this.Load += new System.EventHandler(this.AllProd_Load);
+            
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel8.ResumeLayout(false);

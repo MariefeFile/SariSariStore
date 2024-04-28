@@ -107,6 +107,8 @@
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.totalItems = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -1011,6 +1013,8 @@
             // 
             this.groupBox2.BackColor = System.Drawing.Color.DarkCyan;
             this.groupBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBox2.BackgroundImage")));
+            this.groupBox2.Controls.Add(this.totalItems);
+            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.Exit11);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
@@ -1047,7 +1051,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(42, 315);
+            this.label1.Location = new System.Drawing.Point(42, 321);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 17);
@@ -1057,7 +1061,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Enabled = false;
-            this.dateTimePicker1.Location = new System.Drawing.Point(37, 336);
+            this.dateTimePicker1.Location = new System.Drawing.Point(37, 342);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(207, 21);
@@ -1103,18 +1107,18 @@
             this.labelTotal.AutoSize = true;
             this.labelTotal.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.labelTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTotal.Location = new System.Drawing.Point(91, 291);
+            this.labelTotal.Location = new System.Drawing.Point(83, 300);
             this.labelTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTotal.Name = "labelTotal";
-            this.labelTotal.Size = new System.Drawing.Size(62, 15);
+            this.labelTotal.Size = new System.Drawing.Size(68, 15);
             this.labelTotal.TabIndex = 7;
-            this.labelTotal.Text = "Total: Php";
+            this.labelTotal.Text = " Total Price";
             // 
             // totalPrice
             // 
             this.totalPrice.Enabled = false;
             this.totalPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalPrice.Location = new System.Drawing.Point(155, 289);
+            this.totalPrice.Location = new System.Drawing.Point(155, 298);
             this.totalPrice.Margin = new System.Windows.Forms.Padding(2);
             this.totalPrice.Name = "totalPrice";
             this.totalPrice.Size = new System.Drawing.Size(103, 21);
@@ -1123,7 +1127,7 @@
             // btnPrint
             // 
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(155, 232);
+            this.btnPrint.Location = new System.Drawing.Point(155, 236);
             this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(71, 29);
@@ -1135,7 +1139,7 @@
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(45, 232);
+            this.btnDelete.Location = new System.Drawing.Point(45, 236);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(85, 29);
@@ -1160,9 +1164,31 @@
             this.dataGridView1.RowHeadersWidth = 62;
             this.dataGridView1.RowTemplate.Height = 28;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(263, 192);
+            this.dataGridView1.Size = new System.Drawing.Size(263, 208);
             this.dataGridView1.StandardTab = true;
             this.dataGridView1.TabIndex = 3;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(85, 276);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(67, 15);
+            this.label4.TabIndex = 62;
+            this.label4.Text = "Total Items";
+            // 
+            // totalItems
+            // 
+            this.totalItems.Enabled = false;
+            this.totalItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalItems.Location = new System.Drawing.Point(154, 272);
+            this.totalItems.Margin = new System.Windows.Forms.Padding(2);
+            this.totalItems.Name = "totalItems";
+            this.totalItems.Size = new System.Drawing.Size(103, 21);
+            this.totalItems.TabIndex = 63;
             // 
             // Productss
             // 
@@ -1306,5 +1332,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox totalItems;
+        private System.Windows.Forms.Label label4;
     }
 }

@@ -46,7 +46,6 @@ namespace store
 
         private void initPriceProductLabels()
         {
-            // Dictionary to map items to labels
             Dictionary<string, Label> labelMap = new Dictionary<string, Label>
             {
                 { ProductItems.Ganador, label2 },
@@ -178,7 +177,9 @@ namespace store
                 }
 
                 order.TotalPrice = Calculations.CalculateTotalPrice(order.OrderItems);
-                totalPrice.Text = order.TotalPrice.ToString();
+                order.TotalItems = Calculations.CountTotalItems(order.OrderItems);
+                totalPrice.Text = order.TotalPrice.ToString("C");
+                totalItems.Text = order.TotalItems.ToString();
             }
             else
             {
@@ -234,7 +235,9 @@ namespace store
 
                         // Update the total price
                         order.TotalPrice = Calculations.CalculateTotalPrice(order.OrderItems);
-                        totalPrice.Text = order.TotalPrice.ToString();
+                        order.TotalItems = Calculations.CountTotalItems(order.OrderItems);
+                        totalPrice.Text = order.TotalPrice.ToString("C");
+                        totalItems.Text = order.TotalItems.ToString();
                         dataGridView1.Refresh();
                     }
                     else

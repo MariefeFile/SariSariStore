@@ -4,9 +4,6 @@ using store.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace store.Repositories
 {
@@ -42,7 +39,8 @@ namespace store.Repositories
                             CustomerName = Convert.ToString(reader["CustomerName"]),
                             TotalPrice = Convert.ToDouble(reader["TotalPrice"]),
                             Status = Convert.ToString(reader["Status"]),
-                            PriorityNumber = Convert.ToInt32(reader["PriorityNumber"])
+                            PriorityNumber = Convert.ToInt32(reader["PriorityNumber"]),
+                            TotalItems = Convert.ToInt32(reader["TotalItems"])
                         };
                         pendingOrders.Add(order);
                     }
@@ -81,7 +79,8 @@ namespace store.Repositories
                             CustomerName = Convert.ToString(reader["CustomerName"]),
                             TotalPrice = Convert.ToDouble(reader["TotalPrice"]),
                             Status = Convert.ToString(reader["Status"]),
-                            PriorityNumber = Convert.ToInt32(reader["PriorityNumber"])
+                            PriorityNumber = Convert.ToInt32(reader["PriorityNumber"]),
+                            TotalItems = Convert.ToInt32(reader["TotalItems"])
                         };
                         completedOrders.Add(order);
                     }
@@ -105,7 +104,7 @@ namespace store.Repositories
             {
                 using (OleDbConnection connection = new OleDbConnection(connectionString))
                 {
-                    string insertQuery = $"INSERT INTO {TableNames.Orders} (OrderDate, CustomerName, TotalPrice, Status, PriorityNumber) VALUES (@OrderDate, @CustomerName, @TotalPrice, @Status, @PriorityNumber)";
+                    string insertQuery = $"INSERT INTO {TableNames.Orders} (OrderDate, CustomerName, TotalPrice, Status, PriorityNumber, TotalItems) VALUES (@OrderDate, @CustomerName, @TotalPrice, @Status, @PriorityNumber, @TotalItems)";
                     string fetchIDQuery = $"SELECT @@IDENTITY AS NewOrderID";
 
                     OleDbCommand insertCommand = new OleDbCommand(insertQuery, connection);
@@ -116,6 +115,7 @@ namespace store.Repositories
                     insertCommand.Parameters.AddWithValue("@TotalPrice", order.TotalPrice);
                     insertCommand.Parameters.AddWithValue("@Status", order.Status);
                     insertCommand.Parameters.AddWithValue("@PriorityNumber", order.PriorityNumber);
+                    insertCommand.Parameters.AddWithValue("@TotalItems", order.TotalItems);
 
                     connection.Open();
                     insertCommand.ExecuteNonQuery();

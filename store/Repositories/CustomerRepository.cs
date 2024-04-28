@@ -42,5 +42,32 @@ namespace store.Repositories
                 }
             }
         }
+
+        public int GetTotalCustomers()
+        {
+            int totalCustomers = 0;
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                string query = $"SELECT COUNT(*) FROM {TableNames.Customers}";
+                OleDbCommand command = new OleDbCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        totalCustomers = Convert.ToInt32(result);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error getting total customers: " + ex.Message);
+                }
+            }
+
+            return totalCustomers;
+        }
     }
 }

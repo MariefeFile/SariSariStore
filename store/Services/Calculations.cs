@@ -19,6 +19,36 @@ namespace store.Services
             return totalPrice;
         }
 
+        public static int CountTotalItems(List<OrderItem> orderItems)
+        {
+            int totalItem = 0;
+            foreach(OrderItem item in orderItems)
+            {
+                totalItem += item.Quantity;
+            }
+            return totalItem;
+        }
+
+        public static int CountOverallItems(List<Order> orders)
+        {
+            int totalItem = 0;
+            foreach(Order order in orders)
+            {
+                totalItem += order.TotalItems;
+            }
+            return totalItem;
+        }
+
+        public static double CountTotalSales(List<Order> orders)
+        {
+            double totalSales = 0.0;
+            foreach(Order order in orders)
+            {
+                totalSales += order.TotalPrice;
+            }
+            return totalSales;
+        }
+
         public static double CalculateItemTotalPrice(OrderItem item)
         {
             return item.SellingPrice * item.Quantity;

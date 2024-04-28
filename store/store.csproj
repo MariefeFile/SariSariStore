@@ -79,10 +79,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AllProd.cs">
+    <Compile Include="Forms\Admin\AllProd.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AllProd.Designer.cs">
+    <Compile Include="Forms\Admin\AllProd.Designer.cs">
       <DependentUpon>AllProd.cs</DependentUpon>
     </Compile>
     <Compile Include="Constants\Orders\OrderFields.cs" />
@@ -100,16 +100,16 @@
     <Compile Include="Constants\Products\ProductItems.cs" />
     <Compile Include="Constants\TableNames.cs" />
     <Compile Include="Constants\TableQuery.cs" />
-    <Compile Include="CostumerName.cs">
+    <Compile Include="Forms\Admin\CostumerName.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CostumerName.Designer.cs">
+    <Compile Include="Forms\Admin\CostumerName.Designer.cs">
       <DependentUpon>CostumerName.cs</DependentUpon>
     </Compile>
-    <Compile Include="EmployeeViews.cs">
+    <Compile Include="Forms\Admin\EmployeeViews.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EmployeeViews.Designer.cs">
+    <Compile Include="Forms\Admin\EmployeeViews.Designer.cs">
       <DependentUpon>EmployeeViews.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Customer\Costumer.cs">
@@ -124,10 +124,10 @@
     <Compile Include="Forms\Customer\Prod.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Homepage.cs">
+    <Compile Include="Forms\Admin\Homepage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Homepage.Designer.cs">
+    <Compile Include="Forms\Admin\Homepage.Designer.cs">
       <DependentUpon>Homepage.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs" />
@@ -181,22 +181,22 @@
     <Compile Include="Forms\StartingPoint.Designer.cs">
       <DependentUpon>StartingPoint.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AllProd.resx">
+    <EmbeddedResource Include="Forms\Admin\AllProd.resx">
       <DependentUpon>AllProd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Employee\Billings.resx">
       <DependentUpon>Billings.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CostumerName.resx">
+    <EmbeddedResource Include="Forms\Admin\CostumerName.resx">
       <DependentUpon>CostumerName.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EmployeeViews.resx">
+    <EmbeddedResource Include="Forms\Admin\EmployeeViews.resx">
       <DependentUpon>EmployeeViews.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customer\Costumer.resx">
       <DependentUpon>Costumer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Homepage.resx">
+    <EmbeddedResource Include="Forms\Admin\Homepage.resx">
       <DependentUpon>Homepage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customer\PriorityNum.resx">
@@ -301,8 +301,6 @@
   <ItemGroup>
     <None Include="Resources\images1.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Admin\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -44,10 +44,16 @@ namespace store
                     new Billings(user).Show();
                     this.Hide();
                 }
+
+                if (user.UserType.Equals(UserTypes.Admin))
+                {
+                    new Homepage().Show();
+                    this.Hide();
+                }
             }
             else
             {
-                MessageBox.Show("User does not exist. Please try again.", "User Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Invalid credentials. Please try again.", "Invalid", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
