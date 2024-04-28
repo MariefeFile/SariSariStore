@@ -16,7 +16,7 @@ namespace store.Repositories
 
         public CustomerRepository()
         {
-            connectionString = $"Provider=Microsoft.JET.OLEDB.4.0;Data Source={Data.ConnectionPath}";
+            connectionString = Data.ConnectionString;
         }
 
         public bool InsertCustomer(Customer customer)

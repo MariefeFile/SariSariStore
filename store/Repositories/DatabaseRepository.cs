@@ -14,7 +14,7 @@ namespace store.Repositories
         {
             try
             {
-                using (OleDbConnection myConn = new OleDbConnection($"Provider=Microsoft.JET.OLEDB.4.0;Data Source={Data.ConnectionPath}"))
+                using (OleDbConnection myConn = new OleDbConnection(Data.ConnectionString))
                 {
                     myConn.Open();
                     myConn.Close();

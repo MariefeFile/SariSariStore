@@ -92,6 +92,7 @@
       <DependentUpon>Billings.cs</DependentUpon>
     </Compile>
     <Compile Include="Constants\Data.cs" />
+    <Compile Include="Constants\Orders\OrderStatus.cs" />
     <Compile Include="Constants\Products\ProductCategory.cs" />
     <Compile Include="Constants\Products\ProductFields.cs" />
     <Compile Include="Constants\Products\ProductItems.cs" />
@@ -130,7 +131,6 @@
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\FinancialMetrics.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Users.cs" />
@@ -151,6 +151,7 @@
     </Compile>
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repositories\DatabaseRepository.cs" />
+    <Compile Include="Repositories\PriorityNumberRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Services\Calculations.cs" />
     <Compile Include="Sign_in.cs">

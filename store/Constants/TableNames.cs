@@ -8,10 +8,11 @@ namespace store.Constants
 {
     internal class TableNames
     {
-        public const string Customers = "Customers";
-        public const string Orders = "Orders";
-        public const string Products = "Products";
-        public const string Payments = "Payments";
-        public const string Users = "Users";
+        public static readonly string Customers = "Customers";
+        public static readonly string Orders = "Orders";
+        public static readonly string Products = "Products";
+        public static readonly string Payments = "Payments";
+        public static readonly string Users = "Users";
+        public static readonly string PriorityNumber = "PriorityNumber";
     }
 }

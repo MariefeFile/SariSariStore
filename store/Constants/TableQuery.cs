@@ -10,5 +10,6 @@ namespace store.Constants
     {
         public static readonly string QueryProducts = "QueryProducts";
         public static readonly string QueryCustomer = "QueryCustomer";
+        public static readonly string QueryPriorityNumber = "QueryPriorityNumber";
     }
 }

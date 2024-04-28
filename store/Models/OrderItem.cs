@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace store.Models
 {
-    internal class OrderItem
+    public class OrderItem
     {
         public int ProductID { get; set; }
         public string Item {  get; set; }

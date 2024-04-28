@@ -14,10 +14,10 @@ namespace store.Repositories
     {
         private string connectionString;
 
-        public ProductRepository(string databasePath)
+        public ProductRepository()
         {
             
-            connectionString = $@"Provider=Microsoft.JET.OLEDB.4.0;Data Source={databasePath};Persist Security Info=False;";
+            connectionString = Data.ConnectionString;
         }
 
         public List<Product> GetAllProducts()

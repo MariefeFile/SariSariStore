@@ -13,7 +13,7 @@ namespace store
 {
     public partial class Productss : Form
     {
-        private ProductRepository productRepository = new ProductRepository(Data.ConnectionPath);
+        private ProductRepository productRepository = new ProductRepository();
         private List<Product> productList;
         private Order order;
 
@@ -312,7 +312,13 @@ namespace store
         
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            PriorityNum num = new PriorityNum();
+            if(order.OrderItems.Count <= 0)
+            {
+                MessageBox.Show("You must add to cart atleast one item", "No Add to Cart Item", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            PriorityNum num = new PriorityNum(order);
             num.Show();
             this.Hide();
         }

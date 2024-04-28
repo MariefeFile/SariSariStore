@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace store.Models
 {
-    internal class Order
+    public class Order
     {
         public int OrderID { get; set; }
         public DateTime OrderDate { get; set; }
@@ -14,6 +14,7 @@ namespace store.Models
         public int CustomerID { get; set; }
         public List<OrderItem> OrderItems { get; set; }
         public double TotalPrice { get; set; }
+        public string Status { get; set; }
         public Order()
         {
             OrderID = 0;
