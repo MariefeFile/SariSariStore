@@ -1,6 +1,7 @@
 ﻿using store.Constants.Orders;
 using store.Constants.Products;
 using store.Models;
+using store.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,17 +18,42 @@ namespace store
     public partial class Billings : Form
     {
         private List<Order> orderList;
+        private OrderRepository orderRepository = new OrderRepository();
         public Billings(User user)
         {
             InitializeComponent();
             InitOrderItemsTable();
+            InitOrdersTable();
+            PopulateOrderTable();
+            FetchOrderItems();
         }
 
 
-        private void FetchOrders()
+        private void PopulateOrderTable()
         {
+            try
+            {
+                orderList = orderRepository.GetOrdersPending();
 
+                dataGrid11.Rows.Clear();
+
+                foreach (Order order in orderList)
+                {
+                    dataGrid11.Rows.Add(
+                        order.OrderDate.ToString("MM/dd/yyyy"),
+                        order.CustomerName,
+                        order.TotalPrice.ToString("C"),
+                        order.Status,
+                        order.PriorityNumber
+                    );
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error populating order table: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         private void FetchOrderItems()
         {
@@ -48,7 +74,7 @@ namespace store
         private void InitOrdersTable()
         {
             dataGrid11.Columns.Add(OrderFields.OrderDate, "OrderDate");
-            dataGrid11.Columns.Add(OrderFields.CustomerName, "CustomerName");
+            dataGrid11.Columns.Add(OrderFields.CustomerName, "Customer Name");
             dataGrid11.Columns.Add(OrderFields.TotalPrice, "Total Price");
             dataGrid11.Columns.Add(OrderFields.Status, "Status");
             dataGrid11.Columns.Add(OrderFields.PriorityNumber, "Priority Number");
