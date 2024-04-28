@@ -29,6 +29,7 @@ namespace store
 
             PriorityNumberRepository pnRepo = new PriorityNumberRepository();
             OrderRepository orderRepository = new OrderRepository();
+            OrderItemRepository orderItemRepository = new OrderItemRepository();
 
             order.OrderDate = DateTime.Now;
             order.PriorityNumber = pnRepo.GetLatestPriorityNumber();
@@ -36,7 +37,8 @@ namespace store
 
             inititalizePrioritySlip(order);
 
-            orderRepository.AddOrder(order);
+            int orderID = orderRepository.AddOrder(order);
+            orderItemRepository.AddOrderItems(orderID, order.OrderItems);
             pnRepo.AddLatestPriorityNumber();
         }
 

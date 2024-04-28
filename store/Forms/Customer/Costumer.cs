@@ -23,15 +23,6 @@ namespace store
         {
             panel1.Visible = true;
             panel4.Visible = false;
-
-            if (databaseRepository.IsDatabaseConnected())
-            {
-                MessageBox.Show("Database connected successfully!");
-            }
-            else
-            {
-                MessageBox.Show("Database not found or connection failed.");
-            }
         }
 
         private void btnSignUp_Click(object sender, EventArgs e)

@@ -133,7 +133,7 @@
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\Users.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Forms\Customer\PriorityNum.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,9 +151,11 @@
     </Compile>
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repositories\DatabaseRepository.cs" />
+    <Compile Include="Repositories\OrderItemRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\PriorityNumberRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Services\Calculations.cs" />
     <Compile Include="Sign_in.cs">
       <SubType>Form</SubType>

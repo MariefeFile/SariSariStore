@@ -1,4 +1,5 @@
-﻿using System;
+﻿using store.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,21 @@ namespace store
 {
     public partial class StartingPoint : Form
     {
+        DatabaseRepository databaseRepository;
         public StartingPoint()
         {
             InitializeComponent();
+            
+            databaseRepository = new DatabaseRepository();
+
+            if (databaseRepository.IsDatabaseConnected())
+            {
+                MessageBox.Show("Database connected successfully!");
+            }
+            else
+            {
+                MessageBox.Show("Database not found or connection failed.");
+            }
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

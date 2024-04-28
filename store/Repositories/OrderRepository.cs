@@ -18,7 +18,7 @@ namespace store.Repositories
             connectionString = Data.ConnectionString;
         }
 
-
+        /*
         public void AddOrder(Order order)
         {
             try
@@ -42,5 +42,45 @@ namespace store.Repositories
                 throw new Exception($"Error adding an order: {ex.Message}");
             }
         }
+        */
+
+        public int AddOrder(Order order)
+        {
+            int newOrderID = 0;
+
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string insertQuery = $"INSERT INTO {TableNames.Orders} (OrderDate, CustomerName, TotalPrice, Status, PriorityNumber) VALUES (@OrderDate, @CustomerName, @TotalPrice, @Status, @PriorityNumber)";
+                    string fetchIDQuery = $"SELECT @@IDENTITY AS NewOrderID";
+
+                    OleDbCommand insertCommand = new OleDbCommand(insertQuery, connection);
+                    OleDbCommand fetchIDCommand = new OleDbCommand(fetchIDQuery, connection);
+
+                    insertCommand.Parameters.AddWithValue("@OrderDate", order.OrderDate.ToString("MM/dd/yyyy"));
+                    insertCommand.Parameters.AddWithValue("@CustomerName", order.CustomerName);
+                    insertCommand.Parameters.AddWithValue("@TotalPrice", order.TotalPrice);
+                    insertCommand.Parameters.AddWithValue("@Status", order.Status);
+                    insertCommand.Parameters.AddWithValue("@PriorityNumber", order.PriorityNumber);
+
+                    connection.Open();
+                    insertCommand.ExecuteNonQuery();
+
+                    object result = fetchIDCommand.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        newOrderID = Convert.ToInt32(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error adding an order: {ex.Message}");
+            }
+
+            return newOrderID;
+        }
+
     }
 }

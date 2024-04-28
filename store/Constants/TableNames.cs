@@ -14,5 +14,6 @@ namespace store.Constants
         public static readonly string Payments = "Payments";
         public static readonly string Users = "Users";
         public static readonly string PriorityNumber = "PriorityNumber";
+        public static readonly string OrderItems = "OrderItems";
     }
 }

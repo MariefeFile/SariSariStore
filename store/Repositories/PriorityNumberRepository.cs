@@ -24,7 +24,7 @@ namespace store.Repositories
 
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                string query = $"SELECT MAX(PriorityNumber) FROM {TableQuery.QueryPriorityNumber}";
+                string query = $"SELECT TOP 1 PriorityNumberID FROM {TableQuery.QueryPriorityNumber} ORDER BY PriorityNumberID DESC";
                 OleDbCommand command = new OleDbCommand(query, connection);
 
                 connection.Open();
@@ -43,6 +43,8 @@ namespace store.Repositories
 
             return latestPriorityNumber;
         }
+
+
 
         public void AddLatestPriorityNumber()
         {
