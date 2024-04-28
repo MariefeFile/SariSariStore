@@ -26,5 +26,7 @@ namespace store.Models
             SellingPrice = sellingPrice;
             TotalPrice = totalPrice;
         }
+
+        public OrderItem() { }
     }
 }

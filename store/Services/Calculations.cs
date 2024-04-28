@@ -31,5 +31,9 @@ namespace store.Services
         {
             return origQuantity + toAddQuantity;
         }
+        public static double ComputeChange(double totalPrice, double cash)
+        {
+            return cash - totalPrice;
+        }
     }
 }

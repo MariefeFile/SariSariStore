@@ -49,5 +49,52 @@ namespace store.Repositories
                 throw new Exception($"Error adding order items: {ex.Message}");
             }
         }
+
+        public List<OrderItem> GetOrderItemsByOrderID(int orderID)
+        {
+            List<OrderItem> orderItems = new List<OrderItem>();
+
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string query = $"SELECT * FROM {TableQuery.QueryOrderItems} WHERE OrderID = @OrderID";
+                    OleDbCommand command = new OleDbCommand(query, connection);
+                    command.Parameters.AddWithValue("@OrderID", orderID);
+
+                    connection.Open();
+                    OleDbDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        try
+                        {
+                            OrderItem item = new OrderItem(
+                                Convert.ToInt32(reader["ProductID"]),
+                                reader["Item"].ToString(),
+                                reader["Categories"].ToString(),
+                                reader["Unit"].ToString(),
+                                Convert.ToInt32(reader["Quantity"]),
+                                Convert.ToDouble(reader["SellingPrice"]),
+                                Convert.ToDouble(reader["TotalPrice"])
+                            );
+                            orderItems.Add(item);
+                        } catch(Exception ex)
+                        {
+                            throw new Exception($"Error in adding ordered items in the list: {ex.Message}");
+                        }
+                        
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error getting order items by OrderID: {ex.Message}");
+            }
+
+            return orderItems;
+        }
+
+
     }
 }

@@ -8,10 +8,11 @@ namespace store.Constants.Orders
 {
     public class OrderFields
     {
-        public static readonly string OrderDate = "OrderDate";
+        public static readonly string OrderID = "OrderID";
         public static readonly string CustomerName = "CustomerName";
         public static readonly string TotalPrice = "TotalPrice";
         public static readonly string Status = "Status";
         public static readonly string PriorityNumber = "PriorityNumber";
+        public static readonly string OrderDate = "OrderDate";
     }
 }
