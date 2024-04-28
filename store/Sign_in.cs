@@ -2,6 +2,8 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Data.OleDb;
+using store.Models;
+using store.Repositories;
 
 namespace store
 {
@@ -9,28 +11,9 @@ namespace store
     
     public partial class Sign_in : Form
     {
-        OleDbConnection myConn;
-        
-        OleDbCommand cmd;
         public Sign_in()
         {
             InitializeComponent();
-            myConn = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb");
-
-        }
-        private void Sign_in_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                myConn.Open();
-                // System.Windows.Forms.MessageBox.Show("Connected Succsfully!");
-                this.Hide();
-                myConn.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void Exit2_Click(object sender, EventArgs e)
@@ -41,86 +24,26 @@ namespace store
             this.Close();
         }
 
-        private void btnEmp_Click_1(object sender, EventArgs e)
-        {
-            myConn.Open();
-            cmd = new OleDbCommand();
-            cmd.Connection = myConn;
-            cmd.CommandText = "SELECT * FROM tblEmp WHERE EmpName = @EmpName AND EmpPass = @EmpPass";
-            cmd.Parameters.AddWithValue("@EmpName", textUser.Text);
-            cmd.Parameters.AddWithValue("@EmpPass", textPass.Text);
-            OleDbDataReader reader = cmd.ExecuteReader();
-            int cnt = 0;
-            while (reader.Read())
-            {
-                cnt = cnt + 1;
-            }
-            if (cnt == 1)
-            {
-
-                string selectedUserType = comboType.SelectedItem.ToString().Trim();
-                if (selectedUserType == "Employee")
-                {
-                    // MessageBox.Show("Username and Password are correct!");
-                    new Billings(textUser.Text).Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Invalid user type!");
-                }
-
-            }
-            else if (cnt > 1)
-            {
-                MessageBox.Show("Duplicate Username and Password!");
-            }
-            else
-            {
-                MessageBox.Show("Username and Password are invalid!");
-            }
-            myConn.Close();
-          
-        }
-
         private void btnAd_Click(object sender, EventArgs e)
         {
-            myConn.Open();
-            cmd = new OleDbCommand();
-            cmd.Connection = myConn;
-            cmd.CommandText = "SELECT * FROM tblAdmin WHERE AdminName = @AddName AND AdminPass= @AddPass";
-            cmd.Parameters.AddWithValue("@AddName", textUser.Text);
-            cmd.Parameters.AddWithValue("@AddPass", textPass.Text);
-            OleDbDataReader reader = cmd.ExecuteReader();
-            int cnt = 0;
-            while (reader.Read())
-            {
-                cnt = cnt + 1;
-            }
-            if (cnt == 1)
-            {
+            string usernanme = textUser.Text;
+            string password = textPass.Text;
+            string usertype = comboType.Text;
+           
+            User user = new User(usernanme, password, usertype);
 
-                string selectedUserType = comboType.SelectedItem.ToString().Trim();
-                if (selectedUserType == "Admin")
-                {
-                    // MessageBox.Show("Username and Password are correct!");
-                    new Homepage().Show();
-                    this.Hide();
-                }
-                else
-                {
-                    MessageBox.Show("Invalid user type!");
-                }
-            }
-            else if (cnt > 1)
+            UserRepository userRepository = new UserRepository();
+
+            if (userRepository.IsUserExist(user))
             {
-                MessageBox.Show("Duplicate Username and Password!");
+                MessageBox.Show("Successfully logged in.", "Log in Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                new Billings(textUser.Text).Show();
+                this.Hide();
             }
             else
             {
-                MessageBox.Show("Username and Password are invalid!");
+                MessageBox.Show("User does not exist. Please try again.", "User Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            myConn.Close();
         }
 
         private void textUser_Enter(object sender, EventArgs e)
