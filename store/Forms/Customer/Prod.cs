@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Windows.Forms;
 
 namespace store
@@ -207,7 +208,6 @@ namespace store
             {
                 order.OrderItems.Remove(itemToRemove);
 
-                // Find the corresponding row in dataGridView1 and remove it
                 foreach (DataGridViewRow row in dataGridView1.Rows)
                 {
                     if (!row.IsNewRow)
@@ -244,7 +244,6 @@ namespace store
                         // Delete the selected item from order.OrderItems and dataGridView1
                         DeleteItem(selectedItem, selectedUnit);
 
-                        // Update the total price
                         order.TotalPrice = Calculations.CalculateTotalPrice(order.OrderItems);
                         order.TotalItems = Calculations.CountTotalItems(order.OrderItems);
                         totalPrice.Text = order.TotalPrice.ToString("C");
@@ -267,7 +266,21 @@ namespace store
             }
         }
 
-
+        private bool IsProductStockAvailable(string itemName, int quantity)
+        {
+            int stock = productRepository.GetProductStock(itemName);
+            if(stock == 0)
+            {
+                MessageBox.Show($"The product {itemName} is out of stock.", "Out of stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (Calculations.IsOrderItemStockValid(stock, quantity))
+            {
+                return true;
+            }
+            MessageBox.Show($"The product {itemName} has only {stock}.", "Not enough stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
+        }
 
         private void btnAdd1_Click(object sender, EventArgs e)
         {
@@ -275,6 +288,12 @@ namespace store
             string selectedUnit = comboRice3.Text.Trim();
             string category = ProductCategory.Rice;
             string quantityText = numericUpDown22.Text.Trim();
+
+            int totalQuantity = Calculations.CountTotalQuantity(selectedItem, order.OrderItems) + Convert.ToInt32(quantityText);
+            if(!IsProductStockAvailable(selectedItem, totalQuantity))
+            {
+                return;
+            }
 
             AddToCart(selectedItem, selectedUnit, category, quantityText);
         }
@@ -286,6 +305,12 @@ namespace store
             string category = ProductCategory.Water;
             string quantityText = numericUpDown1.Text.Trim();
 
+            int totalQuantity = Calculations.CountTotalQuantity(selectedItem, order.OrderItems) + Convert.ToInt32(quantityText);
+            if (!IsProductStockAvailable(selectedItem, totalQuantity))
+            {
+                return;
+            }
+
             AddToCart(selectedItem, selectedUnit, category, quantityText);
         }
         private void btnAdd3_Click(object sender, EventArgs e)
@@ -294,6 +319,12 @@ namespace store
             string selectedUnit = comboDrinks3.Text.Trim();
             string category = ProductCategory.Soft_Drinks;
             string quantityText = numericUpDown2.Text.Trim();
+
+            int totalQuantity = Calculations.CountTotalQuantity(selectedItem, order.OrderItems) + Convert.ToInt32(quantityText);
+            if (!IsProductStockAvailable(selectedItem, totalQuantity))
+            {
+                return;
+            }
 
             AddToCart(selectedItem, selectedUnit, category, quantityText);
         }
@@ -304,6 +335,12 @@ namespace store
             string category = ProductCategory.Alcohol_Drinks;
             string quantityText = numericUpDown3.Text.Trim();
 
+            int totalQuantity = Calculations.CountTotalQuantity(selectedItem, order.OrderItems) + Convert.ToInt32(quantityText);
+            if (!IsProductStockAvailable(selectedItem, totalQuantity))
+            {
+                return;
+            }
+
             AddToCart(selectedItem, selectedUnit, category, quantityText);
         }
         private void btnAdd6_Click(object sender, EventArgs e)
@@ -312,6 +349,12 @@ namespace store
             string selectedUnit = cmbGoods3.Text.Trim();
             string category = ProductCategory.Others;
             string quantityText = numericUpDown7.Text.Trim();
+
+            int totalQuantity = Calculations.CountTotalQuantity(selectedItem, order.OrderItems) + Convert.ToInt32(quantityText);
+            if (!IsProductStockAvailable(selectedItem, totalQuantity))
+            {
+                return;
+            }
 
             AddToCart(selectedItem, selectedUnit, category, quantityText);
         }

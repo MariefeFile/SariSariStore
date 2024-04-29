@@ -1,4 +1,5 @@
 ﻿using store.Models;
+using store.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace store.Services
 {
-    internal class Calculations
+    public class Calculations
     {
         public static double CalculateTotalPrice(List<OrderItem> orderItems)
         {
@@ -73,6 +74,25 @@ namespace store.Services
         public static int ComputeIncStock(int oldStock, int newStock)
         {
             return oldStock - newStock;
+        }
+
+        public static bool IsOrderItemStockValid(int stock, int orderedQuantity)
+        {
+            int result = stock - orderedQuantity;
+            return result >= 0;
+        }
+        public static int CountTotalQuantity(string itemName, List<OrderItem> items)
+        {
+            int total = 0;
+            foreach(OrderItem item in items)
+            {
+                
+                if (item.Item.Equals(itemName))
+                {
+                    total += item.Quantity;
+                }
+            }
+            return total;
         }
     }
 }

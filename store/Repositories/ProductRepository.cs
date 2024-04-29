@@ -20,6 +20,62 @@ namespace store.Repositories
             connectionString = Data.ConnectionString;
         }
 
+        public int GetProductStock(string itemName)
+        {
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string query = $"SELECT Stock FROM {TableQuery.QueryProducts} WHERE Item = @Item;";
+                    using (OleDbCommand command = new OleDbCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Item", itemName);
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return Convert.ToInt32(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error retrieving product stock: {ex.Message}");
+            }
+
+            return -1;
+        }
+
+
+        public int GetProductStock(int productID)
+        {
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string query = $"SELECT Stock FROM {TableQuery.QueryProducts} WHERE ProductID = @ProductID;";
+                    using (OleDbCommand command = new OleDbCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ProductID", productID);
+                        connection.Open();
+                        object result = command.ExecuteScalar();
+                        if (result != null && result != DBNull.Value)
+                        {
+                            return Convert.ToInt32(result);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error retrieving product stock: {ex.Message}");
+            }
+
+            return -1;
+        }
+
+
         public bool UpdateProduct(Product product)
         {
             try
