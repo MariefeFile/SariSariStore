@@ -28,6 +28,8 @@ namespace store.Models
             CustomerName = name;
             CustomerPhone = phone;
             CustomerEmail = email;
+            TotalPayment = 0;
+            DateRecorded = DateTime.Now;
         }
         public Customer() {
             DateRecorded = DateTime.Now;

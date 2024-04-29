@@ -19,6 +19,31 @@ namespace store.Repositories
             connectionString = Data.ConnectionString;
         }
 
+        public bool UpdateTotalPayment(string customerName, double newTotalPayment)
+        {
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                string query = $"UPDATE {TableNames.Customers} SET TotalPayment = @TotalPayment WHERE CustomerName = @CustomerName";
+                OleDbCommand command = new OleDbCommand(query, connection);
+                command.Parameters.AddWithValue("@TotalPayment", newTotalPayment);
+                command.Parameters.AddWithValue("@CustomerName", customerName);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error updating total payment: " + ex.Message);
+                    return false;
+                }
+            }
+        }
+
+
+
         public List<Customer> GetAllCustomers()
         {
             List<Customer> customers = new List<Customer>();
@@ -63,11 +88,13 @@ namespace store.Repositories
         {
             using (OleDbConnection connection = new OleDbConnection(connectionString))
             {
-                string query = $"INSERT INTO {TableNames.Customers} (CustomerName, CustomerPhone, CustomerEmail) VALUES (@CustomerName, @CustomerPhone, @CustomerEmail)";
+                string query = $"INSERT INTO {TableNames.Customers} (CustomerName, CustomerPhone, CustomerEmail, TotalPayment, DateRecorded) VALUES (@CustomerName, @CustomerPhone, @CustomerEmail, @TotalPayment, @DateRecorded)";
                 OleDbCommand command = new OleDbCommand(query, connection);
                 command.Parameters.AddWithValue("@CustomerName", customer.CustomerName);
                 command.Parameters.AddWithValue("@CustomerPhone", customer.CustomerPhone);
                 command.Parameters.AddWithValue("@CustomerEmail", customer.CustomerEmail);
+                command.Parameters.AddWithValue("@TotalPayment", customer.TotalPayment);
+                command.Parameters.AddWithValue("@DateRecorded", customer.DateRecorded.ToString("MM/dd/yyyy"));
 
                 try
                 {
@@ -109,5 +136,6 @@ namespace store.Repositories
 
             return totalCustomers;
         }
+
     }
 }

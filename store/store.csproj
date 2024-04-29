@@ -87,6 +87,15 @@
     </Compile>
     <Compile Include="Constants\Orders\OrderFields.cs" />
     <Compile Include="Constants\Users\UserTypes.cs" />
+    <Compile Include="Forms\Customer\PriorityNum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Customer\PriorityNum.Designer.cs">
+      <DependentUpon>PriorityNum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Customer\Prod.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Employee\Billings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,9 +146,6 @@
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Forms\Customer\PriorityNum.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms\Customer\PriorityNum.Designer.cs">
       <DependentUpon>PriorityNum.cs</DependentUpon>
     </Compile>
@@ -184,6 +190,9 @@
     <EmbeddedResource Include="Forms\Admin\AllProd.resx">
       <DependentUpon>AllProd.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Customer\PriorityNum.resx">
+      <DependentUpon>PriorityNum.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Employee\Billings.resx">
       <DependentUpon>Billings.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,9 +207,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\Homepage.resx">
       <DependentUpon>Homepage.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Customer\PriorityNum.resx">
-      <DependentUpon>PriorityNum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Customer\Prod.resx">
       <DependentUpon>Prod.cs</DependentUpon>

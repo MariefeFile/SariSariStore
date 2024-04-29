@@ -27,21 +27,6 @@ C:\My Calculator Project\store\store\obj\x86\Debug\store.Costumer.resources
 C:\My Calculator Project\store\store\obj\x86\Debug\store.CostumerName.resources
 C:\My Calculator Project\store\store\obj\x86\Debug\store.PriorityNum.resources
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.csproj.AssemblyReference.cache
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.AllProd.resources
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Billings.resources
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.CostumerName.resources
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.EmployeeViews.resources
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Costumer.resources
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Homepage.resources
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.PriorityNum.resources
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Productss.resources
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Reciept.resources
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Sign_in.resources
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Splash.resources
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Properties.Resources.resources
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.StartingPoint.resources
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.csproj.GenerateResource.cache
-C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.csproj.CoreCompileInputs.cache
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\bin\x86\Debug\store.exe.config
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\bin\x86\Debug\store.exe
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\bin\x86\Debug\store.pdb
@@ -50,6 +35,21 @@ C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\bin\x86\De
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\bin\x86\Debug\WinFormAnimation.dll
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\bin\x86\Debug\CircularProgressBar.xml
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\bin\x86\Debug\System.Data.OleDb.xml
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.AllProd.resources
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.PriorityNum.resources
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Billings.resources
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.CostumerName.resources
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.EmployeeViews.resources
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Costumer.resources
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Homepage.resources
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Productss.resources
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Reciept.resources
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Sign_in.resources
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Splash.resources
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.Properties.Resources.resources
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.StartingPoint.resources
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.csproj.GenerateResource.cache
+C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.csproj.CoreCompileInputs.cache
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.csproj.Up2Date
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.exe
 C:\Users\Nivanz Aricayos\Documents\Codes\Projects\SariSariStore\store\obj\x86\Debug\store.pdb

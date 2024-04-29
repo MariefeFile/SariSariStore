@@ -30,6 +30,7 @@ namespace store
             PriorityNumberRepository pnRepo = new PriorityNumberRepository();
             OrderRepository orderRepository = new OrderRepository();
             OrderItemRepository orderItemRepository = new OrderItemRepository();
+            CustomerRepository customerRepository = new CustomerRepository();
 
             order.OrderDate = DateTime.Now;
             order.PriorityNumber = pnRepo.GetLatestPriorityNumber();
@@ -40,6 +41,8 @@ namespace store
             int orderID = orderRepository.AddOrder(order);
             orderItemRepository.AddOrderItems(orderID, order.OrderItems);
             pnRepo.AddLatestPriorityNumber();
+
+            customerRepository.UpdateTotalPayment(order.CustomerName, order.TotalPrice);
         }
 
         private void Exit4_Click(object sender, EventArgs e)
