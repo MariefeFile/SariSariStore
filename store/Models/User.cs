@@ -34,7 +34,9 @@ namespace store.Models
             UserPassword = userPassword;
             UserType = userType;
         }
-        public User() { }
+        public User() {
+            UserImage = new byte[0];
+        }
 
     }
 }

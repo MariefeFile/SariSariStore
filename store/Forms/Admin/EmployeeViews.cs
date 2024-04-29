@@ -31,10 +31,77 @@ namespace store
             dataGridView2.SelectionChanged += DataGridView2_SelectionChanged;
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
+                    int userID = Convert.ToInt32(selectedRow.Cells["UserID"].Value);
+                    User selectedUser = userList.FirstOrDefault(user => user.UserID == userID);
+
+                    if (selectedUser != null)
+                    {
+                        selectedUser.UserName = textName.Text;
+                        selectedUser.UserPhone = Convert.ToInt32(textPhone.Text);
+                        selectedUser.UserAddress = textAdd.Text;
+                        selectedUser.UserPassword = textPass.Text;
+
+                        bool updated = userRepository.UpdateUser(selectedUser);
+                        if (updated)
+                        {
+                            MessageBox.Show("User updated successfully.");
+                            PopulateDataGridView();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to update user.");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+        }
+
+
+        private bool IsValidImage(Image image)
+        {
+            try
+            {
+                ImageCodecInfo codecInfo = GetImageCodecInfo(image);
+
+                return codecInfo != null;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private ImageCodecInfo GetImageCodecInfo(Image image)
+        {
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
+
+            foreach (ImageCodecInfo codec in codecs)
+            {
+                if (codec.FormatID == image.RawFormat.Guid)
+                {
+                    return codec;
+                }
+            }
+
+            return null;
+        }
+
 
         private void DataGridView2_SelectionChanged(object sender, EventArgs e)
         {
@@ -80,8 +147,10 @@ namespace store
 
         private void PopulateDataGridView()
         {
-
             userList = userRepository.GetAllEmployee();
+
+            userList = userList.OrderBy(user => user.UserID).ToList();
+
             dataGridView2.Rows.Clear();
 
             foreach (User user in userList)
@@ -95,6 +164,7 @@ namespace store
                 );
             }
         }
+
 
         private void InitializeDataGridView()
         {

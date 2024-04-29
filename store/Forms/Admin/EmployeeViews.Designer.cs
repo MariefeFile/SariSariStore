@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnUplaod = new System.Windows.Forms.Button();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.btnInsert = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -46,7 +46,6 @@
             this.textAdd = new System.Windows.Forms.TextBox();
             this.textPhone = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.btnClear = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.textPass = new System.Windows.Forms.TextBox();
@@ -65,7 +64,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.Info;
             this.panel1.Controls.Add(this.btnUplaod);
             this.panel1.Controls.Add(this.pictureBox4);
-            this.panel1.Controls.Add(this.btnInsert);
+            this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.panel6);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel5);
@@ -77,7 +76,6 @@
             this.panel1.Controls.Add(this.textAdd);
             this.panel1.Controls.Add(this.textPhone);
             this.panel1.Controls.Add(this.dataGridView2);
-            this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.btnDel);
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.textPass);
@@ -112,18 +110,19 @@
             this.pictureBox4.TabIndex = 47;
             this.pictureBox4.TabStop = false;
             // 
-            // btnInsert
+            // btnAdd
             // 
-            this.btnInsert.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnInsert.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsert.ForeColor = System.Drawing.Color.Linen;
-            this.btnInsert.Location = new System.Drawing.Point(28, 287);
-            this.btnInsert.Margin = new System.Windows.Forms.Padding(2);
-            this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(72, 22);
-            this.btnInsert.TabIndex = 46;
-            this.btnInsert.Text = "INSERT";
-            this.btnInsert.UseVisualStyleBackColor = false;
+            this.btnAdd.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.Linen;
+            this.btnAdd.Location = new System.Drawing.Point(28, 284);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(72, 22);
+            this.btnAdd.TabIndex = 46;
+            this.btnAdd.Text = "ADD";
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // panel6
             // 
@@ -271,26 +270,12 @@
             this.dataGridView2.Size = new System.Drawing.Size(641, 207);
             this.dataGridView2.TabIndex = 38;
             // 
-            // btnClear
-            // 
-            this.btnClear.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.ForeColor = System.Drawing.Color.Honeydew;
-            this.btnClear.Location = new System.Drawing.Point(27, 387);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(73, 22);
-            this.btnClear.TabIndex = 37;
-            this.btnClear.Text = "CLEAR";
-            this.btnClear.UseVisualStyleBackColor = false;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
             // btnDel
             // 
             this.btnDel.BackColor = System.Drawing.Color.SteelBlue;
             this.btnDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDel.ForeColor = System.Drawing.Color.Honeydew;
-            this.btnDel.Location = new System.Drawing.Point(27, 354);
+            this.btnDel.Location = new System.Drawing.Point(28, 376);
             this.btnDel.Margin = new System.Windows.Forms.Padding(2);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(72, 22);
@@ -303,7 +288,7 @@
             this.btnUpdate.BackColor = System.Drawing.Color.SteelBlue;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.Honeydew;
-            this.btnUpdate.Location = new System.Drawing.Point(26, 321);
+            this.btnUpdate.Location = new System.Drawing.Point(27, 330);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(73, 22);
@@ -363,7 +348,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnUplaod;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Button btnInsert;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
@@ -377,7 +362,6 @@
         private System.Windows.Forms.TextBox textAdd;
         private System.Windows.Forms.TextBox textPhone;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox textPass;
