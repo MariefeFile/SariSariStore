@@ -16,6 +16,60 @@ namespace store.Repositories
             connectionString = Data.ConnectionString;
         }
 
+        public bool DeleteUser(int userID)
+        {
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                string query = $"DELETE FROM {TableNames.Users} WHERE UserID = @UserID";
+                OleDbCommand command = new OleDbCommand(query, connection);
+
+                command.Parameters.AddWithValue("@UserID", userID);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error deleting user: " + ex.Message);
+                    return false;
+                }
+            }
+        }
+
+
+        public bool AddUser(User user)
+        {
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                string query = $"INSERT INTO {TableNames.Users} (UserName, UserPassword, UserAddress, UserImage, UserPhone, UserType) " +
+                               "VALUES (@UserName, @UserPassword, @UserAddress, @UserImage, @UserPhone, @UserType)";
+                OleDbCommand command = new OleDbCommand(query, connection);
+
+                command.Parameters.AddWithValue("@UserName", user.UserName);
+                command.Parameters.AddWithValue("@UserPassword", user.UserPassword);
+                command.Parameters.AddWithValue("@UserAddress", user.UserAddress);
+                command.Parameters.AddWithValue("@UserImage", user.UserImage);
+                command.Parameters.AddWithValue("@UserPhone", user.UserPhone);
+                command.Parameters.AddWithValue("@UserType", user.UserType);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error adding user: " + ex.Message);
+                    return false;
+                }
+            }
+        }
+
+
         public bool UpdateUser(User user)
         {
             using (OleDbConnection connection = new OleDbConnection(connectionString))

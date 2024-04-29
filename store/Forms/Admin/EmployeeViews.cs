@@ -1,4 +1,5 @@
-﻿using store.Models;
+﻿using store.Constants.Users;
+using store.Models;
 using store.Repositories;
 using System;
 using System.Collections.Generic;
@@ -33,7 +34,58 @@ namespace store
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            try
+            {
+                User newUser = new User
+                {
+                    UserName = textName.Text,
+                    UserPassword = textPass.Text,
+                    UserAddress = textAdd.Text,
+                    UserPhone = Convert.ToInt32(textPhone.Text),
+                    UserType = UserTypes.Employee,
+                };
 
+                bool added = userRepository.AddUser(newUser);
+
+                if (added)
+                {
+                    MessageBox.Show("User added successfully.");
+                    PopulateDataGridView(); 
+                }
+                else
+                {
+                    MessageBox.Show("Failed to add user.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
+                int userID = Convert.ToInt32(selectedRow.Cells["UserID"].Value);
+
+                bool deleted = userRepository.DeleteUser(userID);
+
+                if (deleted)
+                {
+                    MessageBox.Show("User deleted successfully.");
+                    PopulateDataGridView();
+                }
+                else
+                {
+                    MessageBox.Show("Failed to delete user.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a user to delete.");
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -351,6 +403,5 @@ namespace store
                 textAdd.ForeColor = Color.Black;
             }
         }
-
     }
 }

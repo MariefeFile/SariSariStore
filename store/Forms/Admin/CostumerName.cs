@@ -51,16 +51,6 @@ namespace store
             }
         }
 
-
-        private void buttonClear_Click(object sender, EventArgs e)
-        {
-            if (customerRepository.EmptyCustomersTable())
-            {
-                MessageBox.Show("All customers deleted successfully.");
-                PopulateDataGridView();
-            }
-        }
-
         private void PopulateDataGridView()
         {
             customerList = customerRepository.GetAllCustomers();
