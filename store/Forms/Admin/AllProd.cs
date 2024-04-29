@@ -95,7 +95,6 @@ namespace store
                 {
                     DataGridViewRow selectedRow = dataGridView5.SelectedRows[0];
 
-                    txtSaleID.Text = GetValueAsString(selectedRow.Cells["ProductID"]);
                     txtSaleName.Text = GetValueAsString(selectedRow.Cells["Item"]);
                     txtSaleUnit.Text = GetValueAsString(selectedRow.Cells["Unit"]);
                     txtSaleOrg.Text = GetValueAsString(selectedRow.Cells["OrigPrice"]);
@@ -156,32 +155,9 @@ namespace store
                 );
             }
         }
-
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGridViewRow row = dataGridView5.Rows[e.RowIndex];
-
-            // Display employee details in textboxes
-            /*
-            txtSaleID.Text = row.Cells["ProductID"].Value.ToString();
-            txtSaleName.Text = row.Cells["Item"].Value.ToString();
-            txtSaleUnit.Text = row.Cells["Unit"].Value.ToString();
-            txtStock.Text = row.Cells["Qnty"].Value.ToString();
-            txtSaleOrg.Text = row.Cells["Org_Price"].Value.ToString();
-            txtSaleSelling.Text = row.Cells["SellingPrice"].Value.ToString();
-            txtSaleStock.Text = row.Cells["Stock"].Value.ToString();
-            comboSaleCat.Text = row.Cells["Categories"].Value.ToString();
-            txtSold.Text = row.Cells["ItemSold"].Value.ToString();
-            txtMarkUp.Text = row.Cells["MarkUp"].Value.ToString();
-            */
-        }
-
         
         private void buttonClear_Click(object sender, EventArgs e)
         {
-
-            txtSaleID.Text = String.Empty;
             txtSaleName.Text = String.Empty;
             txtSaleUnit.Text = String.Empty;
             txtSaleStock.Text = String.Empty;
@@ -192,25 +168,6 @@ namespace store
             txtMarkUp.Text = String.Empty;
             
 
-        }
-        private void txtSaleID_Enter(object sender, EventArgs e)
-        {
-
-            if (txtSaleID.Text == "ProductID")
-            {
-                txtSaleID.Text = "";
-
-                txtSaleID.ForeColor = Color.Black;
-            }
-        }
-        private void txtSaleID_Leave(object sender, EventArgs e)
-        {
-            if (txtSaleID.Text == "")
-            {
-                txtSaleID.Text = "ProductID";
-
-                txtSaleID.ForeColor = Color.Black;
-            }
         }
         private void txtSaleName_Enter(object sender, EventArgs e)
         {

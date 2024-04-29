@@ -27,7 +27,56 @@ namespace store
 
             InitializeDataGridView();
             PopulateDataGridView();
+
+            dataGridView2.SelectionChanged += DataGridView2_SelectionChanged;
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DataGridView2_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView2.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
+
+                    int userID = Convert.ToInt32(selectedRow.Cells["UserID"].Value);
+                    User selectedUser = userList.FirstOrDefault(user => user.UserID == userID);
+
+                    if (selectedUser != null && selectedUser.UserImage != null)
+                    {
+                        using (MemoryStream stream = new MemoryStream(selectedUser.UserImage))
+                        {
+                            pictureBox4.Image = Image.FromStream(stream);
+                        }
+                    }
+                    else
+                    {
+                        pictureBox4.Image = null; 
+                    }
+
+                    textName.Text = GetValueAsString(selectedRow.Cells["UserName"]);
+                    textPhone.Text = GetValueAsString(selectedRow.Cells["UserPhone"]);
+                    textPass.Text = GetValueAsString(selectedRow.Cells["UserPassword"]);
+                    textAdd.Text = GetValueAsString(selectedRow.Cells["UserAddress"]);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+        }
+
+
+        private string GetValueAsString(DataGridViewCell cell)
+        {
+            return cell.Value?.ToString() ?? string.Empty;
+        }
+
 
         private void PopulateDataGridView()
         {
@@ -47,8 +96,6 @@ namespace store
             }
         }
 
-
-
         private void InitializeDataGridView()
         {
             
@@ -59,54 +106,22 @@ namespace store
             dataGridView2.Columns.Add("UserPassword", "Password");
         }
 
-
         private void btnUplaod_Click(object sender, EventArgs e)
         {
-
             try
             {
                 using (OpenFileDialog filedialog = new OpenFileDialog() { Filter = "JPEG|*.jpg", ValidateNames = true, Multiselect = false })
                 {
                     if (filedialog.ShowDialog() == DialogResult.OK)
                     {
-                        // Load the image from the file
-                        Image image = Image.FromFile(filedialog.FileName);
+                        string filePath = filedialog.FileName;
+                        Image image = LoadAndAdjustImage(filePath);
 
-                        // Check the orientation and rotate/flip if necessary
-                        if (Array.IndexOf(image.PropertyIdList, 274) > -1)
+                        if (image != null)
                         {
-                            var orientation = (int)image.GetPropertyItem(274).Value[0];
-                            switch (orientation)
-                            {
-                                case 1:
-                                    // No rotation required
-                                    break;
-                                case 2:
-                                    image.RotateFlip(RotateFlipType.RotateNoneFlipX);
-                                    break;
-                                case 3:
-                                    image.RotateFlip(RotateFlipType.Rotate180FlipNone);
-                                    break;
-                                case 4:
-                                    image.RotateFlip(RotateFlipType.Rotate180FlipX);
-                                    break;
-                                case 5:
-                                    image.RotateFlip(RotateFlipType.Rotate90FlipX);
-                                    break;
-                                case 6:
-                                    image.RotateFlip(RotateFlipType.Rotate90FlipNone);
-                                    break;
-                                case 7:
-                                    image.RotateFlip(RotateFlipType.Rotate270FlipX);
-                                    break;
-                                case 8:
-                                    image.RotateFlip(RotateFlipType.Rotate270FlipNone);
-                                    break;
-                            }
+                            pictureBox4.Image = image;
+                            UpdateUserImage(image);
                         }
-
-                        // Display the adjusted image in the PictureBox
-                        pictureBox4.Image = image;
                     }
                 }
             }
@@ -114,63 +129,72 @@ namespace store
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            
         }
 
-        private byte[] ConvertImageToByteArray(Image image)
+        private Image LoadAndAdjustImage(string filePath)
         {
-            if (image == null)
-                return null;
+            Image image = Image.FromFile(filePath);
 
-            using (MemoryStream ms = new MemoryStream())
+            if (Array.IndexOf(image.PropertyIdList, 274) > -1)
             {
-                image.Save(ms, ImageFormat.Jpeg); // Change ImageFormat as needed
-                return ms.ToArray();
+                int orientation = (int)image.GetPropertyItem(274).Value[0];
+                switch (orientation)
+                {
+                    case 2:
+                        image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                        break;
+                    case 3:
+                        image.RotateFlip(RotateFlipType.Rotate180FlipNone);
+                        break;
+                    case 4:
+                        image.RotateFlip(RotateFlipType.Rotate180FlipX);
+                        break;
+                    case 5:
+                        image.RotateFlip(RotateFlipType.Rotate90FlipX);
+                        break;
+                    case 6:
+                        image.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                        break;
+                    case 7:
+                        image.RotateFlip(RotateFlipType.Rotate270FlipX);
+                        break;
+                    case 8:
+                        image.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                        break;
+                }
             }
+
+            return image;
         }
 
-        private void btnInsert_Click(object sender, EventArgs e)
+        private void UpdateUserImage(Image image)
         {
-            /*
-            byte[] imageData = ConvertImageToByteArray(pictureBox4.Image);
-
-            // Your existing code to insert other employee details into the database...
-            // Make sure to replace "EmpImage" with the actual column name for storing image data
-
-            string query = "INSERT INTO tblEmp (EmpName, EmpPhone, EmpAddress, EmpPass, EmpImage) VALUES (@EmpName, @EmpPhone, @EmpAddress, @EmpPass, @EmpImage)";
-            cmd = new OleDbCommand(query, myConn);
-            cmd.Parameters.AddWithValue("@EmpName", textName.Text);
-            cmd.Parameters.AddWithValue("@EmpPhone", textPhone.Text);
-            cmd.Parameters.AddWithValue("@EmpAddress", textAdd.Text);
-            cmd.Parameters.AddWithValue("@EmpPass", textPass.Text);
-            cmd.Parameters.AddWithValue("@EmpImage", imageData); // Add image data parameter
-
-            myConn.Open();
-            int rowsAffected = cmd.ExecuteNonQuery();
-            myConn.Close();
-
-            if (rowsAffected > 0)
+            if (dataGridView2.SelectedRows.Count > 0)
             {
-                // Insertion successful, notify user
-                MessageBox.Show("Data inserted successfully.");
+                DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
+                int userID = Convert.ToInt32(selectedRow.Cells["UserID"].Value);
+                User selectedUser = userList.FirstOrDefault(user => user.UserID == userID);
 
-                // Clear the PictureBox
-                pictureBox4.Image = null;
-
-                // Refresh the DataGridView to display the newly inserted information
-                RefreshDataGridView();
+                if (selectedUser != null)
+                {
+                    selectedUser.UserImage = ImageToByteArray(image);
+                }
             }
-            else
-            {
-                // Insertion failed
-                MessageBox.Show("Failed to insert data.");
-            }
-            */
         }
+
+        private byte[] ImageToByteArray(Image image)
+        {
+            using (MemoryStream stream = new MemoryStream())
+            {
+                image.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                return stream.ToArray();
+            }
+        }
+
+
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            textID.Text = String.Empty;
             textName.Text = String.Empty;
             textPhone.Text = String.Empty;
             textAdd.Text = String.Empty;
@@ -183,25 +207,6 @@ namespace store
             Homepage Home = new Homepage();
             Home.Show();
 
-        }
-
-        private void textID_Enter(object sender, EventArgs e)
-        {
-            if (textID.Text == "EmpID")
-            {
-                textID.Text = "";
-
-                textID.ForeColor = Color.Black;
-            }
-        }
-        private void textID_Leave(object sender, EventArgs e)
-        {
-            if (textID.Text == "")
-            {
-                textID.Text = "EmpID";
-
-                textID.ForeColor = Color.Black;
-            }
         }
         private void textName_Enter(object sender, EventArgs e)
         {
@@ -276,5 +281,6 @@ namespace store
                 textAdd.ForeColor = Color.Black;
             }
         }
+
     }
 }

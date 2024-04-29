@@ -41,7 +41,6 @@
             this.comboSaleCat = new System.Windows.Forms.ComboBox();
             this.txtSaleName = new System.Windows.Forms.TextBox();
             this.txtSaleSelling = new System.Windows.Forms.TextBox();
-            this.txtSaleID = new System.Windows.Forms.TextBox();
             this.txtSaleUnit = new System.Windows.Forms.TextBox();
             this.txtSaleStock = new System.Windows.Forms.TextBox();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
@@ -54,7 +53,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -147,14 +145,12 @@
             this.groupSales.Controls.Add(this.label6);
             this.groupSales.Controls.Add(this.label5);
             this.groupSales.Controls.Add(this.label3);
-            this.groupSales.Controls.Add(this.label1);
             this.groupSales.Controls.Add(this.txtMarkUp);
             this.groupSales.Controls.Add(this.txtSaleOrg);
             this.groupSales.Controls.Add(this.txtSold);
             this.groupSales.Controls.Add(this.comboSaleCat);
             this.groupSales.Controls.Add(this.txtSaleName);
             this.groupSales.Controls.Add(this.txtSaleSelling);
-            this.groupSales.Controls.Add(this.txtSaleID);
             this.groupSales.Controls.Add(this.txtSaleUnit);
             this.groupSales.Controls.Add(this.txtSaleStock);
             this.groupSales.Controls.Add(this.dataGridView5);
@@ -181,7 +177,7 @@
             // 
             // txtSaleOrg
             // 
-            this.txtSaleOrg.Location = new System.Drawing.Point(346, 28);
+            this.txtSaleOrg.Location = new System.Drawing.Point(297, 28);
             this.txtSaleOrg.Margin = new System.Windows.Forms.Padding(2);
             this.txtSaleOrg.Name = "txtSaleOrg";
             this.txtSaleOrg.Size = new System.Drawing.Size(99, 20);
@@ -221,7 +217,7 @@
             // 
             // txtSaleName
             // 
-            this.txtSaleName.Location = new System.Drawing.Point(121, 28);
+            this.txtSaleName.Location = new System.Drawing.Point(72, 28);
             this.txtSaleName.Margin = new System.Windows.Forms.Padding(2);
             this.txtSaleName.Name = "txtSaleName";
             this.txtSaleName.Size = new System.Drawing.Size(94, 20);
@@ -232,7 +228,7 @@
             // 
             // txtSaleSelling
             // 
-            this.txtSaleSelling.Location = new System.Drawing.Point(470, 28);
+            this.txtSaleSelling.Location = new System.Drawing.Point(421, 28);
             this.txtSaleSelling.Margin = new System.Windows.Forms.Padding(2);
             this.txtSaleSelling.Name = "txtSaleSelling";
             this.txtSaleSelling.Size = new System.Drawing.Size(83, 20);
@@ -241,20 +237,9 @@
             this.txtSaleSelling.Enter += new System.EventHandler(this.txtSaleSelling_Enter);
             this.txtSaleSelling.Leave += new System.EventHandler(this.txtSaleSelling_Leave);
             // 
-            // txtSaleID
-            // 
-            this.txtSaleID.Location = new System.Drawing.Point(43, 29);
-            this.txtSaleID.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSaleID.Name = "txtSaleID";
-            this.txtSaleID.Size = new System.Drawing.Size(62, 20);
-            this.txtSaleID.TabIndex = 59;
-            this.txtSaleID.Text = "ProductID";
-            this.txtSaleID.Enter += new System.EventHandler(this.txtSaleID_Enter);
-            this.txtSaleID.Leave += new System.EventHandler(this.txtSaleID_Leave);
-            // 
             // txtSaleUnit
             // 
-            this.txtSaleUnit.Location = new System.Drawing.Point(235, 28);
+            this.txtSaleUnit.Location = new System.Drawing.Point(186, 28);
             this.txtSaleUnit.Margin = new System.Windows.Forms.Padding(2);
             this.txtSaleUnit.Name = "txtSaleUnit";
             this.txtSaleUnit.Size = new System.Drawing.Size(99, 20);
@@ -284,7 +269,7 @@
             this.dataGridView5.RowTemplate.Height = 28;
             this.dataGridView5.Size = new System.Drawing.Size(579, 238);
             this.dataGridView5.TabIndex = 48;
-            this.dataGridView5.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            
             // 
             // panel6
             // 
@@ -389,19 +374,10 @@
             this.pictureBox3.TabIndex = 22;
             this.pictureBox3.TabStop = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(43, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
-            this.label1.TabIndex = 64;
-            this.label1.Text = "Product ID";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(121, 16);
+            this.label3.Location = new System.Drawing.Point(72, 16);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(35, 13);
             this.label3.TabIndex = 65;
@@ -410,7 +386,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(235, 16);
+            this.label5.Location = new System.Drawing.Point(186, 16);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(26, 13);
             this.label5.TabIndex = 66;
@@ -419,7 +395,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(346, 16);
+            this.label6.Location = new System.Drawing.Point(297, 16);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 13);
             this.label6.TabIndex = 67;
@@ -428,7 +404,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(471, 17);
+            this.label7.Location = new System.Drawing.Point(422, 17);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 13);
             this.label7.TabIndex = 68;
@@ -510,7 +486,6 @@
         private System.Windows.Forms.ComboBox comboSaleCat;
         private System.Windows.Forms.TextBox txtSaleName;
         private System.Windows.Forms.TextBox txtSaleSelling;
-        private System.Windows.Forms.TextBox txtSaleID;
         private System.Windows.Forms.TextBox txtSaleUnit;
         private System.Windows.Forms.TextBox txtSaleStock;
         private System.Windows.Forms.DataGridView dataGridView5;
@@ -527,7 +502,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
