@@ -349,6 +349,7 @@
             this.btnCancelOrder.TabIndex = 35;
             this.btnCancelOrder.Text = "Cancel Order";
             this.btnCancelOrder.UseVisualStyleBackColor = false;
+            this.btnCancelOrder.Click += new System.EventHandler(this.btnCancelOrder_Click);
             // 
             // panel6
             // 

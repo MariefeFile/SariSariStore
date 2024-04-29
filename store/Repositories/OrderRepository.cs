@@ -144,7 +144,7 @@ namespace store.Repositories
             return newOrderID;
         }
 
-        public void UpdateOrderStatus(int orderID)
+        public void UpdateOrderStatusCompleted(int orderID)
         {
             try
             {
@@ -164,6 +164,25 @@ namespace store.Repositories
             }
         }
 
+        public void UpdateOrderStatusCancelled(int orderID)
+        {
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string updateQuery = $"UPDATE {TableNames.Orders} SET Status = '{OrderStatus.Cancelled}' WHERE OrderID = @OrderID";
+                    OleDbCommand updateCommand = new OleDbCommand(updateQuery, connection);
+                    updateCommand.Parameters.AddWithValue("@OrderID", orderID);
+
+                    connection.Open();
+                    updateCommand.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error updating order status: {ex.Message}");
+            }
+        }
 
     }
 }

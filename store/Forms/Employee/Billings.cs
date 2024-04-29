@@ -27,6 +27,24 @@ namespace store
             payment.EmployeeName = EmpDisplay.Text = user.UserName;
             dataGrid11.SelectionChanged += DataGrid11_SelectionChanged;
             textBox2.TextChanged += textBox2_TextChanged;
+
+        }
+
+        private void btnCancelOrder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int orderID = payment.Order.OrderID;
+                orderRepository.UpdateOrderStatusCompleted(orderID);
+                
+                PopulateOrderTable();
+                dataGridView2.Rows.Clear();
+
+                MessageBox.Show("The order has been cancelled.");
+            } catch(Exception ex)
+            {
+                MessageBox.Show("Unable to cancel an order. Please try again.");
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -183,7 +201,7 @@ namespace store
             payment.PaymentDate = DateTime.Now;
             
             paymentRepository.InsertPayment(payment);
-            orderRepository.UpdateOrderStatus(payment.Order.OrderID);
+            orderRepository.UpdateOrderStatusCompleted(payment.Order.OrderID);
 
             
             customerRepository.UpdateTotalPayment(payment.Order.CustomerName, payment.Order.TotalPrice);
@@ -195,5 +213,6 @@ namespace store
             textBox1.Text = "";
             textBox3.Text = "";
         }
+
     }
 }
