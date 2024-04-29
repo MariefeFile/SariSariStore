@@ -20,6 +20,126 @@ namespace store.Repositories
             connectionString = Data.ConnectionString;
         }
 
+        private void UpdateMarkup(int productID, double markup)
+        {
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string query = $"UPDATE {TableNames.Products} SET MarkUp = @Markup WHERE ProductID = @ProductID";
+                    using (OleDbCommand command = new OleDbCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Markup", markup);
+                        command.Parameters.AddWithValue("@ProductID", productID);
+
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error updating markup: {ex.Message}");
+            }
+        }
+
+        private void ComputeTotalMarkup(int productID)
+        {
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string query = $"SELECT MarkUp, ItemSold, SellingPrice, OrigPrice FROM {TableNames.Products} WHERE ProductID = @ProductID";
+                    using (OleDbCommand command = new OleDbCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@ProductID", productID);
+
+                        connection.Open();
+                        using (OleDbDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                double markup = Convert.ToDouble(reader["MarkUp"]);
+                                int itemSold = Convert.ToInt32(reader["ItemSold"]);
+                                double sellingPrice = Convert.ToDouble(reader["SellingPrice"]);
+                                double origPrice = Convert.ToDouble(reader["OrigPrice"]);
+
+                                markup = (itemSold * (sellingPrice - origPrice));
+
+                                UpdateMarkup(productID, markup);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error computing total markup: {ex.Message}");
+            }
+        }
+
+        private void AddToItemSold(int productID, int quantity)
+        {
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string query = $"UPDATE {TableNames.Products} SET ItemSold = ItemSold + @Quantity WHERE ProductID = @ProductID";
+                    using (OleDbCommand command = new OleDbCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@Quantity", quantity);
+                        command.Parameters.AddWithValue("@ProductID", productID);
+
+                        connection.Open();
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error adding to ItemSold: {ex.Message}");
+            }
+        }
+
+        public void DecrementStock(List<OrderItem> orderList)
+        {
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    connection.Open();
+                    foreach (OrderItem item in orderList)
+                    {
+                        int currentStock = GetProductStock(item.ProductID);
+                        if (currentStock >= item.Quantity)
+                        {
+                            int newStock = currentStock - item.Quantity;
+                            string query = $"UPDATE {TableNames.Products} SET Stock = @NewStock WHERE ProductID = @ProductID";
+                            OleDbCommand command = new OleDbCommand(query, connection);
+
+                            command.Parameters.AddWithValue("@NewStock", newStock);
+                            command.Parameters.AddWithValue("@ProductID", item.ProductID);
+
+                            command.ExecuteNonQuery();
+
+                            AddToItemSold(item.ProductID, item.Quantity);
+
+                            ComputeTotalMarkup(item.ProductID);
+                        }
+                        else
+                        {
+                            throw new Exception($"Not enough stock available for {item.Item}. Current stock: {currentStock}");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error decrementing stock: {ex.Message}");
+            }
+        }
+
+
         public int GetProductStock(string itemName)
         {
             try

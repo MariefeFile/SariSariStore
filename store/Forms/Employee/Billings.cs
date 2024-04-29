@@ -5,6 +5,7 @@ using store.Repositories;
 using store.Services;
 using System;
 using System.Collections.Generic;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace store
@@ -194,16 +195,56 @@ namespace store
             }
         }
 
+        private bool IsProductStockAvailable(string itemName, int quantity)
+        {
+            ProductRepository productRepository = new ProductRepository();
+            int stock = productRepository.GetProductStock(itemName);
+            if (stock == 0)
+            {
+                MessageBox.Show($"The product {itemName} is out of stock.", "Out of stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            if (Calculations.IsOrderItemStockValid(stock, quantity))
+            {
+                return true;
+            }
+            MessageBox.Show($"The product {itemName} has only {stock}.", "Not enough stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
+        }
+
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            
+            if(textBox3.Text.Equals("") || textBox2.Text.Equals("") || textBox1.Text.Equals(""))
+            {
+                MessageBox.Show($"Please select an order and fill up the cash input", "No order select", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            foreach(OrderItem item in payment.Items)
+            {
+                int totalQuantity = Calculations.CountTotalQuantity(item.Item, payment.Items) + item.Quantity;
+                if (!IsProductStockAvailable(item.Item, totalQuantity))
+                {
+                    return;
+                }
+            }
+
+
+            if (!(payment.TotalChange >= 0))
+            {
+                MessageBox.Show($"The Cash is Not Enough", "Insufficient Cash", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             CustomerRepository customerRepository = new CustomerRepository();
+            ProductRepository productRepository = new ProductRepository();
 
             payment.PaymentDate = DateTime.Now;
             
             paymentRepository.InsertPayment(payment);
+            productRepository.DecrementStock(payment.Items);
             orderRepository.UpdateOrderStatusCompleted(payment.Order.OrderID);
 
-            
             customerRepository.UpdateTotalPayment(payment.Order.CustomerName, payment.Order.TotalPrice);
             new Reciept(payment).Show();
 
@@ -211,6 +252,7 @@ namespace store
             PopulateOrderTable();
 
             textBox1.Text = "";
+            textBox2.Text = "";
             textBox3.Text = "";
         }
 

@@ -94,5 +94,6 @@ namespace store.Services
             }
             return total;
         }
+
     }
 }
