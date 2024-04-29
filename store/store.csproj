@@ -166,6 +166,7 @@
     <Compile Include="Repositories\PriorityNumberRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Services\Calculations.cs" />
     <Compile Include="Forms\Sign_in.cs">
       <SubType>Form</SubType>

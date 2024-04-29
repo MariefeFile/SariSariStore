@@ -19,6 +19,51 @@ namespace store.Repositories
             connectionString = Data.ConnectionString;
         }
 
+        public bool DeleteCustomerByID(int customerID)
+        {
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                string query = $"DELETE FROM {TableNames.Customers} WHERE CostumerID = @CostumerID";
+                OleDbCommand command = new OleDbCommand(query, connection);
+                command.Parameters.AddWithValue("@CostumerID", customerID);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error deleting customer by ID: " + ex.Message);
+                    return false;
+                }
+            }
+        }
+
+
+        public bool EmptyCustomersTable()
+        {
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                string query = $"DELETE FROM {TableNames.Customers}";
+                OleDbCommand command = new OleDbCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error emptying Customers table: " + ex.Message);
+                    return false;
+                }
+            }
+        }
+
+
         public bool UpdateTotalPayment(string customerName, double newTotalPayment)
         {
             using (OleDbConnection connection = new OleDbConnection(connectionString))
