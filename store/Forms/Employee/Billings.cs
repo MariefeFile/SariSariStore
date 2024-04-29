@@ -5,14 +5,6 @@ using store.Repositories;
 using store.Services;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.OleDb;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace store
@@ -199,6 +191,9 @@ namespace store
 
             dataGridView2.Rows.Clear();
             PopulateOrderTable();
+
+            textBox1.Text = "";
+            textBox3.Text = "";
         }
     }
 }

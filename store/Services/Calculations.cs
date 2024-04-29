@@ -65,5 +65,14 @@ namespace store.Services
         {
             return cash - totalPrice;
         }
+        
+        public static int ComputeDecStock(int oldStock, int soldStock)
+        {
+            return oldStock - soldStock;
+        }
+        public static int ComputeIncStock(int oldStock, int newStock)
+        {
+            return oldStock - newStock;
+        }
     }
 }
