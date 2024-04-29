@@ -54,6 +54,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panel2.SuspendLayout();
@@ -66,6 +67,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Info;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label3);
@@ -123,7 +125,7 @@
             this.btnAdd.BackColor = System.Drawing.Color.SteelBlue;
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.ForeColor = System.Drawing.Color.Linen;
-            this.btnAdd.Location = new System.Drawing.Point(28, 284);
+            this.btnAdd.Location = new System.Drawing.Point(27, 276);
             this.btnAdd.Margin = new System.Windows.Forms.Padding(2);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(72, 22);
@@ -251,9 +253,6 @@
             this.textAdd.Name = "textAdd";
             this.textAdd.Size = new System.Drawing.Size(145, 20);
             this.textAdd.TabIndex = 44;
-            this.textAdd.Text = "EmpAdd";
-            this.textAdd.Enter += new System.EventHandler(this.textAdd_Enter);
-            this.textAdd.Leave += new System.EventHandler(this.textAdd_Leave);
             // 
             // textPhone
             // 
@@ -262,9 +261,7 @@
             this.textPhone.Name = "textPhone";
             this.textPhone.Size = new System.Drawing.Size(150, 20);
             this.textPhone.TabIndex = 42;
-            this.textPhone.Text = "EmpPhone";
-            this.textPhone.Enter += new System.EventHandler(this.textPhone_Enter);
-            this.textPhone.Leave += new System.EventHandler(this.textPhone_Leave);
+            
             // 
             // dataGridView2
             // 
@@ -283,7 +280,7 @@
             this.btnDel.BackColor = System.Drawing.Color.SteelBlue;
             this.btnDel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDel.ForeColor = System.Drawing.Color.Honeydew;
-            this.btnDel.Location = new System.Drawing.Point(28, 376);
+            this.btnDel.Location = new System.Drawing.Point(26, 351);
             this.btnDel.Margin = new System.Windows.Forms.Padding(2);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(72, 22);
@@ -297,7 +294,7 @@
             this.btnUpdate.BackColor = System.Drawing.Color.SteelBlue;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.ForeColor = System.Drawing.Color.Honeydew;
-            this.btnUpdate.Location = new System.Drawing.Point(27, 330);
+            this.btnUpdate.Location = new System.Drawing.Point(26, 312);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(73, 22);
@@ -313,9 +310,7 @@
             this.textPass.Name = "textPass";
             this.textPass.Size = new System.Drawing.Size(145, 20);
             this.textPass.TabIndex = 29;
-            this.textPass.Text = "EmpPass";
-            this.textPass.Enter += new System.EventHandler(this.textPass_Enter);
-            this.textPass.Leave += new System.EventHandler(this.textPass_Leave);
+            
             // 
             // textName
             // 
@@ -324,9 +319,7 @@
             this.textName.Name = "textName";
             this.textName.Size = new System.Drawing.Size(150, 20);
             this.textName.TabIndex = 28;
-            this.textName.Text = "EmpName";
-            this.textName.Enter += new System.EventHandler(this.textName_Enter);
-            this.textName.Leave += new System.EventHandler(this.textName_Leave);
+            
             // 
             // label2
             // 
@@ -363,6 +356,20 @@
             this.label6.Size = new System.Drawing.Size(45, 13);
             this.label6.TabIndex = 52;
             this.label6.Text = "Address";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.SteelBlue;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Honeydew;
+            this.button1.Location = new System.Drawing.Point(27, 386);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(72, 22);
+            this.button1.TabIndex = 53;
+            this.button1.Text = "CLEAR";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // EmployeeViews
             // 
@@ -415,5 +422,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
     }
 }

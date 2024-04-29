@@ -31,11 +31,35 @@ namespace store
 
             dataGridView2.SelectionChanged += DataGridView2_SelectionChanged;
         }
+        private bool ValidateInputFields()
+        {
+            if (string.IsNullOrWhiteSpace(textName.Text) || string.IsNullOrWhiteSpace(textPass.Text) ||
+                string.IsNullOrWhiteSpace(textAdd.Text) || string.IsNullOrWhiteSpace(textPhone.Text))
+            {
+                MessageBox.Show("Please fill in all fields.");
+                return false;
+            }
+            return true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            textName.Text = string.Empty;
+            textPhone.Text = string.Empty;
+            textAdd.Text = string.Empty;
+            textPass.Text = string.Empty;
+            pictureBox4.Image = null;
+        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
-            {
+                {
+                if (!ValidateInputFields())
+                {
+                    return; 
+                }
+
                 User newUser = new User
                 {
                     UserName = textName.Text,
@@ -59,7 +83,7 @@ namespace store
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                MessageBox.Show("Warning: " + ex.Message);
             }
         }
 
@@ -94,6 +118,12 @@ namespace store
             {
                 try
                 {
+
+                    if (!ValidateInputFields())
+                    {
+                        return;
+                    }
+
                     DataGridViewRow selectedRow = dataGridView2.SelectedRows[0];
                     int userID = Convert.ToInt32(selectedRow.Cells["UserID"].Value);
                     User selectedUser = userList.FirstOrDefault(user => user.UserID == userID);
@@ -330,78 +360,6 @@ namespace store
             Home.Show();
 
         }
-        private void textName_Enter(object sender, EventArgs e)
-        {
-            if (textName.Text == "EmpName")
-            {
-                textName.Text = "";
-
-                textName.ForeColor = Color.Black;
-            }
-        }
-        private void textName_Leave(object sender, EventArgs e)
-        {
-            if (textName.Text == "")
-            {
-                textName.Text = "EmpName";
-
-                textName.ForeColor = Color.Black;
-            }
-        }
-        private void textPhone_Enter(object sender, EventArgs e)
-        {
-            if (textPhone.Text == "EmpPhone")
-            {
-                textPhone.Text = "";
-
-                textPhone.ForeColor = Color.Black;
-            }
-        }
-        private void textPhone_Leave(object sender, EventArgs e)
-        {
-            if (textPhone.Text == "")
-            {
-                textPhone.Text = "EmpPhone";
-
-                textPhone.ForeColor = Color.Black;
-            }
-        }
-        private void textPass_Enter(object sender, EventArgs e)
-        {
-            if (textPass.Text == "EmpPass")
-            {
-                textPass.Text = "";
-
-                textPass.ForeColor = Color.Black;
-            }
-        }
-        private void textPass_Leave(object sender, EventArgs e)
-        {
-
-            if (textPass.Text == "")
-            {
-                textPass.Text = "EmpPass";
-
-                textPass.ForeColor = Color.Black;
-            }
-        }
-        private void textAdd_Enter(object sender, EventArgs e)
-        {
-            if (textAdd.Text == "EmpAdd")
-            {
-                textAdd.Text = "";
-
-                textAdd.ForeColor = Color.Black;
-            }
-        }
-        private void textAdd_Leave(object sender, EventArgs e)
-        {
-            if (textAdd.Text == "")
-            {
-                textAdd.Text = "EmpAdd";
-
-                textAdd.ForeColor = Color.Black;
-            }
-        }
+       
     }
 }
