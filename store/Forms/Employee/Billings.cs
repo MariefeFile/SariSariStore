@@ -12,6 +12,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace store
@@ -185,11 +186,15 @@ namespace store
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            CustomerRepository customerRepository = new CustomerRepository();
+
             payment.PaymentDate = DateTime.Now;
             
             paymentRepository.InsertPayment(payment);
             orderRepository.UpdateOrderStatus(payment.Order.OrderID);
 
+            
+            customerRepository.UpdateTotalPayment(payment.Order.CustomerName, payment.Order.TotalPrice);
             new Reciept(payment).Show();
 
             dataGridView2.Rows.Clear();
