@@ -4,6 +4,7 @@ using store.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.OleDb;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace store.Repositories
 {
@@ -32,6 +33,14 @@ namespace store.Repositories
 
                     while (reader.Read())
                     {
+                        Convert.ToInt32(reader["OrderID"]);
+                        Convert.ToDateTime(reader["OrderDate"]);
+                        Convert.ToString(reader["CustomerName"]);
+                        Convert.ToDouble(reader["TotalPrice"]);
+                        Convert.ToString(reader["Status"]);
+                        Convert.ToInt32(reader["PriorityNumber"]);
+                        Convert.ToInt32(reader["TotalItems"]);
+
                         Order order = new Order
                         {
                             OrderID = Convert.ToInt32(reader["OrderID"]),

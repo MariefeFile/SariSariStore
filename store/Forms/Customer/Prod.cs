@@ -114,7 +114,6 @@ namespace store
                     item.Quantity = Calculations.NewTotalQuantity(item.Quantity, quantity);
                     item.TotalPrice = Calculations.CalculateItemTotalPrice(item);
 
-                    // Update the corresponding row in dataGridView1 manually
                     foreach (DataGridViewRow row in dataGridView1.Rows)
                     {
                         string dgvItem = row.Cells[ProductFields.Item].Value.ToString();
@@ -123,7 +122,7 @@ namespace store
                         if (dgvItem.Equals(selectedItem) && dgvUnit.Equals(selectedUnit))
                         {
                             row.Cells[ProductFields.Quantity].Value = item.Quantity;
-                            row.Cells[ProductFields.TotalPrice].Value = item.TotalPrice;
+                            row.Cells[ProductFields.TotalPrice].Value = item.TotalPrice.ToString("C");
                             break;
                         }
                     }
@@ -163,8 +162,20 @@ namespace store
 
         private void AddToCart(string selectedItem, string selectedUnit, string category, string quantityText)
         {
+
             if (int.TryParse(quantityText, out int quantity) && quantity > 0)
             {
+                if(selectedItem.Equals("") || selectedUnit.Equals("Item"))
+                {
+                    MessageBox.Show("Please select an item.", "Item not selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if(selectedUnit.Equals("") || selectedUnit.Equals("Unit"))
+                {
+                    MessageBox.Show("Please select a unit.", "Unit not selected", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
                 bool itemFound = IsItemExists(selectedItem, selectedUnit);
 
                 if (itemFound)

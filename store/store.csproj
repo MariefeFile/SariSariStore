@@ -79,6 +79,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\Products\ProductCategory.cs" />
+    <Compile Include="Constants\Users\UserTypes.cs" />
     <Compile Include="Forms\Admin\AllProd.cs">
       <SubType>Form</SubType>
     </Compile>

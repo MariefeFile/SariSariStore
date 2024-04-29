@@ -19,7 +19,7 @@ namespace store
         {
             priorityNumber.Text = order.PriorityNumber.ToString();
             customerName.Text = order.CustomerName;
-            totalPayment.Text = order.TotalPrice.ToString();
+            totalPayment.Text = order.TotalPrice.ToString("C");
             dateOfOrder.Text = order.OrderDate.ToString();   
         }
 

@@ -154,37 +154,6 @@ namespace store
             }
         }
 
-
-        private bool IsValidImage(Image image)
-        {
-            try
-            {
-                ImageCodecInfo codecInfo = GetImageCodecInfo(image);
-
-                return codecInfo != null;
-            }
-            catch
-            {
-                return false;
-            }
-        }
-
-        private ImageCodecInfo GetImageCodecInfo(Image image)
-        {
-            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
-
-            foreach (ImageCodecInfo codec in codecs)
-            {
-                if (codec.FormatID == image.RawFormat.Guid)
-                {
-                    return codec;
-                }
-            }
-
-            return null;
-        }
-
-
         private void DataGridView2_SelectionChanged(object sender, EventArgs e)
         {
             if (dataGridView2.SelectedRows.Count > 0)
@@ -196,13 +165,14 @@ namespace store
                     int userID = Convert.ToInt32(selectedRow.Cells["UserID"].Value);
                     User selectedUser = userList.FirstOrDefault(user => user.UserID == userID);
 
-                    if (selectedUser != null && selectedUser.UserImage != null)
+                    if (selectedUser != null && selectedUser.UserImage != null && selectedUser.UserImage.Length > 0)
                     {
                         using (MemoryStream stream = new MemoryStream(selectedUser.UserImage))
                         {
                             pictureBox4.Image = Image.FromStream(stream);
                         }
                     }
+
                     else
                     {
                         pictureBox4.Image = null; 
