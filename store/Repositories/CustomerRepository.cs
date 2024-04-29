@@ -19,6 +19,46 @@ namespace store.Repositories
             connectionString = Data.ConnectionString;
         }
 
+        public List<Customer> GetAllCustomers()
+        {
+            List<Customer> customers = new List<Customer>();
+
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                string query = $"SELECT * FROM {TableQuery.QueryCustomer}";
+                OleDbCommand command = new OleDbCommand(query, connection);
+
+                try
+                {
+                    connection.Open();
+                    OleDbDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Customer customer = new Customer
+                        {
+                            CustomerID = Convert.ToInt32(reader["CostumerID"]),
+                            CustomerName = Convert.ToString(reader["CustomerName"]),
+                            CustomerPhone = Convert.ToString(reader["CustomerPhone"]),
+                            CustomerEmail = Convert.ToString(reader["CustomerEmail"]),
+                            TotalPayment = Convert.ToDouble(reader["TotalPayment"]),
+                            DateRecorded = Convert.ToDateTime(reader["DateRecorded"])
+                        };
+                        customers.Add(customer);
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error getting all customers: " + ex.Message);
+                }
+            }
+
+            return customers;
+        }
+
+
         public bool InsertCustomer(Customer customer)
         {
             using (OleDbConnection connection = new OleDbConnection(connectionString))

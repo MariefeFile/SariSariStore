@@ -8,16 +8,16 @@ namespace store.Models
 {
     internal class Customer
     {
-        public int CustomerId { get; set; }
+        public int CustomerID { get; set; }
         public string CustomerName { get; set; }
         public string CustomerPhone { get; set; }
         public string CustomerEmail { get; set; }
-        public string TotalPayment { get; set; }
-
+        public double TotalPayment { get; set; }
+        public DateTime DateRecorded { get; set; }
         // Constructor
         public Customer(int customerId, string name, string phone, string email)
         {
-            CustomerId = customerId;
+            CustomerID = customerId;
             CustomerName = name;
             CustomerPhone = phone;
             CustomerEmail = email;
@@ -28,6 +28,10 @@ namespace store.Models
             CustomerName = name;
             CustomerPhone = phone;
             CustomerEmail = email;
+        }
+        public Customer() {
+            DateRecorded = DateTime.Now;
+            TotalPayment = 0.0;
         }
     }
 }

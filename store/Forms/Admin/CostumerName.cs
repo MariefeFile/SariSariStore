@@ -1,4 +1,6 @@
-﻿using System;
+﻿using store.Models;
+using store.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,58 +16,50 @@ namespace store
 {
     public partial class CostumerName : Form
     {
-        OleDbConnection myConn;
-        OleDbCommand cmd;
+        private List<Customer> customerList = null;
+        private CustomerRepository customerRepository = new CustomerRepository();
         public CostumerName()
         {
             InitializeComponent();
-            myConn = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb");
 
+            InitializeDataGridView();
+            PopulateDataGridView();
         }
 
-        private void Exit55_Click(object sender, EventArgs e)
+        private void PopulateDataGridView()
         {
-            Homepage hm = new Homepage();
-            hm.Show();
-            this.Hide();
-        }
+            customerList = customerRepository.GetAllCustomers();
+            dataGridView4.Rows.Clear();
 
-        private void panel9_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void CostumerName_Load(object sender, EventArgs e)
-        {
-            try
+            foreach (Customer customer in customerList)
             {
-                myConn.Open();
-                // MessageBox.Show("Connected Successfully!");
-                LoadDataIntoDataGridView();
-                this.Hide();
-                myConn.Close();
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show("ERROR: " + ex.Message);
+                dataGridView4.Rows.Add(
+                    customer.CustomerID,
+                    customer.CustomerName,
+                    customer.CustomerPhone,
+                    customer.CustomerEmail,
+                    customer.TotalPayment.ToString("C"),
+                    customer.DateRecorded.ToString("yyyy-MM-dd")
+                );
             }
         }
-        private void LoadDataIntoDataGridView()
+
+
+
+        private void InitializeDataGridView()
         {
-            string query = "SELECT * FROM QryCostumerDetails";
-            OleDbDataAdapter da = new OleDbDataAdapter(query, myConn);
-            DataTable dt = new DataTable();
 
-            // Fill the DataTable with data from the database
-            da.Fill(dt);
-
-            // Bind the DataTable to the DataGridView
-            dataGridView4.DataSource = dt;
-
+            dataGridView4.Columns.Add("CustomerID", "Customer ID");
+            dataGridView4.Columns.Add("CustomerName", "Name");
+            dataGridView4.Columns.Add("CustomerPhone", "Phone");
+            dataGridView4.Columns.Add("CustomerEmail", "Email");
+            dataGridView4.Columns.Add("TotalPayment", "TotalPayment");
+            dataGridView4.Columns.Add("DateRecorded", "Date Recorded");
         }
 
         private void dataGridView4_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            /*
             DataGridViewRow row = dataGridView4.Rows[e.RowIndex];
 
             // Display employee details in textboxes
@@ -74,35 +68,13 @@ namespace store
             txtEmpName.Text = row.Cells["EmpName"].Value.ToString();
             txtpayment.Text = row.Cells["TotalPayment"].Value.ToString();
             txtdate.Text = row.Cells["Date"].Value.ToString();
+            */
           
         }
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (dataGridView4.CurrentRow != null)
-                {
-                    string query = "DELETE FROM QryCostumerDetails WHERE CostumerID = @CostumeID";
-                    cmd = new OleDbCommand(query, myConn);
-                    cmd.Parameters.AddWithValue("@CostumeID", dataGridView4.CurrentRow.Cells["Item"].Value);
-
-                    myConn.Open();
-                    cmd.ExecuteNonQuery();
-                    myConn.Close();
-
-                    // Remove the selected row from the DataGridView
-                    dataGridView4.Rows.Remove(dataGridView4.CurrentRow);
-                }
-                else
-                {
-                    MessageBox.Show("Please select a row to delete.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -112,6 +84,13 @@ namespace store
             txtEmpName.Text = String.Empty;
             txtpayment.Text = String.Empty;
             txtdate.Text = String.Empty;
+        }
+
+        private void Exit55_Click(object sender, EventArgs e)
+        {
+            Homepage hm = new Homepage();
+            hm.Show();
+            this.Hide();
         }
     }
 }
