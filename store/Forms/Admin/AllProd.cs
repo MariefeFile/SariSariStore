@@ -2,17 +2,11 @@
 using store.Repositories;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
-using System.Net.NetworkInformation;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
+using System.Globalization;
 
 namespace store
 {
@@ -24,11 +18,106 @@ namespace store
         {
             InitializeComponent();
 
-            productList = productRepository.GetAllProducts();
-
             InitializeDataGridView();
             PopulateDataGridView();
+
+            dataGridView5.SelectionChanged += DataGridView5_SelectionChanged;
         }
+
+        private void btnUpDate_Click(object sender, EventArgs e)
+        {
+            if (dataGridView5.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    DataGridViewRow selectedRow = dataGridView5.SelectedRows[0];
+                    int productId = Convert.ToInt32(selectedRow.Cells["ProductID"].Value);
+
+                    string itemName = txtSaleName.Text;
+                    string unit = txtSaleUnit.Text;
+                    double origPrice = Convert.ToDouble(
+                        txtSaleOrg.Text
+                            .Replace("$", "")  // Remove currency symbol
+                            .Replace(",", "")  // Remove commas
+                            .Replace("₱", ""), // Remove currency symbol '₱'
+                        CultureInfo.InvariantCulture // Use CultureInfo.InvariantCulture
+                    );
+
+                    double sellingPrice = Convert.ToDouble(
+                        txtSaleSelling.Text
+                            .Replace("$", "")  // Remove currency symbol
+                            .Replace(",", "")  // Remove commas
+                            .Replace("₱", ""), // Remove currency symbol '₱'
+                        CultureInfo.InvariantCulture // Use CultureInfo.InvariantCulture
+                    );
+                    double markup = Convert.ToDouble(
+                        txtMarkUp.Text
+                            .Replace("$", "")  // Remove currency symbol
+                            .Replace(",", "") // Remove commas
+                            .Replace("₱", ""), // Remove currency symbol '₱'
+                        CultureInfo.InvariantCulture // Use CultureInfo.InvariantCulture
+                    );
+
+                    int stock = Convert.ToInt32(txtSaleStock.Text);
+                    string categories = comboSaleCat.Text;
+                    int itemSold = Convert.ToInt32(txtSold.Text);
+
+                    Product updatedProduct = new Product(productId, itemName, unit, origPrice, sellingPrice, stock, categories, itemSold, markup);
+
+                    bool success = productRepository.UpdateProduct(updatedProduct);
+
+                    if (success)
+                    {
+                        MessageBox.Show("Product updated successfully.");
+                        PopulateDataGridView();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to update product.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error updating product: " + ex.Message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a product to update.");
+            }
+        }
+
+        private void DataGridView5_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dataGridView5.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    DataGridViewRow selectedRow = dataGridView5.SelectedRows[0];
+
+                    txtSaleID.Text = GetValueAsString(selectedRow.Cells["ProductID"]);
+                    txtSaleName.Text = GetValueAsString(selectedRow.Cells["Item"]);
+                    txtSaleUnit.Text = GetValueAsString(selectedRow.Cells["Unit"]);
+                    txtSaleOrg.Text = GetValueAsString(selectedRow.Cells["OrigPrice"]);
+                    txtSaleSelling.Text = GetValueAsString(selectedRow.Cells["SellingPrice"]);
+                    txtSaleStock.Text = GetValueAsString(selectedRow.Cells["Stock"]);
+                    comboSaleCat.Text = GetValueAsString(selectedRow.Cells["Categories"]);
+                    txtSold.Text = GetValueAsString(selectedRow.Cells["ItemSold"]);
+                    txtMarkUp.Text = GetValueAsString(selectedRow.Cells["MarkUp"]);
+                }
+                catch (Exception ex)
+                {
+                    // Handle the exception or log it
+                    Console.WriteLine("Error: " + ex.Message);
+                }
+            }
+        }
+
+        private string GetValueAsString(DataGridViewCell cell)
+        {
+            return cell.Value != null ? cell.Value.ToString() : "";
+        }
+
 
         private void InitializeDataGridView()
         {
@@ -46,6 +135,9 @@ namespace store
 
         private void PopulateDataGridView()
         {
+
+            productList = productRepository.GetAllProducts();
+
             dataGridView5.Rows.Clear();
             
             productList = productList.OrderBy(p => p.ProductID).ToList();
@@ -56,8 +148,8 @@ namespace store
                     product.ProductID,
                     product.Item,
                     product.Unit,
-                    product.OrigPrice,
-                    product.SellingPrice,
+                    product.OrigPrice.ToString("C"),
+                    product.SellingPrice.ToString("C"),
                     product.Stock,
                     product.Categories,
                     product.ItemSold,
@@ -76,7 +168,7 @@ namespace store
             txtSaleID.Text = row.Cells["ProductID"].Value.ToString();
             txtSaleName.Text = row.Cells["Item"].Value.ToString();
             txtSaleUnit.Text = row.Cells["Unit"].Value.ToString();
-            txtSaleQnty.Text = row.Cells["Qnty"].Value.ToString();
+            txtStock.Text = row.Cells["Qnty"].Value.ToString();
             txtSaleOrg.Text = row.Cells["Org_Price"].Value.ToString();
             txtSaleSelling.Text = row.Cells["SellingPrice"].Value.ToString();
             txtSaleStock.Text = row.Cells["Stock"].Value.ToString();
@@ -93,10 +185,9 @@ namespace store
             txtSaleID.Text = String.Empty;
             txtSaleName.Text = String.Empty;
             txtSaleUnit.Text = String.Empty;
-            txtSaleQnty.Text = String.Empty;
+            txtSaleStock.Text = String.Empty;
             txtSaleOrg.Text = String.Empty;
             txtSaleSelling.Text = String.Empty;
-            txtSaleStock.Text = String.Empty;
             comboSaleCat.Text = String.Empty;
             txtSold.Text = String.Empty;
             txtMarkUp.Text = String.Empty;
@@ -158,25 +249,6 @@ namespace store
                 txtSaleUnit.Text = "Unit";
 
                 txtSaleUnit.ForeColor = Color.Black;
-            }
-        }
-        private void txtSaleQnty_Enter(object sender, EventArgs e)
-        {
-
-            if (txtSaleQnty.Text == "Qnty")
-            {
-                txtSaleQnty.Text = "";
-
-                txtSaleQnty.ForeColor = Color.Black;
-            }
-        }
-        private void txtSaleQnty_Leave(object sender, EventArgs e)
-        {
-            if (txtSaleQnty.Text == "")
-            {
-                txtSaleQnty.Text = "Qnty";
-
-                txtSaleQnty.ForeColor = Color.Black;
             }
         }
         private void txtSaleOrg_Enter(object sender, EventArgs e)
@@ -296,5 +368,6 @@ namespace store
             hp.Show();
             this.Hide();
         }
+
     }
 }

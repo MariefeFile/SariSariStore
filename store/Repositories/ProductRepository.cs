@@ -20,6 +20,71 @@ namespace store.Repositories
             connectionString = Data.ConnectionString;
         }
 
+        public bool UpdateProduct(Product product)
+        {
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string query = $"UPDATE {TableNames.Products} " +
+                                   $"SET Item = @Item, Unit = @Unit, OrigPrice = @OrigPrice, SellingPrice = @SellingPrice, " +
+                                   $"Stock = @Stock, Categories = @Categories, ItemSold = @ItemSold, MarkUp = @MarkUp " +
+                                   $"WHERE ProductID = @ProductID";
+
+                    OleDbCommand command = new OleDbCommand(query, connection);
+                    command.Parameters.AddWithValue("@Item", product.Item);
+                    command.Parameters.AddWithValue("@Unit", product.Unit);
+                    command.Parameters.AddWithValue("@OrigPrice", product.OrigPrice);
+                    command.Parameters.AddWithValue("@SellingPrice", product.SellingPrice);
+                    command.Parameters.AddWithValue("@Stock", product.Stock);
+                    command.Parameters.AddWithValue("@Categories", product.Categories);
+                    command.Parameters.AddWithValue("@ItemSold", product.ItemSold);
+                    command.Parameters.AddWithValue("@MarkUp", product.MarkUp);
+                    command.Parameters.AddWithValue("@ProductID", product.ProductID);
+
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error updating product: {ex.Message}");
+            }
+        }
+
+
+        public bool InsertProduct(Product product)
+        {
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string query = $"INSERT INTO {TableNames.Products} (Item, Unit, OrigPrice, SellingPrice, Stock, Categories, ItemSold, MarkUp) " +
+                                   $"VALUES (@Item, @Unit, @OrigPrice, @SellingPrice, @Stock, @Categories, @ItemSold, @MarkUp)";
+
+                    OleDbCommand command = new OleDbCommand(query, connection);
+                    command.Parameters.AddWithValue("@Item", product.Item);
+                    command.Parameters.AddWithValue("@Unit", product.Unit);
+                    command.Parameters.AddWithValue("@OrigPrice", product.OrigPrice);
+                    command.Parameters.AddWithValue("@SellingPrice", product.SellingPrice);
+                    command.Parameters.AddWithValue("@Stock", product.Stock);
+                    command.Parameters.AddWithValue("@Categories", product.Categories);
+                    command.Parameters.AddWithValue("@ItemSold", product.ItemSold);
+                    command.Parameters.AddWithValue("@MarkUp", product.MarkUp);
+
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error inserting product: {ex.Message}");
+            }
+        }
+
+
         public List<Product> GetAllProducts()
         {
             try
