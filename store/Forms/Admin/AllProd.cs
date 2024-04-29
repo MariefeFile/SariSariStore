@@ -37,25 +37,25 @@ namespace store
                     string unit = txtSaleUnit.Text;
                     double origPrice = Convert.ToDouble(
                         txtSaleOrg.Text
-                            .Replace("$", "")  // Remove currency symbol
-                            .Replace(",", "")  // Remove commas
-                            .Replace("₱", ""), // Remove currency symbol '₱'
-                        CultureInfo.InvariantCulture // Use CultureInfo.InvariantCulture
+                            .Replace("$", "")
+                            .Replace(",", "")
+                            .Replace("₱", ""),
+                        CultureInfo.InvariantCulture
                     );
 
                     double sellingPrice = Convert.ToDouble(
                         txtSaleSelling.Text
-                            .Replace("$", "")  // Remove currency symbol
-                            .Replace(",", "")  // Remove commas
-                            .Replace("₱", ""), // Remove currency symbol '₱'
-                        CultureInfo.InvariantCulture // Use CultureInfo.InvariantCulture
+                            .Replace("$", "")
+                            .Replace(",", "")
+                            .Replace("₱", ""),
+                        CultureInfo.InvariantCulture
                     );
                     double markup = Convert.ToDouble(
                         txtMarkUp.Text
-                            .Replace("$", "")  // Remove currency symbol
-                            .Replace(",", "") // Remove commas
-                            .Replace("₱", ""), // Remove currency symbol '₱'
-                        CultureInfo.InvariantCulture // Use CultureInfo.InvariantCulture
+                            .Replace("$", "")
+                            .Replace(",", "")
+                            .Replace("₱", ""),
+                        CultureInfo.InvariantCulture
                     );
 
                     int stock = Convert.ToInt32(txtSaleStock.Text);
@@ -107,7 +107,6 @@ namespace store
                 }
                 catch (Exception ex)
                 {
-                    // Handle the exception or log it
                     Console.WriteLine("Error: " + ex.Message);
                 }
             }
@@ -153,7 +152,7 @@ namespace store
                     product.Stock,
                     product.Categories,
                     product.ItemSold,
-                    product.MarkUp
+                    product.MarkUp.ToString("C")
                 );
             }
         }
