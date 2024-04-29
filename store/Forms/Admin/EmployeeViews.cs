@@ -1,4 +1,6 @@
-﻿using System;
+﻿using store.Models;
+using store.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,80 +17,49 @@ namespace store
 {
     public partial class EmployeeViews : Form
     {
-        OleDbConnection myConn;
-        OleDbCommand cmd;
+        private List<User> userList = null;
+        private UserRepository userRepository = new UserRepository();
         public EmployeeViews()
         {
             InitializeComponent();
-            myConn = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb");
+
+            userList = userRepository.GetAllEmployee();
+
+            InitializeDataGridView();
+            PopulateDataGridView();
         }
 
-        private void EmployeeViews_Load(object sender, EventArgs e)
+        private void PopulateDataGridView()
         {
-            try
+
+            userList = userRepository.GetAllEmployee();
+            dataGridView2.Rows.Clear();
+
+            foreach (User user in userList)
             {
-                myConn.Open();
-                // MessageBox.Show("Connected Successfully!");
-                LoadDataIntoDataGridView();
-                this.Hide();
-                myConn.Close();
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show("ERROR: " + ex.Message);
-            }
-        }
-        private void LoadDataIntoDataGridView()
-        {
-            string query = "SELECT * FROM tblEmp";
-            OleDbDataAdapter da = new OleDbDataAdapter(query, myConn);
-            DataTable dt = new DataTable();
-
-            // Fill the DataTable with data from the database
-            da.Fill(dt);
-
-            // Bind the DataTable to the DataGridView
-            dataGridView2.DataSource = dt;
-
-
-        }
-
-        private void Exit5_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Homepage Home = new Homepage();
-            Home.Show();
-
-        }
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0 && e.RowIndex < dataGridView2.Rows.Count)
-            {
-                DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
-
-                // Display employee details in textboxes
-                textID.Text = row.Cells["EmpID"].Value.ToString();
-                textName.Text = row.Cells["EmpName"].Value.ToString();
-                textPhone.Text = row.Cells["EmpPhone"].Value.ToString();
-                textAdd.Text = row.Cells["EmpAddress"].Value.ToString();
-                textPass.Text = row.Cells["EmpPass"].Value.ToString();
-
-                // Display employee image in PictureBox
-                byte[] imageData = (byte[])row.Cells["EmpImage"].Value;
-                if (imageData != null && imageData.Length > 0)
-                {
-                    using (MemoryStream ms = new MemoryStream(imageData))
-                    {
-                        pictureBox4.Image = Image.FromStream(ms);
-                    }
-                }
-                else
-                {
-                    // If no image available, clear the PictureBox
-                    pictureBox4.Image = null;
-                }
+                dataGridView2.Rows.Add(
+                    user.UserID,
+                    user.UserName,
+                    user.UserPhone,
+                    user.UserAddress,
+                    user.UserPassword
+                );
             }
         }
+
+
+
+        private void InitializeDataGridView()
+        {
+            
+            dataGridView2.Columns.Add("UserID", "User ID");
+            dataGridView2.Columns.Add("UserName", "UserName");
+            dataGridView2.Columns.Add("UserPhone", "Phone");
+            dataGridView2.Columns.Add("UserAddress", "Address");
+            dataGridView2.Columns.Add("UserPassword", "Password");
+        }
+
+
         private void btnUplaod_Click(object sender, EventArgs e)
         {
 
@@ -143,46 +114,9 @@ namespace store
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
-            /*
-            try
-            {
-                using (OpenFileDialog filedialog = new OpenFileDialog() { Filter = "JPEG|*.jpg", ValidateNames = true, Multiselect = false })
-                {
-                    if (filedialog.ShowDialog() == DialogResult.OK)
-                    {
-                        pictureBox4.Image = Image.FromFile(filedialog.FileName);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Image Uploaded Successfully!");
-            }*/
+            
         }
-        private void RefreshDataGridView()
-        {
-            dataGridView2.DataSource = null;
 
-            // Rebind the DataGridView to your data source
-            string query = "SELECT * FROM tblEmp"; // Assuming tblEmp is your table name
-            OleDbDataAdapter adapter = new OleDbDataAdapter(query, myConn);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView2.DataSource = dt;
-
-        }
-        private void UpdateDataGridView()
-        {
-
-            // Implement your logic to refresh the DataGridView with updated data
-            // This can be similar to how you populated the DataGridView initially
-            // For example:
-            string query = "SELECT * FROM tblEmp"; // Assuming tblEmp is your table name
-            OleDbDataAdapter adapter = new OleDbDataAdapter(query, myConn);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView2.DataSource = dt;
-        }
         private byte[] ConvertImageToByteArray(Image image)
         {
             if (image == null)
@@ -197,6 +131,7 @@ namespace store
 
         private void btnInsert_Click(object sender, EventArgs e)
         {
+            /*
             byte[] imageData = ConvertImageToByteArray(pictureBox4.Image);
 
             // Your existing code to insert other employee details into the database...
@@ -230,56 +165,7 @@ namespace store
                 // Insertion failed
                 MessageBox.Show("Failed to insert data.");
             }
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                byte[] imageData = ConvertImageToByteArray(pictureBox4.Image);
-                string query = "UPDATE tblEmp SET EmpName=@EmpName, EmpPhone=@EmpPhone, EmpAddress=@EmpAddress, EmpPass=@EmpPass, EmpImage=@EmpImage WHERE EmpID=@ID";
-                using (OleDbConnection myConn = new OleDbConnection("Provider=Microsoft.JET.OLEDB.4.0;Data Source=C:\\Users\\ll\\Desktop\\oop2week8\\store.mdb"))
-                {
-                    using (OleDbCommand cmd = new OleDbCommand(query, myConn))
-                    {
-                        cmd.Parameters.AddWithValue("@EmpName", textName.Text);
-                        cmd.Parameters.AddWithValue("@EmpPhone", textPhone.Text);
-                        cmd.Parameters.AddWithValue("@EmpAddress", textAdd.Text);
-                        cmd.Parameters.AddWithValue("@EmpPass", textPass.Text);
-                        cmd.Parameters.AddWithValue("@EmpImage", imageData);
-                        cmd.Parameters.AddWithValue("@ID", Convert.ToInt32(textID.Text));
-
-                        myConn.Open();
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Data updated successfully.");
-                            UpdateDataGridView(); // Update the DataGridView if necessary
-                        }
-                        else
-                        {
-                            MessageBox.Show("No rows were updated. Check the provided EmpID.");
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("An error occurred while updating data: " + ex.Message);
-            }
-        }
-        private int index;
-        private void btnDel_Click(object sender, EventArgs e)
-        {
-            string query = "Delete From tblEmp Where EmpID = @ID";
-            cmd = new OleDbCommand(query, myConn);
-            cmd.Parameters.AddWithValue("@ID", dataGridView2.CurrentRow.Cells[0].Value);
-            myConn.Open();
-            cmd.ExecuteNonQuery();
-            myConn.Close();
-            index = dataGridView2.CurrentCell.RowIndex;
-            dataGridView2.Rows.RemoveAt(index);
+            */
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -291,6 +177,14 @@ namespace store
             textPass.Text = String.Empty;
             pictureBox4.Image = null;
         }
+        private void Exit5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Homepage Home = new Homepage();
+            Home.Show();
+
+        }
+
         private void textID_Enter(object sender, EventArgs e)
         {
             if (textID.Text == "EmpID")
@@ -381,10 +275,6 @@ namespace store
 
                 textAdd.ForeColor = Color.Black;
             }
-        }
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -13,5 +13,6 @@ namespace store.Constants
         public static readonly string QueryPriorityNumber = "QueryPriorityNumber";
         public static readonly string QueryOrders = "QueryOrders";
         public static readonly string QueryOrderItems = "QueryOrderItems";
+        public static readonly string QueryUsers = "QueryUsers";
     }
 }

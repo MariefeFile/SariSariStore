@@ -14,10 +14,10 @@ namespace store.Models
         public string UserType { get; set; }
         public int UserPhone { get; set; }
         public string UserAddress {  get; set; }
-        public Object UserImage { get; set; }
+        public byte[] UserImage { get; set; }
 
         public User(int UserID, string UserName, string UserPassword, string UserType
-            , int UserPhone, string UserAddress, Object UserImage)
+            , int UserPhone, string UserAddress, byte[] UserImage)
         {
             this.UserID = UserID;
             this.UserName = UserName;
@@ -34,6 +34,7 @@ namespace store.Models
             UserPassword = userPassword;
             UserType = userType;
         }
+        public User() { }
 
     }
 }
