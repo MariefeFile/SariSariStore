@@ -16,6 +16,35 @@ namespace store.Repositories
             connectionString = Data.ConnectionString;
         }
 
+        public bool UpdateUser(User user)
+        {
+            using (OleDbConnection connection = new OleDbConnection(connectionString))
+            {
+                string query = $"UPDATE {TableNames.Users} SET UserName = @UserName, UserPassword = @UserPassword, UserAddress = @UserAddress, UserImage = @UserImage, UserPhone = @UserPhone WHERE UserID = @UserID";
+                OleDbCommand command = new OleDbCommand(query, connection);
+
+                command.Parameters.AddWithValue("@UserName", user.UserName);
+                command.Parameters.AddWithValue("@UserPassword", user.UserPassword);
+                command.Parameters.AddWithValue("@UserAddress", user.UserAddress);
+                command.Parameters.AddWithValue("@UserImage", user.UserImage);
+                command.Parameters.AddWithValue("@UserPhone", user.UserPhone);
+                command.Parameters.AddWithValue("@UserID", user.UserID);
+
+                try
+                {
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Error updating user: " + ex.Message);
+                    return false;
+                }
+            }
+        }
+
+
         public List<User> GetAllEmployee()
         {
             List<User> employees = new List<User>();
