@@ -12,6 +12,7 @@ namespace store.Models
         public string CustomerName { get; set; }
         public string CustomerPhone { get; set; }
         public string CustomerEmail { get; set; }
+        public string TotalPayment { get; set; }
 
         // Constructor
         public Customer(int customerId, string name, string phone, string email)
