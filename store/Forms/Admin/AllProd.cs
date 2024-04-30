@@ -14,6 +14,7 @@ namespace store
     {
         private List<Product> productList = null;
         private ProductRepository productRepository = new ProductRepository();
+      
         public AllProd()
         {
             InitializeComponent();
@@ -325,5 +326,9 @@ namespace store
             this.Hide();
         }
 
+        private void AllProd_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

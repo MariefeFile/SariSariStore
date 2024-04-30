@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="store.Constants.Data" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQACAAAAAAAAA=</HashCode>
+      <FileName>Constants\Data.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Constants.ProductCategory" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAABABAAAAAAAAAAAAAAAAAAAAgAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Constants\Products\ProductCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Constants.ProductItems" Collapsed="true">
+    <Position X="7.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAQAAAAiABAAAAAACAAQABAAAAAAgAg=</HashCode>
+      <FileName>Constants\Products\ProductItems.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Constants.TableNames" Collapsed="true">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAACAACAFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Constants\TableNames.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Constants.TableQuery" Collapsed="true">
+    <Position X="2.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAECAAAAAAAAAAAAAAAQAAAAAAAAIEA=</HashCode>
+      <FileName>Constants\TableQuery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Constants.Orders.OrderFields" Collapsed="true">
+    <Position X="11" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAABAECAAAAAAAAAAAAAAAQAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Constants\Orders\OrderFields.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Constants.Orders.OrderStatus" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAIAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Constants\Orders\OrderStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Constants.Products.ProductFields" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAIAAAAAAEAAAAUAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Constants\Products\ProductFields.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Constants.Users.UserTypes" Collapsed="true">
+    <Position X="7.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Constants\Users\UserTypes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.AllProd" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MgCAERBBBKoAoBBQEgCAIBoCBMQRAAABACgAAwBAgCA=</HashCode>
+      <FileName>Forms\Admin\AllProd.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.CostumerName" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAFAEBAAECIAAFAAEACAAAACEEAAAAAAAAAAAQBAAAA=</HashCode>
+      <FileName>Forms\Admin\CostumerName.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.EmployeeViews" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAEkAABKIAABgQgACgoAkCIBAIoAACAEAAAaBAgKI=</HashCode>
+      <FileName>Forms\Admin\EmployeeViews.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Homepage" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>j5AAAAQQkCAEABAAAACAAJgCEEB6AgAgCCAQQSB4oAA=</HashCode>
+      <FileName>Forms\Admin\Homepage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Costumer" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBoAQhEAGCAAABgAgICAAQACDAAQIQAAAQAgAQBCAAA=</HashCode>
+      <FileName>Forms\Customer\Costumer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.PriorityNum" Collapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABgAIgKAACACAAQAAEAAAAAAAQAAAAA=</HashCode>
+      <FileName>Forms\Customer\PriorityNum.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Productss" Collapsed="true">
+    <Position X="11" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>9kUBpxALAKAOABRqAWWBRRTCAQgGBRZDCCr+taRQhaQ=</HashCode>
+      <FileName>Forms\Customer\Prod.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Billings" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>sCABAhgBQCCIBBACEYCACBDCABAAABAAkAAZAQBAwAA=</HashCode>
+      <FileName>Forms\Employee\Billings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Reciept" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABABQAACJAABABAACAAACCAAgAQAAAAAAAAQAAAAI=</HashCode>
+      <FileName>Forms\Employee\Reciept.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Sign_in" Collapsed="true">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAIABAAjBAABEAoACAAAACAAAAgACgAgAAASFAAAA=</HashCode>
+      <FileName>Forms\Sign_in.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Splash" Collapsed="true">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACACQACAAAAAAAASAAAACAAAAIAAIAAAAAQBAAAA=</HashCode>
+      <FileName>Forms\Splash.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.StartingPoint" Collapsed="true">
+    <Position X="11" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAACCAABAAAAiAAAACBQAACAAAAAAAEQBAAAA=</HashCode>
+      <FileName>Forms\StartingPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Program" Collapsed="true">
+    <Position X="0.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Models.Customer" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAgAAAAAAAAAAUAAQAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Models\Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Models.FinancialMetrics" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAQAAAAEAACAAAAAgAAAA=</HashCode>
+      <FileName>Models\FinancialMetrics.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Models.Order" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAABAECAEAAAAAAAAAAAAAQAQAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Models.OrderItem" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAIAAAAAAEAAAAUAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\OrderItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Models.Payment" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEIAAAAAAEACAAAQACAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Payment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Models.Product" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAEAAAAAIAAAAAAEgAAAEAAAAAEgAAAAAAA=</HashCode>
+      <FileName>Models\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Models.User" Collapsed="true">
+    <Position X="4" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAgAAAAACAAAAQgACAIAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Properties.Resources" Collapsed="true">
+    <Position X="4" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IQAAgCgAQAAEAAAAAgABEAAAERQABAAgAAABAABBAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Properties.Settings" Collapsed="true">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Repositories.CustomerRepository" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAggAAAAAAAAAAAAAAAEBIAAAAABAAAA=</HashCode>
+      <FileName>Repositories\CustomerRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Repositories.DatabaseRepository" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\DatabaseRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Repositories.OrderItemRepository" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAgAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\OrderItemRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Repositories.OrderRepository" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAigAAAAAgAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\OrderRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Repositories.PaymentRepository" Collapsed="true">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\PaymentRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Repositories.PriorityNumberRepository" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAQAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Repositories\PriorityNumberRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Repositories.ProductRepository" Collapsed="true">
+    <Position X="9.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQCAAAAAAAACAAgAIAAAAACAAAAABAAAAAAAAAEAAAI=</HashCode>
+      <FileName>Repositories\ProductRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Repositories.UserRepository" Collapsed="true">
+    <Position X="5.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAgEAAAAAEAAAQAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Repositories\UserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="store.Services.Calculations" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AJEAAQAAAAQAIAAAAIAAAAAAAAAACAAAAAAAAAAAQCA=</HashCode>
+      <FileName>Services\Calculations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
