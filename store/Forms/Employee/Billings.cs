@@ -256,5 +256,9 @@ namespace store
             textBox3.Text = "";
         }
 
+        private void Billings_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

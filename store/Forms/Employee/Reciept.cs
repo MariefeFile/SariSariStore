@@ -50,5 +50,9 @@ namespace store
             this.Hide();
         }
 
+        private void Reciept_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

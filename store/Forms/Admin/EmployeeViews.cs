@@ -330,6 +330,10 @@ namespace store
             Home.Show();
 
         }
-       
+
+        private void EmployeeViews_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

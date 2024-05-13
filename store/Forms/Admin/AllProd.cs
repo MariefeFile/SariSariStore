@@ -328,7 +328,58 @@ namespace store
 
         private void AllProd_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchQuery = textsearch.Text.Trim().ToLower(); // Get the search query from a TextBox
+
+            // Reset all rows to their original appearance
+            foreach (DataGridViewRow row in dataGridView5.Rows)
+            {
+                row.Selected = false;
+                row.DefaultCellStyle.BackColor = dataGridView5.DefaultCellStyle.BackColor;
+            }
+
+            // Search for the new query
+            foreach (DataGridViewRow row in dataGridView5.Rows)
+            {
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    if (cell.Value != null && cell.Value.ToString().ToLower().Contains(searchQuery))
+                    {
+                        // Highlight the row that contains the search query
+                        row.Selected = true;
+                        dataGridView5.FirstDisplayedScrollingRowIndex = row.Index; // Scroll to the selected row
+                        return; // Exit the method after the first occurrence is found
+                    }
+                }
+            }
+
+            // If the search query is not found, display a message
+            MessageBox.Show("No matching records found.", "Search Results", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+    
+        private void textsearch_Enter(object sender, EventArgs e)
+        {
+
+            if (textsearch.Text == "Search")
+            {
+                textsearch.Text = "";
+
+                textsearch.ForeColor = Color.Black;
+            }
+        }
+
+        private void textsearch_Leave(object sender, EventArgs e)
+        {
+            if (textsearch.Text == "")
+            {
+                textsearch.Text = "Search";
+
+                textsearch.ForeColor = Color.Black;
+            }
         }
     }
 }

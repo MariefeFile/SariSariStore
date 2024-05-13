@@ -128,5 +128,10 @@ namespace store
                 textPass.UseSystemPasswordChar = true;
             }
         }
+
+        private void Sign_in_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

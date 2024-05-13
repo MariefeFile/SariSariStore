@@ -50,5 +50,9 @@ namespace store
 
         }
 
+        private void PriorityNum_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

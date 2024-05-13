@@ -62,7 +62,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
+            this.textsearch = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -126,7 +126,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.SystemColors.Info;
-            this.panel7.Controls.Add(this.textBoxSearch);
+            this.panel7.Controls.Add(this.textsearch);
             this.panel7.Controls.Add(this.btnSearch);
             this.panel7.Controls.Add(this.groupSales);
             this.panel7.Location = new System.Drawing.Point(16, 11);
@@ -437,20 +437,23 @@
             this.btnSearch.BackColor = System.Drawing.Color.SteelBlue;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.ForeColor = System.Drawing.Color.Honeydew;
-            this.btnSearch.Location = new System.Drawing.Point(48, 13);
+            this.btnSearch.Location = new System.Drawing.Point(18, 22);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(110, 34);
-            this.btnSearch.TabIndex = 52;
+            this.btnSearch.TabIndex = 58;
             this.btnSearch.Text = "SEARCH";
             this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // textBoxSearch
+            // textsearch
             // 
-            this.textBoxSearch.Location = new System.Drawing.Point(164, 21);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(429, 26);
-            this.textBoxSearch.TabIndex = 73;
-            this.textBoxSearch.Text = "Search";
+            this.textsearch.Location = new System.Drawing.Point(134, 26);
+            this.textsearch.Name = "textsearch";
+            this.textsearch.Size = new System.Drawing.Size(511, 26);
+            this.textsearch.TabIndex = 73;
+            this.textsearch.Text = "Search";
+            this.textsearch.Enter += new System.EventHandler(this.textsearch_Enter);
+            this.textsearch.Leave += new System.EventHandler(this.textsearch_Leave);
             // 
             // AllProd
             // 
@@ -515,7 +518,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textsearch;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox textBoxSearch;
     }
 }

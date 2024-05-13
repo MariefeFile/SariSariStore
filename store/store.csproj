@@ -147,6 +147,7 @@
     <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Sales.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Forms\Customer\PriorityNum.Designer.cs">
       <DependentUpon>PriorityNum.cs</DependentUpon>

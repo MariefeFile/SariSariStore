@@ -88,6 +88,11 @@ namespace store
             hm.Show();
             this.Hide();
         }
+
+        private void CostumerName_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

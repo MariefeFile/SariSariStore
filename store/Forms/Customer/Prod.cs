@@ -666,6 +666,10 @@ namespace store
             }
         }
 
+        private void Productss_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
