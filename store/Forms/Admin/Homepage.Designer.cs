@@ -83,7 +83,6 @@
             this.itemSold = new System.Windows.Forms.Label();
             this.button12 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pieChart1 = new LiveCharts.WinForms.PieChart();
             this.label7 = new System.Windows.Forms.Label();
             this.plEmpView.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -114,7 +113,7 @@
             this.plEmpView.Controls.Add(this.lbEmp);
             this.plEmpView.Controls.Add(this.label8);
             this.plEmpView.Controls.Add(this.button4);
-            this.plEmpView.Location = new System.Drawing.Point(30, 314);
+            this.plEmpView.Location = new System.Drawing.Point(30, 320);
             this.plEmpView.Name = "plEmpView";
             this.plEmpView.Size = new System.Drawing.Size(159, 46);
             this.plEmpView.TabIndex = 4;
@@ -156,7 +155,7 @@
             this.panel4.Controls.Add(this.label3);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.button3);
-            this.panel4.Location = new System.Drawing.Point(30, 378);
+            this.panel4.Location = new System.Drawing.Point(30, 384);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(159, 46);
             this.panel4.TabIndex = 4;
@@ -199,7 +198,7 @@
             this.plProd.Controls.Add(this.lbProd);
             this.plProd.Controls.Add(this.label6);
             this.plProd.Controls.Add(this.button2);
-            this.plProd.Location = new System.Drawing.Point(30, 243);
+            this.plProd.Location = new System.Drawing.Point(30, 249);
             this.plProd.Name = "plProd";
             this.plProd.Size = new System.Drawing.Size(159, 49);
             this.plProd.TabIndex = 4;
@@ -252,7 +251,7 @@
             this.panel2.Controls.Add(this.lbdash);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.button1);
-            this.panel2.Location = new System.Drawing.Point(30, 180);
+            this.panel2.Location = new System.Drawing.Point(30, 186);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(159, 46);
             this.panel2.TabIndex = 3;
@@ -301,7 +300,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.LightSalmon;
             this.panel3.ForeColor = System.Drawing.Color.LightSalmon;
-            this.panel3.Location = new System.Drawing.Point(0, 430);
+            this.panel3.Location = new System.Drawing.Point(0, 442);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(212, 9);
             this.panel3.TabIndex = 45;
@@ -665,7 +664,6 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Info;
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.pieChart1);
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel7);
             this.panel1.Controls.Add(this.panel6);
@@ -681,19 +679,11 @@
             this.panel1.Size = new System.Drawing.Size(1240, 675);
             this.panel1.TabIndex = 2;
             // 
-            // pieChart1
-            // 
-            this.pieChart1.Location = new System.Drawing.Point(12, 452);
-            this.pieChart1.Name = "pieChart1";
-            this.pieChart1.Size = new System.Drawing.Size(190, 182);
-            this.pieChart1.TabIndex = 24;
-            this.pieChart1.Text = "pieChart1";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Garamond", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(80, 640);
+            this.label7.Location = new System.Drawing.Point(72, 631);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(65, 25);
             this.label7.TabIndex = 4;
@@ -806,6 +796,5 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label7;
-        private LiveCharts.WinForms.PieChart pieChart1;
     }
 }
