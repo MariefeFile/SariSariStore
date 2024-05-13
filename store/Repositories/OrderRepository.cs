@@ -16,7 +16,7 @@ namespace store.Repositories
         {
             connectionString = Data.ConnectionString;
         }
-
+        
         public List<Order> GetOrdersPending()
         {
             List<Order> pendingOrders = new List<Order>();

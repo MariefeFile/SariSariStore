@@ -10,6 +10,83 @@ namespace store.Services
 {
     public class Calculations
     {
+        public static int CountDailySales(List<Order> orders)
+        {
+            try
+            {
+                DateTime today = DateTime.Today;
+                int dailySales = orders.Count(order => order.OrderDate.Date == today.Date);
+                Console.WriteLine($"Daily sales: {dailySales}");
+                return dailySales;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in CountDailySales: {ex.Message}");
+                return 0; // or handle the error appropriately
+            }
+        }
+
+        public static int CountWeeklySales(List<Order> orders)
+        {
+            try
+            {
+                DateTime today = DateTime.Today;
+                int dayOfWeek = (int)today.DayOfWeek;
+                DateTime startOfWeek = today.AddDays(-dayOfWeek); // Start of the current week (Sunday)
+                DateTime endOfWeek = startOfWeek.AddDays(6); // End of the current week (Saturday)
+
+                // Count orders within the current week
+                int weeklySales = orders.Count(order => order.OrderDate.Date >= startOfWeek.Date && order.OrderDate.Date <= endOfWeek.Date);
+                Console.WriteLine($"Weekly sales: {weeklySales}");
+                return weeklySales;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in CountWeeklySales: {ex.Message}");
+                return 0; // or handle the error appropriately
+            }
+        }
+
+        public static int CountMonthlySales(List<Order> orders)
+        {
+            try
+            {
+                DateTime today = DateTime.Today;
+                DateTime startOfMonth = new DateTime(today.Year, today.Month, 1); // Start of the current month
+                DateTime endOfMonth = startOfMonth.AddMonths(1).AddDays(-1); // End of the current month
+
+                // Count orders within the current month
+                int monthlySales = orders.Count(order => order.OrderDate.Date >= startOfMonth.Date && order.OrderDate.Date <= endOfMonth.Date);
+                Console.WriteLine($"Monthly sales: {monthlySales}");
+                return monthlySales;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in CountMonthlySales: {ex.Message}");
+                return 0; // or handle the error appropriately
+            }
+        }
+
+        public static int CountYearlySales(List<Order> orders)
+        {
+            try
+            {
+                DateTime today = DateTime.Today;
+                DateTime startOfYear = new DateTime(today.Year, 1, 1); // Start of the current year
+                DateTime endOfYear = new DateTime(today.Year, 12, 31); // End of the current year
+
+                // Count orders within the current year
+                int yearlySales = orders.Count(order => order.OrderDate.Date >= startOfYear.Date && order.OrderDate.Date <= endOfYear.Date);
+                Console.WriteLine($"Yearly sales: {yearlySales}");
+                return yearlySales;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in CountYearlySales: {ex.Message}");
+                return 0; // or handle the error appropriately
+            }
+        }
+
         public static double CalculateTotalPrice(List<OrderItem> orderItems)
         {
             double totalPrice = 0;

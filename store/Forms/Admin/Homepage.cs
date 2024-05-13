@@ -16,7 +16,7 @@ namespace store
 {
     public partial class Homepage : Form
     {
-       
+      
         private List<Order> completedOrders = null;
         private OrderRepository orderRepository = new OrderRepository();
         private CustomerRepository customerRepository = new CustomerRepository();
@@ -31,11 +31,30 @@ namespace store
 
         private void InitLabels()
         {
-            itemSold.Text = Calculations.CountOverallItems(completedOrders).ToString();
-            totalSales.Text = Calculations.CountTotalSales(completedOrders).ToString();
-            totalCustomers.Text = customerRepository.GetTotalCustomers().ToString();
+            try
+            {
+                // Calculate daily, weekly, monthly, and yearly sales
+                int dailySales = Calculations.CountDailySales(completedOrders);
+                int weeklySales = Calculations.CountWeeklySales(completedOrders);
+                int monthlySales = Calculations.CountMonthlySales(completedOrders);
+                int yearlySales = Calculations.CountYearlySales(completedOrders);
 
+                // Update labels with the calculated values
+                itemSold.Text = Calculations.CountOverallItems(completedOrders).ToString();
+                totalSales.Text = Calculations.CountTotalSales(completedOrders).ToString();
+                totalCustomers.Text = customerRepository.GetTotalCustomers().ToString();
+                lblDay.Text = dailySales.ToString();
+                lblWeek.Text = weeklySales.ToString();
+                lblMonth.Text = monthlySales.ToString();
+                lblYear.Text = yearlySales.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in InitLabels: {ex.Message}");
+                // Handle the error appropriately, such as displaying an error message to the user
+            }
         }
+        
         private void Homepage_Load(object sender, EventArgs e)
         {
             panel8.Visible = false;

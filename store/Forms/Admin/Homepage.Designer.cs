@@ -62,7 +62,7 @@
             this.lbMonthly = new System.Windows.Forms.Label();
             this.lblMonth = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblWeek = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
@@ -448,7 +448,7 @@
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.panel10.Controls.Add(this.label5);
+            this.panel10.Controls.Add(this.lblWeek);
             this.panel10.Controls.Add(this.pictureBox3);
             this.panel10.Controls.Add(this.label2);
             this.panel10.Location = new System.Drawing.Point(654, 44);
@@ -456,15 +456,15 @@
             this.panel10.Size = new System.Drawing.Size(280, 77);
             this.panel10.TabIndex = 22;
             // 
-            // label5
+            // lblWeek
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Wide Latin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(204, 37);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 29);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "0";
+            this.lblWeek.AutoSize = true;
+            this.lblWeek.Font = new System.Drawing.Font("Wide Latin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWeek.Location = new System.Drawing.Point(204, 37);
+            this.lblWeek.Name = "lblWeek";
+            this.lblWeek.Size = new System.Drawing.Size(43, 29);
+            this.lblWeek.TabIndex = 10;
+            this.lblWeek.Text = "0";
             // 
             // pictureBox3
             // 
@@ -781,12 +781,11 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblYear;
         private System.Windows.Forms.Label lblMonth;
-        private System.Windows.Forms.Label lblDay;
         private System.Windows.Forms.Label lbYearly;
         private System.Windows.Forms.Label lbMonthly;
         private System.Windows.Forms.Label lbDaily;
         private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblWeek;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.PictureBox pictureBox4;
@@ -796,5 +795,6 @@
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblDay;
     }
 }
