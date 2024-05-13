@@ -73,6 +73,16 @@
             this.itemSold = new System.Windows.Forms.Label();
             this.button12 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.plEmpView.SuspendLayout();
             this.panel4.SuspendLayout();
             this.plProd.SuspendLayout();
@@ -86,6 +96,14 @@
             this.panel14.SuspendLayout();
             this.panel13.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // plEmpView
@@ -331,13 +349,11 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.panel12);
+            this.panel8.Controls.Add(this.panel11);
+            this.panel8.Controls.Add(this.panel10);
+            this.panel8.Controls.Add(this.panel9);
             this.panel8.Controls.Add(this.dataGridView1);
-            this.panel8.Controls.Add(this.lblYear);
-            this.panel8.Controls.Add(this.lblMonth);
-            this.panel8.Controls.Add(this.lblDay);
-            this.panel8.Controls.Add(this.lbYearly);
-            this.panel8.Controls.Add(this.lbMonthly);
-            this.panel8.Controls.Add(this.lbDaily);
             this.panel8.Controls.Add(this.panel15);
             this.panel8.Controls.Add(this.panel14);
             this.panel8.Controls.Add(this.panel13);
@@ -350,39 +366,39 @@
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(277, 320);
+            this.dataGridView1.Location = new System.Drawing.Point(320, 252);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 62;
-            this.dataGridView1.Size = new System.Drawing.Size(672, 253);
+            this.dataGridView1.Size = new System.Drawing.Size(654, 321);
             this.dataGridView1.TabIndex = 8;
             // 
             // lblYear
             // 
             this.lblYear.AutoSize = true;
-            this.lblYear.Font = new System.Drawing.Font("Wide Latin", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblYear.Location = new System.Drawing.Point(179, 460);
+            this.lblYear.Font = new System.Drawing.Font("Wide Latin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYear.Location = new System.Drawing.Point(211, 37);
             this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(57, 40);
+            this.lblYear.Size = new System.Drawing.Size(43, 29);
             this.lblYear.TabIndex = 7;
             this.lblYear.Text = "0";
             // 
             // lblMonth
             // 
             this.lblMonth.AutoSize = true;
-            this.lblMonth.Font = new System.Drawing.Font("Wide Latin", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMonth.Location = new System.Drawing.Point(179, 411);
+            this.lblMonth.Font = new System.Drawing.Font("Wide Latin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonth.Location = new System.Drawing.Point(207, 34);
             this.lblMonth.Name = "lblMonth";
-            this.lblMonth.Size = new System.Drawing.Size(57, 40);
+            this.lblMonth.Size = new System.Drawing.Size(43, 29);
             this.lblMonth.TabIndex = 4;
             this.lblMonth.Text = "0";
             // 
             // lblDay
             // 
             this.lblDay.AutoSize = true;
-            this.lblDay.Font = new System.Drawing.Font("Wide Latin", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDay.Location = new System.Drawing.Point(179, 356);
+            this.lblDay.Font = new System.Drawing.Font("Wide Latin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDay.Location = new System.Drawing.Point(213, 37);
             this.lblDay.Name = "lblDay";
-            this.lblDay.Size = new System.Drawing.Size(57, 40);
+            this.lblDay.Size = new System.Drawing.Size(43, 29);
             this.lblDay.TabIndex = 4;
             this.lblDay.Text = "0";
             // 
@@ -390,7 +406,7 @@
             // 
             this.lbYearly.AutoSize = true;
             this.lbYearly.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbYearly.Location = new System.Drawing.Point(11, 470);
+            this.lbYearly.Location = new System.Drawing.Point(135, 10);
             this.lbYearly.Name = "lbYearly";
             this.lbYearly.Size = new System.Drawing.Size(133, 27);
             this.lbYearly.TabIndex = 4;
@@ -400,7 +416,7 @@
             // 
             this.lbMonthly.AutoSize = true;
             this.lbMonthly.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbMonthly.Location = new System.Drawing.Point(11, 421);
+            this.lbMonthly.Location = new System.Drawing.Point(122, 10);
             this.lbMonthly.Name = "lbMonthly";
             this.lbMonthly.Size = new System.Drawing.Size(155, 27);
             this.lbMonthly.TabIndex = 4;
@@ -410,11 +426,11 @@
             // 
             this.lbDaily.AutoSize = true;
             this.lbDaily.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDaily.Location = new System.Drawing.Point(11, 366);
+            this.lbDaily.Location = new System.Drawing.Point(119, 10);
             this.lbDaily.Name = "lbDaily";
-            this.lbDaily.Size = new System.Drawing.Size(124, 27);
+            this.lbDaily.Size = new System.Drawing.Size(151, 27);
             this.lbDaily.TabIndex = 4;
-            this.lbDaily.Text = "Daily Sales";
+            this.lbDaily.Text = "Daily Income";
             // 
             // panel15
             // 
@@ -422,16 +438,16 @@
             this.panel15.Controls.Add(this.label27);
             this.panel15.Controls.Add(this.totalSales);
             this.panel15.Controls.Add(this.button14);
-            this.panel15.Location = new System.Drawing.Point(16, 44);
+            this.panel15.Location = new System.Drawing.Point(32, 17);
             this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(262, 217);
+            this.panel15.Size = new System.Drawing.Size(260, 176);
             this.panel15.TabIndex = 6;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(62, 111);
+            this.label27.Location = new System.Drawing.Point(10, 139);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(125, 27);
             this.label27.TabIndex = 3;
@@ -441,7 +457,7 @@
             // 
             this.totalSales.AutoSize = true;
             this.totalSales.Font = new System.Drawing.Font("Wide Latin", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalSales.Location = new System.Drawing.Point(58, 54);
+            this.totalSales.Location = new System.Drawing.Point(21, 54);
             this.totalSales.Name = "totalSales";
             this.totalSales.Size = new System.Drawing.Size(57, 40);
             this.totalSales.TabIndex = 2;
@@ -463,16 +479,16 @@
             this.panel14.Controls.Add(this.label25);
             this.panel14.Controls.Add(this.totalCustomers);
             this.panel14.Controls.Add(this.button13);
-            this.panel14.Location = new System.Drawing.Point(312, 44);
+            this.panel14.Location = new System.Drawing.Point(32, 207);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(272, 217);
+            this.panel14.Size = new System.Drawing.Size(260, 176);
             this.panel14.TabIndex = 5;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(44, 117);
+            this.label25.Location = new System.Drawing.Point(10, 143);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(183, 27);
             this.label25.TabIndex = 3;
@@ -482,7 +498,7 @@
             // 
             this.totalCustomers.AutoSize = true;
             this.totalCustomers.Font = new System.Drawing.Font("Wide Latin", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalCustomers.Location = new System.Drawing.Point(104, 54);
+            this.totalCustomers.Location = new System.Drawing.Point(21, 64);
             this.totalCustomers.Name = "totalCustomers";
             this.totalCustomers.Size = new System.Drawing.Size(57, 40);
             this.totalCustomers.TabIndex = 2;
@@ -504,16 +520,16 @@
             this.panel13.Controls.Add(this.label23);
             this.panel13.Controls.Add(this.itemSold);
             this.panel13.Controls.Add(this.button12);
-            this.panel13.Location = new System.Drawing.Point(625, 44);
+            this.panel13.Location = new System.Drawing.Point(29, 397);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(264, 217);
+            this.panel13.Size = new System.Drawing.Size(263, 176);
             this.panel13.TabIndex = 5;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.Location = new System.Drawing.Point(76, 114);
+            this.label23.Location = new System.Drawing.Point(13, 140);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(105, 27);
             this.label23.TabIndex = 3;
@@ -523,7 +539,7 @@
             // 
             this.itemSold.AutoSize = true;
             this.itemSold.Font = new System.Drawing.Font("Wide Latin", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.itemSold.Location = new System.Drawing.Point(100, 54);
+            this.itemSold.Location = new System.Drawing.Point(24, 75);
             this.itemSold.Name = "itemSold";
             this.itemSold.Size = new System.Drawing.Size(57, 40);
             this.itemSold.TabIndex = 2;
@@ -557,6 +573,110 @@
             this.panel1.Size = new System.Drawing.Size(1240, 675);
             this.panel1.TabIndex = 2;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Garamond", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(129, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(143, 27);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Weekly Sales";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Wide Latin", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(204, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 29);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "0";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel9.Controls.Add(this.pictureBox2);
+            this.panel9.Controls.Add(this.lbDaily);
+            this.panel9.Controls.Add(this.lblDay);
+            this.panel9.Location = new System.Drawing.Point(349, 41);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(280, 80);
+            this.panel9.TabIndex = 9;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(15, 37);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(48, 38);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 21;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel10.Controls.Add(this.label5);
+            this.panel10.Controls.Add(this.pictureBox3);
+            this.panel10.Controls.Add(this.label2);
+            this.panel10.Location = new System.Drawing.Point(654, 44);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(280, 77);
+            this.panel10.TabIndex = 22;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(16, 31);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(48, 41);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 21;
+            this.pictureBox3.TabStop = false;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel11.Controls.Add(this.pictureBox4);
+            this.panel11.Controls.Add(this.lbMonthly);
+            this.panel11.Controls.Add(this.lblMonth);
+            this.panel11.Location = new System.Drawing.Point(654, 151);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(280, 77);
+            this.panel11.TabIndex = 23;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(15, 32);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(48, 40);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 21;
+            this.pictureBox4.TabStop = false;
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.panel12.Controls.Add(this.lblYear);
+            this.panel12.Controls.Add(this.pictureBox5);
+            this.panel12.Controls.Add(this.lbYearly);
+            this.panel12.Location = new System.Drawing.Point(349, 151);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(280, 80);
+            this.panel12.TabIndex = 22;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.Location = new System.Drawing.Point(15, 37);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(48, 38);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 21;
+            this.pictureBox5.TabStop = false;
+            // 
             // Homepage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -582,7 +702,6 @@
             this.panel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Exit3)).EndInit();
             this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
@@ -591,6 +710,18 @@
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -641,5 +772,15 @@
         private System.Windows.Forms.Label lbYearly;
         private System.Windows.Forms.Label lbMonthly;
         private System.Windows.Forms.Label lbDaily;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.PictureBox pictureBox5;
     }
 }
