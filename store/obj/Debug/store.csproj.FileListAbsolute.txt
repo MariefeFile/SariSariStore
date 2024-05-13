@@ -26,3 +26,12 @@ C:\My Calculator Project\store\store\obj\Debug\store.Costumer.resources
 C:\My Calculator Project\store\store\obj\Debug\store.PriorityNum.resources
 C:\My Calculator Project\store\store\obj\Debug\store.Productss.resources
 C:\My Calculator Project\store\store\obj\Debug\store.Reciept.resources
+C:\My Calculator Project\store\store\bin\Debug\LiveCharts.dll
+C:\My Calculator Project\store\store\bin\Debug\LiveCharts.WinForms.dll
+C:\My Calculator Project\store\store\bin\Debug\LiveCharts.Wpf.dll
+C:\My Calculator Project\store\store\bin\Debug\LiveCharts.pdb
+C:\My Calculator Project\store\store\bin\Debug\LiveCharts.xml
+C:\My Calculator Project\store\store\bin\Debug\LiveCharts.WinForms.pdb
+C:\My Calculator Project\store\store\bin\Debug\LiveCharts.WinForms.xml
+C:\My Calculator Project\store\store\bin\Debug\LiveCharts.Wpf.pdb
+C:\My Calculator Project\store\store\bin\Debug\LiveCharts.Wpf.xml
