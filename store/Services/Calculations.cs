@@ -171,6 +171,70 @@ namespace store.Services
             }
             return total;
         }
+        public static double ComputeDailyIncome(List<Order> orders)
+        {
+            double totalDailySale = 0;
+            foreach(Order order in orders)
+            {
+                if(order.OrderDate.Date == DateTime.Today)
+                {
+                    totalDailySale += order.TotalPrice;
+                }
+            }
+            return totalDailySale;
+        }
+
+        public static double ComputeWeeklySales(List<Order> orders)
+        {
+            double total = 0;
+            DateTime startOfWeek = DateTime.Today.AddDays(-(int)DateTime.Today.DayOfWeek);
+            DateTime endOfWeek = startOfWeek.AddDays(7);
+
+            foreach (Order order in orders)
+            {
+                if(order.OrderDate >= startOfWeek && order.OrderDate < endOfWeek)
+                {
+                    total += order.TotalPrice;
+                }
+            }
+
+            return total;
+        }
+        
+        public static double ComputeMonthlySales(List<Order> orders)
+        {
+            double total = 0;
+            DateTime startOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+            DateTime endOfMonth = startOfMonth.AddMonths(1);
+
+            foreach (Order order in orders)
+            {
+                if (order.OrderDate >= startOfMonth && order.OrderDate < endOfMonth)
+                {
+                    total += order.TotalPrice;
+                }
+            }
+
+            return total;
+
+        }
+        public static double ComputeYearlySales(List<Order> orders)
+        {
+            double total = 0;
+            DateTime startOfYear = new DateTime(DateTime.Today.Year, 1, 1);
+            DateTime endOfYear = startOfYear.AddYears(1);
+
+            foreach (Order order in orders)
+            {
+                if (order.OrderDate >= startOfYear && order.OrderDate < endOfYear)
+                {
+                    total += order.TotalPrice;
+                }
+            }
+
+            return total;
+
+        }
 
     }
 }
