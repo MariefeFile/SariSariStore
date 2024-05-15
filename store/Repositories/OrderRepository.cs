@@ -16,7 +16,138 @@ namespace store.Repositories
         {
             connectionString = Data.ConnectionString;
         }
-        
+
+        public List<Order> GetOrdersCompletedToday()
+        {
+            List<Order> completedOrdersToday = new List<Order>();
+            DateTime today = DateTime.Today;
+
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string query = $"SELECT * FROM {TableQuery.QueryOrders} WHERE Status = '{OrderStatus.Completed}' AND OrderDate >= ? AND OrderDate < ?";
+                    OleDbCommand command = new OleDbCommand(query, connection);
+                    command.Parameters.AddWithValue("@StartDate", today);
+                    command.Parameters.AddWithValue("@EndDate", today.AddDays(1));
+
+                    connection.Open();
+                    OleDbDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Order order = new Order
+                        {
+                            OrderID = Convert.ToInt32(reader["OrderID"]),
+                            OrderDate = Convert.ToDateTime(reader["OrderDate"]),
+                            CustomerName = Convert.ToString(reader["CustomerName"]),
+                            TotalPrice = Convert.ToDouble(reader["TotalPrice"]),
+                            Status = Convert.ToString(reader["Status"]),
+                            PriorityNumber = Convert.ToInt32(reader["PriorityNumber"]),
+                            TotalItems = Convert.ToInt32(reader["TotalItems"])
+                        };
+                        completedOrdersToday.Add(order);
+                    }
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error retrieving completed orders for today: {ex.Message}");
+            }
+
+            return completedOrdersToday;
+        }
+
+        public List<Order> GetOrdersCompletedThisMonth()
+        {
+            List<Order> completedOrdersThisMonth = new List<Order>();
+            DateTime startOfMonth = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+            DateTime startOfNextMonth = startOfMonth.AddMonths(1);
+
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string query = $"SELECT * FROM {TableQuery.QueryOrders} WHERE Status = '{OrderStatus.Completed}' AND OrderDate >= ? AND OrderDate < ?";
+                    OleDbCommand command = new OleDbCommand(query, connection);
+                    command.Parameters.AddWithValue("@StartDate", startOfMonth);
+                    command.Parameters.AddWithValue("@EndDate", startOfNextMonth);
+
+                    connection.Open();
+                    OleDbDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Order order = new Order
+                        {
+                            OrderID = Convert.ToInt32(reader["OrderID"]),
+                            OrderDate = Convert.ToDateTime(reader["OrderDate"]),
+                            CustomerName = Convert.ToString(reader["CustomerName"]),
+                            TotalPrice = Convert.ToDouble(reader["TotalPrice"]),
+                            Status = Convert.ToString(reader["Status"]),
+                            PriorityNumber = Convert.ToInt32(reader["PriorityNumber"]),
+                            TotalItems = Convert.ToInt32(reader["TotalItems"])
+                        };
+                        completedOrdersThisMonth.Add(order);
+                    }
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error retrieving completed orders for this month: {ex.Message}");
+            }
+
+            return completedOrdersThisMonth;
+        }
+
+        public List<Order> GetOrdersCompletedThisYear()
+        {
+            List<Order> completedOrdersThisYear = new List<Order>();
+            DateTime startOfYear = new DateTime(DateTime.Today.Year, 1, 1);
+            DateTime startOfNextYear = startOfYear.AddYears(1);
+
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string query = $"SELECT * FROM {TableQuery.QueryOrders} WHERE Status = '{OrderStatus.Completed}' AND OrderDate >= ? AND OrderDate < ?";
+                    OleDbCommand command = new OleDbCommand(query, connection);
+                    command.Parameters.AddWithValue("@StartDate", startOfYear);
+                    command.Parameters.AddWithValue("@EndDate", startOfNextYear);
+
+                    connection.Open();
+                    OleDbDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Order order = new Order
+                        {
+                            OrderID = Convert.ToInt32(reader["OrderID"]),
+                            OrderDate = Convert.ToDateTime(reader["OrderDate"]),
+                            CustomerName = Convert.ToString(reader["CustomerName"]),
+                            TotalPrice = Convert.ToDouble(reader["TotalPrice"]),
+                            Status = Convert.ToString(reader["Status"]),
+                            PriorityNumber = Convert.ToInt32(reader["PriorityNumber"]),
+                            TotalItems = Convert.ToInt32(reader["TotalItems"])
+                        };
+                        completedOrdersThisYear.Add(order);
+                    }
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error retrieving completed orders for this year: {ex.Message}");
+            }
+
+            return completedOrdersThisYear;
+        }
+
         public List<Order> GetOrdersPending()
         {
             List<Order> pendingOrders = new List<Order>();
