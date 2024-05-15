@@ -1,4 +1,5 @@
-﻿using store.Models;
+﻿using store.Constants.Orders;
+using store.Models;
 using store.Repositories;
 using store.Services;
 using System;
@@ -20,6 +21,9 @@ namespace store
         private List<Order> completedOrders = null;
         private OrderRepository orderRepository = new OrderRepository();
         private CustomerRepository customerRepository = new CustomerRepository();
+        private string currentTable = SelectedSales.DAILY;
+        private Timer dashboardTimer;
+
         public Homepage()
         {
             InitializeComponent();
@@ -27,6 +31,72 @@ namespace store
             completedOrders = orderRepository.GetOrdersCompleted();
 
             InitLabels();
+
+            panel11.Click += new EventHandler(panel11_Click);
+            panel12.Click += new EventHandler(panel12_Click);
+            panel10.Click += new EventHandler(panel10_Click);
+            panel9.Click += new EventHandler(panel9_Click);
+
+            // Initialize and start the dashboard timer
+            dashboardTimer = new Timer();
+            dashboardTimer.Interval = 30000; // 30 seconds interval
+            dashboardTimer.Tick += DashboardTimer_Tick;
+            dashboardTimer.Start();
+        }
+
+        private void UpdateDashboard()
+        {
+            try
+            {
+                // Calculate daily, weekly, monthly, and yearly sales
+                int dailySales = (int)Calculations.ComputeDailyIncome(completedOrders);
+                int weeklySales = (int)Calculations.ComputeWeeklySales(completedOrders);
+                int monthlySales = (int)Calculations.ComputeMonthlySales(completedOrders);
+                int yearlySales = (int)Calculations.ComputeYearlySales(completedOrders);
+
+                // Update labels with the calculated values
+                itemSold.Text = Calculations.CountOverallItems(completedOrders).ToString();
+                totalSales.Text = Calculations.CountTotalSales(completedOrders).ToString();
+                totalCustomers.Text = customerRepository.GetTotalCustomers().ToString();
+                lblDay.Text = dailySales.ToString();
+                lblWeek.Text = weeklySales.ToString();
+                lblMonth.Text = monthlySales.ToString();
+                lblYear.Text = yearlySales.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error in UpdateDashboard: {ex.Message}");
+                // Handle the error appropriately, such as displaying an error message to the user
+            }
+        }
+
+        //* Will refresh the dashboard in every 30 seconds interval
+        private void DashboardTimer_Tick(object sender, EventArgs e)
+        {
+            InitLabels();
+            RefreshTable();
+
+            Console.WriteLine("Refreshed Dashboard");
+        }
+
+        private void RefreshTable()
+        {
+            List<Order> orders = null;
+            if (currentTable.Equals(SelectedSales.DAILY))
+            {
+                orders = orderRepository.GetOrdersCompletedToday();
+            } else if(currentTable.Equals(SelectedSales.WEEKLY))
+            {
+                orders = orderRepository.GetOrdersCompletedThisWeek();
+            } else if (currentTable.Equals(SelectedSales.MONTHLY))
+            {
+                orders = orderRepository.GetOrdersCompletedThisMonth();
+            } else if(currentTable.Equals(SelectedSales.YEARLY))
+            {
+                orders = orderRepository.GetOrdersCompletedThisYear();
+            }
+            
+            fillUpTheTable(orders);
         }
 
         private void InitLabels()
@@ -34,10 +104,10 @@ namespace store
             try
             {
                 // Calculate daily, weekly, monthly, and yearly sales
-                int dailySales = Calculations.CountDailySales(completedOrders);
-                int weeklySales = Calculations.CountWeeklySales(completedOrders);
-                int monthlySales = Calculations.CountMonthlySales(completedOrders);
-                int yearlySales = Calculations.CountYearlySales(completedOrders);
+                int dailySales = (int)Calculations.ComputeDailyIncome(completedOrders);
+                int weeklySales = (int)Calculations.ComputeWeeklySales(completedOrders);
+                int monthlySales = (int)Calculations.ComputeMonthlySales(completedOrders);
+                int yearlySales = (int)Calculations.ComputeYearlySales(completedOrders);
 
                 // Update labels with the calculated values
                 itemSold.Text = Calculations.CountOverallItems(completedOrders).ToString();
@@ -54,74 +124,56 @@ namespace store
                 // Handle the error appropriately, such as displaying an error message to the user
             }
         }
+
+        private void fillUpTheTable(List<Order> orders)
+        {
+            dataGridView1.Rows.Clear();
+            dataGridView1.Columns.Clear();
+
+            dataGridView1.Columns.Add("OrderDate", "Order Date");
+            dataGridView1.Columns.Add("TotalPrice", "Total Price");
+
+            foreach (Order order in orders)
+            {
+                dataGridView1.Rows.Add(order.OrderDate.ToString("MM/dd/yyyy"), order.TotalPrice.ToString("C"));
+            }
+        }
+
+        private void panel11_Click(object sender, EventArgs e)
+        {
+            currentTable = SelectedSales.MONTHLY;
+            List<Order> monthlyOrder = orderRepository.GetOrdersCompletedThisMonth();
+            fillUpTheTable(monthlyOrder);
+        }
+
+        private void panel12_Click(object sender, EventArgs e)
+        {
+            currentTable = SelectedSales.YEARLY;
+            List<Order> yearlyOrder = orderRepository.GetOrdersCompletedThisYear();
+            fillUpTheTable(yearlyOrder);
+        }
+
+        private void panel10_Click(object sender, EventArgs e)
+        {
+            currentTable = SelectedSales.WEEKLY;
+            List<Order> weeklyOrder = orderRepository.GetOrdersCompletedThisWeek();
+            fillUpTheTable(weeklyOrder);
+        }
+
+        private void panel9_Click(object sender, EventArgs e)
+        {
+            currentTable = SelectedSales.DAILY;
+            List<Order> dailyOrders = orderRepository.GetOrdersCompletedToday();
+            fillUpTheTable(dailyOrders);
+        }
+
         
         private void Homepage_Load(object sender, EventArgs e)
         {
             panel8.Visible = false;
-            List<Sales> salesData = FetchSalesData();
-
-            // Populate DataGridView with daily sales
-            DisplayDailySales(salesData);
-
-            // Populate DataGridView with monthly sales
-            DisplayMonthlySales(salesData);
-
-            // Populate DataGridView with yearly sales
-            DisplayYearlySales(salesData);
 
         }
-        private List<Sales> FetchSalesData()
-        {
-            // Your code to fetch sales data from the database or any other source
-            // Example:
-            List<Sales> salesData = new List<Sales>();
-            // Populate salesData with actual sales data
-            return salesData;
-        }
-
-        private void DisplayDailySales(List<Sales> salesData)
-        {
-            // Your code to filter sales data for daily sales
-            // Example:
-            List<Sales> dailySales = FilterSalesForToday(salesData);
-            dataGridView1.DataSource = dailySales;
-        }
-
-        private void DisplayMonthlySales(List<Sales> salesData)
-        {
-            // Your code to filter sales data for monthly sales
-            // Example:
-            List<Sales> monthlySales = FilterSalesForThisMonth(salesData);
-            dataGridView1.DataSource = monthlySales;
-        }
-
-        private void DisplayYearlySales(List<Sales> salesData)
-        {
-            // Your code to filter sales data for yearly sales
-            // Example:
-            List<Sales> yearlySales = FilterSalesForThisYear(salesData);
-            dataGridView1.DataSource = yearlySales;
-        }
-
-        // Methods to filter sales data based on date (replace with your actual filtering logic)
-        private List<Sales> FilterSalesForToday(List<Sales> salesData)
-        {
-            // Example: Filter sales data for today
-            return salesData;
-        }
-
-        private List<Sales> FilterSalesForThisMonth(List<Sales> salesData)
-        {
-            // Example: Filter sales data for this month
-            return salesData;
-        }
-
-        private List<Sales> FilterSalesForThisYear(List<Sales> salesData)
-        {
-            // Example: Filter sales data for this year
-            return salesData;
-        }
-       
+        
         private void Exit3_Click(object sender, EventArgs e)
         {
             this.Close();
