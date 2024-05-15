@@ -17,6 +17,51 @@ namespace store.Repositories
             connectionString = Data.ConnectionString;
         }
 
+        public List<Order> GetOrdersCompletedThisWeek()
+        {
+            List<Order> completedOrdersThisWeek = new List<Order>();
+            DateTime today = DateTime.Today;
+            DateTime startOfWeek = today.AddDays(-(int)today.DayOfWeek);
+            DateTime startOfNextWeek = startOfWeek.AddDays(7);
+
+            try
+            {
+                using (OleDbConnection connection = new OleDbConnection(connectionString))
+                {
+                    string query = $"SELECT * FROM {TableQuery.QueryOrders} WHERE Status = '{OrderStatus.Completed}' AND OrderDate >= ? AND OrderDate < ?";
+                    OleDbCommand command = new OleDbCommand(query, connection);
+                    command.Parameters.AddWithValue("@StartDate", startOfWeek);
+                    command.Parameters.AddWithValue("@EndDate", startOfNextWeek);
+
+                    connection.Open();
+                    OleDbDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Order order = new Order
+                        {
+                            OrderID = Convert.ToInt32(reader["OrderID"]),
+                            OrderDate = Convert.ToDateTime(reader["OrderDate"]),
+                            CustomerName = Convert.ToString(reader["CustomerName"]),
+                            TotalPrice = Convert.ToDouble(reader["TotalPrice"]),
+                            Status = Convert.ToString(reader["Status"]),
+                            PriorityNumber = Convert.ToInt32(reader["PriorityNumber"]),
+                            TotalItems = Convert.ToInt32(reader["TotalItems"])
+                        };
+                        completedOrdersThisWeek.Add(order);
+                    }
+
+                    reader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error retrieving completed orders for this week: {ex.Message}");
+            }
+
+            return completedOrdersThisWeek;
+        }
+
         public List<Order> GetOrdersCompletedToday()
         {
             List<Order> completedOrdersToday = new List<Order>();
