@@ -28,6 +28,7 @@ namespace store
         {
             InitializeComponent();
 
+            //* Get all the orders/sales that is completed
             completedOrders = orderRepository.GetOrdersCompleted();
 
             InitLabels();
@@ -103,7 +104,7 @@ namespace store
         {
             try
             {
-                // Calculate daily, weekly, monthly, and yearly sales
+                // Calculate daily, weekly, monthly, and yearly sales (by filtering the dates)
                 int dailySales = (int)Calculations.ComputeDailyIncome(completedOrders);
                 int weeklySales = (int)Calculations.ComputeWeeklySales(completedOrders);
                 int monthlySales = (int)Calculations.ComputeMonthlySales(completedOrders);
