@@ -50,20 +50,28 @@ namespace store
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            if (double.TryParse(textBox2.Text, out double result))
+            try
             {
-                payment.TotalCash = result;
-                payment.TotalChange = Calculations.ComputeChange(payment.Order.TotalPrice, result);
-                textBox3.Text = payment.TotalChange.ToString("C");
-            }
-            else
-            {
-
-                if (!textBox2.Text.Equals(""))
+                if (double.TryParse(textBox2.Text, out double result))
                 {
-                    textBox2.Text = "";
-                    MessageBox.Show("Invalid input. Please enter a valid numeric value.");
+                    payment.TotalCash = result;
+                    payment.TotalChange = Calculations.ComputeChange(payment.Order.TotalPrice, result);
+                    textBox3.Text = payment.TotalChange.ToString("C");
                 }
+                else
+                {
+
+                    if (!textBox2.Text.Equals(""))
+                    {
+                        textBox2.Text = "";
+                        MessageBox.Show("Invalid input. Please enter a valid numeric value.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                textBox2.Text = "";
+                MessageBox.Show($"You click an PENDING order.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
